@@ -21,6 +21,7 @@ import { SayVsDo } from "./SayVsDo";
 import { AdmissionGap } from "./AdmissionGap";
 import { DeadReckoning } from "./DeadReckoning";
 import { CostROI } from "./CostROI";
+import { FogOfWarClock } from "./FogOfWarClock";
 import { MethodologySection } from "./MethodologySection";
 import type {
   TargetingDisparity,
@@ -41,6 +42,7 @@ import type {
   AdmissionGapData,
   DeadReckoningData,
   CostROIData,
+  FogOfWarClockData,
 } from "@/lib/battlefield";
 
 export interface BattlefieldData {
@@ -62,6 +64,7 @@ export interface BattlefieldData {
   admissionGap: AdmissionGapData;
   deadReckoning: DeadReckoningData;
   costROI: CostROIData;
+  fogOfWar: FogOfWarClockData;
 }
 
 function Lede({ step, title, text }: { step: string; title: string; text: string }) {
@@ -560,6 +563,32 @@ export function BattlefieldSections({ data }: { data: BattlefieldData }) {
         }}
       >
         <SayVsDo data={data.sayVsDo} />
+      </ChartFrame>
+
+      {/* 13b — FOG OF WAR CLOCK: how long do lies hold? */}
+      <Lede
+        step="13b"
+        title="How long does a lie hold?"
+        text="Every propaganda claim has a half-life — the time between when it's broadcast and when independent verification exposes it. Some last days. Others survive years. Track the decay."
+      />
+      <ChartFrame
+        exhibit="EX-29b"
+        title="FOG OF WAR CLOCK — PROPAGANDA HALF-LIFE"
+        subtitle="Each pair: IDF claim (left/red) vs verified truth (right/green). The number between them = days the lie held."
+        accent="var(--archive)"
+        classification="TEMPORAL FORENSICS"
+        commentary={{
+          reads: "A timeline of documented IDF claims paired with their debunking — from '40 beheaded babies' (3 days) to 'death tolls are inflated' (792 days).",
+          means: "Tactical lies ('it was Hamas') collapse in days. Strategic lies ('we're winning', 'death tolls are fake') hold for months or years — long enough to shape policy and public opinion.",
+          puzzle: "The subreddit operation exists to extend propaganda half-life. Every day a lie survives unchallenged is a day it shapes someone's worldview.",
+        }}
+        plain={{
+          what: "A timeline showing how long each IDF lie survived before being exposed. Some lasted 2 days. One lasted 792 days (over 2 years) before Israel admitted it was true.",
+          why: "Propaganda works not because it's believed forever — but because it holds long enough to matter. 792 days of 'death tolls are fake' = 792 days of impunity.",
+          proves: "IDF propaganda has a measurable half-life. Every claim documented here was eventually contradicted — often by Israel's own officials or media.",
+        }}
+      >
+        <FogOfWarClock data={data.fogOfWar} />
       </ChartFrame>
 
       {/* 14 — Objectives scorecard */}

@@ -837,7 +837,105 @@ export async function getStrikeTaxonomy(): Promise<StrikeTaxonomy> {
 }
 
 // ============================================================
-// 17. DEAD RECKONING — particle visualization of hidden casualties
+// 17. FOG OF WAR CLOCK — propaganda half-life timeline
+// ============================================================
+export interface FogOfWarClockData {
+  entries: {
+    claimDate: string;
+    claimText: string;
+    claimSource: string;
+    truthDate: string;
+    truthText: string;
+    truthSource: string;
+    delayDays: number;
+    category: "casualties" | "objectives" | "targeting" | "weapons";
+  }[];
+  avgDelayDays: number;
+  source: string;
+}
+export async function getFogOfWarClock(): Promise<FogOfWarClockData> {
+  const entries: FogOfWarClockData["entries"] = [
+    {
+      claimDate: "2023-10-10",
+      claimText: "40 babies beheaded by Hamas",
+      claimSource: "IDF spokesperson / i24 News",
+      truthDate: "2023-10-13",
+      truthText: "CNN reviewed all available evidence — found no proof of beheaded babies",
+      truthSource: "CNN verification team",
+      delayDays: 3,
+      category: "targeting",
+    },
+    {
+      claimDate: "2023-10-17",
+      claimText: "Al-Ahli hospital struck by Hamas misfired rocket",
+      claimSource: "IDF official statement",
+      truthDate: "2023-10-24",
+      truthText: "Multiple forensic analyses (BBC Verify, AP, Channel 4) found evidence inconsistent with IDF claims",
+      truthSource: "BBC Verify / AP / Channel 4 News",
+      delayDays: 7,
+      category: "targeting",
+    },
+    {
+      claimDate: "2023-11-15",
+      claimText: "Gaza Health Ministry death tolls are fabricated / inflated",
+      claimSource: "IDF / Israeli government",
+      truthDate: "2026-01-15",
+      truthText: "Israeli military official admitted GHM death tolls were accurate",
+      truthSource: "Israeli military official (reported by international media)",
+      delayDays: 792,
+      category: "casualties",
+    },
+    {
+      claimDate: "2023-12-01",
+      claimText: "Dead Palestinian baby was actually a doll (Pallywood)",
+      claimSource: "Jerusalem Post",
+      truthDate: "2023-12-03",
+      truthText: "Jerusalem Post retracted: 'did not meet editorial standards'",
+      truthSource: "Jerusalem Post retraction",
+      delayDays: 2,
+      category: "targeting",
+    },
+    {
+      claimDate: "2024-10-01",
+      claimText: "IDF achieving all operational objectives in Lebanon ground invasion",
+      claimSource: "IDF Official Statement",
+      truthDate: "2025-03-15",
+      truthText: "IDF withdrew under fire from all 5 sectors. Zero territory retained. Own commanders admit 'would not dare stick heads out'",
+      truthSource: "Army Radio / IDF commander interviews",
+      delayDays: 165,
+      category: "objectives",
+    },
+    {
+      claimDate: "2025-03-01",
+      claimText: "Hezbollah weakened, their firepower less than before",
+      claimSource: "Col. Beerman, 401st Armored Brigade (Israeli TV)",
+      truthDate: "2025-03-20",
+      truthText: "Col. Beerman critically wounded by FPV drone through open command center door. Medevaced on same Israeli TV.",
+      truthSource: "Israeli Television footage",
+      delayDays: 19,
+      category: "weapons",
+    },
+    {
+      claimDate: "2025-01-01",
+      claimText: "Only 42 IDF soldiers killed in Lebanon theatre",
+      claimSource: "IDF official figures",
+      truthDate: "2026-05-20",
+      truthText: "BBC Verify geolocated 35 FPV strikes alone. Army chief admits 5,942 bereaved families vs 844 official. Mathematical impossibility.",
+      truthSource: "BBC Verify / New Arab (army chief Zamir)",
+      delayDays: 505,
+      category: "casualties",
+    },
+  ];
+  const avg = Math.round(entries.reduce((s, e) => s + e.delayDays, 0) / entries.length);
+  return {
+    entries,
+    avgDelayDays: avg,
+    source: "Cross-reference: BBC Verify × CNN × AP × Haaretz × Jerusalem Post retractions × IDF official statements",
+  };
+}
+
+// ============================================================
+// 18. DEAD RECKONING — particle visualization of hidden casualties
 // ============================================================
 export interface DeadReckoningData {
   officialKIA: number;
