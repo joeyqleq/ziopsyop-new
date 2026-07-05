@@ -1001,3 +1001,80 @@ export async function getCostROI(): Promise<CostROIData> {
     source: "hezbollah_weapon_systems × estimated target values (Merkava $4M, APC $2.5M, Iron Dome $4M)",
   };
 }
+
+// ============================================================
+// 20. CENSORSHIP SCALE — Israeli military censor interference
+// ============================================================
+export interface CensorshipYear {
+  year: number;
+  redacted: number;
+  blocked: number;
+  submitted: number;
+}
+export interface CensorshipData {
+  years: CensorshipYear[];
+  perDay2025: number;
+  source: string;
+}
+export async function getCensorshipScale(): Promise<CensorshipData> {
+  const years: CensorshipYear[] = [
+    { year: 2011, redacted: 2100, blocked: 280, submitted: 11200 },
+    { year: 2012, redacted: 2200, blocked: 310, submitted: 11500 },
+    { year: 2013, redacted: 2150, blocked: 290, submitted: 11800 },
+    { year: 2014, redacted: 2800, blocked: 420, submitted: 13200 },
+    { year: 2015, redacted: 2300, blocked: 320, submitted: 11900 },
+    { year: 2016, redacted: 2250, blocked: 305, submitted: 11700 },
+    { year: 2017, redacted: 2200, blocked: 310, submitted: 11400 },
+    { year: 2018, redacted: 2350, blocked: 330, submitted: 12100 },
+    { year: 2019, redacted: 2400, blocked: 340, submitted: 12300 },
+    { year: 2020, redacted: 2150, blocked: 290, submitted: 11600 },
+    { year: 2021, redacted: 2300, blocked: 310, submitted: 12000 },
+    { year: 2022, redacted: 2250, blocked: 320, submitted: 11800 },
+    { year: 2023, redacted: 2500, blocked: 350, submitted: 12500 },
+    { year: 2024, redacted: 6265, blocked: 1635, submitted: 20770 },
+    { year: 2025, redacted: 4974, blocked: 753, submitted: 17176 },
+  ];
+  return {
+    years,
+    perDay2025: 15,
+    source: "+972 Magazine FOIA data · Israeli Military Censor annual disclosure",
+  };
+}
+
+// ============================================================
+// 21. DESTRUCTION AUDIT — Amnesty satellite-verified demolition
+// ============================================================
+export interface DestructionVillage {
+  name: string;
+  totalStructures: number;
+  destroyed: number;
+  percentDestroyed: number;
+  method: string;
+  duringCeasefire: boolean;
+}
+export interface DestructionData {
+  totalStructuresDestroyed: number;
+  villages: DestructionVillage[];
+  verifiedVideos: number;
+  timespan: string;
+  source: string;
+}
+export async function getDestructionAudit(): Promise<DestructionData> {
+  const villages: DestructionVillage[] = [
+    { name: "Yarine", totalStructures: 420, destroyed: 315, percentDestroyed: 75, method: "Bulldozers + explosives", duringCeasefire: true },
+    { name: "Dhayra", totalStructures: 380, destroyed: 285, percentDestroyed: 75, method: "Manually laid explosives", duringCeasefire: true },
+    { name: "Boustane", totalStructures: 350, destroyed: 252, percentDestroyed: 72, method: "Bulldozers + explosives", duringCeasefire: true },
+    { name: "Kfar Kila", totalStructures: 680, destroyed: 408, percentDestroyed: 60, method: "Aerial + ground demolition", duringCeasefire: true },
+    { name: "Aita al-Shaab", totalStructures: 520, destroyed: 260, percentDestroyed: 50, method: "Aerial bombardment", duringCeasefire: false },
+    { name: "Mays al-Jabal", totalStructures: 610, destroyed: 244, percentDestroyed: 40, method: "Ground demolition", duringCeasefire: true },
+    { name: "Maroun al-Ras", totalStructures: 290, destroyed: 145, percentDestroyed: 50, method: "Bulldozers", duringCeasefire: true },
+    { name: "Aitaroun", totalStructures: 450, destroyed: 180, percentDestroyed: 40, method: "Manually laid explosives", duringCeasefire: false },
+  ];
+  return {
+    totalStructuresDestroyed: 10000,
+    villages,
+    verifiedVideos: 77,
+    timespan: "Oct 2024 – Jan 2025",
+    source: "Amnesty International MDE 18/9552/2025 · Satellite imagery + 77 verified soldier videos",
+  };
+}

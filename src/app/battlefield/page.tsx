@@ -22,6 +22,8 @@ import {
   getDeadReckoning,
   getCostROI,
   getFogOfWarClock,
+  getCensorshipScale,
+  getDestructionAudit,
 } from "@/lib/battlefield";
 
 export const metadata: Metadata = {
@@ -37,7 +39,7 @@ export default async function BattlefieldPage() {
     targeting, cost, hardware, ihl, weapons, objectives, quotes, taxonomy,
     civilianWaffle, doubleTap, infraTreemap, timeline,
     lieDetector, moralityInversion, sayVsDo, admissionGap,
-    deadReckoning, costROI, fogOfWar,
+    deadReckoning, costROI, fogOfWar, censorship, destruction,
   ] = await Promise.all([
     getTargetingDisparity(),
     getCostAsymmetry(),
@@ -58,6 +60,8 @@ export default async function BattlefieldPage() {
     getDeadReckoning(),
     getCostROI(),
     getFogOfWarClock(),
+    getCensorshipScale(),
+    getDestructionAudit(),
   ]);
 
   return (
@@ -69,7 +73,7 @@ export default async function BattlefieldPage() {
             targeting, cost, hardware, ihl, weapons, objectives, quotes, taxonomy,
             civilianWaffle, doubleTap, infraTreemap, timeline,
             lieDetector, moralityInversion, sayVsDo, admissionGap,
-            deadReckoning, costROI, fogOfWar,
+            deadReckoning, costROI, fogOfWar, censorship, destruction,
           }}
         />
       </div>

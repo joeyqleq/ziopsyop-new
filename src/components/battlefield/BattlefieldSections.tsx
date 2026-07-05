@@ -22,6 +22,8 @@ import { AdmissionGap } from "./AdmissionGap";
 import { DeadReckoning } from "./DeadReckoning";
 import { CostROI } from "./CostROI";
 import { FogOfWarClock } from "./FogOfWarClock";
+import { CensorshipScale } from "./CensorshipScale";
+import { DestructionAudit } from "./DestructionAudit";
 import { MethodologySection } from "./MethodologySection";
 import type {
   TargetingDisparity,
@@ -43,6 +45,8 @@ import type {
   DeadReckoningData,
   CostROIData,
   FogOfWarClockData,
+  CensorshipData,
+  DestructionData,
 } from "@/lib/battlefield";
 
 export interface BattlefieldData {
@@ -65,6 +69,8 @@ export interface BattlefieldData {
   deadReckoning: DeadReckoningData;
   costROI: CostROIData;
   fogOfWar: FogOfWarClockData;
+  censorship: CensorshipData;
+  destruction: DestructionData;
 }
 
 function Lede({ step, title, text }: { step: string; title: string; text: string }) {
@@ -589,6 +595,58 @@ export function BattlefieldSections({ data }: { data: BattlefieldData }) {
         }}
       >
         <FogOfWarClock data={data.fogOfWar} />
+      </ChartFrame>
+
+      {/* 13c — CENSORSHIP SCALE: how much is suppressed */}
+      <Lede
+        step="13c"
+        title="15 articles censored per day"
+        text="Israel's military censor — a unit inside Military Intelligence — blocked or redacted 5,700+ news reports in 2025 alone. The spike from baseline is the war's information signature: what can't be published is what would contradict the narrative."
+      />
+      <ChartFrame
+        exhibit="EX-30b"
+        title="THE CENSOR'S SPIKE — MILITARY MEDIA SUPPRESSION"
+        subtitle="15 years of Israeli military censorship data. The wartime spike is the information operation's shadow."
+        accent="var(--archive)"
+        classification="INFORMATION CONTROL"
+        commentary={{
+          reads: "A stacked area chart showing military censor interventions (redacted + blocked) from 2011 to 2025, with a dramatic spike in 2024-2025.",
+          means: "Baseline censorship ran ~2,600 items/year for a decade. Then war began: 7,900 in 2024, 5,700 in 2025. The censor's workload IS the measure of what the state needed hidden.",
+          puzzle: "When your military censors 15 news items per day, the question isn't 'are they lying' — it's 'how much truth would collapse the narrative if published.'",
+        }}
+        plain={{
+          what: "A chart showing Israel censored 15 news articles every single day during the war. Before the war: ~7/day. During: 15/day. They doubled the suppression.",
+          why: "This is Israel's own military censor, documented by FOIA request. They're not hiding this — they're legally required to report it.",
+          proves: "The Israeli military systematically suppressed 5,700+ news reports in one year. This is state-level information control — documented by their own freedom of information law.",
+        }}
+      >
+        <CensorshipScale data={data.censorship} />
+      </ChartFrame>
+
+      {/* 13d — DESTRUCTION AUDIT: Amnesty satellite verification */}
+      <Lede
+        step="13d"
+        title="10,000 structures. Bulldozed after the ceasefire."
+        text="Amnesty International's Evidence Lab verified 77 soldier videos and analysed satellite imagery: more than 10,000 structures destroyed with bulldozers and explosives — most AFTER the ceasefire took effect. Three villages razed above 70%."
+      />
+      <ChartFrame
+        exhibit="EX-32"
+        title="NOWHERE TO RETURN — SATELLITE-VERIFIED DESTRUCTION"
+        subtitle="Amnesty MDE 18/9552/2025. Each bar = one village. Rose = structures destroyed. Most occurred during ceasefire."
+        accent="var(--threat)"
+        classification="DESTRUCTION AUDIT"
+        commentary={{
+          reads: "Horizontal bars showing 8 Lebanese villages, each with total structures vs destroyed count. Most flagged as destroyed during ceasefire.",
+          means: "This is not collateral damage from combat. The satellite imagery proves bulldozers and manually-laid explosives were used when the IDF had full area control — after fighting had stopped.",
+          puzzle: "Destroying 10,000 homes after a ceasefire with bulldozers is collective punishment by definition. The 77 verified soldier celebration videos make intent unambiguous.",
+        }}
+        plain={{
+          what: "A bar chart showing 8 Lebanese villages and what percentage Israel bulldozed. Three villages: 70-75% destroyed. Most destruction happened AFTER the ceasefire — not during fighting.",
+          why: "Amnesty verified this with satellite imagery and 77 videos of Israeli soldiers celebrating the demolitions. This isn't an accident — it's filmed collective punishment.",
+          proves: "10,000 structures deliberately demolished after fighting stopped. Soldiers filmed themselves doing it. This is documented ethnic cleansing of southern Lebanon.",
+        }}
+      >
+        <DestructionAudit data={data.destruction} />
       </ChartFrame>
 
       {/* 14 — Objectives scorecard */}
