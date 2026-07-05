@@ -101,6 +101,9 @@ interface ContactModalProps {
 }
 
 export function ContactModal({ isOpen, onClose }: ContactModalProps) {
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+
   // Close on Escape key
   useEffect(() => {
     if (!isOpen) return;
@@ -122,6 +125,31 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
       document.body.style.overflow = "";
     };
   }, [isOpen]);
+
+  // Reset form on open
+  useEffect(() => {
+    if (isOpen) {
+      setForm({ name: "", email: "", message: "" });
+      setStatus("idle");
+    }
+  }, [isOpen]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!form.email || !form.message) return;
+    setStatus("sending");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error("Failed");
+      setStatus("sent");
+    } catch {
+      setStatus("error");
+    }
+  };
 
   const handleBackdropClick = useCallback(
     (e: React.MouseEvent<HTMLDivElement>) => {
@@ -229,73 +257,79 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
                 {/* Body */}
                 <p
-                  className="text-[15px] leading-relaxed mb-5"
+                  className="text-[14px] leading-relaxed mb-6"
                   style={{ color: "var(--muted)" }}
                 >
-                  I don&apos;t represent any organization, government, or group.
-                  This is my personal resistance — an independent, self-funded
-                  forensic investigation conducted by one person.
+                  Contribute data, report errors, or collaborate. Independent
+                  freelancer — no party, no NGO, no state actor.
                 </p>
 
-                <p
-                  className="text-[14px] leading-relaxed mb-7"
-                  style={{ color: "var(--muted)" }}
-                >
-                  If you want to reach me, contribute data, or collaborate:
-                </p>
+                {status === "sent" ? (
+                  <motion.div
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="text-center py-8"
+                  >
+                    <p className="text-lg font-semibold" style={{ color: "var(--primary)" }}>
+                      Message sent.
+                    </p>
+                    <p className="text-xs mt-2" style={{ color: "var(--muted)" }}>
+                      I&apos;ll respond via the email you provided.
+                    </p>
+                  </motion.div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <input
+                      type="text"
+                      placeholder="Name (optional)"
+                      value={form.name}
+                      onChange={(e) => setForm({ ...form, name: e.target.value })}
+                      className="w-full px-3 py-2.5 rounded-lg text-sm bg-white/[0.04] border border-white/[0.08] text-white placeholder:text-gray-500 focus:outline-none focus:border-[rgba(62,230,193,0.4)] transition-colors"
+                    />
+                    <input
+                      type="email"
+                      placeholder="Email *"
+                      required
+                      value={form.email}
+                      onChange={(e) => setForm({ ...form, email: e.target.value })}
+                      className="w-full px-3 py-2.5 rounded-lg text-sm bg-white/[0.04] border border-white/[0.08] text-white placeholder:text-gray-500 focus:outline-none focus:border-[rgba(62,230,193,0.4)] transition-colors"
+                    />
+                    <textarea
+                      placeholder="Message *"
+                      required
+                      rows={4}
+                      value={form.message}
+                      onChange={(e) => setForm({ ...form, message: e.target.value })}
+                      className="w-full px-3 py-2.5 rounded-lg text-sm bg-white/[0.04] border border-white/[0.08] text-white placeholder:text-gray-500 focus:outline-none focus:border-[rgba(62,230,193,0.4)] transition-colors resize-none"
+                    />
 
-                {/* Email display */}
-                <motion.a
-                  href="mailto:info@ziopsyop.me"
-                  whileHover={{ scale: 1.01 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                  className="flex items-center gap-3 px-4 py-3 rounded-lg mb-7 group cursor-pointer"
-                  style={{
-                    background: "rgba(62,230,193,0.06)",
-                    border: "1px solid rgba(62,230,193,0.18)",
-                  }}
-                >
-                  {/* envelope icon */}
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true"
-                    style={{ color: "var(--primary)", flexShrink: 0 }}
-                  >
-                    <rect
-                      x="1"
-                      y="3"
-                      width="14"
-                      height="10"
-                      rx="1.5"
-                      stroke="currentColor"
-                      strokeWidth="1.2"
-                    />
-                    <path
-                      d="M1 4.5L8 9.5L15 4.5"
-                      stroke="currentColor"
-                      strokeWidth="1.2"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                  <span
-                    className="font-mono text-[13px] tracking-[0.06em] group-hover:underline"
-                    style={{ color: "var(--primary)" }}
-                  >
-                    info@ziopsyop.me
-                  </span>
-                </motion.a>
+                    {status === "error" && (
+                      <p className="text-xs text-rose-400">
+                        Failed to send. Try emailing info@ziopsyop.me directly.
+                      </p>
+                    )}
+
+                    <button
+                      type="submit"
+                      disabled={status === "sending"}
+                      className="w-full py-2.5 rounded-lg font-mono text-xs tracking-[0.1em] uppercase transition-all disabled:opacity-50"
+                      style={{
+                        background: "rgba(62,230,193,0.12)",
+                        border: "1px solid rgba(62,230,193,0.3)",
+                        color: "var(--primary)",
+                      }}
+                    >
+                      {status === "sending" ? "SENDING..." : "SEND MESSAGE"}
+                    </button>
+                  </form>
+                )}
 
                 {/* Disclaimer note */}
                 <p
-                  className="font-mono text-[10px] leading-relaxed tracking-[0.04em]"
+                  className="font-mono text-[10px] leading-relaxed tracking-[0.04em] mt-6"
                   style={{ color: "var(--muted-2)" }}
                 >
-                  This project is the work of an independent freelancer. No
-                  political party, no NGO, no state actor.
+                  info@ziopsyop.me — Independent research. All correspondence private.
                 </p>
               </div>
             </div>
