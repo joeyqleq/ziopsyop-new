@@ -1,10 +1,14 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { AuroraBackground } from "@/components/AuroraBackground";
 import { Navigation } from "@/components/Navigation";
+import { ContactModal } from "@/components/ContactModal";
 
 export default function AboutPage() {
+  const [contactOpen, setContactOpen] = useState(false);
+
   return (
     <main className="relative min-h-screen">
       <AuroraBackground />
@@ -150,6 +154,36 @@ export default function AboutPage() {
             </ul>
           </section>
 
+          <section className="space-y-4">
+            <h2 className="text-xs font-mono text-emerald-400 uppercase tracking-widest">
+              Who Is Behind This
+            </h2>
+            <p className="text-sm text-gray-300 leading-relaxed">
+              One person. A freelancer. I don&rsquo;t represent any organization, political party,
+              NGO, or state actor. No funding, no editorial board, no handlers. This is my personal
+              resistance — a decision to apply the tools I have (data analysis, AI, forensic
+              methodology) to document what I see happening to my country.
+            </p>
+            <p className="text-sm text-gray-300 leading-relaxed">
+              I watched over two hours of published drone footage. I cross-referenced five independent
+              databases. I used AI to process seven years of Reddit activity. I built this site alone,
+              in my own time, because the information exists and nobody was assembling it in one place.
+            </p>
+            <p className="text-sm text-gray-300 leading-relaxed">
+              If you want to contribute data, report an error, or collaborate — reach out.
+            </p>
+            <button
+              onClick={() => setContactOpen(true)}
+              className="mt-2 inline-flex items-center gap-2 font-mono text-xs tracking-[0.1em] px-4 py-2.5 rounded-md border border-cyan-400/30 text-cyan-400 hover:bg-cyan-400/10 transition-colors cursor-pointer"
+            >
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="1" y="3" width="14" height="10" rx="1.5" stroke="currentColor" strokeWidth="1.2" />
+                <path d="M1 4.5L8 9.5L15 4.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+              </svg>
+              CONTACT
+            </button>
+          </section>
+
           <section className="neo-inset p-6 space-y-3">
             <h2 className="text-xs font-mono text-rose-400 uppercase tracking-widest">
               Methodology Note
@@ -177,6 +211,8 @@ export default function AboutPage() {
           </footer>
         </motion.article>
       </div>
+
+      <ContactModal isOpen={contactOpen} onClose={() => setContactOpen(false)} />
     </main>
   );
 }

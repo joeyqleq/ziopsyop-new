@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { GlitchWordmark } from "@/components/fx/GlitchWordmark";
+import { ContactModal } from "@/components/ContactModal";
 
 const NAV_ITEMS = [
   { href: "/part-i", label: "PART I", code: "I", pillar: "I" },
@@ -14,6 +15,7 @@ const NAV_ITEMS = [
   { href: "/battlefield", label: "PART II", code: "II", pillar: "II" },
   { href: "/map", label: "MAP", code: "·", pillar: "II" },
   { href: "/about", label: "DOSSIER", code: "—", pillar: "" },
+  { href: "#contact", label: "CONTACT", code: "@", pillar: "" },
 ];
 
 const GLYPHS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ01<>/#";
@@ -89,6 +91,7 @@ export function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [hovered, setHovered] = useState<string | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [contactOpen, setContactOpen] = useState(false);
   const barRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -172,7 +175,8 @@ export function Navigation() {
                   />
                 )}
               <Link
-                href={item.href}
+                href={item.href === "#contact" ? "#" : item.href}
+                onClick={item.href === "#contact" ? (e) => { e.preventDefault(); setContactOpen(true); } : undefined}
                 onMouseEnter={() => setHovered(item.href)}
                 className="group relative px-3.5 py-2"
               >
@@ -263,7 +267,8 @@ export function Navigation() {
                   transition={{ delay: 0.08 + i * 0.07 }}
                 >
                   <Link
-                    href={item.href}
+                    href={item.href === "#contact" ? "#" : item.href}
+                    onClick={item.href === "#contact" ? (e) => { e.preventDefault(); setContactOpen(true); setMenuOpen(false); } : undefined}
                     className="group flex items-baseline gap-4 py-5 border-b border-borderc"
                   >
                     <span className="font-mono text-[10px] text-muted-2">
@@ -287,6 +292,8 @@ export function Navigation() {
           </motion.nav>
         )}
       </AnimatePresence>
+
+      <ContactModal isOpen={contactOpen} onClose={() => setContactOpen(false)} />
     </header>
   );
 }
