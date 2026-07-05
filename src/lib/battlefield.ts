@@ -743,6 +743,9 @@ export interface AdmissionGapData {
     geolocated: number;
     idfAdmitted: number;
     lebaHealthMinistry: number;
+    bbcUrl: string;
+    droneCostRange: string;
+    correctionNote: string;
   };
   gazaDiscrepancy: {
     officialKIA: number;
@@ -797,13 +800,16 @@ export async function getAdmissionGap(): Promise<AdmissionGapData> {
       geolocated: 35,
       idfAdmitted: 21,
       lebaHealthMinistry: 2896,
+      bbcUrl: "https://www.bbc.com/news/articles/c1j2zwe9g5no",
+      droneCostRange: "$300-$500 (King's College London / BBC Verify)",
+      correctionNote: "BBC originally published '4 soldiers and 18 civilians' before correcting to '18 soldiers and 4 civilians killed'",
     },
     gazaDiscrepancy: {
       officialKIA: 844,
       bereavedFamilies: 5942,
       hospitalRecords: "Haaretz: 'large disparity between army and hospital wounded figures'",
     },
-    source: "Cross-reference: BBC Verify (May 2026) × New Arab (army chief admission) × Haaretz × hezbollah_strikes × idf_kia_meta",
+    source: "Cross-reference: BBC Verify (bbc.com/news/articles/c1j2zwe9g5no, May 2026) × New Arab (army chief admission) × Haaretz × hezbollah_strikes × idf_kia_meta",
   };
 }
 
@@ -923,6 +929,16 @@ export async function getFogOfWarClock(): Promise<FogOfWarClockData> {
       truthText: "BBC Verify geolocated 35 FPV strikes alone. Army chief admits 5,942 bereaved families vs 844 official. Mathematical impossibility.",
       truthSource: "BBC Verify / New Arab (army chief Zamir)",
       delayDays: 505,
+      category: "casualties",
+    },
+    {
+      claimDate: "2026-05-16",
+      claimText: "Only 21 IDF soldiers killed in renewed Lebanon conflict (from March 2026)",
+      claimSource: "IDF statement to BBC Verify",
+      truthDate: "2026-05-20",
+      truthText: "BBC initially published '4 soldiers and 18 civilians' before correcting to '18 soldiers and 4 civilians' — the original figures were the real ratio accidentally released, then 'corrected' to flip military/civilian counts.",
+      truthSource: "BBC Verify correction note (bbc.com/news/articles/c1j2zwe9g5no)",
+      delayDays: 4,
       category: "casualties",
     },
   ];

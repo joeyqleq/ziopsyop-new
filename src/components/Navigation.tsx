@@ -14,6 +14,10 @@ const NAV_ITEMS = [
   { href: "/analysis", label: "ANALYSIS", code: "·", pillar: "I" },
   { href: "/battlefield", label: "PART II", code: "II", pillar: "II" },
   { href: "/map", label: "MAP", code: "·", pillar: "II" },
+  { href: "/synthesis", label: "SYNTHESIS", code: "∴", pillar: "III" },
+  { href: "/evidence", label: "VIDEO", code: "▶", pillar: "III" },
+  { href: "/sources", label: "SOURCES", code: "※", pillar: "III" },
+  { href: "/counter-arguments", label: "OBJECTIONS", code: "⇋", pillar: "III" },
   { href: "/about", label: "DOSSIER", code: "—", pillar: "" },
   { href: "#contact", label: "CONTACT", code: "@", pillar: "" },
 ];

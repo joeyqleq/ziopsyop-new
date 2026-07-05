@@ -66,10 +66,13 @@ export function ChartFrame({
   const [open, setOpen] = useState(false);
   const [plainOpen, setPlainOpen] = useState(false);
 
+  const anchorId = exhibit.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+
   return (
     <TracedCard
+      id={anchorId}
       traceColor={accent}
-      className={cn("overflow-hidden", className)}
+      className={cn("overflow-hidden scroll-mt-20", className)}
     >
       {/* header */}
       <div className="flex flex-wrap items-start justify-between gap-3 px-5 pt-4 pb-3 border-b border-borderc">
