@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { AuroraBackground } from "@/components/AuroraBackground";
 import { Navigation } from "@/components/Navigation";
 import { ContactModal } from "@/components/ContactModal";
@@ -172,16 +173,30 @@ export default function AboutPage() {
             <p className="text-sm text-gray-300 leading-relaxed">
               If you want to contribute data, report an error, or collaborate — reach out.
             </p>
-            <button
-              onClick={() => setContactOpen(true)}
-              className="mt-2 inline-flex items-center gap-2 font-mono text-xs tracking-[0.1em] px-4 py-2.5 rounded-md border border-cyan-400/30 text-cyan-400 hover:bg-cyan-400/10 transition-colors cursor-pointer"
-            >
-              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <rect x="1" y="3" width="14" height="10" rx="1.5" stroke="currentColor" strokeWidth="1.2" />
-                <path d="M1 4.5L8 9.5L15 4.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
-              </svg>
-              CONTACT
-            </button>
+            <div className="flex flex-wrap gap-3 mt-4">
+              <button
+                onClick={() => setContactOpen(true)}
+                className="inline-flex items-center gap-2 font-mono text-xs tracking-[0.1em] px-4 py-2.5 rounded-md border border-cyan-400/30 text-cyan-400 hover:bg-cyan-400/10 transition-colors cursor-pointer"
+              >
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <rect x="1" y="3" width="14" height="10" rx="1.5" stroke="currentColor" strokeWidth="1.2" />
+                  <path d="M1 4.5L8 9.5L15 4.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+                </svg>
+                CONTACT
+              </button>
+              <Link
+                href="/counter-arguments"
+                className="inline-flex items-center gap-2 font-mono text-xs tracking-[0.1em] px-4 py-2.5 rounded-md border border-white/10 text-gray-400 hover:text-white hover:border-white/20 transition-colors"
+              >
+                OBJECTIONS &amp; BIAS
+              </Link>
+              <Link
+                href="/synthesis"
+                className="inline-flex items-center gap-2 font-mono text-xs tracking-[0.1em] px-4 py-2.5 rounded-md border border-white/10 text-gray-400 hover:text-white hover:border-white/20 transition-colors"
+              >
+                THE LOOP CLOSES
+              </Link>
+            </div>
           </section>
 
           <section className="neo-inset p-6 space-y-3">

@@ -136,6 +136,36 @@ const videos: VideoSource[] = [
     date: "2026",
     exhibits: [],
   },
+  {
+    id: "aje-iran-doc",
+    title: "What really led to the war on Iran? | Featured Documentary",
+    outlet: "Al Jazeera English",
+    url: "https://www.youtube.com/watch?v=LInLwSuiv_E",
+    type: "investigation",
+    description: "Full documentary covering what led to the Feb 28 2026 US-Israel strikes on Iran, the escalation chain, and regional consequences including Lebanon theatre.",
+    date: "Jun 2026",
+    exhibits: [],
+  },
+  {
+    id: "pbs-frontline-iran",
+    title: "The U.S., Israel & Iran (updated documentary)",
+    outlet: "FRONTLINE / PBS",
+    url: "https://www.youtube.com/watch?v=vWaoon6lZM0",
+    type: "investigation",
+    description: "PBS Frontline comprehensive documentary covering decades of US-Israel-Iran relations culminating in the 2026 war. Full geopolitical context.",
+    date: "2026",
+    exhibits: [],
+  },
+  {
+    id: "ei-livestream-drones",
+    title: "Israel struggles against Hizballah's high-tech drones — Livestream",
+    outlet: "Electronic Intifada / Eli Gerzon",
+    url: "https://electronicintifada.net/blogs/eli-gerzon/livestream-israel-struggles-against-hizballahs-high-tech-drones",
+    type: "analysis",
+    description: "Live analysis of fiber-optic FPV drone operations. Covers how drones bypass radar, jam-proof guidance, and psychological impact on IDF troops.",
+    date: "2025",
+    exhibits: ["EX-26", "EX-24b"],
+  },
 ];
 
 type FilterType = "all" | "drone-footage" | "analysis" | "investigation" | "destruction";
