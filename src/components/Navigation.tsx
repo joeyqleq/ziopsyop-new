@@ -2,23 +2,24 @@
 
 import { useEffect, useRef, useState, useCallback } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { GlitchWordmark } from "@/components/fx/GlitchWordmark";
 import { ContactModal } from "@/components/ContactModal";
+import { AnimatedEye } from "@/components/fx/AnimatedEye";
 
 const NAV_ITEMS = [
-  { href: "/part-i", label: "PART I", code: "I", pillar: "I" },
+  { href: "/part-i", label: "PT I", code: "I", pillar: "I" },
   { href: "/analysis", label: "ANALYSIS", code: "·", pillar: "I" },
-  { href: "/battlefield", label: "PART II", code: "II", pillar: "II" },
+  { href: "/forensics", label: "DOSSIER", code: "⊛", pillar: "I" },
+  { href: "/battlefield", label: "PT II", code: "II", pillar: "II" },
   { href: "/map", label: "MAP", code: "·", pillar: "II" },
-  { href: "/synthesis", label: "SYNTHESIS", code: "∴", pillar: "III" },
+  { href: "/synthesis", label: "SYNTH", code: "∴", pillar: "III" },
   { href: "/evidence", label: "VIDEO", code: "▶", pillar: "III" },
-  { href: "/sources", label: "SOURCES", code: "※", pillar: "III" },
-  { href: "/counter-arguments", label: "OBJECTIONS", code: "⇋", pillar: "III" },
-  { href: "/about", label: "DOSSIER", code: "—", pillar: "" },
+  { href: "/sources", label: "SRCS", code: "※", pillar: "III" },
+  { href: "/counter-arguments", label: "REBUT", code: "⇋", pillar: "III" },
+  { href: "/about", label: "ABOUT", code: "—", pillar: "" },
   { href: "#contact", label: "CONTACT", code: "@", pillar: "" },
 ];
 
@@ -60,7 +61,7 @@ function ScrambleLabel({ text, active }: { text: string; active: boolean }) {
     <span
       onMouseEnter={scramble}
       className={cn(
-        "font-mono text-[11px] tracking-[0.18em] transition-colors duration-300",
+        "font-mono text-[10px] tracking-[0.12em] transition-colors duration-300",
         active ? "text-primary" : "text-muted group-hover:text-foreground"
       )}
     >
@@ -126,7 +127,7 @@ export function Navigation() {
         initial={false}
         animate={{
           marginTop: scrolled ? 12 : 0,
-          width: scrolled ? "min(880px, calc(100% - 24px))" : "100%",
+          width: scrolled ? "min(960px, calc(100% - 24px))" : "100%",
           borderRadius: scrolled ? 10 : 0,
         }}
         transition={{ type: "spring", stiffness: 260, damping: 30 }}
@@ -149,13 +150,7 @@ export function Navigation() {
             transition={{ type: "spring", stiffness: 300, damping: 15 }}
             className="block"
           >
-            <Image
-              src="/assets/eye_logo_1.svg"
-              alt=""
-              width={26}
-              height={26}
-              priority
-            />
+            <AnimatedEye size={26} />
           </motion.span>
           <GlitchWordmark className="font-mono text-[13px] font-bold tracking-[0.3em] text-foreground" />        
         </Link>
@@ -174,7 +169,7 @@ export function Navigation() {
               <div key={item.href} className="flex items-center">
                 {showDivider && (
                   <span
-                    className="mx-1.5 h-4 w-px bg-borderc"
+                    className="mx-1 h-3.5 w-px bg-borderc"
                     aria-hidden="true"
                   />
                 )}
@@ -182,7 +177,7 @@ export function Navigation() {
                 href={item.href === "#contact" ? "#" : item.href}
                 onClick={item.href === "#contact" ? (e) => { e.preventDefault(); setContactOpen(true); } : undefined}
                 onMouseEnter={() => setHovered(item.href)}
-                className="group relative px-3.5 py-2"
+                className="group relative px-2.5 py-2"
               >
                 {/* shared sliding hover ink */}
                 {hovered === item.href && (
@@ -192,15 +187,7 @@ export function Navigation() {
                     transition={{ type: "spring", stiffness: 400, damping: 32 }}
                   />
                 )}
-                <span className="relative flex items-baseline gap-1.5">
-                  <span
-                    className={cn(
-                      "font-mono text-[8px] transition-colors",
-                      active ? "text-primary/70" : "text-muted-2"
-                    )}
-                  >
-                    {item.code}
-                  </span>
+                <span className="relative">
                   <ScrambleLabel text={item.label} active={active} />
                 </span>
                 {/* pixel-block active underline */}

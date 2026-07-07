@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import Script from "next/script";
 import { AnalyticsTracker } from "@/components/AnalyticsTracker";
+import { PixelBlastBackground } from "@/components/fx/PixelBlastBackground";
+import { BootGate } from "@/components/fx/BootGate";
 import "./globals.css";
 
 const grotesk = Space_Grotesk({
@@ -105,7 +107,10 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col bg-background">
-        {children}
+        <PixelBlastBackground />
+        <BootGate>
+          {children}
+        </BootGate>
         <AnalyticsTracker />
         <div className="crt-overlay" aria-hidden="true" />
 
