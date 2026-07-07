@@ -16,8 +16,10 @@
   --border: rgba(232, 234, 233, 0.08);
   --border-strong: rgba(232, 234, 233, 0.16);
 
-  --primary: #3ee6c1; /* phosphor mint — signal */
-  --primary-dim: rgba(62, 230, 193, 0.14);
+  --primary: #b6ff7c; /* eye lime — signal */
+  --primary-dim: rgba(182, 255, 124, 0.14);
+  --eye-purple: #7b39d0; /* eye purple — iris */
+  --eye-purple-dim: rgba(123, 57, 208, 0.14);
   --threat: #ff4d5e; /* threat red — the operation */
   --threat-dim: rgba(255, 77, 94, 0.14);
   --archive: #e8b44c; /* archive amber — evidence */
@@ -27,11 +29,11 @@
   --viz-blue: #5b9bff;
   --viz-violet: #a78bfa;
 
-  /* brand signal accents — pulled from the eye logo (light touches only) */
-  --accent-blue: #4ea8ff;
-  --accent-yellow: #ffd23f;
-  --accent-blue-dim: rgba(78, 168, 255, 0.14);
-  --accent-yellow-dim: rgba(255, 210, 63, 0.14);
+  /* brand signal accents — pulled from the eye logo */
+  --accent-blue: #9b5fe0;
+  --accent-yellow: #b6ff7c;
+  --accent-blue-dim: rgba(155, 95, 224, 0.14);
+  --accent-yellow-dim: rgba(182, 255, 124, 0.14);
 
   --radius: 0.5rem;
 
@@ -49,6 +51,7 @@
   --color-muted-2: var(--muted-2);
   --color-borderc: var(--border);
   --color-primary: var(--primary);
+  --color-eye-purple: var(--eye-purple);
   --color-threat: var(--threat);
   --color-archive: var(--archive);
   --color-viz-blue: var(--viz-blue);
@@ -91,7 +94,7 @@ body {
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(62, 230, 193, 0.35);
+  background: rgba(182, 255, 124, 0.25);
 }
 
 /* ---------- film grain + scanlines ---------- */
@@ -264,7 +267,7 @@ body {
 .seg-toggle button[data-active="true"] {
   color: var(--primary);
   background: var(--primary-dim);
-  text-shadow: 0 0 12px rgba(62, 230, 193, 0.5);
+  text-shadow: 0 0 12px rgba(182, 255, 124, 0.5);
 }
 .seg-toggle.seg-threat button[data-active="true"] {
   color: var(--threat);
@@ -321,7 +324,7 @@ body {
 
 /* ---------- glow utilities ---------- */
 .glow-primary {
-  text-shadow: 0 0 18px rgba(62, 230, 193, 0.45);
+  text-shadow: 0 0 18px rgba(182, 255, 124, 0.45);
 }
 .glow-threat {
   text-shadow: 0 0 18px rgba(255, 77, 94, 0.45);

@@ -66,7 +66,14 @@ export function CoordinationTimeline({ events }: Props) {
 
       <ResponsiveContainer width="100%" height={280}>
         <BarChart data={daily} margin={{ top: 8, right: 8, left: -20, bottom: 60 }}
-          onClick={(data) => { const d = data as { activePayload?: Array<{ payload: { date: string } }> }; d?.activePayload?.[0] && setSelected(events.find(e => e.date === d.activePayload![0].payload.date) || null); }}>
+          onClick={(data) => {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            const d = data as any;
+            if (d?.activePayload?.[0]) {
+              const date = d.activePayload[0].payload.date as string;
+              setSelected(events.find((e) => e.date === date) || null);
+            }
+          }}>
           <XAxis
             dataKey="date"
             tick={{ fill: "#565b64", fontSize: 8, fontFamily: "JetBrains Mono" }}

@@ -8,23 +8,13 @@ const GLYPHS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!<>-_\\/[]{}—=+*^?#@$%&";
 interface DecryptTextProps {
   text: string;
   className?: string;
-  /** ms between resolve steps */
   speed?: number;
-  /** how many scramble frames each letter cycles before locking */
   scrambleCycles?: number;
-  /** delay before the animation starts (ms) */
   delay?: number;
-  /** re-run when text changes */
   as?: "span" | "h1" | "h2" | "h3" | "p" | "div";
-  /** start only when scrolled into view */
   startOnView?: boolean;
 }
 
-/**
- * Cinematic per-letter decryption. Each letter resolves independently:
- * letters lock left-to-right but each cycles through random glyphs a
- * slightly different number of times, so no two letters behave identically.
- */
 export function DecryptText({
   text,
   className,
@@ -38,42 +28,50 @@ export function DecryptText({
   const [done, setDone] = useState(false);
   const ref = useRef<HTMLElement>(null);
   const started = useRef(false);
+  const frameRef = useRef<number>(0);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
   useEffect(() => {
-    let frame: ReturnType<typeof setInterval>;
-    let timeout: ReturnType<typeof setTimeout>;
-
     const run = () => {
       if (started.current) return;
       started.current = true;
 
-      // per-letter randomized cycle counts → cinematic non-uniform resolve
       const cycles = text
         .split("")
         .map(() => scrambleCycles + Math.floor(Math.random() * 5));
       let tick = 0;
+      let lastTime = 0;
 
-      timeout = setTimeout(() => {
-        frame = setInterval(() => {
+      const step = (timestamp: number) => {
+        if (timestamp - lastTime >= speed) {
+          lastTime = timestamp;
           tick++;
           let resolved = true;
           const next = text
             .split("")
             .map((ch, i) => {
               if (ch === " " || ch === "\n") return ch;
-              const lockAt = i * 2 + cycles[i];
-              if (tick >= lockAt) return ch;
+              if (tick >= i * 2 + cycles[i]) return ch;
               resolved = false;
               return GLYPHS[Math.floor(Math.random() * GLYPHS.length)];
             })
             .join("");
           setOutput(next);
           if (resolved) {
-            clearInterval(frame);
             setDone(true);
+            return;
           }
-        }, speed);
-      }, delay);
+        }
+        frameRef.current = requestAnimationFrame(step);
+      };
+
+      if (delay > 0) {
+        timeoutRef.current = setTimeout(() => {
+          frameRef.current = requestAnimationFrame(step);
+        }, delay);
+      } else {
+        frameRef.current = requestAnimationFrame(step);
+      }
     };
 
     if (!startOnView) {
@@ -91,14 +89,14 @@ export function DecryptText({
       io.observe(ref.current);
       return () => {
         io.disconnect();
-        clearInterval(frame);
-        clearTimeout(timeout);
+        cancelAnimationFrame(frameRef.current);
+        clearTimeout(timeoutRef.current);
       };
     }
 
     return () => {
-      clearInterval(frame);
-      clearTimeout(timeout);
+      cancelAnimationFrame(frameRef.current);
+      clearTimeout(timeoutRef.current);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [text]);

@@ -1,8 +1,8 @@
 "use client";
 import { useState, useEffect, useCallback } from "react";
 import { BootSequence } from "@/components/fx/BootSequence";
+import { BootContext } from "@/components/fx/BootContext";
 
-// Only show once per browser session
 const SESSION_KEY = "ziopsyop_booted";
 
 export function BootGate({ children }: { children: React.ReactNode }) {
@@ -20,7 +20,6 @@ export function BootGate({ children }: { children: React.ReactNode }) {
     setBooted(true);
   }, []);
 
-  // also let keypress skip
   useEffect(() => {
     if (booted) return;
     const onKey = () => handleComplete();
@@ -29,9 +28,9 @@ export function BootGate({ children }: { children: React.ReactNode }) {
   }, [booted, handleComplete]);
 
   return (
-    <>
+    <BootContext.Provider value={booted}>
       {!booted && <BootSequence onComplete={handleComplete} />}
       {children}
-    </>
+    </BootContext.Provider>
   );
 }

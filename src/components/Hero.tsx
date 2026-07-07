@@ -1,10 +1,12 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { SpaceBackground } from "@/components/fx/SpaceBackground";
 import { DecryptText } from "@/components/fx/DecryptText";
 import { GlitchWordmark } from "@/components/fx/GlitchWordmark";
+import { AnimatedEye } from "@/components/fx/AnimatedEye";
+import type { Transition } from "framer-motion";
+import { useBooted } from "@/components/fx/BootContext";
 
 const TICKER_ITEMS = [
   "PART I — 93,247 DATA POINTS INGESTED",
@@ -17,52 +19,34 @@ const TICKER_ITEMS = [
   "TWO OPERATIONS · ONE INFORMATION MACHINE",
 ];
 
-/**
- * Hero — locked to exactly one viewport (100svh minus nothing; the nav
- * floats above it). The orbiting-particle field renders only here, and
- * the eye sits dead center of the particle ring.
- */
 export function Hero() {
+  const booted = useBooted();
+
+  const EXPO: Transition = { duration: 1.4, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] };
+  const EXPO_FAST: Transition = { duration: 1, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] };
+
   return (
     <section className="relative h-svh min-h-[560px] flex flex-col overflow-hidden">
-      {/* particle field — scoped to hero only */}
       <SpaceBackground particleCount={480} />
 
-      {/* center stack */}
       <div className="relative flex-1 flex flex-col items-center justify-center px-4 text-center">
-        {/* the eye, dead center of the orbit ring */}
         <motion.div
           initial={{ opacity: 0, scale: 0.6, filter: "blur(12px)" }}
-          animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-          transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+          animate={booted ? { opacity: 1, scale: 1, filter: "blur(0px)" } : { opacity: 0, scale: 0.6, filter: "blur(12px)" }}
+          transition={EXPO}
           className="relative mb-7"
         >
-          <div
-            className="absolute -inset-10 rounded-full animate-pulse-soft"
-            style={{
-              background:
-                "radial-gradient(circle, rgba(62,230,193,0.16), transparent 70%)",
-            }}
-            aria-hidden="true"
-          />
-          <Image
-            src="/assets/eye_logo_1.svg"
-            alt="The ZIOPSYOP eye"
-            width={108}
-            height={108}
-            priority
-            className="relative drop-shadow-[0_0_24px_rgba(62,230,193,0.35)]"
-          />
+          <AnimatedEye size={173} />
         </motion.div>
 
         <p className="font-mono text-[10px] md:text-[11px] tracking-[0.5em] text-primary mb-4">
-          <DecryptText text="//  SIGNAL FROM NOISE" speed={34} delay={300} />
+          {booted && <DecryptText text="//  SIGNAL FROM NOISE" speed={34} delay={200} />}
         </p>
 
         <motion.div
           initial={{ opacity: 0, scale: 0.96, filter: "blur(8px)" }}
-          animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-          transition={{ delay: 0.5, duration: 1, ease: [0.22, 1, 0.36, 1] }}
+          animate={booted ? { opacity: 1, scale: 1, filter: "blur(0px)" } : { opacity: 0, scale: 0.96, filter: "blur(8px)" }}
+          transition={{ ...EXPO_FAST, delay: 0.15 }}
         >
           <h1 className="sr-only">ZIOPSYOP</h1>
           <GlitchWordmark
@@ -72,8 +56,8 @@ export function Hero() {
 
         <motion.p
           initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.9, duration: 0.8 }}
+          animate={booted ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }}
+          transition={{ delay: 0.4, duration: 0.8 }}
           className="mt-5 max-w-2xl text-sm md:text-base text-muted leading-relaxed text-balance"
         >
           One Zionist information machine, running{" "}
@@ -85,8 +69,8 @@ export function Hero() {
 
         <motion.div
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.3, duration: 0.8 }}
+          animate={booted ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ delay: 0.75, duration: 0.8 }}
           className="mt-7 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 font-mono text-[10px] tracking-[0.18em] text-muted-2"
         >
           <span className="px-2.5 py-1 border border-borderc rounded bg-black/40">
@@ -99,11 +83,10 @@ export function Hero() {
         </motion.div>
       </div>
 
-      {/* evidence ticker — pinned to hero bottom */}
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.7, duration: 1 }}
+        animate={booted ? { opacity: 1 } : { opacity: 0 }}
+        transition={{ delay: 1.1, duration: 1 }}
         className="relative border-t border-b border-borderc bg-black/45 backdrop-blur-sm overflow-hidden"
       >
         <div className="ticker-track flex w-max items-center py-2.5">
@@ -123,11 +106,10 @@ export function Hero() {
         </div>
       </motion.div>
 
-      {/* scroll cue */}
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2.1 }}
+        animate={booted ? { opacity: 1 } : { opacity: 0 }}
+        transition={{ delay: 1.5 }}
         className="absolute bottom-14 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-1.5 pointer-events-none"
         aria-hidden="true"
       >
