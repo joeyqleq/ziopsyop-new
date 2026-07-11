@@ -60,7 +60,6 @@ function generateSampleData(): { nodes: GraphNode[]; links: GraphLink[] } {
 
   const links: GraphLink[] = [];
 
-  // Reply relationships
   const replyPairs = [
     ["EmperorChaos", "tFighterPilot"], ["EmperorChaos", "DaDerpyDude"],
     ["cha3bghachim", "IbnEzra613"], ["cha3bghachim", "amazing9999"],
@@ -78,7 +77,6 @@ function generateSampleData(): { nodes: GraphNode[]; links: GraphLink[] } {
     }
   });
 
-  // Coordination signals (anomaly cluster)
   const anomalyUsers = users.filter((u) => u.contradictionScore > 30).map((u) => u.id);
   for (let i = 0; i < anomalyUsers.length; i++) {
     for (let j = i + 1; j < anomalyUsers.length; j++) {
@@ -93,48 +91,56 @@ function generateSampleData(): { nodes: GraphNode[]; links: GraphLink[] } {
 
 export function NetworkGraph() {
   const svgRef = useRef<SVGSVGElement>(null);
+  const wrapRef = useRef<HTMLDivElement>(null);
   const [selectedNode, setSelectedNode] = useState<GraphNode | null>(null);
+  const simRef = useRef<d3.Simulation<GraphNode, GraphLink> | null>(null);
 
   useEffect(() => {
-    if (!svgRef.current) return;
+    if (!svgRef.current || !wrapRef.current) return;
 
-    const width = svgRef.current.clientWidth || 800;
-    const height = 500;
+    const draw = () => {
+      if (!svgRef.current || !wrapRef.current) return;
+      if (simRef.current) simRef.current.stop();
 
-    d3.select(svgRef.current).selectAll("*").remove();
+      const width = wrapRef.current.clientWidth || 600;
+      const height = Math.min(500, Math.max(300, width * 0.6));
 
-    const svg = d3
-      .select(svgRef.current)
-      .attr("viewBox", `0 0 ${width} ${height}`)
-      .attr("preserveAspectRatio", "xMidYMid meet");
+      d3.select(svgRef.current).selectAll("*").remove();
+      svgRef.current.style.height = `${height}px`;
 
-    const { nodes, links } = generateSampleData();
+      const svg = d3
+        .select(svgRef.current)
+        .attr("viewBox", `0 0 ${width} ${height}`)
+        .attr("preserveAspectRatio", "xMidYMid meet");
 
-    const simulation = d3
-      .forceSimulation<GraphNode>(nodes)
-      .force("link", d3.forceLink<GraphNode, GraphLink>(links).id((d) => d.id).distance(80))
-      .force("charge", d3.forceManyBody().strength(-200))
-      .force("center", d3.forceCenter(width / 2, height / 2))
-      .force("collision", d3.forceCollide<GraphNode>().radius((d) => Math.sqrt(d.activity) / 3 + 8));
+      const { nodes, links } = generateSampleData();
 
-    const linkGroup = svg.append("g");
-    const nodeGroup = svg.append("g");
+      const simulation = d3
+        .forceSimulation<GraphNode>(nodes)
+        .force("link", d3.forceLink<GraphNode, GraphLink>(links).id((d) => d.id).distance(width < 500 ? 50 : 80))
+        .force("charge", d3.forceManyBody().strength(width < 500 ? -120 : -200))
+        .force("center", d3.forceCenter(width / 2, height / 2))
+        .force("collision", d3.forceCollide<GraphNode>().radius((d) => Math.sqrt(d.activity) / 3 + 8));
 
-    const linkElements = linkGroup
-      .selectAll("line")
-      .data(links)
-      .join("line")
-      .attr("stroke", (d) => {
-        if (d.type === "coordination") return "#f97316";
-        if (d.type === "brigading") return "#ef4444";
-        return "rgba(100,100,200,0.3)";
-      })
-      .attr("stroke-width", (d) => d.weight * 0.5)
-      .attr("stroke-dasharray", (d) => (d.type === "coordination" ? "4 2" : "none"))
-      .attr("stroke-opacity", 0.5);
+      simRef.current = simulation;
 
-    const dragBehavior =
-      d3
+      const linkGroup = svg.append("g");
+      const nodeGroup = svg.append("g");
+
+      const linkElements = linkGroup
+        .selectAll("line")
+        .data(links)
+        .join("line")
+        .attr("stroke", (d) => {
+          if (d.type === "coordination") return "#f97316";
+          if (d.type === "brigading") return "#ef4444";
+          return "rgba(100,100,200,0.3)";
+        })
+        .attr("stroke-width", (d) => d.weight * 0.5)
+        .attr("stroke-dasharray", (d) => (d.type === "coordination" ? "4 2" : "none"))
+        .attr("stroke-opacity", 0.5);
+
+      const dragBehavior = d3
         .drag<SVGGElement, GraphNode>()
         .on("start", (event, d) => {
           if (!event.active) simulation.alphaTarget(0.3).restart();
@@ -151,82 +157,83 @@ export function NetworkGraph() {
           d.fy = null;
         });
 
-    const nodeElements = nodeGroup
-      .selectAll<SVGGElement, GraphNode>("g")
-      .data(nodes)
-      .join("g");
+      const nodeElements = nodeGroup
+        .selectAll<SVGGElement, GraphNode>("g")
+        .data(nodes)
+        .join("g");
 
-    nodeElements.call(
-      dragBehavior as unknown as (
-        selection: d3.Selection<
-          SVGGElement,
-          GraphNode,
-          SVGGElement,
-          unknown
-        >
-      ) => void
-    );
+      nodeElements.call(
+        dragBehavior as unknown as (
+          selection: d3.Selection<SVGGElement, GraphNode, SVGGElement, unknown>
+        ) => void
+      );
 
-    nodeElements
-      .append("circle")
-      .attr("r", (d) => Math.sqrt(d.activity) / 3 + 4)
-      .attr("fill", (d) => {
-        if (d.contradictionScore > 30) return FLAIR_COLORS["High anomaly"];
-        return FLAIR_COLORS[d.flair] || FLAIR_COLORS["No flair"];
-      })
-      .attr("stroke", (d) => {
-        if (d.contradictionScore > 40) return "#ef4444";
-        if (d.contradictionScore > 20) return "#f97316";
-        return "rgba(255,255,255,0.2)";
-      })
-      .attr("stroke-width", (d) => Math.max(1, d.contradictionScore / 15))
-      .attr("opacity", 0.85)
-      .on("mouseover", function (event, d) {
-        d3.select(this).attr("opacity", 1).attr("r", Math.sqrt(d.activity) / 3 + 7);
-        setSelectedNode(d);
-      })
-      .on("mouseout", function (event, d) {
-        d3.select(this).attr("opacity", 0.85).attr("r", Math.sqrt(d.activity) / 3 + 4);
+      nodeElements
+        .append("circle")
+        .attr("r", (d) => Math.sqrt(d.activity) / 3 + 4)
+        .attr("fill", (d) => {
+          if (d.contradictionScore > 30) return FLAIR_COLORS["High anomaly"];
+          return FLAIR_COLORS[d.flair] || FLAIR_COLORS["No flair"];
+        })
+        .attr("stroke", (d) => {
+          if (d.contradictionScore > 40) return "#ef4444";
+          if (d.contradictionScore > 20) return "#f97316";
+          return "rgba(255,255,255,0.2)";
+        })
+        .attr("stroke-width", (d) => Math.max(1, d.contradictionScore / 15))
+        .attr("opacity", 0.85)
+        .on("mouseover", function (event, d) {
+          d3.select(this).attr("opacity", 1).attr("r", Math.sqrt(d.activity) / 3 + 7);
+          setSelectedNode(d);
+        })
+        .on("mouseout", function (event, d) {
+          d3.select(this).attr("opacity", 0.85).attr("r", Math.sqrt(d.activity) / 3 + 4);
+        });
+
+      const showLabels = width > 400;
+      nodeElements
+        .append("text")
+        .attr("dy", (d) => -(Math.sqrt(d.activity) / 3 + 8))
+        .attr("text-anchor", "middle")
+        .attr("fill", "#aaa")
+        .attr("font-size", "8px")
+        .attr("font-family", "monospace")
+        .text((d) => (showLabels && d.activity > 300 ? d.id : ""));
+
+      simulation.on("tick", () => {
+        linkElements
+          .attr("x1", (d: any) => d.source.x)
+          .attr("y1", (d: any) => d.source.y)
+          .attr("x2", (d: any) => d.target.x)
+          .attr("y2", (d: any) => d.target.y);
+
+        nodeElements.attr("transform", (d: any) => `translate(${d.x},${d.y})`);
       });
+    };
 
-    nodeElements
-      .append("text")
-      .attr("dy", (d) => -(Math.sqrt(d.activity) / 3 + 8))
-      .attr("text-anchor", "middle")
-      .attr("fill", "#aaa")
-      .attr("font-size", "8px")
-      .attr("font-family", "monospace")
-      .text((d) => (d.activity > 300 ? d.id : ""));
-
-    simulation.on("tick", () => {
-      linkElements
-        .attr("x1", (d: any) => d.source.x)
-        .attr("y1", (d: any) => d.source.y)
-        .attr("x2", (d: any) => d.target.x)
-        .attr("y2", (d: any) => d.target.y);
-
-      nodeElements.attr("transform", (d: any) => `translate(${d.x},${d.y})`);
-    });
-
+    draw();
+    const ro = new ResizeObserver(() => draw());
+    ro.observe(wrapRef.current);
     return () => {
-      simulation.stop();
+      ro.disconnect();
+      if (simRef.current) simRef.current.stop();
     };
   }, []);
 
   return (
-    <div className="relative">
-      <svg ref={svgRef} className="w-full" style={{ height: 500 }} />
+    <div ref={wrapRef} className="relative">
+      <svg ref={svgRef} className="w-full" />
       {selectedNode && (
-        <div className="absolute top-4 right-4 glass-panel p-3 max-w-xs z-10 text-xs font-mono">
-          <p className="text-cyan-400 font-bold">u/{selectedNode.id}</p>
+        <div className="absolute top-2 right-2 sm:top-4 sm:right-4 glass-panel p-2 sm:p-3 max-w-[180px] sm:max-w-xs z-10 text-xs font-mono">
+          <p className="text-cyan-400 font-bold text-[11px]">u/{selectedNode.id}</p>
           <p className="text-gray-400 mt-1">Flair: {selectedNode.flair}</p>
-          <p className="text-gray-400">Activity: {selectedNode.activity} posts+comments</p>
+          <p className="text-gray-400">Activity: {selectedNode.activity}</p>
           <p className={selectedNode.contradictionScore > 30 ? "text-red-400" : "text-gray-400"}>
-            Identity contradiction: {selectedNode.contradictionScore}%
+            Contradiction: {selectedNode.contradictionScore}%
           </p>
         </div>
       )}
-      <div className="flex flex-wrap gap-3 mt-3">
+      <div className="flex flex-wrap gap-2 sm:gap-3 mt-3">
         {Object.entries(FLAIR_COLORS).map(([label, color]) => (
           <span key={label} className="flex items-center gap-1 text-[10px] text-gray-400">
             <span className="w-2.5 h-2.5 rounded-full inline-block" style={{ background: color }} />

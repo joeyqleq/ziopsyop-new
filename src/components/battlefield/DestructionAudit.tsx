@@ -40,10 +40,11 @@ export function DestructionAudit({ data }: { data: DestructionData }) {
     if (!svg || !container) return;
 
     const W = container.clientWidth || 600;
-    const rowH = 48;
-    const gap = 6;
-    const marginLeft = 130;
-    const marginRight = 60;
+    const isMobile = W < 500;
+    const rowH = isMobile ? 40 : 48;
+    const gap = isMobile ? 4 : 6;
+    const marginLeft = isMobile ? 80 : 130;
+    const marginRight = isMobile ? 40 : 60;
     const marginTop = 8;
     const H = sorted.length * (rowH + gap) + marginTop + 16;
     const barWidth = W - marginLeft - marginRight;
@@ -62,22 +63,31 @@ export function DestructionAudit({ data }: { data: DestructionData }) {
       const g = root.append("g");
 
       // village name label
+      const nameLabel = isMobile && village.name.length > 10
+        ? village.name.slice(0, 9) + "…"
+        : village.name;
       g.append("text")
-        .attr("x", marginLeft - 10)
+        .attr("x", marginLeft - 8)
         .attr("y", y + rowH / 2)
         .attr("text-anchor", "end")
         .attr("dominant-baseline", "middle")
         .attr("fill", "#d1d5db")
-        .attr("font-size", 11)
+        .attr("font-size", isMobile ? 9 : 11)
         .attr("font-family", "monospace")
-        .text(village.name);
+        .text(nameLabel);
 
-      // ceasefire badge
+      // ceasefire badge (below label on mobile, inline on desktop)
       if (village.duringCeasefire) {
+        const badgeW = isMobile ? 44 : 62;
+        const badgeX = isMobile
+          ? marginLeft - 8 - nameLabel.length * 5.5 - badgeW - 4
+          : marginLeft - 10 - village.name.length * 6.5 - 70;
+        const clampedBadgeX = Math.max(2, badgeX);
+
         g.append("rect")
-          .attr("x", marginLeft - 10 - village.name.length * 6.5 - 70)
+          .attr("x", clampedBadgeX)
           .attr("y", y + rowH / 2 - 8)
-          .attr("width", 62)
+          .attr("width", badgeW)
           .attr("height", 16)
           .attr("rx", 3)
           .attr("fill", `${AMBER}22`)
@@ -86,15 +96,15 @@ export function DestructionAudit({ data }: { data: DestructionData }) {
           .attr("stroke-opacity", 0.6);
 
         g.append("text")
-          .attr("x", marginLeft - 10 - village.name.length * 6.5 - 70 + 31)
+          .attr("x", clampedBadgeX + badgeW / 2)
           .attr("y", y + rowH / 2 + 1)
           .attr("text-anchor", "middle")
           .attr("dominant-baseline", "middle")
           .attr("fill", AMBER)
-          .attr("font-size", 8)
+          .attr("font-size", isMobile ? 7 : 8)
           .attr("font-family", "monospace")
           .attr("font-weight", "bold")
-          .text("CEASEFIRE");
+          .text(isMobile ? "C/F" : "CEASEFIRE");
       }
 
       // total structures bar (gray background)
@@ -195,7 +205,7 @@ export function DestructionAudit({ data }: { data: DestructionData }) {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ delay: 0.15, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className="grid grid-cols-3 gap-3"
+        className="grid grid-cols-1 sm:grid-cols-3 gap-3"
       >
         {[
           {

@@ -94,12 +94,16 @@ const eio = (t: number) => t < .5 ? 2 * t * t : 1 - (-2 * t + 2) ** 2 / 2
 
 // ─── Nav links ───────────────────────────────────────────────────────────────
 const NAV_LINKS = [
-  { label: "Gateway",  href: "/" },
-  { label: "Part I",   href: "/part-i" },
-  { label: "Analysis", href: "/analysis" },
-  { label: "Part II",  href: "/part-ii" },
-  { label: "Map",      href: "/map" },
-  { label: "Dossier",  href: "/dossier" },
+  { label: "Gateway",     href: "/" },
+  { label: "Part I",      href: "/part-i" },
+  { label: "Analysis",    href: "/analysis" },
+  { label: "Part II",     href: "/battlefield" },
+  { label: "Map",         href: "/map" },
+  { label: "Synthesis",   href: "/synthesis" },
+  { label: "Video",       href: "/evidence" },
+  { label: "Sources",     href: "/sources" },
+  { label: "Objections",  href: "/counter-arguments" },
+  { label: "About",       href: "/about" },
 ]
 
 // ─── Per-letter animation data for "ZI0PSY0P.ME" ─────────────────────────────

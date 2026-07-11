@@ -40,9 +40,9 @@ export function SpaceBackground({
     if (!ctx) return;
 
     const COLORS = [
-      "rgba(62, 230, 193, 0.85)", // phosphor mint
-      "rgba(232, 234, 233, 0.4)", // dim white
-      "rgba(232, 180, 76, 0.7)", // amber spark
+      "rgba(182, 255, 124, 0.75)", // lime — #b6ff7c
+      "rgba(123, 57, 208, 0.55)",  // purple — #7b39d0
+      "rgba(155, 95, 224, 0.85)",  // bright purple spark — #9b5fe0
     ];
 
     const state = { particles: [] as Particle[], r: 130, counter: 0 };
@@ -67,7 +67,7 @@ export function SpaceBackground({
         ring: Math.random() * state.r * 2.2,
         move: (Math.random() * 4 + 1) / 600,
         random: Math.random() * 7,
-        hue: roll > 0.96 ? 2 : roll > 0.55 ? 0 : 1,
+        hue: roll > 0.93 ? 2 : roll > 0.48 ? 1 : 0,
       });
     };
     for (let i = 0; i < particleCount; i++) createParticle();

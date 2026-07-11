@@ -9,7 +9,7 @@ import type { Transition } from "framer-motion";
 import { useBooted } from "@/components/fx/BootContext";
 
 const TICKER_ITEMS = [
-  "PART I — 93,247 DATA POINTS INGESTED",
+  "PART I — 102,610 DATA POINTS INGESTED",
   "PART I — FLAIR RATIO 3:1 — INCONSISTENT WITH STATED PURPOSE",
   "PART I — 2026 NARRATIVE PIVOT DETECTED",
   "PART II — 665 DOCUMENTED STRIKES CATALOGUED",

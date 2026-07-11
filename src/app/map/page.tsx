@@ -14,7 +14,7 @@ const AttackMap = dynamic(
   {
     ssr: false,
     loading: () => (
-      <div className="h-[600px] flex items-center justify-center">
+      <div className="h-[400px] md:h-[600px] flex items-center justify-center">
         <p className="font-mono text-xs tracking-[0.3em] text-primary caret">
           LOADING GEOSPATIAL INTELLIGENCE
         </p>

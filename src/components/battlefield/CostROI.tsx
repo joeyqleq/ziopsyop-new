@@ -182,8 +182,9 @@ function ScatterPlot({
     if (!svg || !container) return;
 
     const W = container.clientWidth || 700;
-    const H = Math.max(340, W * 0.52);
-    const margin = { top: 28, right: 32, bottom: 52, left: 68 };
+    const isMobile = W < 500;
+    const H = Math.max(300, W * 0.55);
+    const margin = { top: 28, right: isMobile ? 16 : 32, bottom: 48, left: isMobile ? 44 : 68 };
     const innerW = W - margin.left - margin.right;
     const innerH = H - margin.top - margin.bottom;
 

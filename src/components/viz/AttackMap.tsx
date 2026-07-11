@@ -135,5 +135,5 @@ export function AttackMap({ events }: Props) {
     });
   }, [events]);
 
-  return <div ref={mapRef} className="h-[600px] w-full rounded-xl" />;
+  return <div ref={mapRef} className="h-[400px] md:h-[600px] w-full rounded-xl" />;
 }

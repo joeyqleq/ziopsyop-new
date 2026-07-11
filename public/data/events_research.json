@@ -1,0 +1,1683 @@
+{
+  "events": [
+    {
+      "date": "2019-09-01",
+      "label": "Hezbollah anti-tank missile attack on IDF vehicle",
+      "description": "Hezbollah fired Kornet missiles at Israeli military vehicles in Avivim in retaliation for the August drone strike, injuring no soldiers but signaling willingness to respond directly. Israel struck back with artillery and aerial bombardment of Hezbollah positions.",
+      "category": "military",
+      "significance": "high",
+      "region": "Both"
+    },
+    {
+      "date": "2019-09-01",
+      "label": "Hezbollah ATGM Strike on IDF Position at Avivim",
+      "description": "Hezbollah fired an anti-tank guided missile at Israeli military vehicles near Avivim in direct retaliation for Israeli drone strikes on the Dahieh district of Beirut in late August. The IDF responded with sustained artillery bombardment into southern Lebanon, marking the most direct exchange in years and setting a volatile baseline.",
+      "category": "military",
+      "significance": "high",
+      "region": "Both"
+    },
+    {
+      "date": "2019-10-17",
+      "label": "October 17 Revolution (Thawra) Erupts",
+      "description": "Mass protests ignite across Lebanon after a proposed WhatsApp tax, rapidly expanding into demands for removal of the entire political class. Crowds chant 'all of them means all of them' (\u0643\u0644\u0646 \u064a\u0639\u0646\u064a \u0643\u0644\u0646), explicitly including Hezbollah and Amal in their condemnation.",
+      "category": "political",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2019-10-17",
+      "label": "October 17 Revolution Begins",
+      "description": "Spontaneous mass protests erupted across Lebanon triggered by a proposed WhatsApp tax, rapidly expanding into demands to dismantle the entire sectarian political class. Crowds in Beirut's Martyrs Square chanted 'all of them means all of them,' explicitly including Hezbollah's Hassan Nasrallah among the corrupt elite for the first time at scale.",
+      "category": "political",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2019-10-17",
+      "label": "Lebanese October Revolution begins",
+      "description": "Mass protests erupt across Lebanon triggered by a WhatsApp tax proposal, rapidly escalating into demands for the removal of the entire political class. Hezbollah's Hassan Nasrallah warns protesters against toppling the government, deepening public anger at Hezbollah's role in the system.",
+      "category": "political",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2019-10-17",
+      "label": "Lebanese Revolution Creates Audience Receptive to Anti-Hezbollah Messaging",
+      "description": "Mass protests erupt across Lebanon against the ruling class and Hezbollah's grip on the state. Israeli information operations analysts note that Lebanese public anger at Hezbollah creates fertile ground for IDF Arabic-language messaging that frames Hezbollah as the cause of Lebanon's ruin.",
+      "category": "political",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2019-10-19",
+      "label": "Nasrallah Speech Threatens Protesters",
+      "description": "Hezbollah Secretary-General Hassan Nasrallah delivered a televised speech warning protesters not to be used by foreign powers, defending his ministers, and refusing to resign. The speech was widely seen as dismissive of the uprising and hardened anti-Hezbollah sentiment among the protest movement.",
+      "category": "political",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2019-10-21",
+      "label": "Hezbollah and Amal Supporters Attack Protest Camps",
+      "description": "Supporters of Hezbollah and Amal movement stormed and destroyed protest tents in Beirut's Martyrs Square, beating demonstrators. The attack was widely condemned and became a defining image of Hezbollah acting as a sectarian enforcer against the popular uprising.",
+      "category": "social",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2019-10-25",
+      "label": "Amal/Hezbollah Supporters Attack Martyr's Square Protesters",
+      "description": "Motorcycle-riding Amal and Hezbollah supporters assault protest encampments in central Beirut, burning tents and attacking demonstrators. The incident is widely filmed and shared, cementing anti-Hezbollah sentiment among the protest movement.",
+      "category": "social",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2019-10-29",
+      "label": "PM Saad Hariri Resigns Under Protest Pressure",
+      "description": "Prime Minister Saad Hariri announces his resignation after 13 days of mass protests, the first PM forced from office by street pressure in Lebanese history. A 9-month political vacuum begins.",
+      "category": "political",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2019-10-29",
+      "label": "Prime Minister Hariri Resigns",
+      "description": "Saad Hariri announced his resignation as Prime Minister under protest pressure, describing the popular movement as a new Lebanon. His exit left Hezbollah and its allies in dominant position to shape the successor government, fueling accusations that Hezbollah had captured the state.",
+      "category": "political",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2019-10-29",
+      "label": "PM Hariri resigns amid protests",
+      "description": "Prime Minister Saad Hariri resigns after two weeks of nationwide protests, leaving Lebanon without a functioning government for months. The political vacuum exposes Hezbollah as a primary defender of the status quo.",
+      "category": "political",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2019-10-29",
+      "label": "PM Hariri Resigns Amid Uprising",
+      "description": "Prime Minister Saad Hariri resigned, becoming the first government casualty of the October Revolution and throwing Lebanon into renewed political vacuum. The resignation failed to satisfy protesters demanding systemic change and accelerated Lebanon's slide toward state paralysis.",
+      "category": "political",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2019-11-10",
+      "label": "Meta Removes IDF-Linked Arabic Influence Network (First Wave)",
+      "description": "Meta (then Facebook) removed a coordinated inauthentic behavior network traced to Israeli military operations that had posted Arabic-language content targeting Lebanese, Palestinian, and Iraqi audiences with content favorable to Israeli narratives and critical of Iran and Hezbollah. The network had operated since at least 2017.",
+      "category": "political",
+      "significance": "medium",
+      "region": "Israel"
+    },
+    {
+      "date": "2019-11-19",
+      "label": "Hassan Nasrallah Defends Political Class in Speech",
+      "description": "Hezbollah secretary-general Hassan Nasrallah delivers a televised address refusing to endorse the protest movement's demand to topple the entire government, calling instead for dialogue. The speech alienates many previously sympathetic Shia youth.",
+      "category": "political",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2020-01-03",
+      "label": "US kills Soleimani; regional escalation fears",
+      "description": "US drone strike kills IRGC Quds Force commander Qasem Soleimani in Baghdad. Hezbollah vows revenge; IDF goes on heightened alert along northern border. The killing restructures Iran's regional command, indirectly affecting Hezbollah's operational logistics.",
+      "category": "military",
+      "significance": "high",
+      "region": "Regional"
+    },
+    {
+      "date": "2020-01-21",
+      "label": "Hassan Diab Designated Prime Minister",
+      "description": "Hassan Diab is designated PM with backing from Hezbollah and Amal, forming a government described by protesters as a continuation of the same political establishment. Anti-government demonstrators reject the new cabinet.",
+      "category": "political",
+      "significance": "medium",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2020-01-21",
+      "label": "Hassan Diab Government Formed Under Hezbollah Dominance",
+      "description": "A cabinet led by technocrat Hassan Diab was formed with backing from Hezbollah and its allies, bypassing protest demands for an independent government. Western governments and protesters described it as a Hezbollah-installed cabinet, deepening the narrative that Hezbollah had seized Lebanese state institutions.",
+      "category": "political",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2020-01-21",
+      "label": "Hezbollah-Backed Diab Government Formed",
+      "description": "Hassan Diab was appointed prime minister heading a cabinet dominated by Hezbollah and its allies after three months of post-revolution impasse. The government was immediately dismissed as illegitimate by the protest movement and faced immediate Western skepticism and aid conditionality.",
+      "category": "political",
+      "significance": "medium",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2020-03-05",
+      "label": "Lebanon defaults on sovereign debt",
+      "description": "Lebanon misses a $1.2 billion Eurobond payment, marking the country's first-ever sovereign default. The economic freefall accelerates state collapse and deepens dependence on Hezbollah's parallel economy in Shia communities.",
+      "category": "economic",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2020-03-07",
+      "label": "Lebanon Defaults on Eurobond Debt",
+      "description": "Lebanon announces it cannot repay a $1.2 billion Eurobond, becoming the first Arab state to default on sovereign debt. The announcement triggers capital flight acceleration and further destabilizes the Lebanese pound.",
+      "category": "economic",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2020-03-07",
+      "label": "Lebanon Defaults on Sovereign Debt",
+      "description": "Lebanon announced it would not pay a $1.2 billion Eurobond, the first sovereign default in its history. The default crystallized years of fiscal mismanagement and became a milestone in the economic collapse narrative that protesters attributed to the entire political class, including Hezbollah-aligned ministers.",
+      "category": "economic",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2020-03-20",
+      "label": "Lebanese Pound Loses Peg \u2014 Black Market Emerges",
+      "description": "The Banque du Liban's informal peg of 1,507 LL/USD effectively collapses; black market rates climb past 3,000. ATM withdrawals are frozen or capped, trapping ordinary Lebanese savings. Hezbollah's parallel economy is cited by critics as having drained central bank reserves.",
+      "category": "economic",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2020-06-01",
+      "label": "Lebanese Pound Collapses Past 4,000 to Dollar",
+      "description": "The black market exchange rate for the Lebanese pound exceeded 4,000 per US dollar, more than quadruple its official peg, as bank capital controls strangled ordinary depositors. The collapse wiped out middle-class savings and generated widespread fury at the political and banking establishment.",
+      "category": "economic",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2020-07-27",
+      "label": "Hezbollah attempted infiltration at Har Dov",
+      "description": "IDF detects and fires on a Hezbollah unit attempting to cross the Blue Line near Har Dov/Shebaa Farms. Hezbollah denies the infiltration attempt; the incident raises fears of a broader escalation during Lebanon's economic implosion.",
+      "category": "military",
+      "significance": "medium",
+      "region": "Both"
+    },
+    {
+      "date": "2020-08-04",
+      "label": "Beirut Port Explosion Kills 218, Wounds 7,000",
+      "description": "2,750 tonnes of ammonium nitrate stored in Hangar 12 at Beirut's port detonates, destroying the port and devastating neighborhoods across eastern Beirut. The blast is one of the largest non-nuclear explosions in history; subsequent investigations point to years of official negligence and arms trafficking awareness.",
+      "category": "military",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2020-08-04",
+      "label": "Beirut Port Explosion",
+      "description": "2,750 tonnes of ammonium nitrate improperly stored in Beirut port for six years detonated in one of the largest non-nuclear explosions in history, killing at least 218 people, wounding 7,000, and destroying large parts of Beirut. Evidence emerged that Hezbollah-aligned officials had been informed of the stockpile and failed to act; the blast became the defining symbol of state criminality and impunity.",
+      "category": "social",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2020-08-04",
+      "label": "Beirut port explosion",
+      "description": "2,750 tonnes of ammonium nitrate stored at Beirut's port detonate in a catastrophic blast killing over 218 people, wounding 7,000, and destroying large parts of Beirut. The disaster triggers global outrage, mass resignation of the government, and accelerates Lebanon's state collapse.",
+      "category": "social",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2020-08-04",
+      "label": "Beirut Port Catastrophic Explosion",
+      "description": "2,750 tonnes of improperly stored ammonium nitrate detonated at the Beirut port, killing 217 people, wounding over 6,000, and destroying entire neighborhoods of the capital. The blast exposed catastrophic state negligence and reignited international outrage at Lebanon's ruling class, constituting the deepest wound to Lebanese sovereignty in a generation.",
+      "category": "social",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2020-08-04",
+      "label": "Beirut Port Explosion: IDF Info Ops Exploit Public Rage",
+      "description": "The catastrophic Beirut port explosion kills 218 people and devastates half the city. Israeli Arabic-language social media accounts, including Adraee's, amplify narratives blaming Hezbollah for storing the ammonium nitrate. Lebanese normalization discourse surges briefly as public anger at Hezbollah peaks.",
+      "category": "social",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2020-08-06",
+      "label": "Israeli Officials Use Beirut Explosion for Anti-Hezbollah Messaging",
+      "description": "Israeli Prime Minister Netanyahu publicly offered medical aid to Lebanon within 48 hours of the Beirut explosion, accompanied by Israeli Foreign Ministry messaging on Arabic social media emphasizing Hezbollah's role in blocking Lebanese progress. The messaging pivot \u2014 Israel as helper, Hezbollah as destroyer \u2014 was the first large-scale test of a humanitarian Israeli narrative toward Lebanon.",
+      "category": "political",
+      "significance": "medium",
+      "region": "Israel"
+    },
+    {
+      "date": "2020-08-08",
+      "label": "Beirut Protests Storm Government Ministries",
+      "description": "Furious demonstrators storm the Ministry of Foreign Affairs and briefly hold the Association of Lebanese Banks building, erecting a mock gallows outside. Crowds directly blame the political class\u2014including Hezbollah\u2014for the explosion and cover-up.",
+      "category": "social",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2020-08-08",
+      "label": "Beirut Port Explosion Protests and Embassy Storming",
+      "description": "Mass protests after the Beirut explosion turned violent; demonstrators stormed government ministries in central Beirut. The foreign minister building was briefly declared the 'headquarters of the revolution.' Anti-Hezbollah chants were widespread as protesters demanded accountability for the negligence that allowed the warehouse to remain.",
+      "category": "social",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2020-08-10",
+      "label": "PM Hassan Diab Resigns After Port Explosion",
+      "description": "Diab announces his government's resignation, calling the explosion a result of endemic corruption. His swift exit accelerates a second political vacuum and deepens public conviction that no accountability is possible under the current system.",
+      "category": "political",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2020-08-10",
+      "label": "PM Diab Government Resigns After Explosion",
+      "description": "Prime Minister Hassan Diab's government resigned three days after the Beirut explosion, saying the political class had chosen to protect itself rather than Lebanon. The rapid collapse demonstrated how fragile Hezbollah's government was when confronted with mass outrage, though the political vacuum that followed allowed the same parties to obstruct reform.",
+      "category": "political",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2020-08-10",
+      "label": "Lebanese government resigns post-explosion",
+      "description": "Prime Minister Hassan Diab and his cabinet resign following the Beirut port explosion and ensuing public fury. Lebanon enters another prolonged government formation vacuum, leaving Hezbollah as the dominant power broker.",
+      "category": "political",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2020-08-10",
+      "label": "Lebanese Government Resigns Post-Explosion",
+      "description": "Prime Minister Diab and his entire cabinet resigned under intense domestic and international pressure following the port explosion. Lebanon entered an extended caretaker governance period that would effectively leave the state without functional leadership for years.",
+      "category": "political",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2020-09-01",
+      "label": "French Macron Initiative Fails Under Hezbollah Obstruction",
+      "description": "French President Macron's two-visit diplomatic initiative to form a reform government collapsed as Hezbollah and its allies refused to accept a cabinet of independent technocrats. Macron publicly blamed Lebanese political leaders, and international media highlighted Hezbollah as the primary obstruction to international aid flows.",
+      "category": "political",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2020-09-01",
+      "label": "Macron Launches French Reform Initiative in Beirut",
+      "description": "French President Emmanuel Macron made his second post-explosion visit to Beirut, proposing a structured reform roadmap with a 15-month implementation window tied to international aid disbursement. The initiative stalled within months as Lebanon's political factions refused to cede patronage networks or implement IMF-mandated fiscal reforms.",
+      "category": "political",
+      "significance": "medium",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2020-09-03",
+      "label": "French President Macron Visits Beirut, Issues Reform Ultimatum",
+      "description": "Macron visits Beirut twice in August-September 2020, promising international aid contingent on structural reform. He explicitly names Hezbollah as part of Lebanon's problem in press remarks, amplifying Western pressure on the group's political role.",
+      "category": "political",
+      "significance": "medium",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2020-09-14",
+      "label": "Abraham Accords signed (regional context)",
+      "description": "Israel normalizes relations with the UAE and Bahrain at the White House. The accords reshape the Arab-Israeli diplomatic landscape and intensify Hezbollah and Iran's rhetoric against normalization, framing Lebanon as a front-state in resistance to Israeli expansion.",
+      "category": "political",
+      "significance": "high",
+      "region": "Regional"
+    },
+    {
+      "date": "2020-09-14",
+      "label": "r/ForbiddenBromance Subreddit Active (Estimated Founding Mid-2020)",
+      "description": "The r/ForbiddenBromance subreddit \u2014 'for Lebanese and Israeli redditors who want to be bros' \u2014 is demonstrably active by September 14, 2020 (earliest traceable Reddit front-page appearance). The community facilitates direct Israeli-Lebanese contact in apparent defiance of Lebanese anti-normalization laws, which criminalize communication with Israeli nationals.",
+      "category": "social",
+      "significance": "medium",
+      "region": "Both"
+    },
+    {
+      "date": "2020-10-14",
+      "label": "LBCI/MTV Survey Shows 75% Blame Hezbollah for Lebanon's Crisis",
+      "description": "Major Lebanese television polls conducted in October 2020 show unprecedented public blame directed at Hezbollah, Amal, and the Aoun-FPM bloc for Lebanon's economic and political collapse. Anti-Hezbollah sentiment reaches its recorded peak in non-Shia communities.",
+      "category": "social",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2020-10-22",
+      "label": "Lebanon-Israel Indirect Maritime Talks Begin",
+      "description": "US-mediated indirect negotiations over the disputed offshore maritime boundary opened in Naqoura under UN auspices, representing the first such talks between Lebanon and Israel in decades. Discussions covered overlapping gas field claims, principally the Karish and Qana blocks, in a bounded economic framework that carefully avoided political normalization.",
+      "category": "political",
+      "significance": "medium",
+      "region": "Both"
+    },
+    {
+      "date": "2020-10-23",
+      "label": "IDF Releases Graphic Showing Hezbollah Weapons in Beirut Port",
+      "description": "The Israel Defense Forces published graphics claiming Hezbollah had used the Beirut port to store weapons components alongside the ammonium nitrate, attempting to link the explosion to Hezbollah military infrastructure. The claim circulated widely on Arabic-language social media as part of Israeli messaging targeting Lebanese audiences grieving the explosion.",
+      "category": "military",
+      "significance": "medium",
+      "region": "Israel"
+    },
+    {
+      "date": "2020-12-01",
+      "label": "Lebanese Pound Hits 8,000 LL/USD on Black Market",
+      "description": "The exchange rate crosses 8,000 LL/USD, an 80% devaluation since the revolution began. Fuel, medicine, and bread shortages become routine. Hezbollah's social welfare network fills some gaps, simultaneously expanding its societal leverage while being blamed for the underlying crisis.",
+      "category": "economic",
+      "significance": "medium",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2020-12-01",
+      "label": "Gallup-Style IRI Poll: Lebanese Opposition to Hezbollah Arms Reaches 40%",
+      "description": "The International Republican Institute published polling showing that 40 percent of Lebanese respondents (including significant portions of Shia respondents) believed Hezbollah's independent military arm was a problem for Lebanon, a significant increase from pre-revolution baselines and the highest recorded to that point.",
+      "category": "social",
+      "significance": "medium",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2021-02-03",
+      "label": "Judge Tarek Bitar Appointed Port Explosion Investigator",
+      "description": "Tarek Bitar is appointed lead investigative judge for the August 4 explosion after his predecessor Judge Fawwaz Sawan was removed following charges against politicians. Bitar's investigation will eventually target Hezbollah-aligned ministers and is repeatedly suspended under political pressure.",
+      "category": "political",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2021-03-01",
+      "label": "Lebanese Pound Surpasses 10,000 to Dollar",
+      "description": "The black-market exchange rate broke 10,000 Lebanese pounds per US dollar, a threshold that destroyed what remained of middle-class purchasing power. Fuel, medicine, and bread became scarce. The collapse was the worst economic crisis in Lebanese history and consistently polled as the top public grievance surpassing security concerns.",
+      "category": "economic",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2021-04-01",
+      "label": "Adraee Interview: 'I Dream in Arabic'",
+      "description": "In an interview with Israeli outlet Mako, Adraee states 'I speak Arabic all day long, and I dream in Arabic from time to time,' cementing his persona as an intimate voice to Arab audiences. The interview is widely covered in Lebanese and Arab media, reinforcing the unusual cultural positioning of the IDF's Arabic spokesperson.",
+      "category": "social",
+      "significance": "low",
+      "region": "Both"
+    },
+    {
+      "date": "2021-04-14",
+      "label": "Hezbollah begins fuel imports from Iran via Syria",
+      "description": "Hezbollah announces it will import Iranian fuel through Syria to alleviate Lebanon's fuel crisis, circumventing US sanctions. The move deepens Hezbollah's political hold on Lebanon while providing Iran a propaganda victory against the blockade.",
+      "category": "economic",
+      "significance": "medium",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2021-05-10",
+      "label": "Operation Guardian of the Walls begins",
+      "description": "Israel launches Operation Guardian of the Walls against Hamas in Gaza following rocket barrages from Gaza. Hezbollah fires rockets into northern Israel in solidarity, and cross-border exchanges occur, testing the northern front amid the Gaza war.",
+      "category": "military",
+      "significance": "high",
+      "region": "Both"
+    },
+    {
+      "date": "2021-05-10",
+      "label": "Operation Guardian of Walls Elevates Regional Tension",
+      "description": "Israel's military operation against Hamas in Gaza triggered solidarity mobilization across the region, with Hezbollah issuing warnings and conducting minor demonstration actions along the Lebanese border. The front remained subdued as Hezbollah weighed intervention costs against the risk of drawing a full Israeli response while Lebanon remained in domestic collapse.",
+      "category": "military",
+      "significance": "high",
+      "region": "Regional"
+    },
+    {
+      "date": "2021-05-13",
+      "label": "Rockets Fired from Lebanon in Gaza Solidarity",
+      "description": "Several rockets were launched from southern Lebanese territory toward northern Israel in a solidarity demonstration with Gaza, marking the first organized salvo from Lebanon in years. The IDF responded with artillery; Hezbollah denied direct responsibility, attributing launches to Palestinian factions operating in the south.",
+      "category": "military",
+      "significance": "medium",
+      "region": "Both"
+    },
+    {
+      "date": "2021-05-21",
+      "label": "Ceasefire ends Guardian of the Walls",
+      "description": "Egypt-brokered ceasefire halts 11 days of fighting between Israel and Hamas in Gaza. The northern front with Hezbollah de-escalates simultaneously, though Hezbollah claims the exchange demonstrated its readiness for a multi-front war.",
+      "category": "ceasefire",
+      "significance": "high",
+      "region": "Both"
+    },
+    {
+      "date": "2021-06-23",
+      "label": "IDF Arabic-Language Social Media Operation Exposed",
+      "description": "Researchers at the Stanford Internet Observatory documented a network of Arabic-language Facebook accounts and pages operated by Israeli military intelligence that targeted Lebanese, Syrian, and Palestinian audiences with content portraying Hezbollah as the cause of Lebanese suffering. The accounts had run since at least 2019 and were removed by Meta.",
+      "category": "political",
+      "significance": "high",
+      "region": "Both"
+    },
+    {
+      "date": "2021-07-15",
+      "label": "Lebanon Fuel Crisis: Queues Span Kilometers, Generator Racket Exposed",
+      "description": "Fuel shortages become catastrophic; hospitals run on backup generators that run dry. The collapse of state electricity provision\u2014EDL\u2014is directly linked by analysts to Hezbollah's protection of fuel-smuggling networks to Syria and the group's veto over IMF reforms.",
+      "category": "economic",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2021-07-16",
+      "label": "Saad Hariri Abandons Government Formation Attempt",
+      "description": "Hariri withdraws from PM designation after nine months of failed cabinet negotiations, citing Hezbollah and FPM obstruction. His exit leaves a caretaker government and no institutional path forward, deepening public despair about the political system.",
+      "category": "political",
+      "significance": "medium",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2021-07-20",
+      "label": "Lebanon total economic collapse / fuel crisis peak",
+      "description": "Lebanon's currency collapses to 20,000 LBP per dollar, hospitals shut down, fuel lines stretch for kilometers. The World Bank classifies Lebanon's economic crisis as one of the three worst globally since the 1850s.",
+      "category": "economic",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2021-07-26",
+      "label": "Lebanon Fuel Crisis \u2014 Queues and Electricity Collapse",
+      "description": "Lebanon's electricity grid fell to fewer than two hours per day in most areas as the state utility ran out of fuel; private generator cartels raised prices beyond affordability. The crisis was directly attributed to Hezbollah-aligned Energy Minister bloc's decade of blocking electricity reform to protect cartel interests.",
+      "category": "economic",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2021-08-03",
+      "label": "Hezbollah fuel convoy enters from Syria",
+      "description": "First Hezbollah fuel convoy from Iran crosses into Lebanon via Syria, greeted by supporters in Hermel. Israel calls it a violation of sanctions; the imagery of Hezbollah as provider vs the failed state dominates Lebanese information space.",
+      "category": "political",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2021-08-11",
+      "label": "IDF Arabic Unit Publishes Beirut Reconstruction Maps Blaming Hezbollah",
+      "description": "The IDF's Arabic-language social media accounts published detailed infographics attributing the failure to rebuild Beirut to Hezbollah's obstruction of international funding conditions and Hezbollah diversion of reconstruction resources. The content was widely shared on Lebanese Facebook groups critical of the government.",
+      "category": "political",
+      "significance": "medium",
+      "region": "Israel"
+    },
+    {
+      "date": "2021-08-19",
+      "label": "Beirut Port Blast Investigator Tarek Bitar Charges Diab and Senior Officials",
+      "description": "Judge Tarek Bitar issued charges and summonses for former PM Hassan Diab and three former ministers including Hezbollah and Amal-affiliated figures for the port explosion. Hezbollah's Secretary-General Nasrallah publicly demanded Bitar's removal, marking the beginning of an overt campaign to shut down the investigation.",
+      "category": "political",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2021-10-14",
+      "label": "Tayyouneh Massacre: Hezbollah/Amal Gunmen Kill 7 in Beirut",
+      "description": "Hezbollah and Amal supporters march on the Palace of Justice demanding removal of Judge Bitar; Lebanese Forces snipers (disputed) and street fighting leave 7 dead in the Tayyouneh neighborhood. The incident revives memories of civil war and further polarizes Lebanese opinion on Hezbollah.",
+      "category": "military",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2021-10-14",
+      "label": "Hezbollah-Amal Supporters Ambushed at Tayouneh Clashes",
+      "description": "A Hezbollah and Amal-organized march demanding the removal of blast investigator Tarek Bitar came under sniper fire near Tayouneh in Beirut, triggering armed street fighting that killed seven and wounded dozens. The incident underscored Hezbollah's willingness to intimidate judicial processes and raised fears of renewed civil war.",
+      "category": "military",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2021-10-17",
+      "label": "Hezbollah Threatens Judge Bitar Publicly; Investigation Suspended",
+      "description": "Following the Tayyouneh clashes, judicial and political pressure forces suspension of the port explosion investigation. Hezbollah's role in obstructing justice becomes a central anti-Hezbollah narrative domestically and internationally.",
+      "category": "political",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2021-11-01",
+      "label": "EDL Nationwide Blackout: State Electricity Effectively Ends",
+      "description": "Electricit\u00e9 du Liban ceases power generation for days due to fuel debt. Lebanese endure zero state-supplied electricity. Critics directly link the crisis to Hezbollah's blocking of World Bank and IMF support packages that conditioned disbursements on reforms the group opposed.",
+      "category": "economic",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2021-11-30",
+      "label": "Judge Bitar Suspended \u2014 Hezbollah Investigation Blocked",
+      "description": "A Lebanese appeals court suspended Judge Bitar's investigation for procedural reasons after a legal campaign led by Hezbollah-aligned lawyers. International observers described the suspension as judicial assassination of the port investigation. The blockage became a central exhibit in anti-Hezbollah accountability narratives.",
+      "category": "political",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2021-12-15",
+      "label": "Iran Fuel Shipments Arrive via Hezbollah \u2014 Leverage Display",
+      "description": "Hezbollah announces and organizes the arrival of Iranian fuel tankers through Syria, framing itself as Lebanon's savior while critics argue the stunt was a deliberate PR operation to rehabilitate the group's image after months of blame for the economic crisis.",
+      "category": "political",
+      "significance": "medium",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2022-01-01",
+      "label": "Lebanese Pound Hits 30,000 \u2014 Poverty Rate Exceeds 80%",
+      "description": "The World Bank classified Lebanon as one of the worst economic collapses of the modern era; the pound hit 30,000 to the dollar on the parallel market and the poverty rate exceeded 80 percent of the population. Brain drain accelerated as professionals emigrated en masse, hollowing out civil society.",
+      "category": "economic",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2022-01-10",
+      "label": "Lebanese Pound Reaches 30,000 LL/USD \u2014 Worst Currency Collapse in 150 Years",
+      "description": "The World Bank formally classifies Lebanon's economic crisis as one of the three worst globally since the 1850s. By mid-2022 over 80% of Lebanese are below the poverty line. Analysts repeatedly cite Hezbollah's veto over IMF reforms as a key driver of the collapse.",
+      "category": "economic",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2022-04-01",
+      "label": "Bank Depositor Robbers: Lebanese Storm Own Banks at Gunpoint",
+      "description": "Dozens of Lebanese depositors enter banks at gunpoint or with hostages to withdraw trapped savings, a phenomenon covered globally. The actions are widely sympathized with domestically; protest groups supporting the depositors explicitly link Hezbollah's political obstructionism to the banking collapse.",
+      "category": "social",
+      "significance": "medium",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2022-05-15",
+      "label": "Lebanese Parliamentary Elections: Hezbollah/Amal Lose Shiite Majority",
+      "description": "In a historic result, Hezbollah and Amal lose their parliamentary majority. Independent and anti-Hezbollah candidates win 13 seats. The Lebanese Forces doubles its seats to 19. Voter turnout at 41% reflects widespread disillusionment, but the directional shift is significant.",
+      "category": "political",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2022-05-15",
+      "label": "Lebanese parliamentary elections",
+      "description": "Lebanon holds its first elections since the 2019 revolution. Hezbollah and allies lose their parliamentary majority for the first time; independent reform candidates gain seats. Outcome is fragile and coalition-building collapses repeatedly.",
+      "category": "political",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2022-06-02",
+      "label": "Hezbollah Drones Over Israeli Karish Gas Platform",
+      "description": "Hezbollah launched three armed surveillance drones toward the Karish offshore natural gas platform in a deliberate show of force during stalled maritime border negotiations. Israel intercepted the drones; Hezbollah framed the operation as a sovereign warning against Israeli unilateral extraction from disputed waters.",
+      "category": "military",
+      "significance": "medium",
+      "region": "Both"
+    },
+    {
+      "date": "2022-07-02",
+      "label": "Hezbollah launches drones toward Israeli gas platform",
+      "description": "Hezbollah launches three armed drones toward Israel's Karish natural gas platform in the disputed Mediterranean waters, intercepted by the Israeli Navy. The provocation is tied to ongoing Lebanon-Israel maritime border negotiations.",
+      "category": "military",
+      "significance": "high",
+      "region": "Both"
+    },
+    {
+      "date": "2022-08-01",
+      "label": "IDF Arabic X Strategy During Operation Breaking Dawn Documented",
+      "description": "Academic analysis of Adraee's X posts during the August 2022 Operation Breaking Dawn in Gaza identifies five documented digital warfare strategies: segmented digital diplomacy targeting diverse Arabic-speaking audiences, psychological fragmentation tactics, and strategic morality framing designed to justify IDF strikes to Lebanese and Arab publics.",
+      "category": "military",
+      "significance": "medium",
+      "region": "Israel"
+    },
+    {
+      "date": "2022-09-01",
+      "label": "Stanford Internet Observatory Documents Israeli Facebook IOPS Targeting Lebanon",
+      "description": "A detailed Stanford Internet Observatory and Graphika report documented the Israeli government's use of sockpuppet accounts, translated Arabic content, and manufactured Lebanese voices to amplify anti-Hezbollah narratives on Facebook and Instagram. The operation had operated for at least three years and reached millions of Lebanese users.",
+      "category": "political",
+      "significance": "high",
+      "region": "Israel"
+    },
+    {
+      "date": "2022-10-27",
+      "label": "Lebanon-Israel Maritime Border Agreement Signed",
+      "description": "Lebanon and Israel signed a US-brokered maritime border agreement delimiting their offshore gas exploration rights. The deal was concluded despite Hezbollah opposition and constituted Lebanon's first de facto bilateral arrangement with Israel, creating a template cited in normalization discourse. Hezbollah initially threatened to block it, then acquiesced.",
+      "category": "political",
+      "significance": "high",
+      "region": "Both"
+    },
+    {
+      "date": "2022-10-27",
+      "label": "Lebanon-Israel maritime border agreement",
+      "description": "Lebanon and Israel sign a US-brokered maritime border agreement delineating their Exclusive Economic Zones and resolving the Karish/Qana gas field dispute. The deal, the first ever between the two countries, is mediated by Amos Hochstein and marks a landmark diplomatic event despite the absence of full normalization.",
+      "category": "political",
+      "significance": "high",
+      "region": "Both"
+    },
+    {
+      "date": "2022-10-31",
+      "label": "Presidential Vacancy Begins \u2014 Michel Aoun's Term Expires",
+      "description": "President Michel Aoun leaves office without a successor, inaugurating one of Lebanon's longest presidential vacuums (26 months). Hezbollah and FPM block candidates, paralyzing government. The vacuum becomes a signature example of Hezbollah's weaponization of political obstruction.",
+      "category": "political",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2023-01-09",
+      "label": "Presidential Vacuum \u2014 Lebanon Without a President for Over a Year",
+      "description": "Lebanon entered its fourteenth month without a president after parliament failed repeatedly to elect a candidate, primarily because Hezbollah blocked candidates it opposed. The vacuum paralyzed state institutions and was universally attributed to Hezbollah's veto over Lebanese governance, deepening the anti-Hezbollah accountability narrative.",
+      "category": "political",
+      "significance": "medium",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2023-01-15",
+      "label": "Parliamentary Gridlock: 11th Consecutive Failed Presidential Vote",
+      "description": "Lebanese parliament fails yet again to elect a president, the 11th round since October 2022. International press and Lebanese civil society openly attribute the deadlock to Hezbollah's refusal to accept any candidate not aligned with the Axis of Resistance.",
+      "category": "political",
+      "significance": "medium",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2023-04-06",
+      "label": "Aqaba summit amid rising northern tensions",
+      "description": "Regional diplomats meet in Aqaba amid rising Israeli-Palestinian tensions at Al-Aqsa. Hezbollah places forces on high alert and fires rockets toward Mount Meron in solidarity, marking an escalation on the northern front separate from the occupied territories.",
+      "category": "military",
+      "significance": "medium",
+      "region": "Both"
+    },
+    {
+      "date": "2023-04-06",
+      "label": "Rockets from Lebanon After Al-Aqsa Compound Raids",
+      "description": "Dozens of rockets were fired from southern Lebanon toward northern Israel following Israeli police raids into the Al-Aqsa Mosque compound during Ramadan, triggering a sharp but contained escalation cycle. The IDF responded with air and artillery strikes on launch sites in Lebanon; the exchange subsided within 48 hours.",
+      "category": "military",
+      "significance": "medium",
+      "region": "Both"
+    },
+    {
+      "date": "2023-05-01",
+      "label": "Arab Barometer Survey: Lebanese Confidence in Hezbollah Falls to Record Low",
+      "description": "The Arab Barometer regional survey published findings showing Lebanese confidence in Hezbollah had fallen to its lowest recorded level since the survey began in 2006, driven primarily by economic grievances and the port explosion accountability issue. The shift was most pronounced among younger Lebanese under 35.",
+      "category": "social",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2023-05-09",
+      "label": "Palestinian Islamic Jihad Fires Salvos from Lebanon",
+      "description": "Palestinian Islamic Jihad launched a barrage of rockets from Lebanese territory as part of its Operation Shield and Arrow campaign, the first significant multi-rocket salvo from Lebanon since 2021. Israel retaliated with airstrikes on PIJ infrastructure in Lebanon, and the exchange demonstrated Lebanon's inability to prevent non-Hezbollah armed actors from using its territory.",
+      "category": "military",
+      "significance": "medium",
+      "region": "Both"
+    },
+    {
+      "date": "2023-06-20",
+      "label": "Washington Institute Poll: 53% of Lebanese Shia View Hezbollah Negatively",
+      "description": "A Washington Institute for Near East Policy survey finds 53% of Lebanese Shia now have an unfavorable view of Hezbollah's role in Lebanese politics, up from roughly 30% in 2018. Non-Shia opposition exceeds 85%. The poll documents a measurable pro-sovereignty shift.",
+      "category": "social",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2023-10-07",
+      "label": "Hamas massacres in southern Israel; October 7",
+      "description": "Hamas launches a surprise cross-border assault from Gaza, killing approximately 1,200 Israelis and abducting 251 hostages. Hezbollah opens the 'northern front' the following day, firing anti-tank missiles and rockets at Israeli positions in a declared act of solidarity.",
+      "category": "military",
+      "significance": "high",
+      "region": "Both"
+    },
+    {
+      "date": "2023-10-07",
+      "label": "Hamas Oct 7 Attack Opens Multi-Front War",
+      "description": "Hamas's devastating assault on southern Israel killed over 1,200 Israelis and fundamentally transformed the regional strategic environment, with Hezbollah declaring a 'unity of arenas' posture the same day. The attack ended the managed-tension equilibrium that had held the Lebanon front relatively stable since 2006.",
+      "category": "military",
+      "significance": "high",
+      "region": "Regional"
+    },
+    {
+      "date": "2023-10-08",
+      "label": "Hezbollah Opens 'Support Front' Against Israel After October 7",
+      "description": "One day after Hamas's October 7 attack, Hezbollah begins cross-border fire exchanges with Israel from south Lebanon, framing it as a solidarity front. The escalation triggers the displacement of 90,000\u2013120,000 south Lebanese residents, immediately generating domestic criticism.",
+      "category": "military",
+      "significance": "high",
+      "region": "Both"
+    },
+    {
+      "date": "2023-10-08",
+      "label": "Hezbollah Opens Northern Front After October 7 Hamas Attack",
+      "description": "The day after Hamas's October 7 attack on Israel, Hezbollah began daily cross-border fire into northern Israel from Lebanon, displacing 60,000 Israeli civilians and 90,000 Lebanese civilians by December. Lebanese public opinion polls showed a majority opposed Hezbollah's decision to enter the conflict without consultation with the Lebanese state.",
+      "category": "military",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2023-10-08",
+      "label": "Hezbollah opens 'northern front'",
+      "description": "Hezbollah launches anti-tank missiles and artillery at IDF positions along the Blue Line, officially opening a 'support front' for Gaza. Israel evacuates approximately 60,000-80,000 residents from northern communities within the following weeks.",
+      "category": "military",
+      "significance": "high",
+      "region": "Both"
+    },
+    {
+      "date": "2023-10-08",
+      "label": "Hezbollah Opens Daily Anti-Tank Missile Exchanges",
+      "description": "Hezbollah fired anti-tank guided missiles at Israeli observation posts and military positions along the Blue Line beginning October 8, opening what it designated a 'support front' for Gaza in the framework of its unity-of-arenas doctrine. The exchanges became a daily operational feature that would persist for nearly a year, gradually escalating in intensity and geographic reach.",
+      "category": "military",
+      "significance": "high",
+      "region": "Both"
+    },
+    {
+      "date": "2023-10-08",
+      "label": "IDF Spokesperson Unit Expands Arabic Psychological Operations Post-Oct 7",
+      "description": "Following Hamas's October 7 attack, the IDF Spokesperson's Unit dramatically escalates Arabic-language operations targeting Lebanese and Palestinian audiences. Adraee's social media following surges; by December 2023 he has 554,000 X followers, 2.5 million Facebook followers. The Unit also launches a covert psy-op disguised as a 'fact-checking NGO.'",
+      "category": "military",
+      "significance": "high",
+      "region": "Both"
+    },
+    {
+      "date": "2023-10-13",
+      "label": "IDF Evacuates 60,000 Residents from North Israel",
+      "description": "Israel ordered mandatory evacuation of communities within two to four kilometers of the Lebanese border, displacing approximately 60,000 to 80,000 residents who would remain away from their homes for over a year. The enforced displacement represented a major strategic and psychological achievement for Hezbollah and imposed severe social and economic costs on Israel's north.",
+      "category": "military",
+      "significance": "high",
+      "region": "Israel"
+    },
+    {
+      "date": "2023-10-18",
+      "label": "Blast at Al-Ahli hospital, Beirut on high alert",
+      "description": "An explosion at Al-Ahli hospital in Gaza kills hundreds; initial reports widely blame Israel before evidence points to a misfired Palestinian rocket. The incident inflames the Lebanese street and triggers protests outside the US embassy in Beirut.",
+      "category": "social",
+      "significance": "medium",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2023-10-20",
+      "label": "Domestic Criticism: South Lebanese Civilians Condemn Hezbollah for Displacement",
+      "description": "As Israeli strikes force mass evacuation of border villages, interviews with displaced Shia residents in Lebanese media express anger at Hezbollah for involving their communities in a war they did not choose. The sentiment is unprecedented in openly Shia media coverage.",
+      "category": "social",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2023-10-23",
+      "label": "Adraee Issues First Evacuation Warnings to Lebanese Villages via X",
+      "description": "As the Israel-Hezbollah border front escalates after October 7, Adraee begins issuing Arabic-language evacuation warnings to southern Lebanese villages via X (Twitter), establishing a pattern later extended to mass evacuations of over a million Lebanese. Amnesty International describes these warnings as 'misleading,' noting civilians are not given adequate time to evacuate.",
+      "category": "military",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2023-10-29",
+      "label": "IDF Launches Covert 'Fact Check Daily' Psy-Op on WhatsApp/Instagram",
+      "description": "The IDF Spokesperson's Unit secretly creates 'Fact Check \u2013 Daily Content' WhatsApp and Instagram channels, presenting them as a neutral non-profit 'fact-checking' organization. The operation recruits Israeli and pro-Israeli international influencers including celebrities to amplify military narratives without disclosure. The operation runs covertly until exposed in December 2024.",
+      "category": "military",
+      "significance": "high",
+      "region": "Israel"
+    },
+    {
+      "date": "2023-11-02",
+      "label": "IDF strikes Hezbollah anti-tank unit in south Lebanon",
+      "description": "IDF conducts airstrikes killing senior Hezbollah commanders in southern Lebanon, marking the highest-profile targeted killings on the northern front since 2006. Hezbollah responds with Kornet and Burkan rocket barrages.",
+      "category": "military",
+      "significance": "high",
+      "region": "Both"
+    },
+    {
+      "date": "2023-11-14",
+      "label": "IDF Releases 'Hezbollah Dragging Lebanon to War' Campaign",
+      "description": "The IDF Spokesperson's Arabic-language social media accounts launched a sustained messaging campaign with graphics, videos, and statements framing Hezbollah as dragging Lebanon into a catastrophic war against Lebanese will. The campaign cited Lebanese polling showing majority opposition to Hezbollah's unilateral military decisions.",
+      "category": "political",
+      "significance": "medium",
+      "region": "Israel"
+    },
+    {
+      "date": "2023-11-15",
+      "label": "IDF Drops Arabic-Language Leaflets Over South Lebanon Villages",
+      "description": "The IDF's COGAT unit conducts coordinated leaflet drops over populated southern Lebanese towns, warning residents to evacuate and framing Hezbollah as the cause of their suffering. The operation is documented by journalists on the ground as part of a broader psychological operations campaign.",
+      "category": "military",
+      "significance": "medium",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2023-12-01",
+      "label": "IDF Drops Leaflets Over South Lebanon Urging Residents to Blame Hezbollah",
+      "description": "Israeli aircraft dropped Arabic-language leaflets over South Lebanese villages urging residents to demand Hezbollah withdraw and spare Lebanon from destruction, framing Israel as reluctant and Hezbollah as responsible for bringing war to civilian areas. The tactic, combined with text message campaigns, targeted Lebanese civilian audiences.",
+      "category": "political",
+      "significance": "medium",
+      "region": "Both"
+    },
+    {
+      "date": "2024-01-02",
+      "label": "IDF Kills Hezbollah Deputy Commander Saleh al-Arouri in Beirut",
+      "description": "An Israeli drone strike kills Hamas political bureau deputy Saleh al-Arouri and six others in the Dahiya suburb of Beirut \u2014 the first IDF strike inside Beirut since 2006. Hezbollah's response is muted, which critics inside Lebanon interpret as weakness.",
+      "category": "military",
+      "significance": "high",
+      "region": "Both"
+    },
+    {
+      "date": "2024-01-02",
+      "label": "IDF kills Saleh al-Arouri in Beirut airstrike",
+      "description": "An Israeli drone strike in Dahiyeh, Beirut kills Hamas deputy political chief Saleh al-Arouri and other Hamas officials. The strike is the deepest Israeli attack into Beirut since 2006, dramatically escalating cross-border tensions.",
+      "category": "military",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2024-01-02",
+      "label": "Israel Kills Hamas Deputy Chief Arouri in Beirut",
+      "description": "An Israeli airstrike on an apartment building in the Dahieh district of Beirut killed Hamas political bureau deputy chief Saleh al-Arouri and six other operatives in broad daylight. The strike was the deepest Israeli attack inside Beirut since 2006 and signaled Israel's willingness to conduct decapitation operations against high-value targets in the Lebanese capital.",
+      "category": "military",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2024-01-10",
+      "label": "IDF Targets Hezbollah Commander Wissam Tawil in Lebanon",
+      "description": "Israel killed Hezbollah commander Wissam Tawil in Khiam, the first senior Hezbollah commander killed in the post-October 7 escalation period. Israeli Arabic-language messaging emphasized that Hezbollah's leadership was sacrificing Lebanese lives for Iran's agenda, targeting audiences already skeptical of Hezbollah's role in Lebanese politics.",
+      "category": "military",
+      "significance": "medium",
+      "region": "Both"
+    },
+    {
+      "date": "2024-01-15",
+      "label": "Ra'anana Car-Ramming Attack: Attackers Targeted Adraee",
+      "description": "A car-ramming attack in Ra'anana is later revealed in police reports to have been planned specifically to kill Adraee, targeting him for his role as the IDF's Arabic spokesman. One person is killed and multiple injured. The attack underscores Adraee's high-profile status as the face of Israeli psychological warfare in the Arab world.",
+      "category": "military",
+      "significance": "medium",
+      "region": "Israel"
+    },
+    {
+      "date": "2024-03-01",
+      "label": "DFR Lab / Marc Owen Jones Expose STOIC Influence Network",
+      "description": "The Digital Forensic Research Lab and researcher Marc Owen Jones independently identify and report a network of 160+ fake Facebook, X, and Instagram accounts \u2014 linked to Tel Aviv firm STOIC \u2014 spreading Islamophobic content in Canada and the US, promoting pro-Israel narratives and targeting progressive coalitions sympathetic to Palestinians.",
+      "category": "political",
+      "significance": "high",
+      "region": "Regional"
+    },
+    {
+      "date": "2024-03-20",
+      "label": "IDF Arabic Social Media Campaigns Surge: DFRLab Documents Coordinated IO",
+      "description": "The Atlantic Council's Digital Forensic Research Lab (DFRLab) publishes analysis documenting coordinated Israeli government-linked social media accounts in Arabic targeting Lebanese audiences, amplifying anti-Hezbollah messaging, civilian casualty blame narratives, and pro-sovereignty content across Facebook, TikTok, and WhatsApp.",
+      "category": "social",
+      "significance": "high",
+      "region": "Regional"
+    },
+    {
+      "date": "2024-04-01",
+      "label": "IDF strikes Iranian consulate in Damascus",
+      "description": "Israeli airstrike destroys the Iranian consulate in Damascus, killing IRGC Quds Force General Mohammad Reza Zahedi and other senior commanders. The strike triggers Iran's first-ever direct attack on Israel; Hezbollah heightens operational readiness.",
+      "category": "military",
+      "significance": "high",
+      "region": "Regional"
+    },
+    {
+      "date": "2024-04-01",
+      "label": "Israel Strikes IRGC Generals in Damascus Consulate",
+      "description": "An Israeli airstrike on the Iranian consular annex in Damascus killed seven IRGC officers including Generals Mohammad Reza Zahedi and Mohammad Hadi Haji Rahimi, directly targeting the Quds Force command structure overseeing weapons transfers to Hezbollah. The strike prompted Iran's first-ever direct ballistic missile and drone barrage against Israeli territory on April 13-14.",
+      "category": "military",
+      "significance": "high",
+      "region": "Regional"
+    },
+    {
+      "date": "2024-04-14",
+      "label": "Iran launches direct missile and drone attack on Israel",
+      "description": "Iran fires over 300 drones and missiles directly at Israel, the first direct Iranian attack. Israel and allies intercept the vast majority. Hezbollah contributes to the barrage with rockets from Lebanon. The exchange marks a new escalation threshold in the regional conflict.",
+      "category": "military",
+      "significance": "high",
+      "region": "Regional"
+    },
+    {
+      "date": "2024-05-01",
+      "label": "Meta Removes Israeli PSYOP Network Targeting Lebanese and Arab Audiences",
+      "description": "Meta (Facebook/Instagram) announces the takedown of a network of coordinated inauthentic accounts linked to Israeli military intelligence, which posted in Arabic targeting Lebanese, Palestinian, and broader Arab audiences with anti-Hezbollah and anti-Iran content. The network used Lebanese personas.",
+      "category": "social",
+      "significance": "high",
+      "region": "Regional"
+    },
+    {
+      "date": "2024-05-29",
+      "label": "Meta and OpenAI Disrupt STOIC Israeli Influence Operation",
+      "description": "Meta removes 510 Facebook accounts and 32 Instagram accounts linked to Tel Aviv political marketing firm STOIC, commissioned by Israel's Ministry of Diaspora Affairs for at least $2 million. OpenAI simultaneously disrupts the same network. Fake accounts posed as Jewish students, Black Americans, and 'concerned citizens' to divide pro-Palestinian coalitions.",
+      "category": "political",
+      "significance": "high",
+      "region": "Regional"
+    },
+    {
+      "date": "2024-06-05",
+      "label": "NYT and Politico Expose Israeli Government Disinformation Campaign Targeting US Congress",
+      "description": "The New York Times and Politico report that Israel's Ministry of Diaspora Affairs secretly commissioned STOIC to target at least 128 US lawmakers \u2014 mostly Democrats \u2014 with fake social media accounts posting pro-Israel military content. The operation aimed to secure continued US military funding for Israel's Gaza campaign.",
+      "category": "political",
+      "significance": "high",
+      "region": "Regional"
+    },
+    {
+      "date": "2024-07-01",
+      "label": "Israeli Defense Ministry Tender for Psychological Warfare Training Leaked",
+      "description": "An internal Defense Ministry tender dated July 2024, obtained by Israeli investigative outlet The Hottest Place in Hell and reported by +972 Magazine, reveals a structured curriculum training 320 'influence experts' annually in psychological operations, 'influence intelligence,' and 'online activist' tactics. Courses include deepfakes, propaganda, deception, and social media manipulation, in Hebrew and English for 'foreign partners.'",
+      "category": "military",
+      "significance": "high",
+      "region": "Israel"
+    },
+    {
+      "date": "2024-07-01",
+      "label": "Adraee Promoted to Colonel, Coordinates Mass Lebanon Evacuation Warnings",
+      "description": "Adraee is promoted to full colonel in July 2024, the highest rank in the IDF Spokesperson's Unit. As Israeli-Hezbollah fighting escalates through summer 2024, he issues evacuation warnings to dozens of southern Lebanese villages via X and TikTok, creating mass panic and demonstrating the direct kinetic-informational integration of Israel's Arabic-language operations.",
+      "category": "military",
+      "significance": "medium",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2024-07-13",
+      "label": "IDF kills Hezbollah commander Taleb Abdullah",
+      "description": "Israeli airstrike in southern Lebanon kills Hezbollah's Southern Front commander Taleb Sami Abdullah, one of the most senior field commanders killed. Hezbollah responds with its largest rocket and drone barrage of the year, striking Majdal Shams on the Golan.",
+      "category": "military",
+      "significance": "high",
+      "region": "Both"
+    },
+    {
+      "date": "2024-07-27",
+      "label": "Majdal Shams rocket strike kills 12 children",
+      "description": "A rocket, attributed by Israel to Hezbollah (Hezbollah denies), kills 12 Druze children on a football pitch in Majdal Shams on the occupied Golan Heights. The strike triggers intense Israeli calls for retaliation and shifts international sympathy sharply.",
+      "category": "military",
+      "significance": "high",
+      "region": "Israel"
+    },
+    {
+      "date": "2024-07-27",
+      "label": "Hezbollah Rocket Kills 12 Children in Majdal Shams",
+      "description": "A Hezbollah Falaq-1 rocket struck a soccer field in the Druze town of Majdal Shams in the Israeli-controlled Golan Heights, killing 12 children and teenagers in the deadliest single Hezbollah attack on Israeli civilians since the front opened. The massacre generated overwhelming domestic Israeli pressure for a decisive military response and is widely regarded as a proximate trigger for the subsequent invasion.",
+      "category": "military",
+      "significance": "high",
+      "region": "Israel"
+    },
+    {
+      "date": "2024-07-30",
+      "label": "IDF Kills Hezbollah Commander Fuad Shukr in Beirut Suburb Airstrike",
+      "description": "A precision IDF strike kills Fuad Shukr, Hezbollah's top military commander, in a residential building in Beirut's southern suburbs. The strike demonstrates Israeli ISR penetration of Hezbollah's command structure and fuels Lebanese public debate about the group's endangerment of civilian areas.",
+      "category": "military",
+      "significance": "high",
+      "region": "Both"
+    },
+    {
+      "date": "2024-07-30",
+      "label": "Israel Kills Hezbollah Commander Fuad Shukr in Beirut",
+      "description": "A targeted Israeli airstrike in Beirut's southern suburbs killed senior Hezbollah commander Fuad Shukr, one of the most senior figures killed in years. The strike, conducted in a dense civilian area, prompted debate in Lebanese civil society about Hezbollah's use of Beirut as a military theater, a key element of Israeli information operations targeting Lebanese audiences.",
+      "category": "military",
+      "significance": "high",
+      "region": "Both"
+    },
+    {
+      "date": "2024-07-30",
+      "label": "IDF kills Hezbollah senior commander Fuad Shukr in Beirut",
+      "description": "Israeli airstrike in Beirut's Dahiyeh kills Hezbollah military commander Fuad Shukr, the highest-ranking Hezbollah official killed in decades. The strike is simultaneous with the assassination of Hamas political chief Ismail Haniyeh in Tehran.",
+      "category": "military",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2024-09-17",
+      "label": "Pager Attack: 3,000 Hezbollah Members' Devices Detonate Simultaneously",
+      "description": "Thousands of pager devices used by Hezbollah members explode across Lebanon simultaneously in a covert Israeli operation, killing 37 and wounding approximately 3,000. The attack demonstrates catastrophic Hezbollah supply-chain penetration and sparks a civilian safety panic across Lebanon.",
+      "category": "military",
+      "significance": "high",
+      "region": "Both"
+    },
+    {
+      "date": "2024-09-17",
+      "label": "Pager and Walkie-Talkie Attacks Kill and Wound Thousands of Hezbollah Members",
+      "description": "Thousands of Hezbollah pagers and walkie-talkies detonated simultaneously across Lebanon in a covert Israeli operation, killing at least 37 people and wounding nearly 3,000, including civilians. Lebanese civil society debate focused on Hezbollah's exposure of Lebanese civilians to mass-casualty intelligence operations conducted in populated areas.",
+      "category": "military",
+      "significance": "high",
+      "region": "Both"
+    },
+    {
+      "date": "2024-09-17",
+      "label": "Pager supply-chain attack kills Hezbollah operatives",
+      "description": "Thousands of Hezbollah operatives' pagers simultaneously explode across Lebanon, killing at least 12 and wounding nearly 3,000. The operation, attributed to Israel's Mossad, is one of the most sophisticated supply-chain attacks in the history of covert warfare.",
+      "category": "military",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2024-09-17",
+      "label": "Coordinated Pager and Walkie-Talkie Mass Detonations",
+      "description": "In a supply-chain intelligence operation attributed to Israel, thousands of Hezbollah pagers simultaneously detonated across Lebanon killing 12 and wounding nearly 3,000 operatives, followed the next day by exploding walkie-talkies that killed a further 27. The operation devastated Hezbollah's tactical communications architecture and signaled an Israeli intelligence penetration of extraordinary depth.",
+      "category": "military",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2024-09-18",
+      "label": "Walkie-Talkie Detonation Attack Kills 20 Additional Hezbollah Members",
+      "description": "A second wave of device detonations targeting Hezbollah's communication infrastructure kills 20 more and wounds hundreds, occurring one day after the pager attack. Lebanese civilian casualties and hospital overwhelm intensify domestic anger at Hezbollah for importing the conflict.",
+      "category": "military",
+      "significance": "high",
+      "region": "Both"
+    },
+    {
+      "date": "2024-09-18",
+      "label": "Walkie-talkie devices explode across Lebanon",
+      "description": "A second coordinated device-detonation operation causes explosions of Hezbollah walkie-talkies and other electronics across Lebanon, killing dozens more and wounding hundreds. The two-day attack devastates Hezbollah's communications infrastructure.",
+      "category": "military",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2024-09-19",
+      "label": "IDF Sends Mass SMS and WhatsApp to Lebanese Civilians Blaming Hezbollah",
+      "description": "Following the pager attacks, the IDF Spokesperson's Unit sent mass text messages and WhatsApp broadcasts to Lebanese phone numbers urging civilians to pressure Hezbollah to stand down, framing Hezbollah as the sole reason Lebanon faced destruction. The campaign was described by communications researchers as the largest single Israeli direct-messaging operation targeting a foreign civilian population.",
+      "category": "political",
+      "significance": "high",
+      "region": "Both"
+    },
+    {
+      "date": "2024-09-20",
+      "label": "IDF strikes Hezbollah southern Lebanon command centers",
+      "description": "IDF conducts its largest single-day airstrike campaign in Lebanon in years, targeting Hezbollah command-and-control infrastructure, weapons depots, and rocket launch sites across the south and Bekaa Valley.",
+      "category": "military",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2024-09-23",
+      "label": "Israel Launches Massive Lebanon Airstrikes \u2014 490 Killed in One Day",
+      "description": "Israel launched the largest single-day bombardment of Lebanon since 2006, killing at least 490 people across the south and Beqaa in strikes targeting Hezbollah infrastructure. Lebanese politicians and civil society figures publicly questioned why Hezbollah had provoked a war the Lebanese state and people had no voice in declaring.",
+      "category": "military",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2024-09-23",
+      "label": "Massive IDF airstrike wave on Hezbollah targets begins",
+      "description": "Israel launches a 24-hour wave of hundreds of airstrikes across Lebanon from southern villages to Bekaa Valley to Beirut suburbs, marking the most intense aerial campaign since the 2006 war. Over 550 killed in first two days; 90,000 Lebanese displaced.",
+      "category": "military",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2024-09-23",
+      "label": "IDF Launches Operation Northern Arrows: Adraee Issues Mass Lebanon Evacuation Orders",
+      "description": "The IDF launches Operation Northern Arrows with massive strikes on Hezbollah infrastructure across Lebanon. Adraee posts evacuation warnings to over 20 towns in southern Lebanon on X, creating widespread fear. Lebanese media reports over a million people displaced in days, with critics noting IDF posts are effectively kinetic targeting signals as much as humanitarian warnings.",
+      "category": "military",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2024-09-27",
+      "label": "IDF Kills Hassan Nasrallah in Beirut Bunker Strike",
+      "description": "Israeli airstrikes on Hezbollah's headquarters in the Dahiya district of Beirut kill secretary-general Hassan Nasrallah, who led the organization for 32 years. His death is met with grief in Shia communities and quiet relief in others; Lebanese political figures begin publicly discussing a post-Hezbollah order.",
+      "category": "military",
+      "significance": "high",
+      "region": "Both"
+    },
+    {
+      "date": "2024-09-27",
+      "label": "Hassan Nasrallah Killed in Beirut Airstrike",
+      "description": "Israeli airstrike on Hezbollah's headquarters in Beirut's southern suburbs killed Secretary-General Hassan Nasrallah, the most powerful figure in Lebanese politics for three decades. Lebanese reactions were sharply divided; significant portions of civil society and diaspora expressed relief while Hezbollah's base mourned, marking an unprecedented fracture in Lebanese political cohesion.",
+      "category": "military",
+      "significance": "high",
+      "region": "Both"
+    },
+    {
+      "date": "2024-09-27",
+      "label": "Hassan Nasrallah killed in IDF Beirut airstrike",
+      "description": "An Israeli airstrike using bunker-buster bombs destroys Hezbollah's headquarters in Dahiyeh, killing Secretary-General Hassan Nasrallah. His death ends nearly three decades of his leadership and is the most consequential Israeli targeted killing in the conflict's modern history.",
+      "category": "military",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2024-09-27",
+      "label": "IDF Kills Nasrallah in Beirut Bunker Airstrike",
+      "description": "Israel dropped over 80 bunker-buster bombs on Hezbollah's underground headquarters complex in the Dahieh district of Beirut, killing Secretary-General Hassan Nasrallah who had led the organization for 32 years. Nasrallah's death was the most consequential blow to Hezbollah since its founding and removed the irreplaceable strategic architect of its deterrence doctrine.",
+      "category": "military",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2024-09-30",
+      "label": "Israeli Ground Invasion of South Lebanon Begins",
+      "description": "IDF ground forces cross the Lebanese border, entering villages in the south for the first time since 2006. Over 1 million Lebanese are displaced in the following weeks. The invasion triggers calls from Lebanese political leaders, including Druze and Christian parties, for a ceasefire and Hezbollah disarmament.",
+      "category": "military",
+      "significance": "high",
+      "region": "Both"
+    },
+    {
+      "date": "2024-09-30",
+      "label": "IDF Launches Ground Invasion of Southern Lebanon",
+      "description": "Israeli ground forces crossed the Lebanese border in the first Israeli ground operation in Lebanon since the 2006 war, targeting Hezbollah's tunnel networks, weapons depots, and fortified border positions. The invasion aimed to push Hezbollah forces north of the Litani River and create conditions for the return of displaced northern Israeli communities.",
+      "category": "military",
+      "significance": "high",
+      "region": "Both"
+    },
+    {
+      "date": "2024-10-01",
+      "label": "Israeli Ground Invasion of Southern Lebanon Begins",
+      "description": "Israeli ground forces crossed into southern Lebanon beginning a ground campaign against Hezbollah. The incursion displaced over one million Lebanese internally and generated acute debate about Hezbollah's decision to initiate cross-border operations following October 7 without Lebanese state authorization.",
+      "category": "military",
+      "significance": "high",
+      "region": "Both"
+    },
+    {
+      "date": "2024-10-01",
+      "label": "IDF launches ground invasion of southern Lebanon",
+      "description": "Israeli ground forces enter southern Lebanon in a 'limited, targeted' operation aimed at dismantling Hezbollah infrastructure near the border. The operation is the first Israeli ground incursion into Lebanon since the 2006 war.",
+      "category": "military",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2024-10-01",
+      "label": "Iran fires ballistic missile barrage at Israel",
+      "description": "Iran launches approximately 180 ballistic missiles at Israel in response to Israeli operations against Hezbollah. The attack represents Iran's second direct strike on Israel and triggers Israeli preparation for retaliatory strikes on Iranian territory.",
+      "category": "military",
+      "significance": "high",
+      "region": "Regional"
+    },
+    {
+      "date": "2024-10-01",
+      "label": "Iran Fires 180 Ballistic Missiles at Israel",
+      "description": "Iran launched approximately 180 ballistic missiles at Israel in Operation True Promise II, in direct retaliation for the killing of Nasrallah and IRGC commanders, marking the second Iranian direct strike on Israeli territory within six months. The majority were intercepted by Israeli, US, and allied air defense systems, but the barrages strained the defense architecture.",
+      "category": "military",
+      "significance": "high",
+      "region": "Regional"
+    },
+    {
+      "date": "2024-10-04",
+      "label": "r/ForbiddenBromance Subreddit Reaches Peak Activity During Lebanon War",
+      "description": "The subreddit r/ForbiddenBromance, which hosted Israeli-Lebanese dialogue and was subject to repeated scrutiny over Israeli coordinated participation, reached its highest documented activity levels during the 2024 Lebanon war as Lebanese users sought information and Israeli users engaged in direct normalization messaging. Reddit administrators reviewed the community for coordinated behavior.",
+      "category": "social",
+      "significance": "medium",
+      "region": "Both"
+    },
+    {
+      "date": "2024-10-15",
+      "label": "Lebanese Forces Leader Geagea Calls for Hezbollah Disarmament as Ceasefire Condition",
+      "description": "Samir Geagea publicly states that any post-war settlement must include Hezbollah's full disarmament south of the Litani and transition to civilian political status. His statement, broadcast widely, reflects a broader Lebanese Forces and Christian right position that had been building since 2020.",
+      "category": "political",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2024-10-16",
+      "label": "Hashem Safieddine (Hezbollah leadership) killed",
+      "description": "IDF airstrike kills Hashem Safieddine, head of Hezbollah's executive council and Nasrallah's expected successor, along with senior commanders. Hezbollah's leadership succession collapses into uncertainty.",
+      "category": "military",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2024-10-25",
+      "label": "Israel Strikes Iranian Air Defense and Military Sites",
+      "description": "Israel conducted a multi-wave retaliatory operation against Iranian military infrastructure, targeting air defense batteries, missile production facilities, and IRGC installations across multiple Iranian provinces. The operation demonstrated Israel's ability to penetrate Iranian airspace at will and significantly degraded Iran's integrated air defense coverage.",
+      "category": "military",
+      "significance": "high",
+      "region": "Regional"
+    },
+    {
+      "date": "2024-10-26",
+      "label": "IDF retaliatory strikes on Iranian military sites",
+      "description": "Israel conducts retaliatory airstrikes on Iranian air defense and military infrastructure, targeting sites near Tehran. The strikes are calibrated to degrade Iranian air defenses without triggering a full escalation but mark a direct exchange between Israel and Iran.",
+      "category": "military",
+      "significance": "high",
+      "region": "Regional"
+    },
+    {
+      "date": "2024-10-28",
+      "label": "IDF Drops Millions of Leaflets Over Beirut Suburbs Targeting Hezbollah Supporters",
+      "description": "The IDF conducts one of its largest Arabic-language leaflet drops over Beirut's southern suburbs, telling residents Hezbollah has 'destroyed Lebanon' and that Israel's fight is not with the Lebanese people. The operation is part of a documented strategic communications effort coordinated with IDF Spokesperson Arabic.",
+      "category": "military",
+      "significance": "medium",
+      "region": "Both"
+    },
+    {
+      "date": "2024-11-01",
+      "label": "Lebanese Civil Society Opens Normalization Discourse After Nasrallah Death",
+      "description": "Following the killing of Nasrallah and the ceasefire, a previously taboo discourse emerged in Lebanese media and civil society about formal relations with Israel. Columnists in An-Nahar and L'Orient Le Jour, as well as diaspora figures, publicly discussed Lebanese state interest in a peace framework contingent on Israeli withdrawal, marking the first mainstream normalization discourse since 2000.",
+      "category": "political",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2024-11-27",
+      "label": "Lebanon-Israel Ceasefire Enters Into Force",
+      "description": "A US-France brokered 60-day ceasefire between Israel and Lebanon takes effect, requiring IDF withdrawal from south Lebanon and Lebanese Army deployment to the border zone. The agreement implicitly marginalizes Hezbollah from border governance for the first time since 2000.",
+      "category": "ceasefire",
+      "significance": "high",
+      "region": "Both"
+    },
+    {
+      "date": "2024-11-27",
+      "label": "Lebanon-Israel ceasefire agreement takes effect",
+      "description": "A US- and France-brokered 60-day ceasefire between Israel and Hezbollah takes effect. The agreement calls for IDF withdrawal from southern Lebanon and Hezbollah withdrawal north of the Litani River, with Lebanese Armed Forces deploying to the south.",
+      "category": "ceasefire",
+      "significance": "high",
+      "region": "Both"
+    },
+    {
+      "date": "2024-11-27",
+      "label": "Israel-Hezbollah 60-Day Ceasefire Announced",
+      "description": "A ceasefire brokered by the United States and France came into effect, requiring Israeli forces to withdraw from Lebanese territory within 60 days while the Lebanese Army deployed south of the Litani River. The deal was welcomed internationally but faced persistent implementation disputes, particularly over the pace of IDF withdrawal and the scope of permitted Hezbollah rearmament.",
+      "category": "ceasefire",
+      "significance": "high",
+      "region": "Both"
+    },
+    {
+      "date": "2024-12-08",
+      "label": "Assad Regime Falls in Syria \u2014 Hezbollah Supply Route Severed",
+      "description": "The Assad government collapses after rebel advances, severing the primary overland route through which Iran supplied Hezbollah with weapons and cash. Lebanese analysts describe the event as a strategic catastrophe for Hezbollah, removing its strategic depth and resupply corridor.",
+      "category": "political",
+      "significance": "high",
+      "region": "Regional"
+    },
+    {
+      "date": "2024-12-08",
+      "label": "Assad regime falls; Syria fractures",
+      "description": "Syrian President Bashar al-Assad flees to Russia as rebel forces including HTS capture Damascus. The collapse of Assad severs Hezbollah's land bridge to Iran via Syria and dramatically reshapes the regional balance of power.",
+      "category": "political",
+      "significance": "high",
+      "region": "Regional"
+    },
+    {
+      "date": "2024-12-08",
+      "label": "Assad Regime Collapses, Severing Hezbollah Corridor",
+      "description": "The Syrian government fell to a rebel offensive led by Hayat Tahrir al-Sham, ending 54 years of Assad family rule and severing Hezbollah's primary overland weapons transfer route from Iran through Syria. The collapse, occurring ten days after the Lebanon ceasefire, fundamentally disrupted Hezbollah's logistics architecture at the precise moment it required reconstitution.",
+      "category": "political",
+      "significance": "high",
+      "region": "Regional"
+    },
+    {
+      "date": "2024-12-20",
+      "label": "Lebanese Army Deploys to South Lebanon Border for First Time Since 2006",
+      "description": "Lebanese Armed Forces units move into positions vacated by IDF withdrawal south of the Litani River, fulfilling a ceasefire provision and symbolically asserting state sovereignty over territory previously controlled by Hezbollah. The deployment is broadly welcomed by Lebanese civil society.",
+      "category": "military",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2025-01-09",
+      "label": "Joseph Aoun Elected Lebanese President \u2014 26-Month Vacuum Ends",
+      "description": "Lebanese Army Commander Joseph Aoun is elected president by parliament after 26 months of deadlock, with backing from the United States, Saudi Arabia, and France. His election is seen as a defeat for Hezbollah's veto strategy and a shift toward a state-sovereignty paradigm.",
+      "category": "political",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2025-01-09",
+      "label": "Joseph Aoun elected Lebanese president",
+      "description": "Lebanon's parliament elects Lebanese Armed Forces commander Joseph Aoun as president after over two years of presidential vacuum. The election ends the deadlock and signals a potential rebalancing of power away from Hezbollah's political dominance.",
+      "category": "political",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2025-01-13",
+      "label": "Nawaf Salam Appointed Prime Minister",
+      "description": "Nawaf Salam, former Lebanese ambassador to the UN and prominent reform-aligned figure, was appointed Prime Minister by President Aoun. His appointment was the most significant political realignment in Lebanon in two decades, representing a government formation explicitly independent of Hezbollah's political approval.",
+      "category": "political",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2025-01-13",
+      "label": "Nawaf Salam becomes Lebanese Prime Minister",
+      "description": "International Court of Justice president Nawaf Salam is designated as Prime Minister, forming Lebanon's first government in years with a mandate to implement UN Resolution 1701 and rebuild state authority over the south.",
+      "category": "political",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2025-01-22",
+      "label": "Nawaf Salam Designated Prime Minister \u2014 Reformist Signal",
+      "description": "Former International Court of Justice president Nawaf Salam is designated PM, supported by anti-Hezbollah and independent blocs. His designation is widely read as an implicit rejection of Hezbollah's political dominance and a signal of potential realignment toward the Arab Gulf and West.",
+      "category": "political",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2025-02-08",
+      "label": "Nawaf Salam Forms Government; Cabinet Excludes Hezbollah Ministers",
+      "description": "Salam's cabinet is formed without any Hezbollah-aligned ministers for the first time in over a decade. The government explicitly states commitment to full implementation of UN Security Council Resolution 1701, implying Hezbollah disarmament south of the Litani.",
+      "category": "political",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2025-02-15",
+      "label": "Lebanese Army Deploys to South Lebanon \u2014 First Full Deployment Since 1970s",
+      "description": "The Lebanese Armed Forces completed deployment across most of southern Lebanon under ceasefire terms, entering areas from which Hezbollah had barred them for decades. The deployment was a visible symbol of Lebanese state sovereignty restoration and was used extensively in Israeli and Western messaging about a post-Hezbollah Lebanon.",
+      "category": "military",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2025-02-18",
+      "label": "IDF extends Lebanon ceasefire, delays withdrawal",
+      "description": "Israel's Security Cabinet extends IDF presence in southern Lebanon beyond the original 60-day ceasefire deadline, citing Hezbollah's failure to fully withdraw north of the Litani. Lebanon protests the continued occupation of several villages.",
+      "category": "ceasefire",
+      "significance": "high",
+      "region": "Both"
+    },
+    {
+      "date": "2025-02-18",
+      "label": "IDF Completes Phased Withdrawal from South Lebanon",
+      "description": "Israeli forces completed a phased withdrawal from most positions in southern Lebanon in compliance with the ceasefire framework, though Israel retained several strategic hilltop outposts it deemed essential for ongoing threat monitoring. The Lebanese Army formally assumed control of vacated zones under international supervision.",
+      "category": "military",
+      "significance": "high",
+      "region": "Both"
+    },
+    {
+      "date": "2025-03-01",
+      "label": "Reddit Safety Investigates Claims of Manipulation Across Lebanon/Israel Subreddits",
+      "description": "Reddit's Safety team publishes findings investigating claims of coordinated manipulation across subreddits covering the Lebanon-Israel conflict. The investigation examines alleged censorship and coordinated inauthentic behavior across major political subreddits, following widespread user reports of brigading on r/Lebanon and r/IsraelPalestine. Reddit does not find sufficient evidence for a formal takedown.",
+      "category": "political",
+      "significance": "medium",
+      "region": "Both"
+    },
+    {
+      "date": "2025-03-15",
+      "label": "Lebanese Government Publicly Demands Hezbollah Disarmament \u2014 First Official Statement",
+      "description": "The Salam government issues a formal statement calling for Hezbollah to surrender its independent weapons arsenal and integrate fighters into the Lebanese Armed Forces, the first such explicit demand by a Lebanese cabinet in the group's history. The statement generates international support and domestic debate.",
+      "category": "political",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2025-03-15",
+      "label": "Hezbollah elects Naim Qassem as Secretary-General",
+      "description": "Hezbollah formally installs Naim Qassem as Secretary-General, confirming the succession after Nasrallah's killing. Qassem had served as deputy secretary-general for decades; his elevation signals organizational continuity despite catastrophic losses.",
+      "category": "political",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2025-04-10",
+      "label": "Stanford Internet Observatory Report: Israeli IO Campaigns Targeted Lebanese Diaspora 2023-2025",
+      "description": "Stanford Internet Observatory publishes findings documenting a two-year Israeli information operation targeting the Lebanese diaspora in Europe, North America, and the Gulf, using fake Lebanese Christian and Druze personas to amplify anti-Hezbollah narratives, normalize Israeli-Lebanese contacts, and shift diaspora remittance and political pressure.",
+      "category": "social",
+      "significance": "high",
+      "region": "Regional"
+    },
+    {
+      "date": "2025-04-10",
+      "label": "Israeli Forces Maintain South Lebanon Positions Past Withdrawal Deadline",
+      "description": "Israel failed to complete its withdrawal from Lebanese territory by the sixty-day ceasefire deadline, maintaining positions in five villages. The Lebanese government publicly demanded full withdrawal; international observers noted the delay undermined Lebanese state legitimacy arguments that Hezbollah had used its post-ceasefire weakness to generate anti-Israeli unity sentiment.",
+      "category": "military",
+      "significance": "medium",
+      "region": "Both"
+    },
+    {
+      "date": "2025-05-20",
+      "label": "Public Normalization Discourse Emerges: Lebanese Politicians Meet Israeli Officials Reportedly",
+      "description": "Multiple Lebanese press sources report informal back-channel contacts between Lebanese political figures and Israeli counterparts, facilitated by US envoys, discussed a framework for eventual border demarcation and normalized relations. Hezbollah condemns the contacts as treasonous; others defend them as pragmatic.",
+      "category": "political",
+      "significance": "medium",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2025-06-01",
+      "label": "Washington Institute Poll: 67% of Lebanese Support Permanent Ceasefire With Israel",
+      "description": "A new Washington Institute survey finds 67% of Lebanese respondents support a permanent end to hostilities with Israel and 54% support eventual normalization of relations if it comes with full Israeli withdrawal and a Palestinian state framework \u2014 the highest pro-normalization numbers ever recorded in Lebanon.",
+      "category": "social",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2025-06-01",
+      "label": "Lebanese Government Initiates Disarmament Talks on Hezbollah Weapons",
+      "description": "The Nawaf Salam government publicly opened discussions on the implementation of UN Security Council Resolution 1701, including the question of Hezbollah's arms south of the Litani. For the first time a Lebanese government stated publicly that Hezbollah's arms outside the state framework were an issue for negotiation, reflecting the most significant pro-state sovereignty shift in Lebanese policy in twenty years.",
+      "category": "political",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2025-06-15",
+      "label": "IDF Spokesperson Arabic Reaches 2 Million Followers on X/TikTok",
+      "description": "The IDF Arabic-language social media accounts collectively surpass 2 million followers, a milestone reported by Israeli and Arab media. The accounts are documented to actively target Lebanese audiences with messaging distinguishing between Hezbollah and the Lebanese people.",
+      "category": "social",
+      "significance": "medium",
+      "region": "Regional"
+    },
+    {
+      "date": "2025-07-01",
+      "label": "Lebanon-Israel Border Demarcation Talks Begin Under US Mediation",
+      "description": "Formal US-mediated talks between Lebanese and Israeli technical delegations begin to demarcate the land border, extending the maritime border deal framework from 2022. The talks represent the most direct Lebanon-Israel engagement since the 1996 Monitoring Group.",
+      "category": "political",
+      "significance": "high",
+      "region": "Both"
+    },
+    {
+      "date": "2025-07-01",
+      "label": "Israel launches renewed ground operations in Lebanon",
+      "description": "After months of alleged ceasefire violations and Hezbollah rearming, Israel resumes large-scale airstrikes and reinitiates ground operations in southern Lebanon. The second invasion advances deeper than the 2024 operation, targeting Bekaa Valley weapons routes.",
+      "category": "military",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2025-07-15",
+      "label": "Lebanese Army Deploys South of the Litani River",
+      "description": "The Lebanese Armed Forces completed a formal deployment to the area south of the Litani River per the ceasefire terms, marking the first sustained Lebanese Army presence in the region since the 1970s. The deployment was internationally welcomed but remained hampered by limited resources, incomplete Hezbollah disarmament, and persistent Israeli overflights.",
+      "category": "military",
+      "significance": "medium",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2025-08-01",
+      "label": "Israel Contracts Clock Tower X / Brad Parscale for $6M Digital Influence Campaign",
+      "description": "Israel's government signs a $6 million contract with Clock Tower X, a consultancy run by former Trump campaign manager Brad Parscale, registered as a foreign agent under FARA in September 2025. The contract requires 100+ ads monthly with 5,000 variations, with 80% targeted at youth audiences across Facebook, Instagram, TikTok, and YouTube.",
+      "category": "political",
+      "significance": "high",
+      "region": "Regional"
+    },
+    {
+      "date": "2025-10-08",
+      "label": "+972 Magazine Exposes IDF Propaganda Wing Operations 2023-2024",
+      "description": "+972 Magazine and The Hottest Place in Hell publish a detailed investigation revealing the IDF Spokesperson's Unit ran a covert two-year psy-op using fake 'fact-checking' channels, recruited international influencers, and used selective leaks to shape global media coverage of the Gaza and Lebanon wars. The army acknowledges involvement and describes it as a 'mistake.'",
+      "category": "political",
+      "significance": "high",
+      "region": "Israel"
+    },
+    {
+      "date": "2025-11-11",
+      "label": "Adraee Retirement Announced After 20 Years as IDF Arabic Spokesperson",
+      "description": "Israeli media reports that Adraee will retire from the IDF Spokesperson's Unit after 20 years. He is described as 'Israel's face and voice to the Arabic-speaking world.' His role as a psychological warfare tool targeting Lebanese and Arab audiences is subject of academic papers, Arab press analysis, and civil society criticism of evacuation warning tactics.",
+      "category": "military",
+      "significance": "medium",
+      "region": "Israel"
+    },
+    {
+      "date": "2026-01-15",
+      "label": "FPV drone warfare reaches strategic scale in Lebanon",
+      "description": "IDF and Hezbollah both deploy fiber-optic-guided FPV drones at scale across the Lebanese theater, with Hezbollah using Iranian-supplied Shahed derivatives and IDF deploying autonomous loitering munitions. The proliferation marks a shift from precision strikes to attritional drone warfare along contested lines.",
+      "category": "military",
+      "significance": "high",
+      "region": "Both"
+    },
+    {
+      "date": "2026-01-20",
+      "label": "Rocket Fire Resumes from Lebanese Territory",
+      "description": "A series of rocket salvos from southern Lebanon struck northern Israeli communities, killing several civilians and prompting Israel to attribute responsibility to residual Hezbollah networks operating in violation of the ceasefire. Israel conducted punishing airstrikes and issued ultimatums demanding Lebanese Army enforcement action, setting the stage for renewed large-scale operations.",
+      "category": "military",
+      "significance": "high",
+      "region": "Both"
+    },
+    {
+      "date": "2026-02-15",
+      "label": "Ella Waweya Replaces Adraee as IDF Arabic Spokesperson",
+      "description": "Lt. Col. Ella Waweya, Adraee's deputy for several years, officially takes over as the IDF's Arabic-language spokesperson in a ceremony in Tel Aviv on February 15, 2026. She inherits a massive social media presence and the operational infrastructure Adraee built over two decades of targeting Lebanese and Arab audiences.",
+      "category": "military",
+      "significance": "medium",
+      "region": "Israel"
+    },
+    {
+      "date": "2026-02-24",
+      "label": "Israel Launches Second Lebanon Military Campaign",
+      "description": "Israel initiated a second ground campaign against Lebanon, crossing the border with combined armor and infantry forces while conducting deep airstrikes on Hezbollah infrastructure across the south and Bekaa Valley. The operation, framed as a response to renewed rocket fire and Hezbollah's failure to fully disarm under the ceasefire terms, quickly pushed beyond the Litani River.",
+      "category": "military",
+      "significance": "high",
+      "region": "Both"
+    },
+    {
+      "date": "2026-03-10",
+      "label": "US mediates new Lebanon-Israel framework talks",
+      "description": "The US Envoy for Lebanon conducts shuttle diplomacy between Beirut and Jerusalem on a broader framework covering land border demarcation, Hezbollah disarmament south of Litani, and potential normalization tracks. Talks remain stalled on sovereignty questions.",
+      "category": "political",
+      "significance": "medium",
+      "region": "Both"
+    },
+    {
+      "date": "2026-03-13",
+      "label": "IDF Drops QR Code Leaflets Over Beirut \u2014 Unit 504 Collaboration Recruitment",
+      "description": "Israeli occupation forces drop leaflets over Beirut neighborhoods (Hamra, Verdun, Mar Elias, Barbour) containing QR codes linking to WhatsApp and Facebook accounts operated by Unit 504, Israel's clandestine human intelligence unit responsible for recruiting collaborators. Leaflets feature a mock newspaper titled 'The New Reality.' The Lebanese Army warns citizens against scanning the codes, citing 'legal and security risks.'",
+      "category": "military",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2026-03-20",
+      "label": "Mondoweiss Analysis: IDF Leaflets as Psychological Terror \u2014 Parallels to 1948",
+      "description": "Academic analysis published in Mondoweiss documents the psychological impact of IDF evacuation orders and leaflet drops over Beirut in March 2026, drawing explicit parallels to 1948 Nakba displacement tactics. The analysis notes that an estimated one million Lebanese \u2014 one in four citizens \u2014 were displaced within two weeks, describing the combination of bombs and messaging as 'godlike' psychological terror.",
+      "category": "social",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2026-04-10",
+      "label": "IDF Advances on Baalbek, Bekaa Valley Operations",
+      "description": "Israeli ground forces extended operations deep into the Bekaa Valley for the first time in decades, targeting Hezbollah weapons storage facilities, command infrastructure, and Iranian-linked installations in the Baalbek region. The advance triggered mass displacement of tens of thousands of Lebanese civilians and drew sustained international condemnation.",
+      "category": "military",
+      "significance": "high",
+      "region": "Lebanon"
+    },
+    {
+      "date": "2026-07-04",
+      "label": "UN Security Council Emergency Sessions on Lebanon",
+      "description": "With active fighting ongoing and no diplomatic framework in place, the UN Security Council convened consecutive emergency sessions amid a deepening humanitarian crisis, as Lebanon's civilian infrastructure continued to be degraded. Ceasefire proposals from regional and international mediators remained deadlocked over fundamental disagreements about the scope of Hezbollah disarmament and Israeli withdrawal conditions.",
+      "category": "political",
+      "significance": "high",
+      "region": "Regional"
+    }
+  ],
+  "eras": [
+    {
+      "start": "2019-01",
+      "end": "2019-10",
+      "label": "Pre-Revolution Pressure Buildup",
+      "description": "Lebanon enters 2019 with deepening fiscal stress, a currency crisis in slow motion, and growing public fury at a political class perceived as looting the state. Hezbollah's political integration into successive governments begins to be associated with economic dysfunction.",
+      "tone": "escalation"
+    },
+    {
+      "start": "2019-09",
+      "end": "2019-10",
+      "label": "Cross-Border Flashpoint Prelude",
+      "description": "Israel and Hezbollah exchanged direct fire in September 2019 following months of Israeli interdiction strikes targeting Hezbollah weapons transfers in Syria and Lebanon, with the Avivim ATGM exchange marking the first direct daytime confrontation in years. The episode established the conflict's volatile baseline and foreshadowed the escalation ladder both sides would climb over the following years.",
+      "tone": "escalation"
+    },
+    {
+      "start": "2019-10",
+      "end": "2020-08",
+      "label": "Thawra and the First Political Collapse",
+      "description": "The October 17 revolution ruptures Lebanon's post-civil war consensus, explicitly directing blame at all factions including Hezbollah. PM Hariri's resignation and a succession of failed government formations leave the country effectively ungoverned as the currency collapses.",
+      "tone": "political"
+    },
+    {
+      "start": "2020-01",
+      "end": "2021-06",
+      "label": "Collapse & Catastrophe",
+      "description": "Lebanon suffers sovereign default, the Beirut port explosion, and total economic freefall, while Hezbollah consolidates power as parallel state provider; the northern front remains a smoldering managed confrontation.",
+      "tone": "political"
+    },
+    {
+      "start": "2020-08",
+      "end": "2021-12",
+      "label": "Post-Explosion Rage and Blocked Accountability",
+      "description": "The Beirut port explosion triggers the single sharpest anti-Hezbollah public opinion shift in Lebanese history. The group's successful obstruction of Judge Bitar's investigation and its role in the Tayyouneh killings cement a narrative of armed impunity above the law.",
+      "tone": "escalation"
+    },
+    {
+      "start": "2021-05",
+      "end": "2023-09",
+      "label": "Maritime Accord & Managed Tensions",
+      "description": "Sporadic cross-border exchanges remained contained within tacitly understood escalation limits, and the October 2022 Lebanon-Israel maritime border agreement represented a rare diplomatic accommodation that reduced one major axis of friction. Hezbollah focused on rebuilding its precision-missile arsenal while Lebanon's economic collapse and post-explosion political exposure constrained its appetite for open confrontation.",
+      "tone": "de-escalation"
+    },
+    {
+      "start": "2021-07",
+      "end": "2022-12",
+      "label": "Failed State Diplomacy",
+      "description": "Lebanon teeters on full state failure as the political class paralyzes government formation; a landmark maritime border deal with Israel offers a rare diplomatic opening amid continued Hezbollah provocations.",
+      "tone": "de-escalation"
+    },
+    {
+      "start": "2022-01",
+      "end": "2023-09",
+      "label": "Economic Abyss, Elections, and Presidential Vacuum",
+      "description": "Lebanon reaches the nadir of its economic collapse with 90% currency devaluation. The May 2022 elections deliver a measurable anti-Hezbollah verdict, but the group's parliamentary veto blocks presidential elections for over two years, demonstrating its coercive political power.",
+      "tone": "political"
+    },
+    {
+      "start": "2023-01",
+      "end": "2023-10-06",
+      "label": "Pre-October 7 Northern Friction",
+      "description": "Low-intensity cross-border exchanges and IDF targeted killings maintain pressure along the Blue Line as both sides calibrate deterrence ahead of the coming regional explosion.",
+      "tone": "escalation"
+    },
+    {
+      "start": "2023-10",
+      "end": "2024-09",
+      "label": "October 7 Spillover \u2014 Southern Front and Domestic Fracture",
+      "description": "Hezbollah's unilateral opening of a southern front after October 7 displaces over 100,000 Lebanese civilians without any national political decision. Growing Shia and non-Shia domestic dissent emerges openly as the group's actions visibly damage Lebanese lives and sovereignty.",
+      "tone": "active_war"
+    },
+    {
+      "start": "2023-10-07",
+      "end": "2024-09-16",
+      "label": "Support Front: Gaza War Northern Theater",
+      "description": "Hezbollah opens its 'solidarity front' the day after October 7, sustaining daily exchanges for eleven months while Israel evacuates 80,000 northern residents; both sides avoid all-out war but exchange is the most sustained since 2006.",
+      "tone": "active_war"
+    },
+    {
+      "start": "2024-09",
+      "end": "2024-11",
+      "label": "Hezbollah Decimation \u2014 Pagers, Nasrallah, Ground War",
+      "description": "A concentrated two-month Israeli military campaign destroys Hezbollah's top command, kills Hassan Nasrallah, eliminates the precision-missile program, and severs the Iran-Syria supply route. The group suffers its greatest strategic defeat since its founding.",
+      "tone": "active_war"
+    },
+    {
+      "start": "2024-09-17",
+      "end": "2024-11-26",
+      "label": "Decapitation Campaign & Ground Invasion",
+      "description": "Israel executes a series of unprecedented operations \u2014 pager attacks, mass airstrikes, Nasrallah's killing, and a ground invasion \u2014 that collapse Hezbollah's command structure and turn Lebanon's south into an active war zone.",
+      "tone": "active_war"
+    },
+    {
+      "start": "2024-11",
+      "end": "2026-07",
+      "label": "Post-War Realignment and Normalization Discourse",
+      "description": "A US-France brokered ceasefire, the fall of Assad, the election of President Joseph Aoun, and the formation of a reformist Salam government create the first political environment in decades where Lebanese state sovereignty and eventual Israel normalization are openly debated as policy options.",
+      "tone": "de-escalation"
+    },
+    {
+      "start": "2024-11-27",
+      "end": "2025-06-30",
+      "label": "Fragile Ceasefire & Lebanese Reconstruction",
+      "description": "A US-France brokered ceasefire halts open hostilities; Lebanon elects a president after two years of vacuum, Assad falls severing Hezbollah's Syria corridor, and the Lebanese state attempts to reassert sovereignty over the south.",
+      "tone": "ceasefire"
+    },
+    {
+      "start": "2024-12",
+      "end": "2025-11",
+      "label": "Institutionalization and Exposure",
+      "description": "Leaked Defense Ministry training tenders reveal a structured 320-person annual influence-operations training program. +972 Magazine exposes the IDF's two-year propaganda wing operation. Israel contracts Brad Parscale's Clock Tower X for a $6 million youth-targeted influence campaign. Reddit Safety investigates manipulation claims across Lebanon/Israel subreddits. Adraee announces retirement.",
+      "tone": "political"
+    },
+    {
+      "start": "2025-07-01",
+      "end": "2026-07-11",
+      "label": "Second Invasion & Drone War Era",
+      "description": "Israel relaunches large-scale operations after alleging Hezbollah rearmament, driving deeper into Lebanon while FPV and fiber-optic drone warfare becomes the defining tactical signature of the conflict's new phase.",
+      "tone": "active_war"
+    },
+    {
+      "start": "2025-12",
+      "end": "2026-07",
+      "label": "2026 Lebanon War: Kinetic-Informational Integration",
+      "description": "Israel launches a renewed war on Lebanon in March 2026 with Israeli Arabic spokesperson Ella Waweya replacing Adraee. IDF drops QR code leaflets over Beirut directing Lebanese civilians to Unit 504 WhatsApp recruitment channels. Approximately one million Lebanese are displaced within two weeks through a combination of mass bombardment and psychological evacuation orders, representing the full integration of kinetic and information warfare.",
+      "tone": "active_war"
+    },
+    {
+      "start": "2026-02",
+      "end": "2026-07",
+      "label": "Second Israeli Lebanon Campaign",
+      "description": "Renewed rocket fire from Lebanese territory in January 2026 prompted Israel to launch a second ground campaign in February, pushing forces beyond the Litani River and extending operations into the Bekaa Valley targeting Hezbollah's reconstituted infrastructure near Baalbek. The operation deepened Lebanon's humanitarian crisis, triggered consecutive UN Security Council emergency sessions, and as of July 2026 showed no clear diplomatic resolution pathway.",
+      "tone": "active_war"
+    }
+  ]
+}

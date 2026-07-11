@@ -75,15 +75,18 @@ const CATEGORY_COLORS: Record<string, string> = {
 
 export function WordCloud() {
   const svgRef = useRef<SVGSVGElement>(null);
+  const wrapRef = useRef<HTMLDivElement>(null);
   const [monthIndex, setMonthIndex] = useState(0);
   const currentMonth = MONTHS[monthIndex];
   const words = SAMPLE_MONTHS[currentMonth];
 
   useEffect(() => {
-    if (!svgRef.current || !words) return;
+    if (!svgRef.current || !wrapRef.current || !words) return;
 
-    const width = svgRef.current.clientWidth || 700;
-    const height = 350;
+    const draw = () => {
+      if (!svgRef.current || !wrapRef.current) return;
+      const width = wrapRef.current.clientWidth || 600;
+      const height = Math.min(350, Math.max(240, width * 0.5));
 
     d3.select(svgRef.current).selectAll("*").remove();
 
@@ -121,10 +124,18 @@ export function WordCloud() {
       .delay((_, i) => i * 40)
       .duration(300)
       .attr("opacity", (d) => (d.category !== "neutral" ? 1 : 0.7));
+
+      svgRef.current.style.height = `${height}px`;
+    };
+
+    draw();
+    const ro = new ResizeObserver(() => draw());
+    ro.observe(wrapRef.current);
+    return () => ro.disconnect();
   }, [words, currentMonth]);
 
   return (
-    <div className="space-y-4">
+    <div ref={wrapRef} className="space-y-4">
       <div className="flex items-center gap-4">
         <input
           type="range"
@@ -136,8 +147,8 @@ export function WordCloud() {
         />
         <span className="text-xs font-mono text-cyan-400 w-20">{currentMonth}</span>
       </div>
-      <svg ref={svgRef} className="w-full" style={{ height: 350 }} />
-      <div className="flex flex-wrap gap-3 justify-center">
+      <svg ref={svgRef} className="w-full" />
+      <div className="flex flex-wrap gap-2 sm:gap-3 justify-center">
         {Object.entries(CATEGORY_COLORS).map(([cat, color]) => (
           <span key={cat} className="flex items-center gap-1 text-[10px] text-gray-400">
             <span className="w-2.5 h-2.5 rounded-full inline-block" style={{ background: color }} />

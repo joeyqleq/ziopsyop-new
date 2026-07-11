@@ -577,7 +577,7 @@ export function AdmissionGap({ data }: { data: AdmissionGapData }) {
         <p className="font-mono text-[9px] tracking-[0.3em] text-muted-2 mb-1">
           OVERALL DISCREPANCY FACTOR
         </p>
-        <p className="font-mono text-6xl md:text-7xl font-bold glow-threat" style={{ color: THREAT }}>
+        <p className="font-mono text-4xl sm:text-6xl md:text-7xl font-bold glow-threat" style={{ color: THREAT }}>
           {overallRatio}×
         </p>
         <p className="font-mono text-xs text-muted mt-2">
@@ -607,7 +607,7 @@ export function AdmissionGap({ data }: { data: AdmissionGapData }) {
 
         {/* floating tooltip */}
         {activeLayer && (
-          <div className="absolute top-4 right-4 z-20">
+          <div className="absolute top-2 right-2 sm:top-4 sm:right-4 z-20 max-w-[180px] sm:max-w-xs">
             <Tooltip layer={activeLayer} />
           </div>
         )}

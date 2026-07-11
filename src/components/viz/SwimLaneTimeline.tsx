@@ -48,133 +48,153 @@ const SAMPLE_EVENTS: SwimEvent[] = [
 
 export function SwimLaneTimeline() {
   const svgRef = useRef<SVGSVGElement>(null);
+  const wrapRef = useRef<HTMLDivElement>(null);
   const [tooltip, setTooltip] = useState<{ event: SwimEvent; x: number; y: number } | null>(null);
 
   useEffect(() => {
-    if (!svgRef.current) return;
+    if (!svgRef.current || !wrapRef.current) return;
 
-    const margin = { top: 30, right: 20, bottom: 40, left: 140 };
-    const width = (svgRef.current.clientWidth || 1000) - margin.left - margin.right;
-    const laneHeight = 50;
-    const height = LANES.length * laneHeight;
-    const totalHeight = height + margin.top + margin.bottom;
+    const draw = () => {
+      if (!svgRef.current || !wrapRef.current) return;
 
-    d3.select(svgRef.current).selectAll("*").remove();
+      const containerW = wrapRef.current.clientWidth || 600;
+      const isMobile = containerW < 500;
+      const margin = {
+        top: 30,
+        right: 16,
+        bottom: 40,
+        left: isMobile ? 70 : 140,
+      };
+      const width = Math.max(500, containerW) - margin.left - margin.right;
+      const laneHeight = isMobile ? 38 : 50;
+      const height = LANES.length * laneHeight;
+      const totalHeight = height + margin.top + margin.bottom;
+      const totalWidth = width + margin.left + margin.right;
 
-    const svg = d3
-      .select(svgRef.current)
-      .attr("viewBox", `0 0 ${width + margin.left + margin.right} ${totalHeight}`)
-      .attr("preserveAspectRatio", "xMidYMid meet");
+      d3.select(svgRef.current).selectAll("*").remove();
 
-    const g = svg.append("g").attr("transform", `translate(${margin.left},${margin.top})`);
+      const svg = d3
+        .select(svgRef.current)
+        .attr("viewBox", `0 0 ${totalWidth} ${totalHeight}`)
+        .attr("width", totalWidth)
+        .attr("height", totalHeight)
+        .attr("preserveAspectRatio", "xMidYMid meet");
 
-    const timeExtent = [new Date("2024-01-01"), new Date("2026-06-01")] as [Date, Date];
-    const x = d3.scaleTime().domain(timeExtent).range([0, width]);
+      const g = svg.append("g").attr("transform", `translate(${margin.left},${margin.top})`);
 
-    const y = d3
-      .scaleBand()
-      .domain(LANES.map((l) => l.key))
-      .range([0, height])
-      .padding(0.15);
+      const timeExtent = [new Date("2024-01-01"), new Date("2026-06-01")] as [Date, Date];
+      const x = d3.scaleTime().domain(timeExtent).range([0, width]);
 
-    // Lane backgrounds
-    LANES.forEach((lane, i) => {
-      g.append("rect")
-        .attr("x", 0)
-        .attr("y", y(lane.key)!)
-        .attr("width", width)
-        .attr("height", y.bandwidth())
-        .attr("fill", i % 2 === 0 ? "rgba(255,255,255,0.02)" : "rgba(0,0,0,0.1)")
-        .attr("rx", 4);
-    });
+      const y = d3
+        .scaleBand()
+        .domain(LANES.map((l) => l.key))
+        .range([0, height])
+        .padding(0.15);
 
-    // Lane labels
-    LANES.forEach((lane) => {
-      g.append("text")
-        .attr("x", -10)
-        .attr("y", y(lane.key)! + y.bandwidth() / 2)
-        .attr("text-anchor", "end")
-        .attr("dy", "0.35em")
-        .attr("fill", lane.color)
-        .attr("font-size", "9px")
-        .attr("font-family", "monospace")
-        .text(lane.label);
-    });
+      LANES.forEach((lane, i) => {
+        g.append("rect")
+          .attr("x", 0)
+          .attr("y", y(lane.key)!)
+          .attr("width", width)
+          .attr("height", y.bandwidth())
+          .attr("fill", i % 2 === 0 ? "rgba(255,255,255,0.02)" : "rgba(0,0,0,0.1)")
+          .attr("rx", 4);
+      });
 
-    // X axis
-    g.append("g")
-      .attr("transform", `translate(0,${height})`)
-      .call(
-        d3.axisBottom(x).ticks(d3.timeMonth.every(3)).tickFormat(d3.timeFormat("%b %y") as any)
-      )
-      .selectAll("text")
-      .attr("fill", "#666")
-      .attr("font-size", "8px");
+      LANES.forEach((lane) => {
+        const label = isMobile ? lane.label.split(" ")[0] : lane.label;
+        g.append("text")
+          .attr("x", -10)
+          .attr("y", y(lane.key)! + y.bandwidth() / 2)
+          .attr("text-anchor", "end")
+          .attr("dy", "0.35em")
+          .attr("fill", lane.color)
+          .attr("font-size", isMobile ? "7px" : "9px")
+          .attr("font-family", "monospace")
+          .text(label);
+      });
 
-    g.selectAll(".domain, .tick line").attr("stroke", "#333");
+      const tickInterval = isMobile ? d3.timeMonth.every(6) : d3.timeMonth.every(3);
+      g.append("g")
+        .attr("transform", `translate(0,${height})`)
+        .call(
+          d3.axisBottom(x).ticks(tickInterval).tickFormat(d3.timeFormat("%b %y") as any)
+        )
+        .selectAll("text")
+        .attr("fill", "#666")
+        .attr("font-size", isMobile ? "7px" : "8px");
 
-    // Event markers
-    SAMPLE_EVENTS.forEach((evt) => {
-      const eventDate = new Date(evt.date);
-      const cx = x(eventDate);
-      const cy = y(evt.lane)! + y.bandwidth() / 2;
-      const r = 3 + evt.severity * 0.8;
+      g.selectAll(".domain, .tick line").attr("stroke", "#333");
 
-      g.append("circle")
-        .attr("cx", cx)
-        .attr("cy", cy)
-        .attr("r", r)
-        .attr("fill", evt.color)
-        .attr("opacity", 0.8)
-        .attr("stroke", evt.severity >= 9 ? "#fff" : "none")
-        .attr("stroke-width", evt.severity >= 9 ? 1.5 : 0)
-        .style("cursor", "pointer")
-        .on("mouseover", function (event) {
-          d3.select(this).attr("opacity", 1).attr("r", r + 3);
-          const rect = svgRef.current!.getBoundingClientRect();
-          setTooltip({
-            event: evt,
-            x: event.clientX - rect.left,
-            y: event.clientY - rect.top,
+      SAMPLE_EVENTS.forEach((evt) => {
+        const eventDate = new Date(evt.date);
+        const cx = x(eventDate);
+        const cy = y(evt.lane)! + y.bandwidth() / 2;
+        const r = isMobile ? 2 + evt.severity * 0.5 : 3 + evt.severity * 0.8;
+
+        g.append("circle")
+          .attr("cx", cx)
+          .attr("cy", cy)
+          .attr("r", r)
+          .attr("fill", evt.color)
+          .attr("opacity", 0.8)
+          .attr("stroke", evt.severity >= 9 ? "#fff" : "none")
+          .attr("stroke-width", evt.severity >= 9 ? 1.5 : 0)
+          .style("cursor", "pointer")
+          .on("mouseover", function (event) {
+            d3.select(this).attr("opacity", 1).attr("r", r + 3);
+            const rect = svgRef.current!.getBoundingClientRect();
+            setTooltip({
+              event: evt,
+              x: event.clientX - rect.left,
+              y: event.clientY - rect.top,
+            });
+          })
+          .on("mouseout", function () {
+            d3.select(this).attr("opacity", 0.8).attr("r", r);
+            setTooltip(null);
           });
-        })
-        .on("mouseout", function () {
-          d3.select(this).attr("opacity", 0.8).attr("r", r);
-          setTooltip(null);
-        });
-    });
+      });
 
-    // Key date markers
-    const keyDates = [
-      { date: "2024-09-17", label: "Pager attacks" },
-      { date: "2024-11-27", label: "Ceasefire" },
-      { date: "2026-01-15", label: "2nd invasion" },
-    ];
-    keyDates.forEach((kd) => {
-      const xPos = x(new Date(kd.date));
-      g.append("line")
-        .attr("x1", xPos).attr("x2", xPos)
-        .attr("y1", 0).attr("y2", height)
-        .attr("stroke", "rgba(255,255,255,0.15)")
-        .attr("stroke-dasharray", "4 2");
-      g.append("text")
-        .attr("x", xPos)
-        .attr("y", -8)
-        .attr("text-anchor", "middle")
-        .attr("fill", "#888")
-        .attr("font-size", "7px")
-        .attr("font-family", "monospace")
-        .text(kd.label);
-    });
+      const keyDates = [
+        { date: "2024-09-17", label: "Pagers" },
+        { date: "2024-11-27", label: "Ceasefire" },
+        { date: "2026-01-15", label: "2nd inv." },
+      ];
+      keyDates.forEach((kd) => {
+        const xPos = x(new Date(kd.date));
+        g.append("line")
+          .attr("x1", xPos).attr("x2", xPos)
+          .attr("y1", 0).attr("y2", height)
+          .attr("stroke", "rgba(255,255,255,0.15)")
+          .attr("stroke-dasharray", "4 2");
+        g.append("text")
+          .attr("x", xPos)
+          .attr("y", -8)
+          .attr("text-anchor", "middle")
+          .attr("fill", "#888")
+          .attr("font-size", isMobile ? "6px" : "7px")
+          .attr("font-family", "monospace")
+          .text(kd.label);
+      });
+    };
+
+    draw();
+    const ro = new ResizeObserver(() => draw());
+    ro.observe(wrapRef.current);
+    return () => ro.disconnect();
   }, []);
 
   return (
-    <div className="relative">
-      <svg ref={svgRef} className="w-full" style={{ height: 450 }} />
+    <div ref={wrapRef} className="relative overflow-x-auto">
+      <svg ref={svgRef} className="w-full min-w-[500px]" />
       {tooltip && (
         <div
-          className="absolute z-50 glass-panel p-3 max-w-xs pointer-events-none"
-          style={{ left: tooltip.x + 10, top: tooltip.y - 60 }}
+          className="absolute z-50 glass-panel p-2 sm:p-3 max-w-[200px] sm:max-w-xs pointer-events-none"
+          style={{
+            left: Math.min(tooltip.x + 10, (wrapRef.current?.clientWidth ?? 300) - 210),
+            top: tooltip.y - 60,
+          }}
         >
           <p className="text-[10px] font-mono text-cyan-400">{tooltip.event.date}</p>
           <p className="text-xs font-semibold text-white mt-1">{tooltip.event.label}</p>

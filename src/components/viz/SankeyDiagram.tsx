@@ -36,7 +36,6 @@ const NODES: SNode[] = [
 ];
 
 const LINKS: SLink[] = [
-  // IDF → targets (heavy civilian weighting)
   { source: 0, target: 4, value: 340, casualties: 2100 },
   { source: 0, target: 5, value: 180, casualties: 0 },
   { source: 0, target: 6, value: 45, casualties: 89 },
@@ -46,14 +45,11 @@ const LINKS: SLink[] = [
   { source: 0, target: 10, value: 35, casualties: 0 },
   { source: 0, target: 11, value: 15, casualties: 23 },
   { source: 0, target: 12, value: 95, casualties: 380 },
-  // Hezbollah → targets (overwhelmingly military)
   { source: 1, target: 13, value: 220, casualties: 145 },
   { source: 1, target: 14, value: 18, casualties: 32 },
   { source: 1, target: 15, value: 45, casualties: 0 },
-  // Iran → targets
   { source: 2, target: 13, value: 8, casualties: 3 },
   { source: 2, target: 15, value: 5, casualties: 0 },
-  // Unknown
   { source: 3, target: 4, value: 12, casualties: 8 },
 ];
 
@@ -78,115 +74,129 @@ const NODE_COLORS: Record<string, string> = {
 
 export function SankeyDiagram() {
   const svgRef = useRef<SVGSVGElement>(null);
+  const wrapRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!svgRef.current) return;
+    if (!svgRef.current || !wrapRef.current) return;
 
-    const width = svgRef.current.clientWidth || 900;
-    const height = 500;
+    const draw = () => {
+      if (!svgRef.current || !wrapRef.current) return;
 
-    d3.select(svgRef.current).selectAll("*").remove();
+      const containerW = wrapRef.current.clientWidth || 600;
+      const isMobile = containerW < 500;
+      const width = Math.max(500, containerW);
+      const height = isMobile ? 400 : 500;
 
-    const svg = d3
-      .select(svgRef.current)
-      .attr("viewBox", `0 0 ${width} ${height}`)
-      .attr("preserveAspectRatio", "xMidYMid meet");
+      d3.select(svgRef.current).selectAll("*").remove();
 
-    const sankeyGen = sankey<SNode, SLink>()
-      .nodeId((d: any) => d.index)
-      .nodeWidth(20)
-      .nodePadding(12)
-      .extent([[40, 20], [width - 40, height - 20]]);
+      const svg = d3
+        .select(svgRef.current)
+        .attr("viewBox", `0 0 ${width} ${height}`)
+        .attr("width", width)
+        .attr("height", height)
+        .attr("preserveAspectRatio", "xMidYMid meet");
 
-    const graph = sankeyGen({
-      nodes: NODES.map((d) => ({ ...d })),
-      links: LINKS.map((d) => ({ ...d })),
-    } as any);
+      const sankeyGen = sankey<SNode, SLink>()
+        .nodeId((d: any) => d.index)
+        .nodeWidth(isMobile ? 14 : 20)
+        .nodePadding(isMobile ? 8 : 12)
+        .extent([[40, 20], [width - 40, height - 20]]);
 
-    const maxCasualties = Math.max(...LINKS.map((l) => l.casualties));
+      const graph = sankeyGen({
+        nodes: NODES.map((d) => ({ ...d })),
+        links: LINKS.map((d) => ({ ...d })),
+      } as any);
 
-    svg
-      .append("g")
-      .selectAll("path")
-      .data(graph.links)
-      .join("path")
-      .attr("d", sankeyLinkHorizontal())
-      .attr("fill", "none")
-      .attr("stroke", (d: any) => {
-        const sourceNode = graph.nodes[typeof d.source === "number" ? d.source : d.source.index];
-        return NODE_COLORS[(sourceNode as any).name] || "#444";
-      })
-      .attr("stroke-opacity", (d: any) => {
-        const intensity = 0.3 + 0.5 * ((d as any).casualties / maxCasualties);
-        return Math.min(0.8, intensity);
-      })
-      .attr("stroke-width", (d: any) => Math.max(2, d.width))
-      .on("mouseover", function (event: any, d: any) {
-        d3.select(this).attr("stroke-opacity", 0.9);
-        const sourceNode = graph.nodes[typeof d.source === "number" ? d.source : d.source.index];
-        const targetNode = graph.nodes[typeof d.target === "number" ? d.target : d.target.index];
-        tooltip
-          .style("opacity", 1)
-          .html(
-            `<strong>${(sourceNode as any).name} → ${(targetNode as any).name}</strong><br/>Incidents: ${d.value}<br/>Casualties: ${(d as any).casualties}`
-          )
-          .style("left", event.offsetX + 10 + "px")
-          .style("top", event.offsetY - 30 + "px");
-      })
-      .on("mouseout", function () {
-        d3.select(this).attr("stroke-opacity", 0.4);
-        tooltip.style("opacity", 0);
-      });
+      const maxCasualties = Math.max(...LINKS.map((l) => l.casualties));
 
-    svg
-      .append("g")
-      .selectAll("rect")
-      .data(graph.nodes)
-      .join("rect")
-      .attr("x", (d: any) => d.x0)
-      .attr("y", (d: any) => d.y0)
-      .attr("width", (d: any) => d.x1 - d.x0)
-      .attr("height", (d: any) => Math.max(4, d.y1 - d.y0))
-      .attr("fill", (d: any) => NODE_COLORS[d.name] || "#444")
-      .attr("rx", 3);
+      const tooltip = d3
+        .select(wrapRef.current)
+        .selectAll(".sankey-tooltip")
+        .data([null])
+        .join("div")
+        .attr("class", "sankey-tooltip")
+        .style("position", "absolute")
+        .style("opacity", "0")
+        .style("background", "rgba(10,10,30,0.95)")
+        .style("border", "1px solid rgba(0,245,255,0.3)")
+        .style("border-radius", "8px")
+        .style("padding", "8px 12px")
+        .style("font-size", "11px")
+        .style("font-family", "monospace")
+        .style("color", "#e8e8f0")
+        .style("pointer-events", "none")
+        .style("z-index", "100")
+        .style("max-width", "200px");
 
-    svg
-      .append("g")
-      .selectAll("text")
-      .data(graph.nodes)
-      .join("text")
-      .attr("x", (d: any) => (d.category === "attacker" ? d.x0 - 6 : d.x1 + 6))
-      .attr("y", (d: any) => (d.y0 + d.y1) / 2)
-      .attr("dy", "0.35em")
-      .attr("text-anchor", (d: any) => (d.category === "attacker" ? "end" : "start"))
-      .attr("fill", "#ccc")
-      .attr("font-size", "10px")
-      .attr("font-family", "monospace")
-      .text((d: any) => d.name);
+      svg
+        .append("g")
+        .selectAll("path")
+        .data(graph.links)
+        .join("path")
+        .attr("d", sankeyLinkHorizontal())
+        .attr("fill", "none")
+        .attr("stroke", (d: any) => {
+          const sourceNode = graph.nodes[typeof d.source === "number" ? d.source : d.source.index];
+          return NODE_COLORS[(sourceNode as any).name] || "#444";
+        })
+        .attr("stroke-opacity", (d: any) => {
+          const intensity = 0.3 + 0.5 * ((d as any).casualties / maxCasualties);
+          return Math.min(0.8, intensity);
+        })
+        .attr("stroke-width", (d: any) => Math.max(2, d.width))
+        .on("mouseover", function (event: any, d: any) {
+          d3.select(this).attr("stroke-opacity", 0.9);
+          const sourceNode = graph.nodes[typeof d.source === "number" ? d.source : d.source.index];
+          const targetNode = graph.nodes[typeof d.target === "number" ? d.target : d.target.index];
+          tooltip
+            .style("opacity", "1")
+            .html(
+              `<strong>${(sourceNode as any).name} → ${(targetNode as any).name}</strong><br/>Incidents: ${d.value}<br/>Casualties: ${(d as any).casualties}`
+            )
+            .style("left", Math.min(event.offsetX + 10, containerW - 210) + "px")
+            .style("top", event.offsetY - 30 + "px");
+        })
+        .on("mouseout", function () {
+          d3.select(this).attr("stroke-opacity", 0.4);
+          tooltip.style("opacity", "0");
+        });
 
-    const tooltip = d3
-      .select(svgRef.current.parentElement!)
-      .append("div")
-      .style("position", "absolute")
-      .style("opacity", 0)
-      .style("background", "rgba(10,10,30,0.95)")
-      .style("border", "1px solid rgba(0,245,255,0.3)")
-      .style("border-radius", "8px")
-      .style("padding", "8px 12px")
-      .style("font-size", "11px")
-      .style("font-family", "monospace")
-      .style("color", "#e8e8f0")
-      .style("pointer-events", "none")
-      .style("z-index", "100");
+      svg
+        .append("g")
+        .selectAll("rect")
+        .data(graph.nodes)
+        .join("rect")
+        .attr("x", (d: any) => d.x0)
+        .attr("y", (d: any) => d.y0)
+        .attr("width", (d: any) => d.x1 - d.x0)
+        .attr("height", (d: any) => Math.max(4, d.y1 - d.y0))
+        .attr("fill", (d: any) => NODE_COLORS[d.name] || "#444")
+        .attr("rx", 3);
 
-    return () => {
-      tooltip.remove();
+      svg
+        .append("g")
+        .selectAll("text")
+        .data(graph.nodes)
+        .join("text")
+        .attr("x", (d: any) => (d.category === "attacker" ? d.x0 - 6 : d.x1 + 6))
+        .attr("y", (d: any) => (d.y0 + d.y1) / 2)
+        .attr("dy", "0.35em")
+        .attr("text-anchor", (d: any) => (d.category === "attacker" ? "end" : "start"))
+        .attr("fill", "#ccc")
+        .attr("font-size", isMobile ? "8px" : "10px")
+        .attr("font-family", "monospace")
+        .text((d: any) => isMobile && d.name.length > 16 ? d.name.slice(0, 14) + "…" : d.name);
     };
+
+    draw();
+    const ro = new ResizeObserver(() => draw());
+    ro.observe(wrapRef.current);
+    return () => ro.disconnect();
   }, []);
 
   return (
-    <div className="relative">
-      <svg ref={svgRef} className="w-full" style={{ height: 500 }} />
+    <div ref={wrapRef} className="relative overflow-x-auto">
+      <svg ref={svgRef} className="w-full min-w-[500px]" />
     </div>
   );
 }

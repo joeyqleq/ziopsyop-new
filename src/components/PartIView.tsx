@@ -10,6 +10,7 @@ import { KeywordHeatmap } from "@/components/KeywordHeatmap";
 import { FlairComposition } from "@/components/FlairComposition";
 import { TopActors } from "@/components/TopActors";
 import { EventCorrelation } from "@/components/EventCorrelation";
+import { SubredditGrowth } from "@/components/SubredditGrowth";
 import { ChartFrame } from "@/components/fx/ChartFrame";
 import { TracedCard } from "@/components/fx/TracedCard";
 import { DecryptText } from "@/components/fx/DecryptText";
@@ -89,7 +90,7 @@ export function PartIView({ data }: { data: AnalysisData }) {
                   An OSINT investigation was launched. AI-assisted behavioral
                   analysis, text fingerprinting, coordination detection algorithms,
                   and statistical anomaly testing were applied to every artifact the
-                  community ever produced — 93,000+ posts and comments across 79
+                  community ever produced — 102,610 posts and comments across 83
                   months of operation. The results were unambiguous: this was not a
                   community. It was an influence operation wearing a community as
                   camouflage.
@@ -187,9 +188,9 @@ export function PartIView({ data }: { data: AnalysisData }) {
                 <p>
                   With the direct admission establishing the fact of coordination,
                   the investigation turned to the archive itself — to measure the
-                  fingerprint of that coordination across 79 months of data.{" "}
+                  fingerprint of that coordination across 83 months of data.{" "}
                   <strong className="text-foreground">r/ForbiddenBromance</strong>
-                  {" "}produced 93,000+ artifacts. An organic community
+                  {" "}produced 102,610 artifacts. An organic community
                   leaves an organic fingerprint: noisy, seasonal, demographically
                   plausible. This one does not.
                 </p>
@@ -227,7 +228,7 @@ export function PartIView({ data }: { data: AnalysisData }) {
           />
           <ChartFrame
             exhibit="EX-01"
-            title="ACTIVITY TIMELINE — 79 MONTHS UNDER OBSERVATION"
+            title="ACTIVITY TIMELINE — 83 MONTHS UNDER OBSERVATION"
             subtitle="Posts and comments per month. Dashed red verticals mark real-world military events. Toggle to Hebrew-only traffic to see who the surge actually is."
             accent="var(--primary)"
             commentary={{
@@ -246,8 +247,33 @@ export function PartIView({ data }: { data: AnalysisData }) {
           >
             <TimelineChart
               data={data.monthly_activity}
+              dailyData={data.daily_activity}
               events={data.event_timeline}
+              eras={data.eras}
             />
+          </ChartFrame>
+
+          {/* EX-00b: Subreddit Growth */}
+          <ChartFrame
+            exhibit="EX-00b"
+            title="SUBREDDIT GROWTH — 83 MONTHS OF EXPANSION"
+            subtitle="Cumulative unique users, flair identity split, and content volume since inception. Toggle views to isolate the Israeli-Lebanese divergence over time."
+            accent="var(--primary)"
+            commentary={{
+              reads:
+                "Four views: cumulative growth with subscriber count overlay, new vs active users per month, identity flair breakdown (Israeli/Lebanese/other), and raw posts/comments volume.",
+              means:
+                "Israeli-flaired participation reached a 3:1 ratio vs Lebanese and held it through every military escalation. Lebanese user share flatlined while Israeli-flaired accounts drove every growth phase. The 'dialogue' community grew primarily by adding Israeli voices.",
+              puzzle:
+                "A genuine dialogue community would grow both sides in tandem. This one grew one side in sync with military operations. The identity tab makes the imbalance impossible to ignore.",
+            }}
+            plain={{
+              what: "This shows how the subreddit grew from 2019 to 2026 — who joined, when, and what their self-reported identity was.",
+              why: "If this were a real friendship community, Lebanese and Israeli users would grow together. Instead, Israeli accounts outnumber Lebanese 3-to-1 and drove every growth surge. The 'Lebanese dialogue' is mostly Israelis talking.",
+              proves: "The community was built and grown primarily by the Israeli side — structurally incompatible with its claimed purpose.",
+            }}
+          >
+            <SubredditGrowth data={data.subreddit_growth} eras={data.eras} />
           </ChartFrame>
 
           {/* H2 */}
@@ -259,7 +285,7 @@ export function PartIView({ data }: { data: AnalysisData }) {
           <ChartFrame
             exhibit="EX-02"
             title="ANOMALY DETECTOR — DEVIATION FROM BASELINE"
-            subtitle="Each bar is one month's z-score against the full 79-month baseline. Red bars breach the +1.5σ anomaly threshold."
+            subtitle="Each bar is one month's z-score against the full 83-month baseline. Red bars breach the +1.5σ anomaly threshold."
             accent="var(--threat)"
             classification="STATISTICAL"
             commentary={{

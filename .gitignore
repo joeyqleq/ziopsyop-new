@@ -5,3 +5,5 @@ node_modules/
 tsconfig.tsbuildinfo
 .impeccable/
 .remember/
+users/
+.firecrawl/

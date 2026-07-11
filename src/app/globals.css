@@ -322,6 +322,15 @@ body {
   animation-play-state: paused;
 }
 
+/* Remove browser focus outlines on chart SVG elements */
+.recharts-wrapper:focus,
+.recharts-surface:focus,
+.recharts-wrapper *:focus,
+.recharts-surface *:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
 /* ---------- glow utilities ---------- */
 .glow-primary {
   text-shadow: 0 0 18px rgba(182, 255, 124, 0.45);
