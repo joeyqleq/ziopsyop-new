@@ -114,45 +114,11 @@ export default function RootLayout({
         <AnalyticsTracker />
         <div className="crt-overlay" aria-hidden="true" />
 
-        {/* Matomo Analytics */}
-        <Script id="matomo-analytics" strategy="afterInteractive">
-          {`
-            var _paq = window._paq = window._paq || [];
-            _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
-            if (window.location.hostname.includes('ziopsyop.me')) {
-              _paq.push(["setCookieDomain", "*.ziopsyop.me"]);
-              _paq.push(["setDomains", ["*.ziopsyop.me"]]);
-            }
-            _paq.push(["enableCrossDomainLinking"]);
-            _paq.push(['trackPageView']);
-            _paq.push(['enableLinkTracking']);
-            (function() {
-              var u="//matomo.myhayat.app/";
-              _paq.push(['setTrackerUrl', u+'matomo.php']);
-              _paq.push(['setSiteId', '13']);
-              var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-              g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-            })();
-          `}
-        </Script>
-        <noscript>
-          <p>
-            <img
-              referrerPolicy="no-referrer-when-downgrade"
-              src="//matomo.myhayat.app/matomo.php?idsite=13&rec=1"
-              style={{ border: 0 }}
-              alt=""
-            />
-          </p>
-        </noscript>
-
         {/* Tianji Analytics */}
         <Script
-          src="https://tianji.myhayat.app/tracker.js"
-          data-website-id="cmq7q7le70ueh8lxczt7zoirq"
+          src="https://numbers.trumpstein.me/tracker.js"
+          data-website-id="cmrhhotbu0007lftpqiuihnpw"
           strategy="afterInteractive"
-          async
-          defer
         />
       </body>
     </html>
