@@ -20,6 +20,7 @@ const NAV_ITEMS = [
   { href: "/evidence", label: "VIDEO", code: "▶", pillar: "III" },
   { href: "/sources", label: "SRCS", code: "※", pillar: "III" },
   { href: "/counter-arguments", label: "REBUT", code: "⇋", pillar: "III" },
+  { href: "/control", label: "CTRL", code: "⊞", pillar: "III" },
   { href: "/about", label: "ABOUT", code: "—", pillar: "" },
   { href: "#contact", label: "CONTACT", code: "@", pillar: "" },
 ];
