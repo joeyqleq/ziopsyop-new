@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import { GlitchWordmark } from "@/components/fx/GlitchWordmark";
 import { ContactModal } from "@/components/ContactModal";
 import { AnimatedEye } from "@/components/fx/AnimatedEye";
+import { trackEvent } from "@/lib/analytics";
 
 const NAV_ITEMS = [
   { href: "/part-i", label: "PT I", code: "I", pillar: "I" },
@@ -175,7 +176,7 @@ export function Navigation() {
                 )}
               <Link
                 href={item.href === "#contact" ? "#" : item.href}
-                onClick={item.href === "#contact" ? (e) => { e.preventDefault(); setContactOpen(true); } : undefined}
+                onClick={item.href === "#contact" ? (e) => { e.preventDefault(); setContactOpen(true); trackEvent("nav_contact_open"); } : () => trackEvent("nav_click", { destination: item.href, label: item.label })}
                 onMouseEnter={() => setHovered(item.href)}
                 className="group relative px-2.5 py-2"
               >
@@ -259,7 +260,7 @@ export function Navigation() {
                 >
                   <Link
                     href={item.href === "#contact" ? "#" : item.href}
-                    onClick={item.href === "#contact" ? (e) => { e.preventDefault(); setContactOpen(true); setMenuOpen(false); } : undefined}
+                    onClick={item.href === "#contact" ? (e) => { e.preventDefault(); setContactOpen(true); setMenuOpen(false); trackEvent("nav_contact_open", { source: "mobile" }); } : () => trackEvent("nav_click", { destination: item.href, label: item.label, source: "mobile" })}
                     className="group flex items-baseline gap-4 py-5 border-b border-borderc"
                   >
                     <span className="font-mono text-[10px] text-muted-2">

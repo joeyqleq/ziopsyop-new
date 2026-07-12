@@ -6,6 +6,7 @@ import { ChevronDown, FileSearch, Puzzle, Crosshair, BookOpen, Eye, AlertTriangl
 import { TracedCard } from "./TracedCard";
 import { DecryptText } from "./DecryptText";
 import { cn } from "@/lib/utils";
+import { trackEvent } from "@/lib/analytics";
 
 export interface Commentary {
   /** What does this chart literally show? */
@@ -110,7 +111,7 @@ export function ChartFrame({
       {commentary && (
         <div className="border-t border-borderc">
           <button
-            onClick={() => setOpen((v) => !v)}
+            onClick={() => { const next = !open; setOpen(next); if (next) trackEvent("chart_commentary_open", { exhibit }); }}
             className="w-full flex items-center justify-between px-5 py-2.5 group cursor-pointer"
             aria-expanded={open}
           >
@@ -164,7 +165,7 @@ export function ChartFrame({
       {plain && (
         <div className="border-t border-borderc">
           <button
-            onClick={() => setPlainOpen((v) => !v)}
+            onClick={() => { const next = !plainOpen; setPlainOpen(next); if (next) trackEvent("chart_plain_brief_open", { exhibit }); }}
             className="w-full flex items-center justify-between px-5 py-2.5 group cursor-pointer"
             aria-expanded={plainOpen}
           >

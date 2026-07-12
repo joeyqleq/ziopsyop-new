@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, useCallback } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { trackEvent } from "@/lib/analytics";
 
 // ---------------------------------------------------------------------------
 // Noise background — auto-cycling random character stream, always visible,
@@ -146,8 +147,10 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
       });
       if (!res.ok) throw new Error("Failed");
       setStatus("sent");
+      trackEvent("contact_form_submit", { success: true });
     } catch {
       setStatus("error");
+      trackEvent("contact_form_submit", { success: false });
     }
   };
 

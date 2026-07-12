@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { PageShell } from "@/components/PageShell";
 import { motion, AnimatePresence } from "framer-motion";
+import { trackEvent } from "@/lib/analytics";
 
 interface VideoSource {
   id: string;
@@ -244,6 +245,7 @@ export default function EvidencePage() {
                 href={v.url}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackEvent("evidence_video_click", { id: v.id, outlet: v.outlet, type: v.type })}
                 layout
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0, transition: { delay: i * 0.04 } }}

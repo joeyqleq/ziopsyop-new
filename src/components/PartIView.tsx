@@ -17,6 +17,7 @@ import { TracedCard } from "@/components/fx/TracedCard";
 import { DecryptText } from "@/components/fx/DecryptText";
 import { PixelReveal } from "@/components/fx/PixelReveal";
 import type { AnalysisData } from "@/lib/reddit";
+import { trackEvent } from "@/lib/analytics";
 
 function DiscordLightbox() {
   const [open, setOpen] = useState(false);
@@ -24,7 +25,7 @@ function DiscordLightbox() {
     <>
       {/* thumbnail */}
       <button
-        onClick={() => setOpen(true)}
+        onClick={() => { setOpen(true); trackEvent("discord_lightbox_open"); }}
         className="group relative mt-3 block w-full max-w-xs rounded border border-threat/40 overflow-hidden hover:border-threat/70 transition-colors cursor-zoom-in"
         aria-label="Expand Discord DM screenshot"
       >
