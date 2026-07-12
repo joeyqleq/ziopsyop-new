@@ -7,11 +7,13 @@ export function BattlefieldHeader() {
   return (
     <header className="text-center pb-6 pt-2">
       <p className="font-mono text-[10px] tracking-[0.5em] text-accent-yellow mb-3">
-        <DecryptText text="//  PART II — THE MOST MORAL ARMY" speed={26} />
+        <DecryptText text="//  PART II — THE MOST MORAL ARMY" speed={38} />
       </p>
       <CinematicTitle
         as="h1"
         text="THE MOST MORAL ARMY"
+        animateOnMount
+        delay={0.05}
         className="font-mono font-bold text-[clamp(1.7rem,5.5vw,3.2rem)] leading-[1.05] tracking-[0.06em] text-foreground"
       />
       <p className="mt-3 font-mono text-[11px] tracking-[0.28em] text-muted-2">
@@ -25,8 +27,6 @@ export function BattlefieldHeader() {
         international-law compliance and battlefield outcome, every figure pulled
         live from the case database.
       </p>
-
-      {/* what this pillar proves — the real-world stakes, stated plainly */}
       <div className="mt-6 mx-auto max-w-3xl rounded-md border border-accent-yellow/25 bg-accent-yellow/[0.04] px-5 py-4 text-left">
         <p className="font-mono text-[10px] tracking-[0.28em] text-accent-yellow">
           WHAT THIS PROVES

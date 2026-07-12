@@ -90,7 +90,8 @@ export function ChartFrame({
             text={title}
             as="h2"
             startOnView
-            speed={22}
+            speed={40}
+            scrambleCycles={1}
             className="font-mono text-sm md:text-base font-semibold tracking-[0.08em] text-foreground text-balance"
           />
           {subtitle && (

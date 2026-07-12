@@ -35,7 +35,7 @@ export function ShaderBackdrop({
         "absolute inset-0 overflow-hidden pointer-events-none",
         className
       )}
-      style={{ opacity }}
+      style={{ opacity, background: "var(--background)" }}
       aria-hidden="true"
     >
       {variant === "warp" ? (

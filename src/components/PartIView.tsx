@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 import { PageShell } from "@/components/PageShell";
 import { PartIHeader } from "@/components/PartIHeader";
 import { StatsOverview } from "@/components/StatsOverview";
@@ -16,6 +17,69 @@ import { TracedCard } from "@/components/fx/TracedCard";
 import { DecryptText } from "@/components/fx/DecryptText";
 import { PixelReveal } from "@/components/fx/PixelReveal";
 import type { AnalysisData } from "@/lib/reddit";
+
+function DiscordLightbox() {
+  const [open, setOpen] = useState(false);
+  return (
+    <>
+      {/* thumbnail */}
+      <button
+        onClick={() => setOpen(true)}
+        className="group relative mt-3 block w-full max-w-xs rounded border border-threat/40 overflow-hidden hover:border-threat/70 transition-colors cursor-zoom-in"
+        aria-label="Expand Discord DM screenshot"
+      >
+        <img
+          src="/discord.png"
+          alt="Discord DM — Klar admits mutual coordination team"
+          className="w-full h-auto opacity-80 group-hover:opacity-100 transition-opacity"
+        />
+        <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity">
+          <span className="font-mono text-[10px] tracking-[0.2em] text-primary border border-primary/50 px-2 py-1">EXPAND</span>
+        </div>
+      </button>
+      <p className="text-[10px] text-muted-2 italic mt-1">
+        Discord DM — &ldquo;Klar&rdquo; admits coordination team. Account deleted next day.
+      </p>
+
+      {/* lightbox */}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-[9990] flex items-center justify-center p-4 bg-black/85 backdrop-blur-sm"
+            onClick={() => setOpen(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.88, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.92, opacity: 0 }}
+              transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
+              className="relative max-w-2xl w-full rounded-md border border-threat/50 overflow-hidden shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex items-center justify-between px-3 py-2 bg-black/80 border-b border-threat/30">
+                <span className="font-mono text-[10px] tracking-[0.25em] text-threat">EXHIBIT A — DIRECT ADMISSION</span>
+                <button
+                  onClick={() => setOpen(false)}
+                  className="text-muted-2 hover:text-foreground font-mono text-xs"
+                  aria-label="Close"
+                >✕</button>
+              </div>
+              <img
+                src="/discord.png"
+                alt="Discord DM screenshot showing admin Klar admitting mutual coordination team"
+                className="w-full h-auto"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  );
+}
 
 /** Section label — the narrative spine connecting exhibits into one case. */
 function CaseStep({
@@ -43,7 +107,8 @@ function CaseStep({
           text={title}
           as="h2"
           startOnView
-          speed={20}
+          speed={40}
+          scrambleCycles={1}
           className="font-mono text-base md:text-lg font-bold tracking-[0.12em] text-foreground uppercase"
         />
         <p className="mt-1.5 text-sm text-muted leading-relaxed max-w-3xl text-pretty">
@@ -66,156 +131,63 @@ export function PartIView({ data }: { data: AnalysisData }) {
             <StatsOverview overview={data.overview} />
           </section>
 
-          {/* origin story — how the investigation began */}
+          {/* origin + case file — compressed to one viewport */}
           <PixelReveal>
-            <TracedCard traceColor="var(--threat)" className="p-6 md:p-8 border-l-2 border-l-threat">
-              <div className="flex items-center gap-3 mb-4">
+            <TracedCard traceColor="var(--threat)" className="p-4 md:p-5 border-l-2 border-l-threat">
+              <div className="flex items-center gap-3 mb-3">
                 <span className="stamp text-threat">ORIGIN</span>
-                <span className="font-mono text-[10px] tracking-[0.25em] text-muted-2">
-                  HOW THIS INVESTIGATION BEGAN
-                </span>
+                <span className="font-mono text-[10px] tracking-[0.25em] text-muted-2">r/ForbiddenBromance · 2019—2026</span>
               </div>
-              <div className="space-y-4 text-sm text-muted leading-relaxed">
-                <p>
-                  It started with a pattern that didn't fit. A Reddit community
-                  called{" "}
-                  <strong className="text-foreground">r/ForbiddenBromance</strong>
-                  {" "}claimed to be a grassroots bridge between Lebanese and Israeli
-                  people — "forbidden friendship" across enemy lines. But something
-                  was off. The timing of its activity surges. The uniformity of its
-                  messaging. The demographic imbalance hiding behind a label of
-                  dialogue.
-                </p>
-                <p>
-                  An OSINT investigation was launched. AI-assisted behavioral
-                  analysis, text fingerprinting, coordination detection algorithms,
-                  and statistical anomaly testing were applied to every artifact the
-                  community ever produced — 102,610 posts and comments across 83
-                  months of operation. The results were unambiguous: this was not a
-                  community. It was an influence operation wearing a community as
-                  camouflage.
-                </p>
-                <p className="text-foreground font-medium">
-                  Then came the direct evidence.
-                </p>
-                <p>
-                  The investigator contacted{" "}
-                  <strong className="text-foreground">"Klar"</strong> — an
-                  administrator of the ForbiddenBromance Discord server — via direct
-                  message. In the exchange, Klar made two admissions that shattered
-                  the grassroots facade:
-                </p>
-                <div className="mt-2 rounded-md border border-borderc bg-black/40 p-4 font-mono text-xs leading-relaxed">
-                  <p className="text-threat tracking-[0.2em] mb-3">
-                    DIRECT QUOTES — DISCORD DM:
+
+              <div className="grid md:grid-cols-2 gap-4">
+                {/* left: narrative + DM quotes */}
+                <div className="space-y-3 text-sm text-muted leading-relaxed">
+                  <p>
+                    A Reddit community called{" "}
+                    <strong className="text-foreground">r/ForbiddenBromance</strong>{" "}
+                    claimed grassroots Lebanese-Israeli dialogue. The timing was wrong.
+                    The demographics were wrong. The messaging was uniform.
+                    102,610 artifacts across 83 months later — the verdict was clear.
                   </p>
-                  <div className="space-y-2 text-muted">
-                    <p>
-                      <span className="text-foreground">"we have a mutual coordination team"</span>
-                    </p>
-                    <p>
-                      <span className="text-foreground">"i run the day to day on the server"</span>
-                    </p>
+
+                  <div className="rounded border border-borderc bg-black/40 p-3 font-mono text-xs">
+                    <p className="text-threat tracking-[0.18em] mb-2 text-[9px]">DIRECT QUOTES — DISCORD DM:</p>
+                    <p className="text-foreground mb-1">&ldquo;we have a mutual coordination team&rdquo;</p>
+                    <p className="text-foreground">&ldquo;i run the day to day on the server&rdquo;</p>
+                    <p className="mt-2 text-muted-2 text-[9px]">Account deleted the next day.</p>
+                  </div>
+
+                  <div className="rounded border border-borderc bg-black/30 p-3 font-mono text-[10px] space-y-1">
+                    <p className="text-threat tracking-[0.18em] text-[9px] mb-2">ASSESSMENT:</p>
+                    <p className="text-muted">▸ Centralized coordination confirmed</p>
+                    <p className="text-muted">▸ Dedicated operational management</p>
+                    <p className="text-muted">▸ Asset burned within 24h of exposure</p>
+                    <p className="text-muted">▸ Consistent with Unit 8200 methodology</p>
                   </div>
                 </div>
-                <p>
-                  A "mutual coordination team" — the language of an operation, not a
-                  friendship forum. Someone runs the day-to-day. Someone coordinates.
-                  This is an administered asset, not a grassroots community.
-                </p>
 
-                {/* Discord screenshot evidence */}
-                <div className="mt-4 space-y-2">
-                  <p className="font-mono text-[10px] tracking-[0.25em] text-threat">
-                    EXHIBIT A — DIRECT ADMISSION
-                  </p>
-                  <div className="rounded-md border-2 border-threat/40 overflow-hidden">
-                    <img
-                      src="/discord.png"
-                      alt="Discord DM screenshot showing admin 'Klar' admitting to a mutual coordination team"
-                      className="w-full h-auto"
-                    />
+                {/* right: thumbnail + hypotheses */}
+                <div className="flex flex-col gap-3">
+                  <DiscordLightbox />
+
+                  <div className="rounded border border-archive/25 bg-archive/[0.03] p-3">
+                    <p className="font-mono text-[9px] tracking-[0.25em] text-archive mb-2">FIVE FALSIFIABLE CLAIMS:</p>
+                    <ol className="space-y-1 font-mono text-[10px] text-muted">
+                      {[
+                        "H1 — Activity tracks military events, not user growth",
+                        "H2 — Spikes are statistically anomalous",
+                        "H3 — Agenda is set top-down, not by users",
+                        "H4 — The 'Lebanese' community is not Lebanese",
+                        "H5 — A small cadre produces the bulk of content",
+                      ].map((h) => (
+                        <li key={h} className="flex gap-1.5">
+                          <span className="text-primary shrink-0">▸</span>
+                          <span>{h}</span>
+                        </li>
+                      ))}
+                    </ol>
                   </div>
-                  <p className="text-[11px] text-muted-2 italic">
-                    Screenshot of Discord DM exchange with ForbiddenBromance server
-                    administrator "Klar", in which they admit to running a
-                    "mutual coordination team."
-                  </p>
                 </div>
-
-                <p className="text-foreground font-medium mt-4">
-                  The next day, the account was deleted.
-                </p>
-                <p>
-                  Classic exposed-asset protocol. Once an operative confirms
-                  organizational structure to an outside party, the asset is burned
-                  and terminated. This behavior is consistent with Unit 8200 or
-                  similar SIGINT/psychological operations units — highly disciplined,
-                  compartmentalized coordination, immediate elimination of
-                  compromised nodes.
-                </p>
-
-                <div className="mt-2 rounded-md border border-borderc bg-black/40 p-4 font-mono text-xs leading-relaxed">
-                  <p className="text-threat tracking-[0.2em] mb-3">
-                    ASSESSMENT:
-                  </p>
-                  <div className="space-y-1.5 text-muted">
-                    <p>▸ Admission of centralized coordination structure</p>
-                    <p>▸ Admission of dedicated operational management ("day to day")</p>
-                    <p>▸ Asset terminated within 24 hours of exposure</p>
-                    <p>▸ Pattern consistent with state-level SIGINT unit methodology</p>
-                  </div>
-                  <p className="mt-4 text-threat">
-                    CONCLUSION: The statistical evidence below is not circumstantial
-                    alone — it is corroborated by direct human intelligence
-                    confirming coordinated operation.
-                  </p>
-                </div>
-              </div>
-            </TracedCard>
-          </PixelReveal>
-
-          {/* intelligence brief */}
-          <PixelReveal>
-            <TracedCard traceColor="var(--archive)" className="p-6 md:p-8">
-              <div className="flex items-center gap-3 mb-4">
-                <span className="stamp text-archive">CASE FILE</span>
-                <span className="font-mono text-[10px] tracking-[0.25em] text-muted-2">
-                  ZIO-PSYOP / r/ForbiddenBromance
-                </span>
-              </div>
-              <div className="space-y-4 text-sm text-muted leading-relaxed">
-                <p>
-                  With the direct admission establishing the fact of coordination,
-                  the investigation turned to the archive itself — to measure the
-                  fingerprint of that coordination across 83 months of data.{" "}
-                  <strong className="text-foreground">r/ForbiddenBromance</strong>
-                  {" "}produced 102,610 artifacts. An organic community
-                  leaves an organic fingerprint: noisy, seasonal, demographically
-                  plausible. This one does not.
-                </p>
-                <p className="text-foreground font-medium">
-                  The case below is built from five falsifiable claims. Each
-                  exhibit tests one of them. Read them in order — every chart is
-                  one piece of the same puzzle.
-                </p>
-                <ol className="grid gap-2 md:grid-cols-2 font-mono text-xs">
-                  {[
-                    "H1 — Activity is driven by military events, not community growth",
-                    "H2 — Volume spikes are statistically anomalous, not seasonal",
-                    "H3 — The narrative agenda is set top-down, not by users",
-                    "H4 — The 'Lebanese dialogue' community is not Lebanese",
-                    "H5 — A small cadre of actors produces the bulk of content",
-                  ].map((h) => (
-                    <li
-                      key={h}
-                      className="flex gap-2 rounded-md border border-borderc bg-black/25 px-3 py-2"
-                    >
-                      <span className="text-primary shrink-0">▸</span>
-                      <span className="text-muted">{h}</span>
-                    </li>
-                  ))}
-                </ol>
               </div>
             </TracedCard>
           </PixelReveal>

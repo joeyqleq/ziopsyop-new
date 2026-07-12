@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     template: "%s | ZIOPSYOP",
   },
   description:
-    "Open-source forensic analysis of a coordinated influence operation targeting Lebanese communities on Reddit. 93,000+ data points, 79 months, one verdict: the conversation was never organic.",
+    "Open-source forensic analysis of a coordinated influence operation targeting Lebanese communities on Reddit. 102,610 artifacts, 83 months, one verdict: the conversation was never organic.",
   keywords: [
     "OSINT",
     "influence operations",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     siteName: "ZIOPSYOP",
     title: "ZIOPSYOP — Signal From Noise",
     description:
-      "Forensic dissection of a coordinated influence operation. 93,000+ Reddit data points across 79 months. Every chart is one piece of the puzzle.",
+      "Forensic dissection of a coordinated influence operation. 102,610 Reddit artifacts across 83 months. Every chart is one piece of the puzzle.",
     images: [
       {
         url: "/og-image.png",
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "ZIOPSYOP — Signal From Noise",
     description:
-      "Forensic dissection of a coordinated influence operation on Reddit. 93,000+ data points. The conversation was never organic.",
+      "Forensic dissection of a coordinated influence operation on Reddit. 102,610 artifacts across 83 months. The conversation was never organic.",
     images: ["/og-image.png"],
   },
   icons: {

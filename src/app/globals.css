@@ -65,6 +65,8 @@
 html {
   background: var(--background);
   scrollbar-gutter: stable;
+  /* prevent rubber-band overscroll revealing a white void */
+  overscroll-behavior: none;
 }
 
 body {
