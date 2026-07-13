@@ -7,7 +7,7 @@ export function PartIHeader() {
   return (
     <header className="text-center pb-6 pt-2">
       <p className="font-mono text-[10px] tracking-[0.5em] text-primary mb-3">
-        <DecryptText text="//  PART I — THE MANUFACTURED FRIEND" speed={38} />
+        <DecryptText text="//  PART I — THE MANUFACTURED FRIEND" speed={38} startOnView={false} />
       </p>
       <CinematicTitle
         as="h1"

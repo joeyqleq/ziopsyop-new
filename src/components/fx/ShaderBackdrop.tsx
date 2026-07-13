@@ -40,7 +40,7 @@ export function ShaderBackdrop({
     >
       {variant === "warp" ? (
         <Warp
-          style={{ width: "100%", height: "100%" }}
+          style={{ width: "100%", height: "100%", background: "#060608" }}
           colors={["#060608", "#0a1410", "#06262031", "#0b0b10"]}
           proportion={0.45}
           softness={1}
@@ -53,7 +53,7 @@ export function ShaderBackdrop({
         />
       ) : (
         <Waves
-          style={{ width: "100%", height: "100%" }}
+          style={{ width: "100%", height: "100%", background: "#060608" }}
           colorFront="#13241f"
           colorBack="#060608"
           shape={0.9}

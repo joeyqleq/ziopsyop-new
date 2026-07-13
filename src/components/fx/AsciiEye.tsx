@@ -43,8 +43,8 @@ export function AsciiEye({ className = "" }: { className?: string }) {
       timeout.current = setTimeout(() => {
         if (!alive) return;
         setFrame(0);
-        timeout.current = setTimeout(blink, 2800 + Math.random() * 3200);
-      }, 140);
+        timeout.current = setTimeout(blink, 3000 + Math.random() * 3200);
+      }, 350);
     };
     timeout.current = setTimeout(blink, 3000);
     return () => {
