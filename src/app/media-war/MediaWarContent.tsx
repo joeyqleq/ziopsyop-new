@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { CinematicTitle } from "@/components/fx/CinematicTitle";
 import { DecryptText } from "@/components/fx/DecryptText";
 import { TracedCard } from "@/components/fx/TracedCard";
+import { MediaNarrativeTimeline } from "@/components/viz/MediaNarrativeTimeline";
 
 const CLAIMS = [
   {
@@ -90,47 +91,18 @@ export function MediaWarContent() {
         </motion.div>
       </section>
 
-      {/* Timeline Placeholder */}
-      <section className="max-w-4xl mx-auto px-4 md:px-6 mt-10">
+      {/* Narrative Timeline */}
+      <section className="max-w-7xl mx-auto px-4 md:px-6 mt-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
+          transition={{ duration: 0.6 }}
         >
-          <TracedCard traceColor="var(--muted-2)" className="p-6 md:p-8">
-            <div className="flex items-center gap-3 mb-4">
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-archive opacity-60" />
-                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-archive" />
-              </span>
-              <p className="font-mono text-[10px] tracking-[0.3em] text-archive">
-                COMPONENT IN PROGRESS
-              </p>
-            </div>
-            <p className="font-mono text-sm text-foreground">
-              MediaNarrativeTimeline
-            </p>
-            <p className="mt-2 text-sm text-muted">
-              Day-by-day narrative comparison — parsing in progress. This
-              component will display a synchronized timeline showing what each
-              media source reported on the same day, highlighting
-              contradictions, omissions, and manufactured narratives.
-            </p>
-            <div className="mt-4 grid grid-cols-3 gap-2">
-              {["AL-MANAR", "AL-MAYADEEN", "CHANNEL 14"].map((src) => (
-                <div
-                  key={src}
-                  className="rounded border border-borderc bg-surface px-3 py-2 text-center"
-                >
-                  <p className="font-mono text-[8px] tracking-[0.2em] text-muted-2">
-                    {src}
-                  </p>
-                  <p className="mt-1 font-mono text-xs text-muted">---</p>
-                </div>
-              ))}
-            </div>
-          </TracedCard>
+          <p className="font-mono text-[10px] tracking-[0.4em] text-muted-2 mb-3">
+            // EX-MW-01 — DAY-BY-DAY NARRATIVE COMPARISON
+          </p>
+          <MediaNarrativeTimeline />
         </motion.div>
       </section>
 
@@ -144,16 +116,16 @@ export function MediaWarContent() {
           className="grid grid-cols-3 gap-4"
         >
           {[
-            { value: "3", label: "MEDIA CHANNELS" },
-            { value: "83+", label: "FILES PARSED" },
-            { value: "LB-IL", label: "AXIS FILTER" },
+            { value: "17,451", label: "AL-MANAR MESSAGES", color: "text-primary", traceColor: "lime" },
+            { value: "9,079", label: "AL-MAYADEEN MESSAGES", color: "text-purple-400", traceColor: "purple" },
+            { value: "5,015", label: "CHANNEL 14 MESSAGES", color: "text-threat", traceColor: "var(--threat)" },
           ].map((stat) => (
             <TracedCard
               key={stat.label}
-              traceColor="var(--muted-2)"
+              traceColor={stat.traceColor}
               className="p-4 text-center"
             >
-              <p className="font-mono text-xl md:text-2xl font-bold text-threat tabular-nums">
+              <p className={`font-mono text-xl md:text-2xl font-bold ${stat.color} tabular-nums`}>
                 {stat.value}
               </p>
               <p className="mt-1 font-mono text-[8px] tracking-[0.2em] text-muted-2">

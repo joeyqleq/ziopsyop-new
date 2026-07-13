@@ -80,7 +80,7 @@ export function MapTimeline({
   const touchStartRef = useRef<{ x: number; dist: number; startRange: { start: Date; end: Date } } | null>(null);
 
   // Layout constants
-  const MARGIN_LEFT = 130;
+  const MARGIN_LEFT = 160;
   const MARGIN_RIGHT = 20;
   const MARGIN_TOP = 40;
   const MARGIN_BOTTOM = 50;
