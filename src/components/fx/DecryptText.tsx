@@ -15,6 +15,8 @@ interface DecryptTextProps {
   delay?: number;
   as?: "span" | "h1" | "h2" | "h3" | "p" | "div";
   startOnView?: boolean;
+  /** If true, only trigger animation once (default true) */
+  triggerOnce?: boolean;
 }
 
 export function DecryptText({
@@ -24,8 +26,11 @@ export function DecryptText({
   scrambleCycles = 2,
   delay = 0,
   as: Tag = "span",
-  startOnView = false,
+  startOnView = true,
+  triggerOnce = true,
 }: DecryptTextProps) {
+  // Speed floor: prevent runaway slowness
+  const effectiveSpeed = speed < 20 ? 20 : speed;
   // Only one bit of React state: are we done? Everything else is DOM mutation.
   const [done, setDone] = useState(false);
   const innerRef = useRef<HTMLSpanElement>(null);
@@ -48,7 +53,7 @@ export function DecryptText({
       let lastTime = 0;
 
       const step = (timestamp: number) => {
-        if (timestamp - lastTime < speed) {
+        if (timestamp - lastTime < effectiveSpeed) {
           frameRef.current = requestAnimationFrame(step);
           return;
         }
@@ -91,8 +96,8 @@ export function DecryptText({
       run();
     } else if (wrapRef.current) {
       const io = new IntersectionObserver(
-        (entries) => { if (entries[0].isIntersecting) { run(); io.disconnect(); } },
-        { threshold: 0.1 }
+        (entries) => { if (entries[0].isIntersecting) { run(); if (triggerOnce) io.disconnect(); } },
+        { threshold: 0.1, rootMargin: "0px 0px -10% 0px" }
       );
       io.observe(wrapRef.current);
       return () => {
@@ -106,7 +111,7 @@ export function DecryptText({
       cancelAnimationFrame(frameRef.current);
       clearTimeout(timeoutRef.current);
     };
-  }, [text, speed, scrambleCycles, delay, startOnView]);
+  }, [text, effectiveSpeed, scrambleCycles, delay, startOnView, triggerOnce]);
 
   return (
     <Tag

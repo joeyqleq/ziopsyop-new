@@ -55,6 +55,10 @@ export function SpaceBackground({
       ratio = rect.height < 480 ? 0.62 : 1;
       state.r = Math.min(rect.width, rect.height) * 0.35;
       ctx.setTransform(ratio, 0, 0, -ratio, canvas.width / 2, canvas.height / 2);
+      // Clear full area after transform reset to prevent white flash on resize
+      ctx.clearRect(-canvas.width * 2, -canvas.height * 2, canvas.width * 4, canvas.height * 4);
+      ctx.fillStyle = "rgba(6,6,8,1)";
+      ctx.fillRect(-canvas.width, -canvas.height, canvas.width * 2, canvas.height * 2);
     };
     setupCanvas();
 
@@ -86,6 +90,9 @@ export function SpaceBackground({
         canvas.width * 2,
         canvas.height * 2
       );
+      // Ensure background is always dark — prevents white flash if context resets
+      ctx.fillStyle = "rgba(6,6,8,1)";
+      ctx.fillRect(-canvas.width, -canvas.height, canvas.width * 2, canvas.height * 2);
       if (state.counter < state.particles.length) state.counter += 4;
       const ox = mouse.current.x * 35;
       const oy = -mouse.current.y * 35;

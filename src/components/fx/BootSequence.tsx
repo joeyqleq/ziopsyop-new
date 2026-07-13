@@ -1,22 +1,23 @@
 "use client";
 import { useEffect, useState, useRef } from "react";
+import { AsciiEye } from "@/components/fx/AsciiEye";
 
 const BOOT_LINES = [
   { text: "ZIOPSYOP v2.4.1 — SIGNAL INTELLIGENCE PLATFORM", delay: 0, color: "primary" },
-  { text: "initializing forensic analysis engine...", delay: 100, color: "muted" },
-  { text: "loading evidence database [elzmcmpinigpthnklhgj]...", delay: 200, color: "muted" },
-  { text: "mounting user archive corpus: 22 subjects, 102,610 artifacts", delay: 340, color: "muted" },
-  { text: "running behavioral fingerprint analysis... [OK]", delay: 480, color: "primary" },
-  { text: "temporal coordination engine: ACTIVE", delay: 580, color: "primary" },
-  { text: "network graph: 261 edges mapped", delay: 680, color: "primary" },
-  { text: "cross-subreddit activity: indexed", delay: 760, color: "archive" },
-  { text: "language detection: 3 scripts (EN/HE/AR)", delay: 840, color: "archive" },
-  { text: "sentiment analysis: calibrated", delay: 920, color: "archive" },
-  { text: "WARNING: coordinated inauthentic behavior detected", delay: 1040, color: "threat" },
-  { text: "WARNING: 14/22 accounts >70% conflict-sub concentration", delay: 1120, color: "threat" },
-  { text: "WARNING: 7-user simultaneous activation events recorded", delay: 1200, color: "threat" },
-  { text: "classification: INFLUENCE OPERATION — HIGH CONFIDENCE", delay: 1320, color: "threat" },
-  { text: "▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ READY", delay: 1460, color: "primary" },
+  { text: "initializing forensic analysis engine...", delay: 250, color: "muted" },
+  { text: "loading evidence database [elzmcmpinigpthnklhgj]...", delay: 500, color: "muted" },
+  { text: "mounting user archive corpus: 22 subjects, 102,610 artifacts", delay: 850, color: "muted" },
+  { text: "running behavioral fingerprint analysis... [OK]", delay: 1200, color: "primary" },
+  { text: "temporal coordination engine: ACTIVE", delay: 1500, color: "primary" },
+  { text: "network graph: 261 edges mapped", delay: 1800, color: "primary" },
+  { text: "cross-subreddit activity: indexed", delay: 2050, color: "archive" },
+  { text: "language detection: 3 scripts (EN/HE/AR)", delay: 2300, color: "archive" },
+  { text: "sentiment analysis: calibrated", delay: 2550, color: "archive" },
+  { text: "WARNING: coordinated inauthentic behavior detected", delay: 2900, color: "threat" },
+  { text: "WARNING: 14/22 accounts >70% conflict-sub concentration", delay: 3200, color: "threat" },
+  { text: "WARNING: 7-user simultaneous activation events recorded", delay: 3500, color: "threat" },
+  { text: "classification: INFLUENCE OPERATION — HIGH CONFIDENCE", delay: 3850, color: "threat" },
+  { text: "▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ READY", delay: 4200, color: "primary" },
 ];
 
 const COLOR_MAP: Record<string, string> = {
@@ -74,66 +75,6 @@ function HexRain() {
   );
 }
 
-function RadarSweep({ progress }: { progress: number }) {
-  const angle = (progress / 100) * 360;
-  const r = 90;
-  const cx = 110;
-  const cy = 110;
-
-  // sweep arc path
-  const sweepDeg = Math.min(angle, 359.9);
-  const rad = (sweepDeg * Math.PI) / 180;
-  const x2 = cx + r * Math.sin(rad);
-  const y2 = cy - r * Math.cos(rad);
-  const largeArc = sweepDeg > 180 ? 1 : 0;
-  const arcPath = `M ${cx} ${cy} L ${cx} ${cy - r} A ${r} ${r} 0 ${largeArc} 1 ${x2} ${y2} Z`;
-
-  // random blips that appear as radar sweeps them
-  const blips = [
-    { a: 48, d: 0.55 }, { a: 112, d: 0.72 }, { a: 185, d: 0.38 },
-    { a: 234, d: 0.61 }, { a: 290, d: 0.45 }, { a: 330, d: 0.8 },
-  ];
-
-  return (
-    <svg width={220} height={220} className="shrink-0" aria-hidden="true">
-      {/* rings */}
-      {[0.33, 0.66, 1].map((f) => (
-        <circle key={f} cx={cx} cy={cy} r={r * f} fill="none"
-          stroke="rgba(182,255,124,0.12)" strokeWidth={1} />
-      ))}
-      {/* cross hairs */}
-      <line x1={cx} y1={cy - r - 8} x2={cx} y2={cy + r + 8}
-        stroke="rgba(182,255,124,0.08)" strokeWidth={1} />
-      <line x1={cx - r - 8} y1={cy} x2={cx + r + 8} y2={cy}
-        stroke="rgba(182,255,124,0.08)" strokeWidth={1} />
-      {/* sweep fill */}
-      <path d={arcPath} fill="rgba(182,255,124,0.07)" />
-      {/* sweep leading edge */}
-      <line
-        x1={cx} y1={cy}
-        x2={cx + r * Math.sin(rad)} y2={cy - r * Math.cos(rad)}
-        stroke="rgba(182,255,124,0.9)" strokeWidth={1.5}
-      />
-      {/* blips */}
-      {blips.map((b) => {
-        const bRad = (b.a * Math.PI) / 180;
-        const bx = cx + r * b.d * Math.sin(bRad);
-        const by = cy - r * b.d * Math.cos(bRad);
-        const visible = b.a <= angle;
-        return visible ? (
-          <circle key={b.a} cx={bx} cy={by} r={3}
-            fill="rgba(255,77,94,0.9)"
-            style={{ filter: "drop-shadow(0 0 4px rgba(255,77,94,0.8))" }} />
-        ) : null;
-      })}
-      {/* outer ring label */}
-      <text x={cx} y={cy - r - 12} textAnchor="middle"
-        fill="rgba(182,255,124,0.4)" fontSize={8} fontFamily="monospace">
-        SCAN {Math.round(progress)}%
-      </text>
-    </svg>
-  );
-}
 
 interface BootSequenceProps {
   onComplete: () => void;
@@ -175,8 +116,8 @@ export function BootSequence({ onComplete }: BootSequenceProps) {
         setTimeout(() => {
           setFadeOut(true);
           setTimeout(onComplete, 600);
-        }, 800);
-      }, 2400)
+        }, 1500);
+      }, 5000)
     );
 
     return () => timers.forEach(clearTimeout);
@@ -244,11 +185,13 @@ export function BootSequence({ onComplete }: BootSequenceProps) {
             ))}
           </div>
 
-          {/* radar */}
-          <div className="hidden md:block shrink-0">
-            <RadarSweep progress={progress} />
-            <div className="mt-1 text-center font-mono text-[8px] text-muted-2 tracking-[0.3em]">
-              THREAT MAPPING
+          {/* eye sigil */}
+          <div className="hidden md:flex md:flex-col md:items-center shrink-0">
+            <div style={{ transform: "scale(1.8)", transformOrigin: "center center" }}>
+              <AsciiEye />
+            </div>
+            <div className="mt-6 text-center font-mono text-[8px] text-muted-2 tracking-[0.3em]">
+              WATCHING
             </div>
           </div>
         </div>

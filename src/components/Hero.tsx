@@ -40,7 +40,7 @@ export function Hero() {
         </motion.div>
 
         <p className="font-mono text-[10px] md:text-[11px] tracking-[0.5em] text-primary mb-4">
-          {booted && <DecryptText text="//  SIGNAL FROM NOISE" speed={34} delay={200} />}
+          {booted && <DecryptText text="//  SIGNAL FROM NOISE" speed={34} delay={200} startOnView={false} />}
         </p>
 
         <motion.div

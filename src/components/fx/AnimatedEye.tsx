@@ -66,7 +66,7 @@ function ASCIIEyelid({ closing }: { closing: boolean }) {
     if (closing) {
       let p = 0;
       const t = setInterval(() => {
-        p = Math.min(1, p + 0.12);
+        p = Math.min(1, p + 0.06);
         setProgress(p);
         if (p >= 1) clearInterval(t);
       }, 16);
@@ -74,7 +74,7 @@ function ASCIIEyelid({ closing }: { closing: boolean }) {
     } else {
       let p = 1;
       const t = setInterval(() => {
-        p = Math.max(0, p - 0.18);
+        p = Math.max(0, p - 0.09);
         setProgress(p);
         if (p <= 0) clearInterval(t);
       }, 16);
@@ -124,7 +124,7 @@ export function AnimatedEye({ size = 173 }: { size?: number }) {
     const delay = 2500 + Math.random() * 4000;
     blinkTimeout.current = setTimeout(async () => {
       setBlinking(true);
-      await new Promise((r) => setTimeout(r, 220));
+      await new Promise((r) => setTimeout(r, 380));
       setBlinking(false);
       scheduleBlink();
     }, delay);
@@ -264,32 +264,56 @@ export function AnimatedEye({ size = 173 }: { size?: number }) {
           {/* Diagonal 1 */}
           <motion.path
             d="M 82.355904 113.358032 L 66.830101 129.205994 L 549.153992 588.325989 L 564.679993 572.478027 L 82.355904 113.358032 Z"
-            fill="#000000"
-            stroke="#000000"
+            fill="rgba(0,0,0,0)"
+            stroke="rgba(182,255,124,0.08)"
             strokeWidth="7"
           />
           {/* Diagonal 2 */}
           <motion.path
             d="M 542.684021 130.679993 L 527.15802 114.833008 L 44.834 573.952026 L 60.359798 589.799988 L 542.684021 130.679993 Z"
-            fill="#000000"
-            stroke="#000000"
+            fill="rgba(0,0,0,0)"
+            stroke="rgba(182,255,124,0.08)"
             strokeWidth="7"
           />
-          {/* Outer arc top (path5) */}
+          {/* Outer arc top (path5) — faint lime with traveling beam */}
           <motion.path
             d="M 595.015991 299.470001 C 588.447998 293.170013 488.475006 181.569 305.703003 175.807983 C 138.156006 170.526978 24.6187 291.181 16.3906 301.993011"
             fill="none"
-            stroke="#000000"
+            stroke="rgba(182,255,124,0.15)"
             strokeWidth="19.77"
             strokeLinecap="square"
           />
-          {/* Outer arc bottom (path6) */}
+          <motion.path
+            d="M 595.015991 299.470001 C 588.447998 293.170013 488.475006 181.569 305.703003 175.807983 C 138.156006 170.526978 24.6187 291.181 16.3906 301.993011"
+            fill="none"
+            stroke={LIME}
+            strokeWidth="19.77"
+            strokeLinecap="square"
+            strokeDasharray="20 1000"
+            initial={{ strokeDashoffset: 0 }}
+            animate={{ strokeDashoffset: -1200 }}
+            transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+            style={{ opacity: 0.7 }}
+          />
+          {/* Outer arc bottom (path6) — faint lime with traveling beam */}
           <motion.path
             d="M 595.015991 388.681 C 588.447998 394.980988 488.475006 506.58197 305.703003 512.343018 C 138.156006 517.624023 24.6187 396.970001 16.3906 386.15799"
             fill="none"
-            stroke="#000000"
+            stroke="rgba(182,255,124,0.15)"
             strokeWidth="19.77"
             strokeLinecap="square"
+          />
+          <motion.path
+            d="M 595.015991 388.681 C 588.447998 394.980988 488.475006 506.58197 305.703003 512.343018 C 138.156006 517.624023 24.6187 396.970001 16.3906 386.15799"
+            fill="none"
+            stroke={LIME}
+            strokeWidth="19.77"
+            strokeLinecap="square"
+            strokeDasharray="20 1000"
+            initial={{ strokeDashoffset: 0 }}
+            animate={{ strokeDashoffset: -1200 }}
+            transition={{ duration: 3, repeat: Infinity, ease: "linear", delay: 1.5 }}
+            style={{ opacity: 0.7 }}
           />
         </motion.g>
 

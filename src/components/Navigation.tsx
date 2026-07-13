@@ -16,6 +16,7 @@ const NAV_ITEMS = [
   { href: "/forensics", label: "DOSSIER", code: "⊛", pillar: "I" },
   { href: "/battlefield", label: "PT II", code: "II", pillar: "II" },
   { href: "/map", label: "MAP", code: "·", pillar: "II" },
+  { href: "/media-war", label: "MEDIA WAR", code: "⊗", pillar: "III" },
   { href: "/synthesis", label: "SYNTH", code: "∴", pillar: "III" },
   { href: "/evidence", label: "VIDEO", code: "▶", pillar: "III" },
   { href: "/sources", label: "SRCS", code: "※", pillar: "III" },
@@ -63,7 +64,7 @@ function ScrambleLabel({ text, active }: { text: string; active: boolean }) {
     <span
       onMouseEnter={scramble}
       className={cn(
-        "font-mono text-[10px] tracking-[0.12em] transition-colors duration-300",
+        "font-mono text-[10px] md:text-[9px] tracking-[0.06em] transition-colors duration-300",
         active ? "text-primary" : "text-muted group-hover:text-foreground"
       )}
     >
@@ -171,7 +172,7 @@ export function Navigation() {
               <div key={item.href} className="flex items-center">
                 {showDivider && (
                   <span
-                    className="mx-1 h-3.5 w-px bg-borderc"
+                    className="mx-0.5 h-3.5 w-px bg-borderc"
                     aria-hidden="true"
                   />
                 )}
@@ -179,7 +180,7 @@ export function Navigation() {
                 href={item.href === "#contact" ? "#" : item.href}
                 onClick={item.href === "#contact" ? (e) => { e.preventDefault(); setContactOpen(true); trackEvent("nav_contact_open"); } : () => trackEvent("nav_click", { destination: item.href, label: item.label })}
                 onMouseEnter={() => setHovered(item.href)}
-                className="group relative px-2.5 py-2"
+                className="group relative px-1.5 py-2"
               >
                 {/* shared sliding hover ink */}
                 {hovered === item.href && (

@@ -31,8 +31,8 @@ const InfluenceHeatmap = dynamic(
   () => import("@/components/viz/InfluenceHeatmap").then((m) => m.InfluenceHeatmap),
   { ssr: false, loading: () => <LoadingViz /> }
 );
-const SwimLaneTimeline = dynamic(
-  () => import("@/components/viz/SwimLaneTimeline").then((m) => m.SwimLaneTimeline),
+const MapTimeline = dynamic(
+  () => import("@/components/viz/MapTimeline").then((m) => m.MapTimeline),
   { ssr: false, loading: () => <LoadingViz /> }
 );
 const ShiaPivotChart = dynamic(
@@ -127,7 +127,7 @@ export default function AnalysisPage() {
                 "This is the master clock for the whole case. Each exhibit below zooms into one relationship this timeline exposes.",
             }}
           >
-            <SwimLaneTimeline />
+            <MapTimeline />
           </ChartFrame>
 
           {/* 02 — asymmetry */}

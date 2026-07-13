@@ -54,6 +54,23 @@ const DOORS: Door[] = [
     accentText: "text-accent-yellow",
     status: "BATTLEFIELD FORENSICS",
   },
+  {
+    numeral: "III",
+    href: "/media-war",
+    name: "THE MANUFACTURED REALITY",
+    subtitle: "THE MEDIA BATTLEFIELD",
+    thesis:
+      "Channel 14 tells Israel what to believe. Al-Manar documents what actually happened. This is the forensic comparison — lie by lie, day by day.",
+    manufactures: "MANUFACTURES PERMISSION",
+    stats: [
+      { value: "3", label: "MEDIA ARMS ANALYZED" },
+      { value: "2023–2026", label: "PERIOD COVERED" },
+    ],
+    accentVar: "var(--threat)",
+    accentHex: "#ff4d5e",
+    accentText: "text-threat",
+    status: "NARRATIVE FORENSICS",
+  },
 ];
 
 const EVERVAULT_CHARS =
@@ -136,11 +153,11 @@ export function PartDoors() {
           SELECT AN OPERATION
         </p>
         <p className="mt-2 font-mono text-[11px] tracking-[0.2em] text-muted">
-          TWO FRONTS · ONE MACHINE · EQUAL WEIGHT
+          THREE FRONTS · ONE MACHINE · EQUAL WEIGHT
         </p>
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="grid gap-6 lg:grid-cols-3">
         {DOORS.map((door, i) => (
           <motion.div
             key={door.href}
@@ -239,10 +256,11 @@ export function PartDoors() {
         transition={{ duration: 0.8, delay: 0.3 }}
         className="mx-auto mt-12 max-w-2xl text-center text-sm text-muted leading-relaxed text-pretty"
       >
-        One broadcasts the friendship that never existed. The other sanctifies
-        the violence that friendship was built to hide.{" "}
+        One broadcasts the friendship that never existed. One sanctifies
+        the violence that friendship was built to hide. One manufactures the
+        reality that permits both.{" "}
         <span className="text-foreground">
-          Neither operation works without the other.
+          No single operation works without the others.
         </span>
       </motion.p>
     </section>
