@@ -29,7 +29,7 @@ const DOORS: Door[] = [
       "A fake grassroots friendship on Reddit, engineered to soften Lebanese sentiment while a war is prosecuted.",
     manufactures: "MANUFACTURES CONSENT",
     stats: [
-      { value: "93,247", label: "ARTIFACTS ANALYZED" },
+      { value: "102,610", label: "ARTIFACTS ANALYZED" },
       { value: "3:1", label: "ISRAELI–LEBANESE RATIO" },
     ],
     accentVar: "var(--primary)",

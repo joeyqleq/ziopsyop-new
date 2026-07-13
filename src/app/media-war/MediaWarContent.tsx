@@ -5,6 +5,8 @@ import { CinematicTitle } from "@/components/fx/CinematicTitle";
 import { DecryptText } from "@/components/fx/DecryptText";
 import { TracedCard } from "@/components/fx/TracedCard";
 import { MediaNarrativeTimeline } from "@/components/viz/MediaNarrativeTimeline";
+import { TerrorDensityGauge } from "@/components/viz/TerrorDensityGauge";
+import { SilenceMap } from "@/components/viz/SilenceMap";
 
 const CLAIMS = [
   {
@@ -116,9 +118,9 @@ export function MediaWarContent() {
           className="grid grid-cols-3 gap-4"
         >
           {[
-            { value: "17,451", label: "AL-MANAR MESSAGES", color: "text-primary", traceColor: "lime" },
-            { value: "9,079", label: "AL-MAYADEEN MESSAGES", color: "text-purple-400", traceColor: "purple" },
-            { value: "5,015", label: "CHANNEL 14 MESSAGES", color: "text-threat", traceColor: "var(--threat)" },
+            { value: "17,443", label: "AL-MANAR MESSAGES", color: "text-primary", traceColor: "lime" },
+            { value: "9,063", label: "AL-MAYADEEN MESSAGES", color: "text-purple-400", traceColor: "purple" },
+            { value: "3,981", label: "CHANNEL 14 MESSAGES", color: "text-threat", traceColor: "var(--threat)" },
           ].map((stat) => (
             <TracedCard
               key={stat.label}
@@ -134,6 +136,16 @@ export function MediaWarContent() {
             </TracedCard>
           ))}
         </motion.div>
+      </section>
+
+      {/* Terror Density Gauge */}
+      <section className="max-w-4xl mx-auto px-4 md:px-6 mt-10">
+        <TerrorDensityGauge />
+      </section>
+
+      {/* Silence Map */}
+      <section className="max-w-5xl mx-auto px-4 md:px-6 mt-6">
+        <SilenceMap />
       </section>
 
       {/* Key Claims */}

@@ -77,7 +77,7 @@ export function StatsOverview({ overview }: Props) {
     },
     {
       label: "Data Points",
-      value: 93247,
+      value: 102610,
       color: "var(--primary)",
       cls: "text-primary",
     },

@@ -74,16 +74,52 @@ export async function GET(request: Request) {
   // Determine if summary mode
   const isSummary = summaryParam === "true";
 
-  // Build PostgREST query
-  const parts: string[] = [];
-
+  // Summary mode: call RPC to bypass PostgREST row limits
   if (isSummary) {
-    // For summary mode, select only date and source to count client-side
-    parts.push("select=event_date,source");
-  } else {
-    parts.push("select=*");
+    const validSources = ["almanar", "almayadeen", "channel_14"];
+    let sourcesArray: string[] | null = null;
+    if (sourceParam && sourceParam !== "all") {
+      const filtered = sourceParam.split(",").map((s) => s.trim()).filter((s) => validSources.includes(s));
+      if (filtered.length > 0) sourcesArray = filtered;
+    }
+    const rpcBody: Record<string, unknown> = {
+      start_date: start,
+      end_date: end,
+    };
+    if (sourcesArray) rpcBody.sources = sourcesArray;
+
+    // Uses JSONB RPC to return all rows as a single JSON blob — bypasses PostgREST max_rows=1000
+    const rpcUrl = `${SUPABASE_URL}/rest/v1/rpc/get_daily_narrative_json`;
+    try {
+      const res = await fetch(rpcUrl, {
+        method: "POST",
+        headers: {
+          apikey: SERVICE_ROLE_KEY!,
+          Authorization: `Bearer ${SERVICE_ROLE_KEY}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(rpcBody),
+        cache: "no-store",
+      });
+      if (!res.ok) {
+        const errText = await res.text();
+        console.error(`[media-events] rpc error ${res.status}:`, errText);
+        return NextResponse.json({ error: "RPC query failed" }, { status: 502, headers: CORS_HEADERS });
+      }
+      // RPC returns a single JSONB value (the array)
+      const payload = await res.json();
+      const rows: { date: string; almanar: number; almayadeen: number; channel_14: number }[] = Array.isArray(payload) ? payload : (payload ?? []);
+      const summary = rows.map((r) => ({ date: r.date, almanar: Number(r.almanar), almayadeen: Number(r.almayadeen), channel_14: Number(r.channel_14) }));
+      return NextResponse.json(summary, { headers: { ...CORS_HEADERS, "Cache-Control": "no-store" } });
+    } catch (err) {
+      console.error("[media-events] summary error:", err);
+      return NextResponse.json({ error: "Internal server error" }, { status: 500, headers: CORS_HEADERS });
+    }
   }
 
+  // Build PostgREST query (non-summary)
+  const parts: string[] = [];
+  parts.push("select=*");
   parts.push(`event_date=gte.${start}`);
   parts.push(`event_date=lte.${end}`);
   parts.push("order=event_date.asc");
@@ -103,11 +139,8 @@ export async function GET(request: Request) {
     parts.push(`category=eq.${categoryParam}`);
   }
 
-  // Pagination (only for non-summary mode; summary fetches all to aggregate)
-  if (!isSummary) {
-    parts.push(`limit=${limit}`);
-    parts.push(`offset=${offset}`);
-  }
+  parts.push(`limit=${limit}`);
+  parts.push(`offset=${offset}`);
 
   const query = parts.join("&");
   const url = `${SUPABASE_URL}/rest/v1/media_events?${query}`;
@@ -119,14 +152,11 @@ export async function GET(request: Request) {
       "Content-Type": "application/json",
     };
 
-    // Request count header for pagination metadata
-    if (!isSummary) {
-      fetchHeaders["Prefer"] = "count=exact";
-    }
+    fetchHeaders["Prefer"] = "count=exact";
 
     const res = await fetch(url, {
       headers: fetchHeaders,
-      next: { revalidate: 300, tags: ["media-events"] },
+      cache: "no-store",
     });
 
     if (!res.ok) {
@@ -139,28 +169,6 @@ export async function GET(request: Request) {
     }
 
     const data = await res.json();
-
-    // Summary mode: aggregate daily counts per source
-    if (isSummary) {
-      const countsMap: Record<string, { almanar: number; almayadeen: number; channel_14: number }> = {};
-
-      for (const row of data) {
-        const date = row.event_date;
-        if (!countsMap[date]) {
-          countsMap[date] = { almanar: 0, almayadeen: 0, channel_14: 0 };
-        }
-        const src = row.source as "almanar" | "almayadeen" | "channel_14";
-        if (src in countsMap[date]) {
-          countsMap[date][src]++;
-        }
-      }
-
-      const summary = Object.entries(countsMap)
-        .sort(([a], [b]) => a.localeCompare(b))
-        .map(([date, counts]) => ({ date, ...counts }));
-
-      return NextResponse.json(summary, { headers: CORS_HEADERS });
-    }
 
     // Parse total count from Content-Range header
     const contentRange = res.headers.get("content-range");

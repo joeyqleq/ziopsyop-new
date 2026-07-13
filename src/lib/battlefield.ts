@@ -773,14 +773,14 @@ export async function getAdmissionGap(): Promise<AdmissionGapData> {
       { label: "BBC Verify geolocated FPV strikes (Mar-May 2026)", value: 35, source: "BBC Verify, May 2026", color: "#4ea8ff" },
       { label: "Total FPV strikes claimed on Telegram", value: 100, source: "BBC Verify: 'nearly 100 apparent FPV attacks'", color: "#a78bfa" },
       { label: "Filmed kills from drone footage", value: filmedKills || 48, source: "hezbollah_strikes.idf_kia_in_event", color: "#eab308" },
-      { label: "IDF official admission (Lebanon, since Mar 2)", value: 21, source: "IDF statement, BBC May 2026", color: "#ff4d5e" },
+      { label: "IDF official admission (Lebanon, Mar 2 – Jun 1 2026)", value: 26, source: "IDF statement Jun 1 2026 (Al-Manar / Israeli Army)", color: "#ff4d5e" },
     ],
     discrepancies: [
       {
-        claimed: "21 soldiers killed (Lebanon, since March 2)",
-        actual: "100+ FPV strikes documented, 35 independently geolocated by BBC",
-        ratio: "~5:1",
-        evidence: "BBC Verify geolocated 35 FPV strikes. Each hits armored vehicles/soldiers. IDF admits 21 total dead. Mathematically impossible.",
+        claimed: "26 soldiers + 1,180 wounded (Lebanon, since March 2 — IDF Jun 1 2026)",
+        actual: "100+ FPV strikes documented; 35 independently geolocated by BBC Mar-May alone; named KIA: Sgt. Alexander Filin (Egoz/Commando), Maglan major, 7th Armored Bn-77 officer, Egoz captain + Givati soldier, Golani officer — all confirmed by IDF or Israeli media via Al-Manar",
+        ratio: "~4:1+",
+        evidence: "BBC Verify geolocated 35 FPV strikes Mar-May 2026. IDF admitting only 26 total KIA across that period is mathematically inconsistent with strike documentation.",
       },
       {
         claimed: "844 KIA in Gaza (official)",
@@ -798,7 +798,7 @@ export async function getAdmissionGap(): Promise<AdmissionGapData> {
     bbcVerified: {
       totalClaimed: 100,
       geolocated: 35,
-      idfAdmitted: 21,
+      idfAdmitted: 26,
       lebaHealthMinistry: 2896,
       bbcUrl: "https://www.bbc.com/news/articles/c1j2zwe9g5no",
       droneCostRange: "$300-$500 (King's College London / BBC Verify)",
