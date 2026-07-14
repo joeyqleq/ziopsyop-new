@@ -7,6 +7,7 @@ import { TracedCard } from "@/components/fx/TracedCard";
 import { MediaNarrativeTimeline } from "@/components/viz/MediaNarrativeTimeline";
 import { TerrorDensityGauge } from "@/components/viz/TerrorDensityGauge";
 import { SilenceMap } from "@/components/viz/SilenceMap";
+import { ContradictionRegistry } from "@/components/viz/ContradictionRegistry";
 
 const CLAIMS = [
   {
@@ -146,6 +147,11 @@ export function MediaWarContent() {
       {/* Silence Map */}
       <section className="max-w-5xl mx-auto px-4 md:px-6 mt-6">
         <SilenceMap />
+      </section>
+
+      {/* Contradiction Registry */}
+      <section className="max-w-5xl mx-auto px-4 md:px-6 mt-6">
+        <ContradictionRegistry />
       </section>
 
       {/* Key Claims */}
