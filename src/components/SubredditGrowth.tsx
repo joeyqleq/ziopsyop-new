@@ -14,8 +14,6 @@ import {
   ResponsiveContainer,
   ReferenceArea,
   ReferenceLine,
-  Brush,
-  Legend,
 } from "recharts";
 import { SegToggle } from "@/components/fx/ChartFrame";
 
@@ -84,41 +82,12 @@ const tooltipStyle = {
   cursor:     { stroke: "rgba(232,234,233,0.15)" },
 };
 
-const brushEl = (
-  <Brush
-    dataKey="label"
-    height={20}
-    stroke="rgba(255,255,255,0.1)"
-    fill="rgba(0,0,0,0.3)"
-    travellerWidth={6}
-    tickFormatter={(v: unknown) => String(v)}
-  />
-);
+// Page navigation constants (replaces Brush slider)
+const PAGE_SIZE = 24;
 
 // ─── EraLabel ─────────────────────────────────────────────────────────────────
 
-function EraLabel({
-  viewBox,
-  text,
-}: {
-  viewBox?: { x: number; y: number; width: number; height: number };
-  text: string;
-}) {
-  if (!viewBox || viewBox.width < 24) return null;
-  return (
-    <text
-      x={viewBox.x + viewBox.width / 2}
-      y={viewBox.y + 13}
-      textAnchor="middle"
-      fill="rgba(255,255,255,0.18)"
-      fontSize={8}
-      fontFamily="var(--font-jet), monospace"
-      letterSpacing={1}
-    >
-      {text.toUpperCase()}
-    </text>
-  );
-}
+// Era labels removed — bands render as background color only to prevent overlap
 
 // ─── helper: build era ReferenceAreas ────────────────────────────────────────
 
@@ -135,7 +104,6 @@ function buildEraAreas(
       fill={ERA_COLORS[era.tone] ?? "rgba(255,255,255,0.03)"}
       fillOpacity={1}
       stroke="none"
-      label={<EraLabel text={era.label} />}
     />
   ));
 }
@@ -151,8 +119,34 @@ function sCurveRef(n: number, peak: number): number[] {
 
 // ─── main component ───────────────────────────────────────────────────────────
 
+function PageNav({ page, totalPages, setPage }: { page: number; totalPages: number; setPage: (fn: (p: number) => number) => void }) {
+  if (totalPages <= 1) return null;
+  return (
+    <div className="flex items-center justify-center gap-3 mt-3">
+      <button
+        onClick={() => setPage((p) => Math.max(0, p - 1))}
+        disabled={page === 0}
+        className="font-mono text-[10px] tracking-[0.12em] px-2.5 py-1 rounded border border-borderc text-muted hover:text-foreground hover:border-muted disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+      >
+        ◂ PREV
+      </button>
+      <span className="font-mono text-[9px] tracking-[0.2em] text-muted-2 tabular-nums">
+        {page + 1} / {totalPages}
+      </span>
+      <button
+        onClick={() => setPage((p) => Math.min(totalPages - 1, p + 1))}
+        disabled={page >= totalPages - 1}
+        className="font-mono text-[10px] tracking-[0.12em] px-2.5 py-1 rounded border border-borderc text-muted hover:text-foreground hover:border-muted disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+      >
+        NEXT ▸
+      </button>
+    </div>
+  );
+}
+
 export function SubredditGrowth({ data, eras }: SubredditGrowthProps) {
   const [tab, setTab] = useState<TabId>("GROWTH");
+  const [page, setPage] = useState(0);
 
   // enrich data with short label
   const chartData = useMemo(
@@ -178,6 +172,15 @@ export function SubredditGrowth({ data, eras }: SubredditGrowthProps) {
       })),
     [chartData, sCurve]
   );
+
+  // paging
+  const totalPages = Math.ceil(enrichedData.length / PAGE_SIZE);
+  const safePage = Math.min(page, Math.max(0, totalPages - 1));
+  const pagedData = useMemo(() => {
+    if (enrichedData.length <= PAGE_SIZE) return enrichedData;
+    const start = safePage * PAGE_SIZE;
+    return enrichedData.slice(start, start + PAGE_SIZE);
+  }, [enrichedData, safePage]);
 
   // identity forensics stats
   const identityStats = useMemo(() => {
@@ -220,7 +223,7 @@ export function SubredditGrowth({ data, eras }: SubredditGrowthProps) {
       {tab === "GROWTH" && (
         <div tabIndex={-1}>
           <ResponsiveContainer width="100%" height={280}>
-            <ComposedChart data={enrichedData} margin={{ top: 8, right: 48, bottom: 0, left: 0 }}>
+            <ComposedChart data={pagedData} margin={{ top: 8, right: 48, bottom: 0, left: 0 }}>
               {eraAreas}
               <XAxis dataKey="label" {...axisProps} />
               <YAxis
@@ -271,8 +274,7 @@ export function SubredditGrowth({ data, eras }: SubredditGrowthProps) {
                 dot={false}
                 name="Subscriber count"
               />
-              {brushEl}
-            </ComposedChart>
+                          </ComposedChart>
           </ResponsiveContainer>
           <div className="flex gap-4 mt-2 text-[10px] text-muted">
             <span><span style={{ color: PRIMARY }}>━</span> Cumulative unique users</span>
@@ -286,7 +288,7 @@ export function SubredditGrowth({ data, eras }: SubredditGrowthProps) {
       {tab === "ACTIVITY" && (
         <div tabIndex={-1}>
           <ResponsiveContainer width="100%" height={280}>
-            <ComposedChart data={enrichedData} margin={{ top: 8, right: 16, bottom: 0, left: 0 }}>
+            <ComposedChart data={pagedData} margin={{ top: 8, right: 16, bottom: 0, left: 0 }}>
               {eraAreas}
               <XAxis dataKey="label" {...axisProps} />
               <YAxis
@@ -310,8 +312,7 @@ export function SubredditGrowth({ data, eras }: SubredditGrowthProps) {
                 dot={false}
                 name="Active users"
               />
-              {brushEl}
-            </ComposedChart>
+                          </ComposedChart>
           </ResponsiveContainer>
           <div className="flex gap-4 mt-2 text-[10px] text-muted">
             <span><span style={{ color: PURPLE }}>█</span> New users / month</span>
@@ -324,7 +325,7 @@ export function SubredditGrowth({ data, eras }: SubredditGrowthProps) {
       {tab === "IDENTITY" && (
         <div tabIndex={-1}>
           <ResponsiveContainer width="100%" height={280}>
-            <AreaChart data={enrichedData} margin={{ top: 8, right: 16, bottom: 0, left: 0 }}>
+            <AreaChart data={pagedData} margin={{ top: 8, right: 16, bottom: 0, left: 0 }}>
               {eraAreas}
               <XAxis dataKey="label" {...axisProps} />
               <YAxis
@@ -385,8 +386,7 @@ export function SubredditGrowth({ data, eras }: SubredditGrowthProps) {
                 fillOpacity={0.75}
                 name="Israeli flair"
               />
-              {brushEl}
-            </AreaChart>
+                          </AreaChart>
           </ResponsiveContainer>
 
           {/* forensic annotation */}
@@ -432,7 +432,7 @@ export function SubredditGrowth({ data, eras }: SubredditGrowthProps) {
       {tab === "CONTENT" && (
         <div tabIndex={-1}>
           <ResponsiveContainer width="100%" height={280}>
-            <ComposedChart data={enrichedData} margin={{ top: 8, right: 16, bottom: 0, left: 0 }}>
+            <ComposedChart data={pagedData} margin={{ top: 8, right: 16, bottom: 0, left: 0 }}>
               {eraAreas}
               <XAxis dataKey="label" {...axisProps} />
               <YAxis
@@ -456,8 +456,7 @@ export function SubredditGrowth({ data, eras }: SubredditGrowthProps) {
                 dot={false}
                 name="Posts"
               />
-              {brushEl}
-            </ComposedChart>
+                          </ComposedChart>
           </ResponsiveContainer>
           <div className="flex gap-4 mt-2 text-[10px] text-muted">
             <span><span style={{ color: PRIMARY }}>█</span> Comments</span>
@@ -465,6 +464,9 @@ export function SubredditGrowth({ data, eras }: SubredditGrowthProps) {
           </div>
         </div>
       )}
+
+      {/* shared page nav */}
+      <PageNav page={safePage} totalPages={totalPages} setPage={setPage} />
     </div>
   );
 }

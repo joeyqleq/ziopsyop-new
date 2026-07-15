@@ -12,7 +12,6 @@ import {
   ResponsiveContainer,
   ReferenceLine,
   ReferenceArea,
-  Brush,
 } from "recharts";
 import { SegToggle } from "@/components/fx/ChartFrame";
 
@@ -85,30 +84,7 @@ const PRESET_LIST: Preset[] = [
   "CUSTOM",
 ];
 
-// ─── EraLabel — SVG text rendered inside ReferenceArea ────────────────────────
-
-function EraLabel({
-  viewBox,
-  text,
-}: {
-  viewBox?: { x: number; y: number; width: number; height: number };
-  text: string;
-}) {
-  if (!viewBox || viewBox.width < 24) return null;
-  return (
-    <text
-      x={viewBox.x + viewBox.width / 2}
-      y={viewBox.y + 13}
-      textAnchor="middle"
-      fill="rgba(255,255,255,0.20)"
-      fontSize={8}
-      fontFamily="var(--font-jet), monospace"
-      letterSpacing={1}
-    >
-      {text.toUpperCase()}
-    </text>
-  );
-}
+// Era bands render as background color only — no inline SVG text (overlaps at wide ranges)
 
 // ─── main component ───────────────────────────────────────────────────────────
 
@@ -187,7 +163,7 @@ export function TimelineChart({ data, events, eras }: TimelineChartProps) {
     cursor:     { stroke: "rgba(232,234,233,0.15)" },
   };
 
-  // era bands (rendered before data series so they sit behind)
+  // era bands — background color only, no inline text
   const eraAreas = eras?.map((era) => (
     <ReferenceArea
       key={`era-${era.label}`}
@@ -196,7 +172,6 @@ export function TimelineChart({ data, events, eras }: TimelineChartProps) {
       fill={ERA_COLORS[era.tone] ?? "rgba(255,255,255,0.03)"}
       fillOpacity={1}
       stroke="none"
-      label={<EraLabel text={era.label} />}
     />
   ));
 
@@ -214,17 +189,19 @@ export function TimelineChart({ data, events, eras }: TimelineChartProps) {
       ))
     : null;
 
-  // brush (shared between both chart types)
-  const brushEl = (
-    <Brush
-      dataKey="label"
-      height={20}
-      stroke="rgba(255,255,255,0.1)"
-      fill="rgba(0,0,0,0.3)"
-      travellerWidth={6}
-      tickFormatter={(v: unknown) => String(v)}
-    />
-  );
+  // page-through navigation (replaces Brush slider)
+  const PAGE_SIZE = 24;
+  const [page, setPage] = useState(0);
+  const totalPages = Math.ceil(filteredData.length / PAGE_SIZE);
+  const safePage = Math.min(page, Math.max(0, totalPages - 1));
+
+  const pagedData = useMemo(() => {
+    if (filteredData.length <= PAGE_SIZE) return filteredData;
+    const start = safePage * PAGE_SIZE;
+    return filteredData.slice(start, start + PAGE_SIZE);
+  }, [filteredData, safePage]);
+
+  const needsPaging = filteredData.length > PAGE_SIZE;
 
   return (
     <div className="relative" tabIndex={-1}>
@@ -323,7 +300,7 @@ export function TimelineChart({ data, events, eras }: TimelineChartProps) {
       <ResponsiveContainer width="100%" height={340}>
         {mode === "area" ? (
           <AreaChart
-            data={filteredData}
+            data={pagedData}
             margin={{ top: 10, right: 10, left: 0, bottom: 0 }}
           >
             <defs>
@@ -338,7 +315,7 @@ export function TimelineChart({ data, events, eras }: TimelineChartProps) {
                 </linearGradient>
               ))}
             </defs>
-            <XAxis dataKey="label" interval={5} {...axisProps} />
+            <XAxis dataKey="label" {...axisProps} />
             <YAxis width={45} {...axisProps} axisLine={false} />
             <Tooltip {...tooltipStyle} />
             {eraAreas}
@@ -355,15 +332,14 @@ export function TimelineChart({ data, events, eras }: TimelineChartProps) {
                 dot={false}
               />
             ))}
-            {brushEl}
           </AreaChart>
         ) : (
           <BarChart
-            data={filteredData}
+            data={pagedData}
             margin={{ top: 10, right: 10, left: 0, bottom: 0 }}
             barCategoryGap={1}
           >
-            <XAxis dataKey="label" interval={5} {...axisProps} />
+            <XAxis dataKey="label" {...axisProps} />
             <YAxis width={45} {...axisProps} axisLine={false} />
             <Tooltip
               {...tooltipStyle}
@@ -381,10 +357,32 @@ export function TimelineChart({ data, events, eras }: TimelineChartProps) {
                 fillOpacity={0.75}
               />
             ))}
-            {brushEl}
           </BarChart>
         )}
       </ResponsiveContainer>
+
+      {/* ── page navigation ────────────────────────────────────────────── */}
+      {needsPaging && (
+        <div className="flex items-center justify-center gap-3 mt-3">
+          <button
+            onClick={() => setPage((p) => Math.max(0, p - 1))}
+            disabled={safePage === 0}
+            className="font-mono text-[10px] tracking-[0.12em] px-2.5 py-1 rounded border border-borderc text-muted hover:text-foreground hover:border-muted disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+          >
+            ◂ PREV
+          </button>
+          <span className="font-mono text-[9px] tracking-[0.2em] text-muted-2 tabular-nums">
+            {safePage + 1} / {totalPages}
+          </span>
+          <button
+            onClick={() => setPage((p) => Math.min(totalPages - 1, p + 1))}
+            disabled={safePage >= totalPages - 1}
+            className="font-mono text-[10px] tracking-[0.12em] px-2.5 py-1 rounded border border-borderc text-muted hover:text-foreground hover:border-muted disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+          >
+            NEXT ▸
+          </button>
+        </div>
+      )}
 
       {/* ── hovered event tooltip ────────────────────────────────────────── */}
       {hoveredEvent && (
