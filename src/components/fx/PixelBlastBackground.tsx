@@ -216,13 +216,13 @@ export function PixelBlastBackground() {
       style={
         isHomepage
           ? {
-              // On homepage: start below the hero (100svh offset)
               top: "100svh",
               left: 0,
               right: 0,
               bottom: 0,
+              background: "#060608",
             }
-          : { inset: 0 }
+          : { inset: 0, background: "#060608" }
       }
     >
       <PixelBlast
