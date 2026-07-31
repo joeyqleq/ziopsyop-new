@@ -109,10 +109,10 @@ const METRICS = [
     },
     verdict: "ANOMALOUS",
     verdictNote:
-      "Organic diaspora communities post around the clock — from Sydney, Paris, Beirut, Detroit. Tightly clustered posting hours point to a geographically concentrated operator group.",
+      "Tightly clustered posting hours are consistent with a geographically concentrated cohort, but are not proof of coordination without a matched control and the other behavioral signals.",
     exhibit: "EX-01",
     fieldEvidence:
-      "r/lebanon: posts arrive 00:00–23:59 UTC every day, no dead zones. r/ForbiddenBromance: 68% of all posts fall within a 6-hour window matching Israel working hours (06:00–12:00 UTC).",
+      "Among the profiled cohort, 68 of 100 recorded 5+ user co-activity windows fall between 14:00 and 19:00 UTC; 17 of 22 subjects have at least 70% activity in the dataset's Israel-hours band.",
   },
   {
     id: "keyword-synchrony",

@@ -11,10 +11,6 @@ const SankeyDiagram = dynamic(
   () => import("@/components/viz/SankeyDiagram").then((m) => m.SankeyDiagram),
   { ssr: false, loading: () => <LoadingViz /> }
 );
-const NetworkGraph = dynamic(
-  () => import("@/components/viz/NetworkGraph").then((m) => m.NetworkGraph),
-  { ssr: false, loading: () => <LoadingViz /> }
-);
 const WordCloud = dynamic(
   () => import("@/components/viz/WordCloud").then((m) => m.WordCloud),
   { ssr: false, loading: () => <LoadingViz /> }
@@ -31,8 +27,11 @@ const InfluenceHeatmap = dynamic(
   () => import("@/components/viz/InfluenceHeatmap").then((m) => m.InfluenceHeatmap),
   { ssr: false, loading: () => <LoadingViz /> }
 );
-const MapTimeline = dynamic(
-  () => import("@/components/viz/MapTimeline").then((m) => m.MapTimeline),
+const ReactionClockContainer = dynamic(
+  () =>
+    import("@/components/viz/ReactionClockContainer").then(
+      (m) => m.ReactionClockContainer,
+    ),
   { ssr: false, loading: () => <LoadingViz /> }
 );
 const ShiaPivotChart = dynamic(
@@ -106,28 +105,28 @@ export default function AnalysisPage() {
         </header>
 
         <div className="space-y-8">
-          {/* 01 — kinetic context */}
+          {/* 01 — reaction clock */}
           <Lede
             step="01"
-            title="First, the kinetic context"
-            text="Information operations don't happen in a vacuum. Seven parallel lanes — IDF actions, Hezbollah actions, UNIFIL incidents, civilian casualties, political events, media divergence and Reddit spikes — let you see cause and echo on a single axis."
+            title="First, set the reaction clock"
+            text="The test is temporal: place Beirut-local media output and Reddit activity on one civil-day spine, then keep the actors' recurring 24-hour schedules in a separate, date-unlinked layer. That makes the reactive pattern visible without manufacturing timestamp precision the source data does not contain."
           />
           <ChartFrame
             exhibit="EX-08"
-            title="ANNOTATED SWIMLANE TIMELINE"
-            subtitle="Seven event lanes on one time axis. Hover any marker for the full incident record."
+            title="REACTION CLOCK — MEDIA ↔ REDDIT ↔ ACTOR RHYTHM"
+            subtitle="Range-query the canonical Supabase day spine, then compare it with the forensic cohort's aggregate 24-hour activity clocks."
             accent="var(--primary)"
-            classification="MULTI-SOURCE"
+            classification="CANONICAL · DAY-GRAIN"
             commentary={{
               reads:
-                "Every documented incident across seven categories, plotted on a shared timeline so kinetic events, political moves and online activity can be compared directly.",
+                "Al-Manar, Al-Mayadeen, Channel 14 and Reddit volume share a Beirut-local civil-day axis. Context markers retain their evidence status, and missing source observations remain gaps instead of synthetic zeroes.",
               means:
-                "Reddit spikes (bottom lane) consistently trail kinetic lanes by hours-to-days — the signature of a reactive messaging apparatus, not a community discovering news organically through diverse feeds.",
+                "Recurring same-day and next-day activation windows are consistent with a reactive messaging apparatus. The separate actor clock tests whether the same forensic cohort also returns on repeated daily schedules.",
               puzzle:
-                "This is the master clock for the whole case. Each exhibit below zooms into one relationship this timeline exposes.",
+                "This is the case's temporal master clock. It supports a coordination hypothesis at day grain; exact latency remains reserved for a future joined timestamp artifact table.",
             }}
           >
-            <MapTimeline />
+            <ReactionClockContainer />
           </ChartFrame>
 
           {/* 02 — asymmetry */}
@@ -176,30 +175,6 @@ export default function AnalysisPage() {
             }}
           >
             <CoverageGapMatrix />
-          </ChartFrame>
-
-          {/* 04 — network */}
-          <Lede
-            step="04"
-            title="The cadre, mapped"
-            text="EX-05 showed twenty accounts produce most of the content. Force-direct their reply patterns and the cell structure becomes visible: who amplifies whom, and whose claimed identity contradicts their behavior."
-          />
-          <ChartFrame
-            exhibit="EX-11"
-            title="USER RELATIONSHIP NETWORK"
-            subtitle="Node size = activity, color = flair identity, ring = identity-contradiction score. Drag nodes to interrogate the structure."
-            accent="var(--viz-violet)"
-            classification="NETWORK FORENSICS"
-            commentary={{
-              reads:
-                "A force-directed graph of who replies to whom. Tightly-bound clusters indicate accounts that consistently engage each other.",
-              means:
-                "Instead of the diffuse mesh of a real community, we find dense hubs: high-volume accounts orbiting each other, amplifying the same threads within minutes. Accounts flaired 'Lebanese' that interact exclusively inside Israeli-flaired clusters carry high contradiction scores.",
-              puzzle:
-                "This is the operational chart of H5's cadre — the same names from the Top Actors ledger, now shown working together.",
-            }}
-          >
-            <NetworkGraph />
           </ChartFrame>
 
           {/* 05 — lexicon */}

@@ -1,0 +1,290 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e7]:
+    - generic [ref=e8]:
+      - generic [ref=e9]: ZIOPSYOP — FORENSIC INTELLIGENCE SYSTEM
+      - generic [ref=e12]: "0x00000000"
+    - generic [ref=e13]:
+      - generic [ref=e14]:
+        - generic [ref=e15]: ">ZIOPSYOP v2.4.1 — SIGNAL INTELLIGENCE PLATFORM"
+        - generic [ref=e16]: ">initializing forensic analysis engine..."
+        - generic [ref=e17]: ">loading evidence database [elzmcmpinigpthnklhgj]..."
+        - generic [ref=e18]: ">mounting user archive corpus: 22 subjects, 102,610 artifacts"
+        - generic [ref=e19]: ">running behavioral fingerprint analysis... [OK]"
+        - generic [ref=e20]: ">temporal coordination engine: ACTIVE"
+        - generic [ref=e21]: ">network graph: 261 edges mapped"
+        - generic [ref=e22]: ">cross-subreddit activity: indexed"
+        - generic [ref=e23]: ">language detection: 3 scripts (EN/HE/AR)"
+        - generic [ref=e24]: ">sentiment analysis: calibrated"
+        - generic [ref=e25]: ">WARNING: coordinated inauthentic behavior detected"
+        - generic [ref=e26]: ">WARNING: 14/22 accounts >70% conflict-sub concentration"
+        - generic [ref=e27]: ">WARNING: 7-user simultaneous activation events recorded"
+        - generic [ref=e28]: ">classification: INFLUENCE OPERATION — HIGH CONFIDENCE"
+        - generic [ref=e29]: ">▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ READY"
+      - generic [ref=e30]:
+        - generic [ref=e31]: ".:--========--:. .-=+: .-==-. :+=-. .-=: -=: :=- :=-. =+. =: .##. := .+= (: . =: '##' := . :) =+. .=: :=. .+= '-=: '-====-' :=-' '-=+:. .. .:+=-' ':--==========--:'"
+        - generic [ref=e33]: WATCHING
+    - generic [ref=e35]:
+      - generic [ref=e36]: SYSTEM LOAD
+      - generic [ref=e37]: 0%
+  - main [ref=e39]:
+    - generic [ref=e40]:
+      - link "ZIOPSYOP home" [ref=e41] [cursor=pointer]:
+        - /url: /
+        - img "ZIOPSYOP" [ref=e65]:
+          - generic [ref=e66]: Z
+          - generic [ref=e67]: I
+          - generic [ref=e69]:
+            - text: 0 0
+            - generic [ref=e70]: "0"
+            - text: "0"
+          - generic [ref=e71]: P
+          - generic [ref=e72]: S
+          - generic [ref=e73]: "Y"
+          - generic [ref=e75]:
+            - text: 0 0
+            - generic [ref=e76]: "0"
+            - text: "0"
+          - generic [ref=e77]: P
+      - navigation "Main navigation" [ref=e78]:
+        - link "PT I" [ref=e80] [cursor=pointer]:
+          - /url: /part-i
+        - link "ANALYSIS" [ref=e83] [cursor=pointer]:
+          - /url: /analysis
+        - link "DOSSIER" [ref=e86] [cursor=pointer]:
+          - /url: /forensics
+        - link "PT II" [ref=e90] [cursor=pointer]:
+          - /url: /battlefield
+        - link "MAP" [ref=e93] [cursor=pointer]:
+          - /url: /map
+        - link "MEDIA WAR" [ref=e97] [cursor=pointer]:
+          - /url: /media-war
+        - link "SYNTH" [ref=e100] [cursor=pointer]:
+          - /url: /synthesis
+        - link "VIDEO" [ref=e103] [cursor=pointer]:
+          - /url: /evidence
+        - link "SRCS" [ref=e106] [cursor=pointer]:
+          - /url: /sources
+        - link "REBUT" [ref=e109] [cursor=pointer]:
+          - /url: /counter-arguments
+        - link "CTRL" [ref=e112] [cursor=pointer]:
+          - /url: /control
+        - link "ABOUT" [ref=e116] [cursor=pointer]:
+          - /url: /about
+        - link "CONTACT" [ref=e119] [cursor=pointer]:
+          - /url: "#"
+      - generic [ref=e121]: 04:18:44Z
+    - generic [ref=e126]:
+      - generic [ref=e127]:
+        - generic [ref=e128]:
+          - paragraph
+          - generic [ref=e152]:
+            - heading "ZIOPSYOP" [level=1] [ref=e153]
+            - img "ZIOPSYOP" [ref=e154]:
+              - generic [ref=e155]: Z
+              - generic [ref=e156]: I
+              - generic [ref=e158]:
+                - text: 0 0
+                - generic [ref=e159]: "0"
+                - text: "0"
+              - generic [ref=e160]: P
+              - generic [ref=e161]: S
+              - generic [ref=e162]: "Y"
+              - generic [ref=e164]:
+                - text: 0 0
+                - generic [ref=e165]: "0"
+                - text: "0"
+              - generic [ref=e166]: P
+          - paragraph [ref=e167]: One Zionist information machine, running two operations. One manufactures the friendship that never existed; the other manufactures the morality that never held. This is the forensic record of both — two co-equal cases, one conclusion.
+          - generic [ref=e168]:
+            - generic [ref=e169]: TWO FRONTS
+            - generic [ref=e170]: /
+            - generic [ref=e171]: 2019 — 2026
+            - generic [ref=e172]: /
+            - generic [ref=e173]: "CASE STATUS: ACTIVE"
+        - generic [ref=e175]:
+          - generic [ref=e176]:
+            - generic [ref=e177]:
+              - generic [ref=e178]: ▮
+              - text: PART I — 102,610 DATA POINTS INGESTED
+            - generic [ref=e179]:
+              - generic [ref=e180]: ▮
+              - text: PART I — FLAIR RATIO 3:1 — INCONSISTENT WITH STATED PURPOSE
+            - generic [ref=e181]:
+              - generic [ref=e182]: ▮
+              - text: PART I — 2026 NARRATIVE PIVOT DETECTED
+            - generic [ref=e183]:
+              - generic [ref=e184]: ▮
+              - text: PART II — 665 DOCUMENTED STRIKES CATALOGUED
+            - generic [ref=e185]:
+              - generic [ref=e186]: ▮
+              - text: PART II — COST ASYMMETRY 15,000:1
+            - generic [ref=e187]:
+              - generic [ref=e188]: ▮
+              - text: "PART II — IHL COMPLIANCE: ONE SIDE IN VIOLATION"
+            - generic [ref=e189]:
+              - generic [ref=e190]: ▮
+              - text: PART II — 19 IRON DOME UNITS DESTROYED
+            - generic [ref=e191]:
+              - generic [ref=e192]: ▮
+              - text: TWO OPERATIONS · ONE INFORMATION MACHINE
+          - generic [ref=e193]:
+            - generic [ref=e194]:
+              - generic [ref=e195]: ▮
+              - text: PART I — 102,610 DATA POINTS INGESTED
+            - generic [ref=e196]:
+              - generic [ref=e197]: ▮
+              - text: PART I — FLAIR RATIO 3:1 — INCONSISTENT WITH STATED PURPOSE
+            - generic [ref=e198]:
+              - generic [ref=e199]: ▮
+              - text: PART I — 2026 NARRATIVE PIVOT DETECTED
+            - generic [ref=e200]:
+              - generic [ref=e201]: ▮
+              - text: PART II — 665 DOCUMENTED STRIKES CATALOGUED
+            - generic [ref=e202]:
+              - generic [ref=e203]: ▮
+              - text: PART II — COST ASYMMETRY 15,000:1
+            - generic [ref=e204]:
+              - generic [ref=e205]: ▮
+              - text: "PART II — IHL COMPLIANCE: ONE SIDE IN VIOLATION"
+            - generic [ref=e206]:
+              - generic [ref=e207]: ▮
+              - text: PART II — 19 IRON DOME UNITS DESTROYED
+            - generic [ref=e208]:
+              - generic [ref=e209]: ▮
+              - text: TWO OPERATIONS · ONE INFORMATION MACHINE
+        - generic:
+          - generic: SELECT OPERATION
+          - generic: ▼
+      - region "The two operations" [ref=e210]:
+        - generic [ref=e211]:
+          - paragraph [ref=e212]: SELECT AN OPERATION
+          - paragraph [ref=e213]: THREE FRONTS · ONE MACHINE · EQUAL WEIGHT
+        - generic [ref=e214]:
+          - link [ref=e216] [cursor=pointer]:
+            - /url: /part-i
+            - generic [ref=e217]:
+              - paragraph [ref=e221]: "!Rq=F2$qe3?3p1HBGiT>bce$ebczp+36j<I<oUhays*wRyjX%su4~W*hxsO<tWoLeUoK<NFSr0<OcgR2$tyAZrc5jGQRU+**MYpt*OjrGwaPFjTLvSPco*1Zk#gMaeCU#<9oeY#?PU+0j~5+fdG3VzqO~dFzUa7E2yEkgwmPn*%s>4#Vo3pY!uLVjpPv>Abq+1iUOiqYaVCi9apWZ7UMBUJq?xIA<uhM&CnrR$PHRK#xPUnP*q70VX@=WbVoNqAYeM=zB9Jh7h6@5Kb@rn@fyBIN!DRD*1ie11YBB%Uwku0>Rr#E#tPc*x19xFcm42KcCxCW2tm5$lcYNGSQ2iG=O@|eFU<!rvi7ANkh04KN!<4i*v&xUxx5j?2NPvDOA==8pjd?TNG+f=%itUabh@EGOi=CPlZ=l+atHo3k&ZV9tUQawE90dF2S&c7&esfiyH#VeGqhvosO&FDJmmG96LjoOjl9Izds@gp0#TW5sbgTbkwQX5hktQirjX>Ks4DJH9w%cTXR?Yxh9fXKG!fopJtJqn2Rr?yjYZY5j=uT>n!$N5NQRROesq=EZtkxdwT5??AfNo2kHKn#&h5Q1JzQ~6ROmY4Pkdq&hq7qK<*gY63A@*@t7qHNilu70LCS?cIPCpn=eTfEtMby!$+|yECreVbp?E8mCl3Y*Qlx#+~I*fIM>?Op&Bww!5Y?wlOLw##bQhv#+ZU>d9e$wfI0&3j|B4~ypsQB6CE?yT9d2JYPa>@bAC9GXr9ZNS#c|rD0al&EtuZR+kXB9LuM94WgeSFwjf+r$xO#<aChbHQ|UNd#hqCN2VAvbpNOB>7jw~21v2bPKqlUnzXvJI|AT%@OnUdR1lAhDo6>H!OVKF7+5f|tOrg8>@smEg@iwDo=jpR4E8BmGyLV%v2gHnjIjyemFPZ6=Ei!#To3#NO2ln|kUDd+jZmDO&g~fk9Yf??3Mgu6w0BGT4HjWUpvr?6vk=7oznS3mbQ1V+BgaKQ%<GE#xp*VDn1#53Md#~WVtUpFG8N%N|OwyvluhxkG7<c=379&vTXm79Wt~XDV8OIj7W2I&GQFAF#WkX?H0m=Gzjy#d|KXt3QcT#&B3Uwd4$55>i4nqmeS5o>L7OBsjhZR#PoEMqJEx27jCqjsxcjLS8le3l3HG@=iRxA>Fpz<rmk$&QPd<eg1PBf04nD*zQtgvq8wlb5Sl1zqtqe59wiAbN#Aiib|FSVrHJJ4WBfyVE=Poav<FSrlYmM<JIU7rpjodc~EpECzPpXhO$VfC~ap|Bo?$na#fo7*YWA9+bwFPeMkfWaf#l*lB%41o&cdZjfFSz=rqNgCboIoO7B#Y@ttb#@i==n#Dyn~IE+xBIuVAm$eN3k$DW&RSzcgMCZBtO<*~BUdxntShuZ9x3G>3Eei+IGRbd@9vwKpcWPrdxVcQFWHY=|uIFru0b|VyZFI~qle%yR42GL=tN5lDUlwf~kmfOYvkOMnkh@yvUZh@%1RhH5SY|Y+Om5?6W5A2vtlWBOd"
+              - generic: I
+              - generic [ref=e222]:
+                - generic [ref=e223]:
+                  - generic [ref=e224]: PART I
+                  - generic [ref=e226]: NARRATIVE FORENSICS
+                - heading "THE MANUFACTURED FRIEND" [level=2] [ref=e227]
+                - paragraph [ref=e228]: THE SUBREDDIT OPERATION
+                - paragraph [ref=e229]: A fake grassroots friendship on Reddit, engineered to soften Lebanese sentiment while a war is prosecuted.
+                - paragraph [ref=e230]: ▸ MANUFACTURES CONSENT
+                - generic [ref=e231]:
+                  - generic [ref=e232]:
+                    - paragraph [ref=e233]: 102,610
+                    - paragraph [ref=e234]: ARTIFACTS ANALYZED
+                  - generic [ref=e235]:
+                    - paragraph [ref=e236]: 3:1
+                    - paragraph [ref=e237]: ISRAELI–LEBANESE RATIO
+                - generic [ref=e239]:
+                  - text: ENTER PART I
+                  - generic [ref=e240]: →
+          - link [ref=e242] [cursor=pointer]:
+            - /url: /battlefield
+            - generic [ref=e243]:
+              - paragraph [ref=e247]: 7d|t9Qncc<|G@1ndyPSntmimax6O4r3jQRR7d97Rldz!6WnuLdy6~!q8I<!DSFF5=Kn2rynKy7Ab5Ccb4Gl34k$RSWLLZYHZX>fPFAVmL@K1aZE&P1HU+WYZpSO9hi6@hyz<95S0rh3Yis&<BIP1KPv0nH#46#?%W$j8#uNLshJEhmW0B5!0v49~aOOpHo92&lU&70MEVKMx@ovAK8RVQH43mbGKY<RrK=fL!c#&a99SpX~LL&V~uINYY+u=xtvcr<+6RX&bUavG$|3nBn!|+Ka|OR=Z4rJiw%=V?YB8w~CpgpXP66!un<2WGoTViR!Dk1$m~VQM!x9x=64+lx!6T6ht%1*loOIgEWnHi!<nkqaYu+n~Bt~P5COdG!@CNl<EAITydp>~oCCEO9kHBxERhG$04VxgaMl#CmdP~xPw8a4IIXEgb+xA4CI<q9*5PaYa@TGRvdF5$?z!wKjuyh%wpiGjZjU@DtLx5=%ZE3eLcEmW>MY2#BwY|Gz64140nWytzO%*rTNq%a4v>pE7UgE&y?M0oQLJ4JU&>lB0hT2|R4Z|<igK#cH~O@GU6tM|U*L!XFSsxOQ#hKjRL2z45GA<ZxS|1KAj>a<VyZMnfhKa35rFOIZuFgtQZRKvFFe%zWIVn~~TJjUrEeNmUO1&xXwzF4@9mCorey|iLPi?X|qH34m&wAEu8$nKk3WhTFG7F&Fqdz0jiu$NbrWPgs*+a|g~<tSUS0F&L00yadxxw3fiFsd60DDPUZ7@TsvoZavsPkVz*utS=~k9V|$ks5?W?cRWV3zS5AGGd+hib|r>O5yB0hU@p~p1&Z8TuW1JQZyOXoNnf~L3<nO+sjiPoqB6rDE3y1<<&K=1RdruAsg!8ITP0m2~rUR%K3VFQIUvNur3EVYmaPg3jWeyT+VuvS&M%qv2C9Q~bOhS4cr2yY5t64tSmMPx?L7$2QKL4rdFv43@wSjLw@*8n&NAS&x0BZ8Zz!sMbFUm401Ia72cSvKH$E?Xt59h&EnMN0f732?j@&ecaZ?i6bD>Za<zkTyniVDL+@5=eg@f+|L<qzCHB|OaWuS?ahu9kRz$V7zFfF#bRHO~f?d=tg48gy~nESje6Zy>~=G6Kh@KpAoqi*4cfbQmt1!zKkeMHYnZ*U$YV~Gwur6<Mi1pPYEd2#CwJfmh9M+lS#ZZnpoUBMtEcLG7T>UGJe4|EMcdKk!oMO8<c%A@g587pPZK+Yf@b*!07y105Tw+!~4mrUKvPL*K=z~@cd9FW#V~Fq$qlwhZIagIggJ52W*bD~|sFc%cNd%qNwm+9Wq|=M?QwivVl<D%7EcjhTKkbS9juC>1Y>YX*7%8iRDBZaQgQMLD5rNx$h?ZC$*zP=4*k4a77@=KUTZU+um|ae*nZU%|sHsYZ0cS4Yol5lp+LR*B5&BG=<|kKZuXhj6q*C6ukn&G*7hXj|mYEm*zON541|9jSh*mIN3Pt$R&s!z!qVQkHycVg+$SS2yn*6z>25iFG%+rWvK~LnPJ
+              - generic: II
+              - generic [ref=e248]:
+                - generic [ref=e249]:
+                  - generic [ref=e250]: PART II
+                  - generic [ref=e251]: BATTLEFIELD FORENSICS
+                - heading "THE MOST MORAL ARMY" [level=2] [ref=e252]
+                - paragraph [ref=e253]: THE BATTLEFIELD LEDGER
+                - paragraph [ref=e254]: The claim that Hezbollah are the terrorists and the IDF the most moral army — measured against the documented record of the war.
+                - paragraph [ref=e255]: ▸ MANUFACTURES MORAL LICENSE
+                - generic [ref=e256]:
+                  - generic [ref=e257]:
+                    - paragraph [ref=e258]: 15,000:1
+                    - paragraph [ref=e259]: COST ASYMMETRY
+                  - generic [ref=e260]:
+                    - paragraph [ref=e261]: "665"
+                    - paragraph [ref=e262]: DOCUMENTED STRIKES
+                - generic [ref=e264]:
+                  - text: ENTER PART II
+                  - generic [ref=e265]: →
+          - link [ref=e267] [cursor=pointer]:
+            - /url: /media-war
+            - generic [ref=e268]:
+              - paragraph [ref=e272]: 9~JG@7SQmM7SA|=ABchw!O8U<Zp|kxrc?OgUK6hRyY?NDKHLioOOiZUw2N?FL*|>2?tTxgV88U!Bc@FVPM7*gwAOEC|n&s+Uqt@7Xd*w<Gs8O1sd2>xV7~w2*qt!QyYLhtwgaa8J%#ZHI!WRVhOoAtVFjHl|p>%UgZ6kFo*#l7oThRmx+rHE<dLh6<qL3ll44D?H4gd?#EskLY>MbUpAAx84bQZYXRA=mx>aVB1%V<iqG|qMj#ERhdiZC1+O|1+BEVX4jR|>L*FDk8S*mceKSJVv$IDyu?vV*E~JJ&ZKpzUmRPI9|cOkU~M>B$PmZqX?7J>pyVTJZefw9D<lL&SYYO?%S&2*MVc=1f0MGB+&PUYrLY4ODr@j+~skI%f#3=6*dQdS*1EB1EUuFsjGPlQ|t6Vh<J1wj~X264tMt!zTF2lK2rqRGV2@8oktKywUCjo4vWkYiAoWs0gsKTV7x!eY=rK&u2qx50ExLvsG?QRFJUO&z0HjQTRg7bSPya1ZL#2O4f~7NM#PRCT*E6JkF!KOoMSgOt?jY4MMKUaTUt4lnuC6iB?WodJFNNlysGnL~ov2uBW9O?e!sIgL48P1Rj7U<U?0e66x0Dwb2=Pa$#RkT2VMx$dnCjBU!CIS2n$F!UxwH3LobjDPu=M9Pr>9P=IQ51|k3OvZa4&WT~~ZlR@H*Kx7JOB!U*R<>xu4c&j+LUk!Q%$0CDeEJgbypOP~xwnYNDmtB9Nu2%AyW~z$nPw*8zt5MRgHfC6EC1&ZFCz#*DHWwEAPoO!dX*6Rth%uPY8AshlkB#iE82X<cWq9CDZl*QZpg5$HgQsfQ4y3ylXOG2euj6Bi1&+Or|ht4h>2=#&kd0k~fEf#b@FvYh#fW%?nK&%MRY~P63xOUkBhF5s?>Q$W|zOgOEQwMB3Tg|aZXeGt6|K1Y@|0b=14K@pD5aDVHytAnjR|@0A|a*@fVkhhX>Ek+vHglL#MB?|7XIwsNU*FW=|atecIscayLlI4VqsvkJc|Am!NO*MRnr2UaogE>!QL4Cys5pS+hE72y8Iu5!>bA*uniCQsnMX5d?EmJ7c!qjZ$R63O|ak3o|tzR7&X~fKB*EnM+J9KyNOQ+$oBk#GPA3TF*DW!xmo$&RpKp@!DKIfYDgTsB#jiI7#cz3+rlgL|G%bvKTlEO3JpV3*?99Cy<txEqFH?GToAPfmUW*4QKM~k@S7?~6#O~iX2#@<%AmsYkFSe%q+yHqA2#+84Z%Pn>!eMNyN&ur?J$B8~CmhUlK2G#*|C>ZEr!Gj*jsO7xbWk6<L$zWL5m&247I?q31@p>s0iqSB8rrTmJOS$65VeW2D#7iK~Yq95H5WLVwggmkOfTf>$XrUk53xwF$=@e1o3bOahoJjULbQ*pj2dt1f%qi55++Bav%MlWhqL5m$V|zB=CTQm*QjA!~bgzjQUi3~!I3<#zQRKy&w2FihboFgPJ4kn9fa~@szM?hr8+!v=4~S#eDeJC*Hd=j9jWIHv4Es&A35c=3tP
+              - generic: III
+              - generic [ref=e273]:
+                - generic [ref=e274]:
+                  - generic [ref=e275]: PART III
+                  - generic [ref=e276]: NARRATIVE FORENSICS
+                - heading "THE MANUFACTURED REALITY" [level=2] [ref=e277]
+                - paragraph [ref=e278]: THE MEDIA BATTLEFIELD
+                - paragraph [ref=e279]: Channel 14 tells Israel what to believe. Al-Manar documents what actually happened. This is the forensic comparison — lie by lie, day by day.
+                - paragraph [ref=e280]: ▸ MANUFACTURES PERMISSION
+                - generic [ref=e281]:
+                  - generic [ref=e282]:
+                    - paragraph [ref=e283]: "3"
+                    - paragraph [ref=e284]: MEDIA ARMS ANALYZED
+                  - generic [ref=e285]:
+                    - paragraph [ref=e286]: 2023–2026
+                    - paragraph [ref=e287]: PERIOD COVERED
+                - generic [ref=e289]:
+                  - text: ENTER PART III
+                  - generic [ref=e290]: →
+        - paragraph [ref=e291]: One broadcasts the friendship that never existed. One sanctifies the violence that friendship was built to hide. One manufactures the reality that permits both. No single operation works without the others.
+    - contentinfo [ref=e292]:
+      - generic:
+        - paragraph:
+          - generic: Z
+          - generic: I
+          - generic: "0"
+          - generic: P
+          - generic: S
+          - generic: "Y"
+          - generic: "0"
+          - generic: P
+          - generic: .
+          - generic: M
+          - generic: E
+        - paragraph: Signal From Noise — Influence Operation Forensics
+        - navigation "Footer navigation" [ref=e295]:
+          - generic [ref=e296]:
+            - link "Gateway" [ref=e297] [cursor=pointer]:
+              - /url: /
+            - generic [ref=e298]: ·
+          - generic [ref=e299]:
+            - link "Part I" [ref=e300] [cursor=pointer]:
+              - /url: /part-i
+            - generic [ref=e301]: ·
+          - generic [ref=e302]:
+            - link "Analysis" [ref=e303] [cursor=pointer]:
+              - /url: /analysis
+            - generic [ref=e304]: ·
+          - generic [ref=e305]:
+            - link "Part II" [ref=e306] [cursor=pointer]:
+              - /url: /battlefield
+            - generic [ref=e307]: ·
+          - generic [ref=e308]:
+            - link "Map" [ref=e309] [cursor=pointer]:
+              - /url: /map
+            - generic [ref=e310]: ·
+          - generic [ref=e311]:
+            - link "Synthesis" [ref=e312] [cursor=pointer]:
+              - /url: /synthesis
+            - generic [ref=e313]: ·
+          - generic [ref=e314]:
+            - link "Video" [ref=e315] [cursor=pointer]:
+              - /url: /evidence
+            - generic [ref=e316]: ·
+          - generic [ref=e317]:
+            - link "Sources" [ref=e318] [cursor=pointer]:
+              - /url: /sources
+            - generic [ref=e319]: ·
+          - generic [ref=e320]:
+            - link "Objections" [ref=e321] [cursor=pointer]:
+              - /url: /counter-arguments
+            - generic [ref=e322]: ·
+          - link "About" [ref=e324] [cursor=pointer]:
+            - /url: /about
+        - paragraph: All data sourced from publicly available Reddit archives via the Arctic Shift API. Analysis covers r/ForbiddenBromance from September 2019 through March 2026. Methodology, raw data and source code are open — verify everything yourself.
+        - paragraph: "[ Dataset Live — Metadata Update Daily ]"
+  - button "Open Next.js Dev Tools" [ref=e330] [cursor=pointer]
+  - alert [ref=e334]

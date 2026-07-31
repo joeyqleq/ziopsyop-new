@@ -15,16 +15,9 @@ const UserReplyNetwork = dynamic(
   () => import("@/components/viz/UserReplyNetwork").then((m) => m.UserReplyNetwork),
   { ssr: false, loading: () => <LoadingViz /> }
 );
-const CoordinationTimeline = dynamic(
-  () => import("@/components/viz/CoordinationTimeline").then((m) => m.CoordinationTimeline),
-  { ssr: false, loading: () => <LoadingViz /> }
-);
+import { ActivityScheduleHeatmap } from "@/components/viz/ActivityScheduleHeatmap";
 const SubredditConcentrationMap = dynamic(
   () => import("@/components/viz/SubredditConcentrationMap").then((m) => m.SubredditConcentrationMap),
-  { ssr: false, loading: () => <LoadingViz /> }
-);
-const LanguageRadar = dynamic(
-  () => import("@/components/viz/LanguageRadar").then((m) => m.LanguageRadar),
   { ssr: false, loading: () => <LoadingViz /> }
 );
 const ActivityHeatmap = dynamic(
@@ -89,6 +82,7 @@ interface UserNode {
   conflict_pct: number;
   fb_pct: number;
   israel_hours_pct: number;
+  hour_distribution: Array<{ hour: number; pct: number }>;
   age_days: number;
   first_seen: string | null;
   last_seen: string | null;
@@ -230,22 +224,22 @@ export default function ForensicsPage() {
             {/* EX-18 — coordination timeline */}
             <Lede
               step="02"
-              title="Simultaneous activation events"
-              text="If these 22 people were strangers on the internet, the probability of them all posting to the same political subreddits within the same hour — repeatedly — approaches zero. This chart counts how often it happened."
+              title="Shared schedules and simultaneous activity"
+              text="The subjects concentrate activity in the same daily hours and repeatedly overlap in conflict-adjacent subreddits. Timing alone cannot prove command or identity, so this exhibit shows the pattern as one signal to compare with the network and behavioral evidence that follows."
             />
             <ChartFrame
               exhibit="EX-18"
               title="COORDINATION EVENTS — SIMULTANEOUS ACTIVATION"
-              subtitle="Each bar = days where 3+ subjects posted to conflict subs in the same 60-minute window. Red = 5+ users."
+              subtitle="Rows show each subject's 24-hour activity profile; bars show recorded windows with 5–7 subjects active in the same hour."
               accent="var(--threat)"
               classification="TEMPORAL COORDINATION"
               commentary={{
-                reads: "Daily count of hours where 3 or more of our 22 subjects were simultaneously active in conflict-adjacent subreddits. Red bars indicate days with 5+ simultaneous users in the same hour.",
-                means: "Real people post when they have time. Managed accounts activate when ordered. The clustering of simultaneous activity around documented Israeli military operations — and the near-total absence of such clustering during quiet periods — is the temporal fingerprint of a coordinated cell, not a community.",
-                puzzle: "Cross-reference the red bars with EX-01's military event overlay. The spikes are not random: they align with activation events. Seven of our 22 subjects active in the same hour, on the same day Israel announces a military operation, is not coincidence.",
+                reads: "A 22×24-hour schedule heatmap plus 100 recorded windows in which 5–7 profiled subjects were active during the same UTC hour.",
+                means: "The shared daily band is consistent with a geographically concentrated cohort, while repeated overlap identifies dates and subject groups worth testing against the other forensic signals.",
+                puzzle: "Timing is supporting evidence, not proof by itself. Its value comes from convergence with mutual replies, conflict concentration, language patterns and event context.",
               }}
             >
-              <CoordinationTimeline events={data.coordination_events} />
+              <ActivityScheduleHeatmap events={data.coordination_events} users={data.users} />
             </ChartFrame>
 
             {/* EX-19 — reply network */}
@@ -311,27 +305,6 @@ export default function ForensicsPage() {
               <ActivityHeatmap users={data.users} />
             </ChartFrame>
 
-            {/* EX-22 — language + behavioral radar */}
-            <Lede
-              step="06"
-              title="Behavioral fingerprint radar"
-              text="Six normalized signals per subject: conflict focus, timezone alignment, ForbiddenBromance embeddedness, contradiction score, Hebrew content, and volume. Organic accounts scatter. Operatives cluster."
-            />
-            <ChartFrame
-              exhibit="EX-22"
-              title="MULTI-SIGNAL BEHAVIORAL RADAR"
-              subtitle="Each axis = one behavioral signal, normalized 0–100. Toggle subjects to compare profiles. Overlapping shapes = similar behavioral fingerprints."
-              accent="var(--viz-violet)"
-              classification="MULTI-SIGNAL"
-              commentary={{
-                reads: "A radar chart of six behavioral signals for each subject. Toggle up to 22 subjects on/off to compare profiles.",
-                means: "Organic users have irregular, idiosyncratic profiles — high on some dimensions, low on others. The embedded operatives in this cohort show high scores across multiple dimensions simultaneously: conflict focus + timezone alignment + high volume. That combination is the fingerprint of a managed account.",
-                puzzle: "Select IbnEzra613, Shachar2like, and Tamtumtam together. Three accounts with superficially different backstories produce near-identical radar shapes. Three people who are, behaviorally, the same entity.",
-              }}
-            >
-              <LanguageRadar users={data.users} />
-            </ChartFrame>
-
             {/* EX-23 — contradiction matrix */}
             <Lede
               step="07"
@@ -363,14 +336,13 @@ export default function ForensicsPage() {
                 <div className="space-y-3 text-sm text-muted leading-relaxed">
                   <p>
                     The 22 subjects profiled in this dossier are not a random sample of internet users.
-                    They are a statistically anomalous cohort: <strong className="text-foreground">simultaneous activations that correlate with military operations,
+                    They are an anomalous cohort: <strong className="text-foreground">shared activity schedules and repeated simultaneous activations,
                     behavioral fingerprints that cluster instead of scatter, language-identity mismatches that contradict their stated personas,
                     and dormancy gaps that align with operational pauses.</strong>
                   </p>
                   <p>
                     No single exhibit is conclusive. That is intentional. The case is built on the joint
-                    probability of all exhibits being true simultaneously — a probability that, for organic users,
-                    approaches zero.
+                    convergence of independent signals rather than any single timing pattern.
                   </p>
                   <div className="mt-3 rounded-md border border-threat/40 bg-threat/5 p-4 font-mono text-xs">
                     <p className="text-threat tracking-[0.2em] mb-2">SUMMARY ASSESSMENT:</p>

@@ -4,7 +4,7 @@
 
 Replace the current homepage bootloader with the exact boot animation supplied in
 `/home/jq/Desktop/zio-psyop-boot-sequence.zip`. Preserve the archive's complete
-approximately 48-second timeline and visual pacing.
+53-second timeline and visual pacing.
 
 ## Integration boundary
 

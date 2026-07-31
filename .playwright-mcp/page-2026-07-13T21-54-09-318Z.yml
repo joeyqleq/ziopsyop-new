@@ -1,0 +1,268 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e7]:
+    - generic [ref=e8]:
+      - generic [ref=e9]: ZIOPSYOP — FORENSIC INTELLIGENCE SYSTEM
+      - generic [ref=e12]: "0x00000000"
+    - generic [ref=e13]:
+      - generic [ref=e14]:
+        - generic [ref=e15]: ">ZIOPSYOP v2.4.1 — SIGNAL INTELLIGENCE PLATFORM"
+        - generic [ref=e16]: ">initializing forensic analysis engine..."
+        - generic [ref=e17]: ">loading evidence database [elzmcmpinigpthnklhgj]..."
+        - generic [ref=e18]: ">mounting user archive corpus: 22 subjects, 102,610 artifacts"
+        - generic [ref=e19]: ">running behavioral fingerprint analysis... [OK]"
+        - generic [ref=e20]: ">temporal coordination engine: ACTIVE"
+        - generic [ref=e21]: ">network graph: 261 edges mapped"
+        - generic [ref=e22]: ">cross-subreddit activity: indexed"
+        - generic [ref=e23]: ">language detection: 3 scripts (EN/HE/AR)"
+        - generic [ref=e24]: ">sentiment analysis: calibrated"
+        - generic [ref=e25]: ">WARNING: coordinated inauthentic behavior detected"
+        - generic [ref=e26]: ">WARNING: 14/22 accounts >70% conflict-sub concentration"
+        - generic [ref=e27]: ">WARNING: 7-user simultaneous activation events recorded"
+        - generic [ref=e28]: ">classification: INFLUENCE OPERATION — HIGH CONFIDENCE"
+        - generic [ref=e29]: ">▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ READY"
+      - generic [ref=e30]:
+        - generic [ref=e31]: ".:--========--:. .-=+: .-==-. :+=-. .-=: -=: :=- :=-. =+. =: .##. := .+= (: . =: '##' := . :) =+. .=: :=. .+= '-=: '-====-' :=-' '-=+:. .. .:+=-' ':--==========--:'"
+        - generic [ref=e33]: WATCHING
+    - generic [ref=e35]:
+      - generic [ref=e36]: SYSTEM LOAD
+      - generic [ref=e37]: 0%
+  - main [ref=e39]:
+    - generic [ref=e40]:
+      - link "ZIOPSYOP home" [ref=e41] [cursor=pointer]:
+        - /url: /
+        - img "ZIOPSYOP" [ref=e65]:
+          - generic [ref=e66]: Z
+          - generic [ref=e67]: I
+          - generic [ref=e69]:
+            - text: 0 0
+            - generic [ref=e70]: "0"
+            - text: "0"
+          - generic [ref=e71]: P
+          - generic [ref=e72]: S
+          - generic [ref=e73]: "Y"
+          - generic [ref=e75]:
+            - text: 0 0
+            - generic [ref=e76]: "0"
+            - text: "0"
+          - generic [ref=e77]: P
+      - navigation "Main navigation" [ref=e78]:
+        - link "PT I" [ref=e80] [cursor=pointer]:
+          - /url: /part-i
+        - link "ANALYSIS" [ref=e83] [cursor=pointer]:
+          - /url: /analysis
+        - link "DOSSIER" [ref=e86] [cursor=pointer]:
+          - /url: /forensics
+        - link "PT II" [ref=e90] [cursor=pointer]:
+          - /url: /battlefield
+        - link "MAP" [ref=e93] [cursor=pointer]:
+          - /url: /map
+        - link "MEDIA WAR" [ref=e97] [cursor=pointer]:
+          - /url: /media-war
+        - link "SYNTH" [ref=e107] [cursor=pointer]:
+          - /url: /synthesis
+        - link "VIDEO" [ref=e110] [cursor=pointer]:
+          - /url: /evidence
+        - link "SRCS" [ref=e113] [cursor=pointer]:
+          - /url: /sources
+        - link "REBUT" [ref=e116] [cursor=pointer]:
+          - /url: /counter-arguments
+        - link "CTRL" [ref=e119] [cursor=pointer]:
+          - /url: /control
+        - link "ABOUT" [ref=e123] [cursor=pointer]:
+          - /url: /about
+        - link "CONTACT" [ref=e126] [cursor=pointer]:
+          - /url: "#"
+      - generic [ref=e128]: "--:--:--Z"
+    - generic [ref=e134]:
+      - generic [ref=e136]:
+        - paragraph [ref=e137]: PART III
+        - heading "THE MEDIA BATTLEFIELD" [level=1] [ref=e138]:
+          - generic [ref=e139]: T
+          - generic [ref=e140]: H
+          - generic [ref=e141]: E
+          - generic [ref=e143]: M
+          - generic [ref=e144]: E
+          - generic [ref=e145]: D
+          - generic [ref=e146]: I
+          - generic [ref=e147]: A
+          - generic [ref=e149]: B
+          - generic [ref=e150]: A
+          - generic [ref=e151]: T
+          - generic [ref=e152]: T
+          - generic [ref=e153]: L
+          - generic [ref=e154]: E
+          - generic [ref=e155]: F
+          - generic [ref=e156]: I
+          - generic [ref=e157]: E
+          - generic [ref=e158]: L
+          - generic [ref=e159]: D
+        - generic "WHO LIED, WHEN, AND HOW" [ref=e161]
+      - generic [ref=e164]:
+        - paragraph [ref=e165]: THESIS
+        - paragraph [ref=e166]: Israel's propaganda machine doesn't just aim outward. Channel 14 is the number one TV station in Israel. Whatever the government tells it to say, it says. Al-Manar documents the reality on the ground. Al-Mayadeen provides the regional context.
+        - paragraph [ref=e167]: This is the forensic record — three media channels, parsed message by message, compared day by day. When Channel 14 said "surgical strike," what did the other side document? When Al-Manar reported casualties, did Channel 14 even acknowledge the event?
+        - paragraph [ref=e168]: THE RECORD SPEAKS. THE CONTRADICTIONS ARE THE EVIDENCE.
+      - generic [ref=e170]:
+        - paragraph [ref=e171]: // EX-MW-01 — DAY-BY-DAY NARRATIVE COMPARISON
+        - generic [ref=e172]:
+          - generic [ref=e173]:
+            - generic [ref=e174]:
+              - generic [ref=e176]: Contradiction Density
+              - generic [ref=e177]: 0%
+            - generic [ref=e178]: Days where all 3 sources covered same events with different framing
+          - generic [ref=e179]:
+            - generic [ref=e180]:
+              - generic [ref=e181]: From
+              - textbox [ref=e182]: 2023-10-01
+              - generic [ref=e183]: To
+              - textbox [ref=e184]: 2026-07-01
+            - generic [ref=e185]:
+              - button "Zoom in" [ref=e186]: +
+              - button "Zoom out" [ref=e187]: "-"
+              - button "Reset zoom" [ref=e188]: RESET
+          - generic [ref=e189]:
+            - generic [ref=e190]:
+              - generic [ref=e191] [cursor=pointer]:
+                - checkbox "Al-Manar" [checked] [ref=e192]
+                - generic [ref=e194]: Al-Manar
+              - generic [ref=e195] [cursor=pointer]:
+                - checkbox "Al-Mayadeen" [checked] [ref=e196]
+                - generic [ref=e198]: Al-Mayadeen
+              - generic [ref=e199] [cursor=pointer]:
+                - checkbox "Channel 14" [checked] [ref=e200]
+                - generic [ref=e202]: Channel 14
+            - generic [ref=e203]:
+              - button "ALL" [ref=e204]
+              - button "MILITARY" [ref=e205]
+              - button "POLITICAL" [ref=e206]
+              - button "CASUALTIES" [ref=e207]
+              - button "NARRATIVE" [ref=e208]
+          - generic [ref=e211]:
+            - generic [ref=e212]: Al-Manar
+            - generic [ref=e215]: Al-Mayadeen
+            - generic [ref=e218]: Channel 14
+            - generic [ref=e221]: Contradiction marker
+          - paragraph [ref=e224]: Drag to pan | Scroll to zoom | Click bar for day briefing
+      - generic [ref=e226]:
+        - generic [ref=e227]:
+          - paragraph [ref=e228]: 17,443
+          - paragraph [ref=e229]: AL-MANAR MESSAGES
+        - generic [ref=e230]:
+          - paragraph [ref=e231]: 9,063
+          - paragraph [ref=e232]: AL-MAYADEEN MESSAGES
+        - generic [ref=e233]:
+          - paragraph [ref=e234]: 3,981
+          - paragraph [ref=e235]: CHANNEL 14 MESSAGES
+      - generic [ref=e238]:
+        - generic [ref=e239]:
+          - generic [ref=e240]:
+            - paragraph [ref=e241]: // EX-MW-02 — LOADED LANGUAGE FORENSICS
+            - paragraph [ref=e242]: TERROR DENSITY — % OF UNIQUE MESSAGES USING "TERROR/TERRORIST"
+          - generic [ref=e243]: DEDUPLICATEDUNIQUE MSGS ONLY
+        - generic [ref=e246]:
+          - generic [ref=e247]:
+            - paragraph [ref=e248]: AL-MANAR
+            - paragraph [ref=e249]: 0.32%
+            - paragraph [ref=e250]: 56 / 17,443 msgs
+          - generic [ref=e251]:
+            - paragraph [ref=e252]: AL-MAYADEEN
+            - paragraph [ref=e253]: 2.32%
+            - paragraph [ref=e254]: 210 / 9,063 msgs
+          - generic [ref=e255]:
+            - paragraph [ref=e256]: CHANNEL 14
+            - paragraph [ref=e257]: 18.01%
+            - paragraph [ref=e258]: 717 / 3,981 msgs
+        - paragraph [ref=e259]: "METHODOLOGY: COUNT(DISTINCT CASE WHEN text ILIKE '%terror%' THEN text END) / COUNT(DISTINCT text). Deduplication removes Telegram forwards. Channel 14 uses \"terror\" in 1 of every 5.5 unique messages— 56× Al-Manar's rate. This is not editorial framing. It is systematic psychological conditioning."
+      - generic [ref=e262]:
+        - generic [ref=e263]:
+          - generic [ref=e264]:
+            - paragraph [ref=e265]: // EX-MW-03 — COVERAGE BLACKOUT MAP
+            - paragraph [ref=e266]: CHANNEL 14 SILENCE MAP — AUG 2023 TO JUL 2026
+          - generic [ref=e267]:
+            - generic [ref=e268]:
+              - paragraph [ref=e269]: "0"
+              - paragraph [ref=e270]: BLACKOUT DAYS
+            - generic [ref=e271]:
+              - paragraph [ref=e272]: "0"
+              - paragraph [ref=e273]: WITH CASUALTIES
+        - paragraph [ref=e276]: LOADING MAP...
+        - paragraph [ref=e277]: "EACH CELL = ONE DAY. RED = Channel 14 published nothing while Al-Manar reported casualties. AMBER = Channel 14 silent while Al-Manar active. These are not slow news days. On Sep 24, 2024: Al-Manar reported 569 martyrs including 50 children and 94 women. Channel 14 published zero posts."
+      - generic [ref=e278]:
+        - paragraph [ref=e280]: KEY CLAIMS UNDER FORENSIC EXAMINATION
+        - generic [ref=e281]:
+          - generic [ref=e283]:
+            - paragraph [ref=e284]: CLAIM
+            - paragraph [ref=e285]: “Hezbollah initiated the war”
+            - paragraph [ref=e286]: DISPUTED
+            - paragraph [ref=e287]: Channel 14 framed Hezbollah as the aggressor. Documentary evidence shows Israeli escalation preceded the October 8 solidarity strikes. The timeline tells a different story.
+          - generic [ref=e289]:
+            - paragraph [ref=e290]: CLAIM
+            - paragraph [ref=e291]: “IDF targets only militants”
+            - paragraph [ref=e292]: REFUTED
+            - paragraph [ref=e293]: 10,000+ civilian structures demolished. Amnesty International, HRW, and OCHA all documented systematic targeting of civilian infrastructure across southern Lebanon.
+          - generic [ref=e295]:
+            - paragraph [ref=e296]: CLAIM
+            - paragraph [ref=e297]: “Ceasefire was observed”
+            - paragraph [ref=e298]: REFUTED
+            - paragraph [ref=e299]: IDF unilaterally extended its presence past the January 2025 deadline, then again past the extended deadline. Continued strikes documented throughout the 'ceasefire' period into 2026.
+      - generic [ref=e301]:
+        - paragraph [ref=e303]: DATA SOURCE
+        - paragraph [ref=e304]: "Telegram channel exports: ManarTV-EN (Al-Manar, Hezbollah media arm), Al Mayadeen English (pro-resistance), Channel 14 English Edition (Israeli state media). All messages parsed, filtered for Lebanon-Israel axis relevance, and auto-categorized."
+        - paragraph [ref=e305]: EVERY CLAIM IS VERIFIABLE. EVERY CONTRADICTION IS DOCUMENTED.
+    - contentinfo [ref=e306]:
+      - generic:
+        - paragraph:
+          - generic: Z
+          - generic: I
+          - generic: "0"
+          - generic: P
+          - generic: S
+          - generic: "Y"
+          - generic: "0"
+          - generic: P
+          - generic: .
+          - generic: M
+          - generic: E
+        - paragraph: Signal From Noise — Influence Operation Forensics
+        - navigation "Footer navigation" [ref=e309]:
+          - generic [ref=e310]:
+            - link "Gateway" [ref=e311] [cursor=pointer]:
+              - /url: /
+            - generic [ref=e312]: ·
+          - generic [ref=e313]:
+            - link "Part I" [ref=e314] [cursor=pointer]:
+              - /url: /part-i
+            - generic [ref=e315]: ·
+          - generic [ref=e316]:
+            - link "Analysis" [ref=e317] [cursor=pointer]:
+              - /url: /analysis
+            - generic [ref=e318]: ·
+          - generic [ref=e319]:
+            - link "Part II" [ref=e320] [cursor=pointer]:
+              - /url: /battlefield
+            - generic [ref=e321]: ·
+          - generic [ref=e322]:
+            - link "Map" [ref=e323] [cursor=pointer]:
+              - /url: /map
+            - generic [ref=e324]: ·
+          - generic [ref=e325]:
+            - link "Synthesis" [ref=e326] [cursor=pointer]:
+              - /url: /synthesis
+            - generic [ref=e327]: ·
+          - generic [ref=e328]:
+            - link "Video" [ref=e329] [cursor=pointer]:
+              - /url: /evidence
+            - generic [ref=e330]: ·
+          - generic [ref=e331]:
+            - link "Sources" [ref=e332] [cursor=pointer]:
+              - /url: /sources
+            - generic [ref=e333]: ·
+          - generic [ref=e334]:
+            - link "Objections" [ref=e335] [cursor=pointer]:
+              - /url: /counter-arguments
+            - generic [ref=e336]: ·
+          - link "About" [ref=e338] [cursor=pointer]:
+            - /url: /about
+        - paragraph: All data sourced from publicly available Reddit archives via the Arctic Shift API. Analysis covers r/ForbiddenBromance from September 2019 through March 2026. Methodology, raw data and source code are open — verify everything yourself.
+        - paragraph: "[ Dataset Live — Metadata Update Daily ]"
+  - alert [ref=e339]

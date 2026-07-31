@@ -1,0 +1,13 @@
+[    7253ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2477
+[    8271ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2477
+[    8856ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2477
+[   21621ms] [LOG] [Fast Refresh] done in 12937ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2477
+[   84458ms] [WARNING] [.WebGL-0x2714000b3200]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels @ http://localhost:3000/:0
+[  111031ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2477
+[  111362ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2477
+[  119700ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2477
+[  120412ms] [LOG] [Fast Refresh] done in 4777ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2477
+[  133026ms] [WARNING] [.WebGL-0x27140315f600]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels @ http://localhost:3000/:0
+[  144117ms] [WARNING] [.WebGL-0x27140315f600]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat) @ http://localhost:3000/:0
+[  170426ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2477
+[  192503ms] [LOG] [Fast Refresh] done in 22526ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2477

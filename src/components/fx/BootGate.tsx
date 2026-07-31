@@ -1,41 +1,48 @@
 "use client";
 import { useState, useEffect, useCallback } from "react";
-import { BootSequence } from "@/components/fx/BootSequence";
+import { ZioBootSequence } from "@/components/fx/boot/zio-boot-sequence";
 import { BootContext } from "@/components/fx/BootContext";
-
-const SESSION_KEY = "ziopsyop_booted";
 
 export function BootGate({ children }: { children: React.ReactNode }) {
   const [booted, setBooted] = useState<boolean | null>(null);
+  const [revealing, setRevealing] = useState(false);
 
   useEffect(() => {
-    const already = sessionStorage.getItem(SESSION_KEY);
-    if (already) {
-      setBooted(true);
-    } else {
-      setBooted(false);
-    }
+    // Only an initial load at `/` can trigger the sequence. Entering the
+    // homepage later via client-side navigation does not arm it. A real page
+    // load at `/` always replays the sequence.
+    setBooted(window.location.pathname !== "/");
   }, []);
 
   const handleComplete = useCallback(() => {
-    sessionStorage.setItem(SESSION_KEY, "1");
     setBooted(true);
   }, []);
 
-  useEffect(() => {
-    if (booted !== false) return;
-    const onKey = () => handleComplete();
-    window.addEventListener("keydown", onKey, { once: true });
-    return () => window.removeEventListener("keydown", onKey);
-  }, [booted, handleComplete]);
+  const handleHandoffStart = useCallback(() => {
+    setRevealing(true);
+  }, []);
 
-  // Render nothing until we determine boot state (prevents hero flash)
-  if (booted === null) return null;
+  if (booted === null) {
+    return <div className="fixed inset-0 bg-background" aria-hidden="true" />;
+  }
+
+  const heroVisible = booted || revealing;
 
   return (
-    <BootContext.Provider value={booted === true}>
-      {booted === false && <BootSequence onComplete={handleComplete} />}
-      {children}
+    <BootContext.Provider value={heroVisible}>
+      <div
+        aria-hidden={!heroVisible}
+        inert={!heroVisible}
+        className={heroVisible ? undefined : "pointer-events-none select-none"}
+      >
+        {children}
+      </div>
+      {!booted ? (
+        <ZioBootSequence
+          onHandoffStart={handleHandoffStart}
+          onComplete={handleComplete}
+        />
+      ) : null}
     </BootContext.Provider>
   );
 }

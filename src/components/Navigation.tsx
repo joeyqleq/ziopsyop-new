@@ -10,21 +10,45 @@ import { ContactModal } from "@/components/ContactModal";
 import { AnimatedEye } from "@/components/fx/AnimatedEye";
 import { trackEvent } from "@/lib/analytics";
 
-const NAV_ITEMS = [
-  { href: "/part-i", label: "PT I", code: "I", pillar: "I" },
-  { href: "/analysis", label: "ANALYSIS", code: "·", pillar: "I" },
-  { href: "/forensics", label: "DOSSIER", code: "⊛", pillar: "I" },
-  { href: "/battlefield", label: "PT II", code: "II", pillar: "II" },
-  { href: "/map", label: "MAP", code: "·", pillar: "II" },
-  { href: "/media-war", label: "MEDIA WAR", code: "⊗", pillar: "III" },
-  { href: "/synthesis", label: "SYNTH", code: "∴", pillar: "III" },
-  { href: "/evidence", label: "VIDEO", code: "▶", pillar: "III" },
-  { href: "/sources", label: "SRCS", code: "※", pillar: "III" },
-  { href: "/counter-arguments", label: "REBUT", code: "⇋", pillar: "III" },
-  { href: "/control", label: "CTRL", code: "⊞", pillar: "III" },
-  { href: "/about", label: "ABOUT", code: "—", pillar: "" },
-  { href: "#contact", label: "CONTACT", code: "@", pillar: "" },
-];
+const NAV_GROUPS = [
+  {
+    label: "INVESTIGATION",
+    code: "I",
+    items: [
+      { href: "/part-i", label: "OVERVIEW", code: "I" },
+      { href: "/analysis", label: "ANALYSIS", code: "·" },
+      { href: "/forensics", label: "DOSSIER", code: "⊛" },
+    ],
+  },
+  {
+    label: "BATTLEFIELD",
+    code: "II",
+    items: [
+      { href: "/battlefield", label: "EVIDENCE", code: "II" },
+      { href: "/map", label: "MAP", code: "·" },
+    ],
+  },
+  {
+    label: "MEDIA",
+    code: "III",
+    items: [
+      { href: "/media-war", label: "MEDIA WAR", code: "⊗" },
+      { href: "/synthesis", label: "SYNTHESIS", code: "∴" },
+      { href: "/evidence", label: "VIDEO", code: "▶" },
+      { href: "/sources", label: "SOURCES", code: "※" },
+      { href: "/counter-arguments", label: "COUNTERPOINTS", code: "⇋" },
+      { href: "/control", label: "CONTROL", code: "⊞" },
+    ],
+  },
+  {
+    label: "INFO",
+    code: "—",
+    items: [
+      { href: "/about", label: "ABOUT", code: "—" },
+      { href: "#contact", label: "CONTACT", code: "@" },
+    ],
+  },
+] as const;
 
 const GLYPHS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ01<>/#";
 
@@ -79,9 +103,12 @@ function UtcClock() {
   useEffect(() => {
     const fmt = () =>
       new Date().toISOString().slice(11, 19) + "Z";
-    setTime(fmt());
+    const initial = window.setTimeout(() => setTime(fmt()), 0);
     const t = setInterval(() => setTime(fmt()), 1000);
-    return () => clearInterval(t);
+    return () => {
+      clearTimeout(initial);
+      clearInterval(t);
+    };
   }, []);
   return (
     <span className="hidden lg:flex items-center gap-2 font-mono text-[10px] tracking-[0.2em] text-muted-2 tabular-nums">
@@ -104,14 +131,9 @@ export function Navigation() {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  useEffect(() => {
-    setMenuOpen(false);
-  }, [pathname]);
 
   // traced border on the dock itself
   const onMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
@@ -164,52 +186,39 @@ export function Navigation() {
           onMouseLeave={() => setHovered(null)}
           aria-label="Main navigation"
         >
-          {NAV_ITEMS.map((item, idx) => {
-            const active = pathname === item.href;
-            const prev = NAV_ITEMS[idx - 1];
-            const showDivider = prev && prev.pillar !== item.pillar;
+          {NAV_GROUPS.map((group) => {
+            const active = group.items.some((item) => pathname === item.href);
             return (
-              <div key={item.href} className="flex items-center">
-                {showDivider && (
-                  <span
-                    className="mx-0.5 h-3.5 w-px bg-borderc"
-                    aria-hidden="true"
-                  />
-                )}
-              <Link
-                href={item.href === "#contact" ? "#" : item.href}
-                onClick={item.href === "#contact" ? (e) => { e.preventDefault(); setContactOpen(true); trackEvent("nav_contact_open"); } : () => trackEvent("nav_click", { destination: item.href, label: item.label })}
-                onMouseEnter={() => setHovered(item.href)}
-                className="group relative px-1.5 py-2"
-              >
-                {/* shared sliding hover ink */}
-                {hovered === item.href && (
-                  <motion.span
-                    layoutId="nav-ink"
-                    className="absolute inset-0 rounded-md bg-white/[0.05]"
-                    transition={{ type: "spring", stiffness: 400, damping: 32 }}
-                  />
-                )}
-                <span className="relative">
-                  <ScrambleLabel text={item.label} active={active} />
-                </span>
-                {/* pixel-block active underline */}
-                {active && (
-                  <motion.span
-                    layoutId="nav-active"
-                    className="absolute left-3.5 right-3.5 -bottom-px h-[2px] flex gap-[2px]"
-                    transition={{ type: "spring", stiffness: 380, damping: 34 }}
-                  >
-                    {[...Array(6)].map((_, i) => (
-                      <span
-                        key={i}
-                        className="flex-1 bg-primary"
-                        style={{ opacity: 1 - i * 0.13 }}
-                      />
-                    ))}
-                  </motion.span>
-                )}
-              </Link>
+              <div key={group.label} className="group/menu relative flex items-center">
+                <button
+                  type="button"
+                  className="relative px-3 py-4"
+                  aria-haspopup="menu"
+                >
+                  <ScrambleLabel text={group.label} active={active} />
+                  {active && <span className="absolute left-3 right-3 bottom-1.5 h-px bg-primary" />}
+                </button>
+                <div className="invisible absolute left-0 top-[calc(100%-4px)] min-w-52 translate-y-1 rounded-md border border-borderc bg-background/98 p-1 opacity-0 shadow-[0_16px_42px_rgba(0,0,0,0.7)] backdrop-blur-xl transition duration-150 group-hover/menu:visible group-hover/menu:translate-y-0 group-hover/menu:opacity-100 group-focus-within/menu:visible group-focus-within/menu:translate-y-0 group-focus-within/menu:opacity-100">
+                  {group.items.map((item) => {
+                    const itemActive = pathname === item.href;
+                    return (
+                      <Link
+                        key={item.href}
+                        href={item.href === "#contact" ? "#" : item.href}
+                        onClick={item.href === "#contact" ? (e) => { e.preventDefault(); setContactOpen(true); trackEvent("nav_contact_open"); } : () => trackEvent("nav_click", { destination: item.href, label: item.label })}
+                        onMouseEnter={() => setHovered(item.href)}
+                        className={cn(
+                          "flex items-center gap-3 rounded px-3 py-2 font-mono text-[10px] tracking-[0.12em] transition-colors",
+                          itemActive || hovered === item.href ? "bg-white/[0.05] text-primary" : "text-muted hover:text-foreground"
+                        )}
+                        role="menuitem"
+                      >
+                        <span className="w-4 text-muted-2">/{item.code}</span>
+                        {item.label}
+                      </Link>
+                    );
+                  })}
+                </div>
               </div>
             );
           })}
@@ -251,35 +260,39 @@ export function Navigation() {
             className="pointer-events-auto fixed inset-0 z-40 bg-background/97 backdrop-blur-xl flex flex-col justify-center px-8 md:hidden"
             aria-label="Mobile navigation"
           >
-            {NAV_ITEMS.map((item, i) => {
-              const active = pathname === item.href;
-              return (
-                <motion.div
-                  key={item.href}
-                  initial={{ opacity: 0, x: -24 }}
+            <div className="max-h-[78vh] overflow-y-auto py-4">
+              {NAV_GROUPS.map((group, groupIndex) => (
+                <motion.section
+                  key={group.label}
+                  initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.08 + i * 0.07 }}
+                  transition={{ delay: 0.05 + groupIndex * 0.06 }}
+                  className="mb-5"
                 >
-                  <Link
-                    href={item.href === "#contact" ? "#" : item.href}
-                    onClick={item.href === "#contact" ? (e) => { e.preventDefault(); setContactOpen(true); setMenuOpen(false); trackEvent("nav_contact_open", { source: "mobile" }); } : () => trackEvent("nav_click", { destination: item.href, label: item.label, source: "mobile" })}
-                    className="group flex items-baseline gap-4 py-5 border-b border-borderc"
-                  >
-                    <span className="font-mono text-[10px] text-muted-2">
-                      /{item.code}
-                    </span>
-                    <span
-                      className={cn(
-                        "font-mono text-2xl tracking-[0.2em]",
-                        active ? "text-primary glow-primary" : "text-foreground"
-                      )}
-                    >
-                      {item.label}
-                    </span>
-                  </Link>
-                </motion.div>
-              );
-            })}
+                  <p className="mb-1 font-mono text-[9px] tracking-[0.3em] text-primary/60">
+                    /{group.code} {group.label}
+                  </p>
+                  <div className="grid grid-cols-2 gap-px border border-borderc bg-borderc">
+                    {group.items.map((item) => {
+                      const active = pathname === item.href;
+                      return (
+                        <Link
+                          key={item.href}
+                          href={item.href === "#contact" ? "#" : item.href}
+                          onClick={item.href === "#contact" ? (e) => { e.preventDefault(); setContactOpen(true); setMenuOpen(false); trackEvent("nav_contact_open", { source: "mobile" }); } : () => { setMenuOpen(false); trackEvent("nav_click", { destination: item.href, label: item.label, source: "mobile" }); }}
+                          className={cn(
+                            "bg-background px-3 py-3 font-mono text-xs tracking-[0.12em]",
+                            active ? "text-primary" : "text-foreground"
+                          )}
+                        >
+                          {item.label}
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </motion.section>
+              ))}
+            </div>
             <p className="mt-10 font-mono text-[10px] tracking-[0.25em] text-muted-2">
               SIGNAL FROM NOISE — ZIOPSYOP.ME
             </p>

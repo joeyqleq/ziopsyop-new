@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { PageShell } from "@/components/PageShell";
 import { BattlefieldHeader } from "@/components/battlefield/BattlefieldHeader";
-import { BattlefieldSections } from "@/components/battlefield/BattlefieldSections";
+import { BattlefieldCoreSections } from "@/components/battlefield/BattlefieldCoreSections";
 import {
   getTargetingDisparity,
   getCostAsymmetry,
@@ -68,7 +68,7 @@ export default async function BattlefieldPage() {
     <PageShell backdrop="warp">
       <div className="max-w-7xl mx-auto px-4 md:px-6 pt-28 pb-10">
         <BattlefieldHeader />
-        <BattlefieldSections
+        <BattlefieldCoreSections
           data={{
             targeting, cost, hardware, ihl, weapons, objectives, quotes, taxonomy,
             civilianWaffle, doubleTap, infraTreemap, timeline,

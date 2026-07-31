@@ -44,11 +44,9 @@ export function DecryptText({
       if (started.current) return;
       started.current = true;
 
-      // Deterministic cycle offsets — no Math.random() on init prevents hydration mismatch
+      // Resolve in a fixed number of frames so long titles do not take seconds.
       const chars = text.split("");
-      const cycles = chars.map((_, i) =>
-        scrambleCycles + Math.floor(((i * 9301 + 49297) % 233280) / 233280 * 3)
-      );
+      const maxTicks = Math.max(6, Math.min(14, scrambleCycles * 4 + 6));
       let tick = 0;
       let lastTime = 0;
 
@@ -61,14 +59,14 @@ export function DecryptText({
         tick++;
 
         let next = "";
-        let resolved = true;
+        const progress = Math.min(1, tick / maxTicks);
+        const resolvedCount = Math.ceil(progress * chars.length);
         for (let i = 0; i < chars.length; i++) {
           const ch = chars[i];
           if (ch === " " || ch === "\n") { next += ch; continue; }
-          if (tick >= i * 2 + cycles[i]) {
+          if (i < resolvedCount || progress === 1) {
             next += ch;
           } else {
-            resolved = false;
             next += GLYPHS[(Math.random() * GLYPHS.length) | 0];
           }
         }
@@ -76,7 +74,7 @@ export function DecryptText({
         // Direct DOM write — no React reconciler involved
         if (innerRef.current) innerRef.current.textContent = next;
 
-        if (resolved) {
+        if (progress === 1) {
           setDone(true);
           return;
         }
@@ -97,7 +95,7 @@ export function DecryptText({
     } else if (wrapRef.current) {
       const io = new IntersectionObserver(
         (entries) => { if (entries[0].isIntersecting) { run(); if (triggerOnce) io.disconnect(); } },
-        { threshold: 0.1, rootMargin: "0px 0px -10% 0px" }
+        { threshold: 0.01, rootMargin: "120px 0px" }
       );
       io.observe(wrapRef.current);
       return () => {

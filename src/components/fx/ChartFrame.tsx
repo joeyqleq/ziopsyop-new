@@ -73,7 +73,10 @@ export function ChartFrame({
     <TracedCard
       id={anchorId}
       traceColor={accent}
-      className={cn("overflow-hidden scroll-mt-20", className)}
+      className={cn(
+        "overflow-hidden scroll-mt-20 [content-visibility:auto] [contain-intrinsic-size:auto_560px]",
+        className
+      )}
     >
       {/* header */}
       <div className="flex flex-wrap items-start justify-between gap-3 px-5 pt-4 pb-3 border-b border-borderc">

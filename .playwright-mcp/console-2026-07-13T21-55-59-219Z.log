@@ -1,0 +1,6 @@
+[    2817ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2477
+[    3062ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2477
+[  178869ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=hiuaE6Qj2wzAmG619oe7r' failed:  @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:13322
+[  182603ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2477
+[  299929ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2477
+[  325664ms] [LOG] [Fast Refresh] done in 26632ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2477

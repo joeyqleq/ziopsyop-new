@@ -1,0 +1,242 @@
+- generic [active] [ref=f2e1]:
+  - main [ref=f2e2]:
+    - generic [ref=f2e3]:
+      - link "ZIOPSYOP home" [ref=f2e4] [cursor=pointer]:
+        - /url: /
+        - img "ZIOPSYOP" [ref=f2e28]:
+          - generic [ref=f2e29]: Z
+          - generic [ref=f2e30]: I
+          - generic [ref=f2e32]:
+            - text: 0 0
+            - generic [ref=f2e33]: "0"
+            - text: "0"
+          - generic [ref=f2e34]: P
+          - generic [ref=f2e35]: S
+          - generic [ref=f2e36]: "Y"
+          - generic [ref=f2e38]:
+            - text: 0 0
+            - generic [ref=f2e39]: "0"
+            - text: "0"
+          - generic [ref=f2e40]: P
+      - navigation "Main navigation" [ref=f2e41]:
+        - link "PT I" [ref=f2e43] [cursor=pointer]:
+          - /url: /part-i
+        - link "ANALYSIS" [ref=f2e46] [cursor=pointer]:
+          - /url: /analysis
+        - link "DOSSIER" [ref=f2e49] [cursor=pointer]:
+          - /url: /forensics
+        - link "PT II" [ref=f2e53] [cursor=pointer]:
+          - /url: /battlefield
+        - link "MAP" [ref=f2e56] [cursor=pointer]:
+          - /url: /map
+        - link "MEDIA WAR" [ref=f2e60] [cursor=pointer]:
+          - /url: /media-war
+        - link "SYNTH" [ref=f2e70] [cursor=pointer]:
+          - /url: /synthesis
+        - link "VIDEO" [ref=f2e73] [cursor=pointer]:
+          - /url: /evidence
+        - link "SRCS" [ref=f2e76] [cursor=pointer]:
+          - /url: /sources
+        - link "REBUT" [ref=f2e79] [cursor=pointer]:
+          - /url: /counter-arguments
+        - link "CTRL" [ref=f2e82] [cursor=pointer]:
+          - /url: /control
+        - link "ABOUT" [ref=f2e86] [cursor=pointer]:
+          - /url: /about
+        - link "CONTACT" [ref=f2e89] [cursor=pointer]:
+          - /url: "#"
+      - generic [ref=f2e91]: 21:56:03Z
+    - generic [ref=f2e97]:
+      - generic [ref=f2e99]:
+        - paragraph [ref=f2e100]: PART III
+        - heading "THE MEDIA BATTLEFIELD" [level=1] [ref=f2e101]:
+          - generic [ref=f2e102]: T
+          - generic [ref=f2e103]: H
+          - generic [ref=f2e104]: E
+          - generic [ref=f2e106]: M
+          - generic [ref=f2e107]: E
+          - generic [ref=f2e108]: D
+          - generic [ref=f2e109]: I
+          - generic [ref=f2e110]: A
+          - generic [ref=f2e112]: B
+          - generic [ref=f2e113]: A
+          - generic [ref=f2e114]: T
+          - generic [ref=f2e115]: T
+          - generic [ref=f2e116]: L
+          - generic [ref=f2e117]: E
+          - generic [ref=f2e118]: F
+          - generic [ref=f2e119]: I
+          - generic [ref=f2e120]: E
+          - generic [ref=f2e121]: L
+          - generic [ref=f2e122]: D
+        - generic "WHO LIED, WHEN, AND HOW" [ref=f2e124]
+      - generic [ref=f2e127]:
+        - paragraph [ref=f2e128]: THESIS
+        - paragraph [ref=f2e129]: Israel's propaganda machine doesn't just aim outward. Channel 14 is the number one TV station in Israel. Whatever the government tells it to say, it says. Al-Manar documents the reality on the ground. Al-Mayadeen provides the regional context.
+        - paragraph [ref=f2e130]: This is the forensic record — three media channels, parsed message by message, compared day by day. When Channel 14 said "surgical strike," what did the other side document? When Al-Manar reported casualties, did Channel 14 even acknowledge the event?
+        - paragraph [ref=f2e131]: THE RECORD SPEAKS. THE CONTRADICTIONS ARE THE EVIDENCE.
+      - generic [ref=f2e133]:
+        - paragraph [ref=f2e134]: // EX-MW-01 — DAY-BY-DAY NARRATIVE COMPARISON
+        - generic [ref=f2e135]:
+          - generic [ref=f2e136]:
+            - generic [ref=f2e137]:
+              - generic [ref=f2e139]: Contradiction Density
+              - generic [ref=f2e140]: 0%
+            - generic [ref=f2e141]: Days where all 3 sources covered same events with different framing
+          - generic [ref=f2e142]:
+            - generic [ref=f2e143]:
+              - generic [ref=f2e144]: From
+              - textbox [ref=f2e145]: 2023-10-01
+              - generic [ref=f2e146]: To
+              - textbox [ref=f2e147]: 2026-07-01
+            - generic [ref=f2e148]:
+              - button "Zoom in" [ref=f2e149]: +
+              - button "Zoom out" [ref=f2e150]: "-"
+              - button "Reset zoom" [ref=f2e151]: RESET
+          - generic [ref=f2e152]:
+            - generic [ref=f2e153]:
+              - generic [ref=f2e154] [cursor=pointer]:
+                - checkbox "Al-Manar" [checked] [ref=f2e155]
+                - generic [ref=f2e157]: Al-Manar
+              - generic [ref=f2e158] [cursor=pointer]:
+                - checkbox "Al-Mayadeen" [checked] [ref=f2e159]
+                - generic [ref=f2e161]: Al-Mayadeen
+              - generic [ref=f2e162] [cursor=pointer]:
+                - checkbox "Channel 14" [checked] [ref=f2e163]
+                - generic [ref=f2e165]: Channel 14
+            - generic [ref=f2e166]:
+              - button "ALL" [ref=f2e167]
+              - button "MILITARY" [ref=f2e168]
+              - button "POLITICAL" [ref=f2e169]
+              - button "CASUALTIES" [ref=f2e170]
+              - button "NARRATIVE" [ref=f2e171]
+          - generic [ref=f2e174]:
+            - generic [ref=f2e175]: Al-Manar
+            - generic [ref=f2e178]: Al-Mayadeen
+            - generic [ref=f2e181]: Channel 14
+            - generic [ref=f2e184]: Contradiction marker
+          - paragraph [ref=f2e187]: Drag to pan | Scroll to zoom | Click bar for day briefing
+      - generic [ref=f2e189]:
+        - generic [ref=f2e190]:
+          - paragraph [ref=f2e191]: 17,443
+          - paragraph [ref=f2e192]: AL-MANAR MESSAGES
+        - generic [ref=f2e193]:
+          - paragraph [ref=f2e194]: 9,063
+          - paragraph [ref=f2e195]: AL-MAYADEEN MESSAGES
+        - generic [ref=f2e196]:
+          - paragraph [ref=f2e197]: 3,981
+          - paragraph [ref=f2e198]: CHANNEL 14 MESSAGES
+      - generic [ref=f2e201]:
+        - generic [ref=f2e202]:
+          - generic [ref=f2e203]:
+            - paragraph [ref=f2e204]: // EX-MW-02 — LOADED LANGUAGE FORENSICS
+            - paragraph [ref=f2e205]: TERROR DENSITY — % OF UNIQUE MESSAGES USING "TERROR/TERRORIST"
+          - generic [ref=f2e206]: DEDUPLICATEDUNIQUE MSGS ONLY
+        - generic [ref=f2e209]:
+          - generic [ref=f2e210]:
+            - paragraph [ref=f2e211]: AL-MANAR
+            - paragraph [ref=f2e212]: 0.32%
+            - paragraph [ref=f2e213]: 56 / 17,443 msgs
+          - generic [ref=f2e214]:
+            - paragraph [ref=f2e215]: AL-MAYADEEN
+            - paragraph [ref=f2e216]: 2.32%
+            - paragraph [ref=f2e217]: 210 / 9,063 msgs
+          - generic [ref=f2e218]:
+            - paragraph [ref=f2e219]: CHANNEL 14
+            - paragraph [ref=f2e220]: 18.01%
+            - paragraph [ref=f2e221]: 717 / 3,981 msgs
+        - paragraph [ref=f2e222]: "METHODOLOGY: COUNT(DISTINCT CASE WHEN text ILIKE '%terror%' THEN text END) / COUNT(DISTINCT text). Deduplication removes Telegram forwards. Channel 14 uses \"terror\" in 1 of every 5.5 unique messages— 56× Al-Manar's rate. This is not editorial framing. It is systematic psychological conditioning."
+      - generic [ref=f2e225]:
+        - generic [ref=f2e226]:
+          - generic [ref=f2e227]:
+            - paragraph [ref=f2e228]: // EX-MW-03 — COVERAGE BLACKOUT MAP
+            - paragraph [ref=f2e229]: CHANNEL 14 SILENCE MAP — AUG 2023 TO JUL 2026
+          - generic [ref=f2e230]:
+            - generic [ref=f2e231]:
+              - paragraph [ref=f2e232]: "0"
+              - paragraph [ref=f2e233]: BLACKOUT DAYS
+            - generic [ref=f2e234]:
+              - paragraph [ref=f2e235]: "0"
+              - paragraph [ref=f2e236]: WITH CASUALTIES
+        - paragraph [ref=f2e239]: LOADING MAP...
+        - paragraph [ref=f2e240]: "EACH CELL = ONE DAY. RED = Channel 14 published nothing while Al-Manar reported casualties. AMBER = Channel 14 silent while Al-Manar active. These are not slow news days. On Sep 24, 2024: Al-Manar reported 569 martyrs including 50 children and 94 women. Channel 14 published zero posts."
+      - generic [ref=f2e241]:
+        - paragraph [ref=f2e243]: KEY CLAIMS UNDER FORENSIC EXAMINATION
+        - generic [ref=f2e244]:
+          - generic [ref=f2e246]:
+            - paragraph [ref=f2e247]: CLAIM
+            - paragraph [ref=f2e248]: “Hezbollah initiated the war”
+            - paragraph [ref=f2e249]: DISPUTED
+            - paragraph [ref=f2e250]: Channel 14 framed Hezbollah as the aggressor. Documentary evidence shows Israeli escalation preceded the October 8 solidarity strikes. The timeline tells a different story.
+          - generic [ref=f2e252]:
+            - paragraph [ref=f2e253]: CLAIM
+            - paragraph [ref=f2e254]: “IDF targets only militants”
+            - paragraph [ref=f2e255]: REFUTED
+            - paragraph [ref=f2e256]: 10,000+ civilian structures demolished. Amnesty International, HRW, and OCHA all documented systematic targeting of civilian infrastructure across southern Lebanon.
+          - generic [ref=f2e258]:
+            - paragraph [ref=f2e259]: CLAIM
+            - paragraph [ref=f2e260]: “Ceasefire was observed”
+            - paragraph [ref=f2e261]: REFUTED
+            - paragraph [ref=f2e262]: IDF unilaterally extended its presence past the January 2025 deadline, then again past the extended deadline. Continued strikes documented throughout the 'ceasefire' period into 2026.
+      - generic [ref=f2e264]:
+        - paragraph [ref=f2e266]: DATA SOURCE
+        - paragraph [ref=f2e267]: "Telegram channel exports: ManarTV-EN (Al-Manar, Hezbollah media arm), Al Mayadeen English (pro-resistance), Channel 14 English Edition (Israeli state media). All messages parsed, filtered for Lebanon-Israel axis relevance, and auto-categorized."
+        - paragraph [ref=f2e268]: EVERY CLAIM IS VERIFIABLE. EVERY CONTRADICTION IS DOCUMENTED.
+    - contentinfo [ref=f2e269]:
+      - generic:
+        - paragraph:
+          - generic: Z
+          - generic: I
+          - generic: "0"
+          - generic: P
+          - generic: S
+          - generic: "Y"
+          - generic: "0"
+          - generic: P
+          - generic: .
+          - generic: M
+          - generic: E
+        - paragraph: Signal From Noise — Influence Operation Forensics
+        - navigation "Footer navigation" [ref=f2e272]:
+          - generic [ref=f2e273]:
+            - link "Gateway" [ref=f2e274] [cursor=pointer]:
+              - /url: /
+            - generic [ref=f2e275]: ·
+          - generic [ref=f2e276]:
+            - link "Part I" [ref=f2e277] [cursor=pointer]:
+              - /url: /part-i
+            - generic [ref=f2e278]: ·
+          - generic [ref=f2e279]:
+            - link "Analysis" [ref=f2e280] [cursor=pointer]:
+              - /url: /analysis
+            - generic [ref=f2e281]: ·
+          - generic [ref=f2e282]:
+            - link "Part II" [ref=f2e283] [cursor=pointer]:
+              - /url: /battlefield
+            - generic [ref=f2e284]: ·
+          - generic [ref=f2e285]:
+            - link "Map" [ref=f2e286] [cursor=pointer]:
+              - /url: /map
+            - generic [ref=f2e287]: ·
+          - generic [ref=f2e288]:
+            - link "Synthesis" [ref=f2e289] [cursor=pointer]:
+              - /url: /synthesis
+            - generic [ref=f2e290]: ·
+          - generic [ref=f2e291]:
+            - link "Video" [ref=f2e292] [cursor=pointer]:
+              - /url: /evidence
+            - generic [ref=f2e293]: ·
+          - generic [ref=f2e294]:
+            - link "Sources" [ref=f2e295] [cursor=pointer]:
+              - /url: /sources
+            - generic [ref=f2e296]: ·
+          - generic [ref=f2e297]:
+            - link "Objections" [ref=f2e298] [cursor=pointer]:
+              - /url: /counter-arguments
+            - generic [ref=f2e299]: ·
+          - link "About" [ref=f2e301] [cursor=pointer]:
+            - /url: /about
+        - paragraph: All data sourced from publicly available Reddit archives via the Arctic Shift API. Analysis covers r/ForbiddenBromance from September 2019 through March 2026. Methodology, raw data and source code are open — verify everything yourself.
+        - paragraph: "[ Dataset Live — Metadata Update Daily ]"
+  - button "Open Next.js Dev Tools" [ref=f2e307] [cursor=pointer]
+  - alert [ref=f2e311]

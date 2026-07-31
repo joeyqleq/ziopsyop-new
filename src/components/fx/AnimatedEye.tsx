@@ -1,209 +1,197 @@
 "use client";
 
-import { useEffect, useRef, useState, useCallback } from "react";
-import { motion, useAnimation, useMotionValue, useSpring, AnimatePresence } from "framer-motion";
+import {
+  useCallback,
+  useEffect,
+  useId,
+  useRef,
+  useState,
+  useSyncExternalStore,
+} from "react";
+import {
+  motion,
+  useMotionValue,
+  useSpring,
+} from "framer-motion";
 
 // Brand colors
 const LIME = "#b6ff7c";
 const PURPLE = "#7b39d0";
-const LIME_DIM = "#5a7d3e";
 const PURPLE_DIM = "#3d1c6a";
 
-// ASCII eyelid characters, colored with brand palette
-const EYELID_CHARS = "▓▒░█▄▀■□▪▫●○◉◎◌◦∙·".split("");
-const ASCII_ROWS = 5;
-const ASCII_COLS = 28;
+type EyeMotionState = "idle" | "anticipate" | "closed" | "opening" | "afterglow";
+const EYE_APERTURE_PATH =
+  "M 62 336 C 128 276 217 221 308 221 C 399 221 490 276 559 336 C 490 397 399 452 308 452 C 217 452 128 397 62 336 Z";
+const CLOSED_LID_SEAM = "M 40 336 Q 308 365 580 336";
+const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
 
-function randomChar() {
-  return EYELID_CHARS[Math.floor(Math.random() * EYELID_CHARS.length)];
+function subscribeReducedMotion(onStoreChange: () => void) {
+  const media = window.matchMedia(REDUCED_MOTION_QUERY);
+  media.addEventListener("change", onStoreChange);
+  return () => media.removeEventListener("change", onStoreChange);
 }
 
-function EyelidRow({ row, progress }: { row: number; progress: number }) {
-  const [chars, setChars] = useState(() =>
-    Array.from({ length: ASCII_COLS }, () => randomChar())
-  );
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setChars((prev) => prev.map(() => (Math.random() > 0.4 ? randomChar() : prev[Math.floor(Math.random() * prev.length)])));
-    }, 60);
-    return () => clearInterval(interval);
-  }, []);
-
-  // row 0 = top edge (narrow), row 4 = widest
-  const width = Math.floor(ASCII_COLS * (0.35 + row * 0.15) * progress);
-  const padding = Math.floor((ASCII_COLS - width) / 2);
-
-  return (
-    <div
-      className="font-mono text-[9px] leading-[1.1] select-none whitespace-pre"
-      style={{ letterSpacing: "0.05em" }}
-    >
-      {Array.from({ length: ASCII_COLS }, (_, i) => {
-        const inEyelid = i >= padding && i < padding + width;
-        const isEdge = i === padding || i === padding + width - 1;
-        const color = isEdge ? LIME : row % 2 === 0 ? PURPLE : LIME_DIM;
-        return (
-          <span
-            key={i}
-            style={{
-              color: inEyelid ? color : "transparent",
-              textShadow: inEyelid ? `0 0 6px ${color}` : "none",
-            }}
-          >
-            {inEyelid ? chars[i] : " "}
-          </span>
-        );
-      })}
-    </div>
-  );
+function reducedMotionSnapshot() {
+  return window.matchMedia(REDUCED_MOTION_QUERY).matches;
 }
 
-function ASCIIEyelid({ closing }: { closing: boolean }) {
-  const [progress, setProgress] = useState(0);
-
-  useEffect(() => {
-    if (closing) {
-      let p = 0;
-      const t = setInterval(() => {
-        p = Math.min(1, p + 0.06);
-        setProgress(p);
-        if (p >= 1) clearInterval(t);
-      }, 16);
-      return () => clearInterval(t);
-    } else {
-      let p = 1;
-      const t = setInterval(() => {
-        p = Math.max(0, p - 0.09);
-        setProgress(p);
-        if (p <= 0) clearInterval(t);
-      }, 16);
-      return () => clearInterval(t);
-    }
-  }, [closing]);
-
-  return (
-    <div
-      className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10"
-      style={{ opacity: progress }}
-    >
-      {/* top half */}
-      <div className="flex flex-col items-center gap-0">
-        {Array.from({ length: ASCII_ROWS }, (_, i) => (
-          <EyelidRow key={`top-${i}`} row={ASCII_ROWS - 1 - i} progress={progress} />
-        ))}
-      </div>
-      {/* bottom half mirrors */}
-      <div className="flex flex-col items-center gap-0">
-        {Array.from({ length: ASCII_ROWS }, (_, i) => (
-          <EyelidRow key={`bot-${i}`} row={i} progress={progress} />
-        ))}
-      </div>
-    </div>
-  );
+function reducedMotionServerSnapshot() {
+  return false;
 }
 
-export function AnimatedEye({ size = 173 }: { size?: number }) {
+export function AnimatedEye({ size = 173 }: { size?: number | string }) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [blinking, setBlinking] = useState(false);
   const [mouseInside, setMouseInside] = useState(false);
-  const blinkTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const pointerInsideRef = useRef(false);
+  const [eyeState, setEyeState] = useState<EyeMotionState>("idle");
+  const [scanActive, setScanActive] = useState(false);
+  const [scanCycle, setScanCycle] = useState(0);
+  const shouldReduceMotion = useSyncExternalStore(
+    subscribeReducedMotion,
+    reducedMotionSnapshot,
+    reducedMotionServerSnapshot,
+  );
+  const instanceId = useId().replace(/:/g, "");
+  const limeGlowId = `eye-lime-glow-${instanceId}`;
+  const purpleGlowId = `eye-purple-glow-${instanceId}`;
+  const beamGradientId = `beam-grad-${instanceId}`;
+  const irisGradientId = `iris-grad-${instanceId}`;
+  const verticalClipId = `vertical-bar-clip-${instanceId}`;
+  const eyelidClipId = `eye-aperture-${instanceId}`;
 
   // Mouse tracking for pupil/iris subtle parallax
   const rawX = useMotionValue(0);
   const rawY = useMotionValue(0);
-  const springX = useSpring(rawX, { stiffness: 120, damping: 22 });
-  const springY = useSpring(rawY, { stiffness: 120, damping: 22 });
-
-  // Glow pulse controls
-  const irisGlow = useAnimation();
-  const reticleGlow = useAnimation();
-  const beamControls = useAnimation();
-
-  const scheduleBlink = useCallback(() => {
-    const delay = 2500 + Math.random() * 4000;
-    blinkTimeout.current = setTimeout(async () => {
-      setBlinking(true);
-      await new Promise((r) => setTimeout(r, 380));
-      setBlinking(false);
-      scheduleBlink();
-    }, delay);
-  }, []);
+  const springX = useSpring(rawX, { stiffness: 170, damping: 25, mass: 0.65 });
+  const springY = useSpring(rawY, { stiffness: 170, damping: 25, mass: 0.65 });
 
   useEffect(() => {
+    let cancelled = false;
+    const timers = new Set<ReturnType<typeof setTimeout>>();
+
+    const later = (callback: () => void, delay: number) => {
+      const timer = setTimeout(() => {
+        timers.delete(timer);
+        if (!cancelled) callback();
+      }, delay);
+      timers.add(timer);
+    };
+
+    const between = (min: number, max: number) => min + Math.random() * (max - min);
+
+    function scheduleBlink() {
+      later(() => runBlink(Math.random() < 0.22 ? 2 : 1), between(3200, 7200));
+    }
+
+    function runBlink(remaining: number) {
+      setEyeState("anticipate");
+      later(() => {
+        setEyeState("closed");
+        later(() => {
+          setEyeState("opening");
+          later(() => {
+            setEyeState("afterglow");
+            if (remaining > 1) {
+              later(() => runBlink(remaining - 1), between(110, 160));
+            } else {
+              later(() => {
+                setEyeState("idle");
+                scheduleBlink();
+              }, 350);
+            }
+          }, 220);
+        }, 210);
+      }, 120);
+    }
+
+    function scheduleSaccade() {
+      later(() => {
+        if (!pointerInsideRef.current) {
+          const x = between(-5.6, 5.6);
+          const y = between(-3.8, 3.8);
+          rawX.set(x);
+          rawY.set(y);
+          later(() => {
+            if (!pointerInsideRef.current) {
+              rawX.set(x * 0.42);
+              rawY.set(y * 0.42);
+            }
+          }, 170);
+        }
+        scheduleSaccade();
+      }, between(2800, 6500));
+    }
+
+    function scheduleScan() {
+      later(() => {
+        setScanCycle((cycle) => cycle + 1);
+        setScanActive(true);
+        later(() => setScanActive(false), 1100);
+        scheduleScan();
+      }, between(7000, 12000));
+    }
+
+    if (shouldReduceMotion) {
+      rawX.set(0);
+      rawY.set(0);
+      return;
+    }
+
+    later(() => {
+      setEyeState("idle");
+      setScanActive(false);
+    }, 0);
     scheduleBlink();
+    scheduleSaccade();
+    scheduleScan();
+
     return () => {
-      if (blinkTimeout.current) clearTimeout(blinkTimeout.current);
+      cancelled = true;
+      timers.forEach(clearTimeout);
+      timers.clear();
     };
-  }, [scheduleBlink]);
-
-  // Continuous ambient iris glow pulse
-  useEffect(() => {
-    irisGlow.start({
-      opacity: [0.5, 1, 0.6, 0.9, 0.5],
-      scale: [1, 1.04, 0.98, 1.02, 1],
-      transition: { duration: 4.2, repeat: Infinity, ease: "easeInOut", times: [0, 0.3, 0.5, 0.75, 1] },
-    });
-  }, [irisGlow]);
-
-  // Reticle lines sporadic pulse
-  useEffect(() => {
-    const runPulse = async () => {
-      while (true) {
-        await new Promise((r) => setTimeout(r, 1800 + Math.random() * 3000));
-        await reticleGlow.start({
-          opacity: [0.3, 1, 0.7, 1, 0.3],
-          transition: { duration: 0.6, ease: "easeOut" },
-        });
-      }
-    };
-    runPulse();
-  }, [reticleGlow]);
-
-  // Beam sweep along the vertical bar
-  useEffect(() => {
-    const runBeam = async () => {
-      while (true) {
-        await new Promise((r) => setTimeout(r, 2200 + Math.random() * 4000));
-        await beamControls.start({
-          y: ["-50%", "150%"],
-          opacity: [0, 0.8, 0.8, 0],
-          transition: { duration: 0.9, ease: "easeInOut" },
-        });
-      }
-    };
-    runBeam();
-  }, [beamControls]);
+  }, [rawX, rawY, shouldReduceMotion]);
 
   const handleMouseMove = useCallback(
     (e: React.MouseEvent<HTMLDivElement>) => {
-      if (!containerRef.current) return;
+      if (shouldReduceMotion || !containerRef.current) return;
       const rect = containerRef.current.getBoundingClientRect();
       const cx = rect.left + rect.width / 2;
       const cy = rect.top + rect.height / 2;
-      const dx = ((e.clientX - cx) / rect.width) * 6;
-      const dy = ((e.clientY - cy) / rect.height) * 6;
+      const dx = ((e.clientX - cx) / rect.width) * 10;
+      const dy = ((e.clientY - cy) / rect.height) * 8;
       rawX.set(dx);
       rawY.set(dy);
     },
-    [rawX, rawY]
+    [rawX, rawY, shouldReduceMotion]
   );
 
   const handleMouseLeave = useCallback(() => {
+    pointerInsideRef.current = false;
     rawX.set(0);
     rawY.set(0);
     setMouseInside(false);
   }, [rawX, rawY]);
 
-  const h = Math.round(size * (684 / 613));
+  const handleMouseEnter = useCallback(() => {
+    if (shouldReduceMotion) return;
+    pointerInsideRef.current = true;
+    setMouseInside(true);
+  }, [shouldReduceMotion]);
+
+  const width = typeof size === "number" ? `${size}px` : size;
+  const lidClosed = eyeState === "closed";
+  const lidOpening = eyeState === "opening" || eyeState === "afterglow";
+  const irisContracted = eyeState === "anticipate" || eyeState === "closed";
 
   return (
     <div
       ref={containerRef}
       className="relative select-none"
-      style={{ width: size, height: h }}
+      style={{ width, aspectRatio: "613 / 684" }}
+      data-eye-state={shouldReduceMotion ? "reduced" : eyeState}
       onMouseMove={handleMouseMove}
-      onMouseEnter={() => setMouseInside(true)}
+      onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
       {/* Outer glow halo */}
@@ -213,21 +201,30 @@ export function AnimatedEye({ size = 173 }: { size?: number }) {
           inset: "-20%",
           background: `radial-gradient(ellipse, ${PURPLE}22 0%, ${LIME}11 45%, transparent 70%)`,
         }}
-        animate={irisGlow}
+        initial={false}
+        animate={
+          shouldReduceMotion
+            ? { opacity: 0.45, scale: 1 }
+            : {
+                opacity: scanActive ? 0.9 : eyeState === "afterglow" ? 0.72 : 0.5,
+                scale: irisContracted ? 0.985 : scanActive ? 1.035 : 1,
+              }
+        }
+        transition={{ duration: scanActive ? 0.18 : 0.55, ease: [0.22, 1, 0.36, 1] }}
       />
 
       {/* SVG — all paths animated */}
       <svg
         viewBox="0 0 613 684"
-        width={size}
-        height={h}
+        width="100%"
+        height="100%"
         xmlns="http://www.w3.org/2000/svg"
         className="relative"
         aria-hidden="true"
       >
         <defs>
           {/* Lime glow filter */}
-          <filter id="eye-lime-glow" x="-30%" y="-30%" width="160%" height="160%">
+          <filter id={limeGlowId} x="-30%" y="-30%" width="160%" height="160%">
             <feGaussianBlur stdDeviation="6" result="blur" />
             <feMerge>
               <feMergeNode in="blur" />
@@ -235,7 +232,7 @@ export function AnimatedEye({ size = 173 }: { size?: number }) {
             </feMerge>
           </filter>
           {/* Purple glow filter */}
-          <filter id="eye-purple-glow" x="-30%" y="-30%" width="160%" height="160%">
+          <filter id={purpleGlowId} x="-30%" y="-30%" width="160%" height="160%">
             <feGaussianBlur stdDeviation="8" result="blur" />
             <feMerge>
               <feMergeNode in="blur" />
@@ -243,24 +240,31 @@ export function AnimatedEye({ size = 173 }: { size?: number }) {
             </feMerge>
           </filter>
           {/* Beam gradient */}
-          <linearGradient id="beam-grad" x1="0" y1="0" x2="0" y2="1">
+          <linearGradient id={beamGradientId} x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor={LIME} stopOpacity="0" />
             <stop offset="50%" stopColor={LIME} stopOpacity="0.9" />
             <stop offset="100%" stopColor={LIME} stopOpacity="0" />
           </linearGradient>
           {/* Iris radial gradient */}
-          <radialGradient id="iris-grad" cx="55%" cy="40%" r="55%">
+          <radialGradient id={irisGradientId} cx="55%" cy="40%" r="55%">
             <stop offset="0%" stopColor="#9b5fe0" />
             <stop offset="60%" stopColor={PURPLE} />
             <stop offset="100%" stopColor={PURPLE_DIM} />
           </radialGradient>
-          <clipPath id="vertical-bar-clip">
+          <clipPath id={verticalClipId}>
             <rect x="292" y="0" width="34" height="684" />
+          </clipPath>
+          <clipPath id={eyelidClipId}>
+            <path d={EYE_APERTURE_PATH} />
           </clipPath>
         </defs>
 
         {/* ── Reticle lines (path1, path2) — sporadic pulse */}
-        <motion.g animate={reticleGlow} initial={{ opacity: 0.4 }}>
+        <motion.g
+          initial={false}
+          animate={{ opacity: shouldReduceMotion ? 0.34 : scanActive ? 0.92 : 0.34 }}
+          transition={{ duration: scanActive ? 0.16 : 0.72, ease: "easeOut" }}
+        >
           {/* Diagonal 1 */}
           <motion.path
             d="M 82.355904 113.358032 L 66.830101 129.205994 L 549.153992 588.325989 L 564.679993 572.478027 L 82.355904 113.358032 Z"
@@ -283,18 +287,20 @@ export function AnimatedEye({ size = 173 }: { size?: number }) {
             strokeWidth="19.77"
             strokeLinecap="square"
           />
-          <motion.path
-            d="M 595.015991 299.470001 C 588.447998 293.170013 488.475006 181.569 305.703003 175.807983 C 138.156006 170.526978 24.6187 291.181 16.3906 301.993011"
-            fill="none"
-            stroke={LIME}
-            strokeWidth="19.77"
-            strokeLinecap="square"
-            strokeDasharray="20 1000"
-            initial={{ strokeDashoffset: 0 }}
-            animate={{ strokeDashoffset: -1200 }}
-            transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-            style={{ opacity: 0.7 }}
-          />
+          {scanActive && !shouldReduceMotion ? (
+            <motion.path
+              key={`top-scan-${scanCycle}`}
+              d="M 595.015991 299.470001 C 588.447998 293.170013 488.475006 181.569 305.703003 175.807983 C 138.156006 170.526978 24.6187 291.181 16.3906 301.993011"
+              fill="none"
+              stroke={LIME}
+              strokeWidth="19.77"
+              strokeLinecap="square"
+              strokeDasharray="36 1000"
+              initial={{ strokeDashoffset: 0, opacity: 0 }}
+              animate={{ strokeDashoffset: -1200, opacity: [0, 0.8, 0] }}
+              transition={{ duration: 1.05, ease: [0.16, 1, 0.3, 1] }}
+            />
+          ) : null}
           {/* Outer arc bottom (path6) — faint lime with traveling beam */}
           <motion.path
             d="M 595.015991 388.681 C 588.447998 394.980988 488.475006 506.58197 305.703003 512.343018 C 138.156006 517.624023 24.6187 396.970001 16.3906 386.15799"
@@ -303,18 +309,20 @@ export function AnimatedEye({ size = 173 }: { size?: number }) {
             strokeWidth="19.77"
             strokeLinecap="square"
           />
-          <motion.path
-            d="M 595.015991 388.681 C 588.447998 394.980988 488.475006 506.58197 305.703003 512.343018 C 138.156006 517.624023 24.6187 396.970001 16.3906 386.15799"
-            fill="none"
-            stroke={LIME}
-            strokeWidth="19.77"
-            strokeLinecap="square"
-            strokeDasharray="20 1000"
-            initial={{ strokeDashoffset: 0 }}
-            animate={{ strokeDashoffset: -1200 }}
-            transition={{ duration: 3, repeat: Infinity, ease: "linear", delay: 1.5 }}
-            style={{ opacity: 0.7 }}
-          />
+          {scanActive && !shouldReduceMotion ? (
+            <motion.path
+              key={`bottom-scan-${scanCycle}`}
+              d="M 595.015991 388.681 C 588.447998 394.980988 488.475006 506.58197 305.703003 512.343018 C 138.156006 517.624023 24.6187 396.970001 16.3906 386.15799"
+              fill="none"
+              stroke={LIME}
+              strokeWidth="19.77"
+              strokeLinecap="square"
+              strokeDasharray="36 1000"
+              initial={{ strokeDashoffset: 0, opacity: 0 }}
+              animate={{ strokeDashoffset: -1200, opacity: [0, 0.8, 0] }}
+              transition={{ duration: 1.05, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
+            />
+          ) : null}
         </motion.g>
 
         {/* ── Vertical crosshair bar — with traveling beam effect */}
@@ -326,22 +334,28 @@ export function AnimatedEye({ size = 173 }: { size?: number }) {
             d="M 296.965515 672.859497 L 326.757935 672.859497 L 326.757935 14.207336 L 296.965515 14.207336 L 296.965515 672.859497 Z"
           />
           {/* Beam traveling down the bar */}
-          <motion.rect
-            x="292"
-            y="-100"
-            width="34"
-            height="160"
-            fill="url(#beam-grad)"
-            clipPath="url(#vertical-bar-clip)"
-            animate={beamControls}
-            initial={{ y: "-50%", opacity: 0 }}
-          />
+          {scanActive && !shouldReduceMotion ? (
+            <motion.rect
+              key={`bar-scan-${scanCycle}`}
+              x="292"
+              y="-100"
+              width="34"
+              height="160"
+              fill={`url(#${beamGradientId})`}
+              clipPath={`url(#${verticalClipId})`}
+              initial={{ y: "-50%", opacity: 0 }}
+              animate={{ y: "150%", opacity: [0, 0.82, 0.82, 0] }}
+              transition={{ duration: 0.92, ease: "easeInOut" }}
+            />
+          ) : null}
         </g>
 
         {/* ── Iris fill paths (g1) — lime glow, mouse parallax */}
         <motion.g
-          filter="url(#eye-lime-glow)"
+          filter={`url(#${limeGlowId})`}
           style={{ x: springX, y: springY }}
+          animate={{ scale: irisContracted ? 0.975 : 1 }}
+          transition={{ duration: irisContracted ? 0.12 : 0.3, ease: "easeOut" }}
         >
           <path
             d="M 134 364 C 72.332161 332.544769 93 336 93 336 C 93 336 146.043655 298.728638 180 283 C 246.463058 252.214172 294 249 294 249 L 350.327789 252.057587 L 448 289 L 504 318 L 525 336 L 451.710968 380.041046 L 308 414 C 308 414 182.887238 388.936157 134 364 Z"
@@ -364,12 +378,20 @@ export function AnimatedEye({ size = 173 }: { size?: number }) {
         />
 
         {/* ── Purple iris — glowing, with mouse parallax */}
-        <motion.g style={{ x: springX, y: springY }} animate={irisGlow}>
+        <motion.g
+          style={{ x: springX, y: springY }}
+          initial={false}
+          animate={{
+            opacity: shouldReduceMotion ? 0.9 : scanActive ? 1 : eyeState === "afterglow" ? 0.96 : 0.82,
+            scale: irisContracted ? 0.965 : eyeState === "afterglow" ? 1.015 : 1,
+          }}
+          transition={{ duration: irisContracted ? 0.12 : 0.38, ease: [0.22, 1, 0.36, 1] }}
+        >
           {/* Iris fill */}
           <path
             d="M 410.647003 336.569 C 410.647003 282.490997 364.506012 238.653015 307.587006 238.653015 C 250.669006 238.653015 204.526993 282.490997 204.526993 336.569 C 204.526993 390.645996 250.669006 434.484009 307.587006 434.484009 C 364.506012 434.484009 410.647003 390.645996 410.647003 336.569 Z"
-            fill="url(#iris-grad)"
-            filter="url(#eye-purple-glow)"
+            fill={`url(#${irisGradientId})`}
+            filter={`url(#${purpleGlowId})`}
           />
           {/* Iris ring outline */}
           <path
@@ -395,35 +417,56 @@ export function AnimatedEye({ size = 173 }: { size?: number }) {
             opacity="0.84"
           />
         </motion.g>
+
+        {/* ── Curved lids, clipped to the eye aperture itself. */}
+        {!shouldReduceMotion ? (
+          <g clipPath={`url(#${eyelidClipId})`} pointerEvents="none">
+            <motion.path
+              d="M 40 120 H 580 V 336 Q 308 365 40 336 Z"
+              fill="#060608"
+              initial={false}
+              animate={{ y: lidClosed ? 0 : -240 }}
+              transition={{
+                duration: lidOpening ? 0.22 : 0.14,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+            />
+            <motion.path
+              d="M 40 336 Q 308 365 580 336 V 560 H 40 Z"
+              fill="#060608"
+              initial={false}
+              animate={{ y: lidClosed ? 0 : 240 }}
+              transition={{
+                duration: lidOpening ? 0.22 : 0.14,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+            />
+            <motion.path
+              d={CLOSED_LID_SEAM}
+              fill="none"
+              stroke={LIME}
+              strokeWidth="3"
+              strokeLinecap="round"
+              initial={false}
+              animate={{ opacity: lidClosed ? 0.48 : 0 }}
+              transition={{ duration: 0.06 }}
+              filter={`url(#${limeGlowId})`}
+            />
+          </g>
+        ) : null}
       </svg>
 
-      {/* ── ASCII Eyelid blink overlay */}
-      <AnimatePresence>
-        {blinking && (
-          <motion.div
-            className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.08 }}
-          >
-            <ASCIIEyelid closing={blinking} />
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* ── Hover glitch scanline */}
-      {mouseInside && (
-        <motion.div
-          className="absolute inset-0 pointer-events-none"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: [0, 0.12, 0, 0.08, 0] }}
-          transition={{ duration: 0.4, repeat: Infinity, repeatDelay: 1.2 }}
-          style={{
-            backgroundImage: `repeating-linear-gradient(0deg, transparent, transparent 2px, ${LIME}18 2px, ${LIME}18 4px)`,
-          }}
-        />
-      )}
+      {/* ── Pointer acknowledgement, restrained to one focus veil. */}
+      <motion.div
+        className="pointer-events-none absolute inset-0"
+        initial={false}
+        animate={{ opacity: mouseInside && !shouldReduceMotion ? 0.09 : 0 }}
+        transition={{ duration: 0.18 }}
+        style={{
+          background: `linear-gradient(180deg, transparent 10%, ${LIME}22 50%, transparent 90%)`,
+          mixBlendMode: "screen",
+        }}
+      />
     </div>
   );
 }

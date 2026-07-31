@@ -97,6 +97,7 @@ export function PixelBlastBackground() {
   const lastParamShiftRef = useRef(0);
   const lastColorShiftRef = useRef(0);
   const lastVariantShiftRef = useRef(0);
+  const lastRenderUpdateRef = useRef(0);
   const colorTransitionRef = useRef({ from: COLOR_SEQUENCE[0], to: COLOR_SEQUENCE[1], t: 0 });
 
   // Scroll-based density influence
@@ -169,8 +170,9 @@ export function PixelBlastBackground() {
         edgeFade: Math.max(0.2, Math.min(0.8, fadeBase)),
         pixelSizeJitter: Math.max(0, Math.min(1, jitterBase)),
       });
-    } else {
-      // Still update color smoothly between param shifts
+    } else if (timestamp - lastRenderUpdateRef.current > 300) {
+      // Keep the color drift, but do not force a global React render at 60fps.
+      lastRenderUpdateRef.current = timestamp;
       setParams((prev) => ({ ...prev, color: currentColor }));
     }
 
@@ -182,6 +184,7 @@ export function PixelBlastBackground() {
     lastParamShiftRef.current = performance.now();
     lastColorShiftRef.current = performance.now();
     lastVariantShiftRef.current = performance.now();
+    lastRenderUpdateRef.current = performance.now();
     rafRef.current = requestAnimationFrame(evolve);
     return () => {
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
@@ -234,7 +237,7 @@ export function PixelBlastBackground() {
         speed={params.speed}
         edgeFade={params.edgeFade}
         pixelSizeJitter={params.pixelSizeJitter}
-        enableRipples={true}
+        enableRipples={false}
         rippleIntensityScale={0.6}
         rippleSpeed={0.25}
         rippleThickness={0.08}

@@ -9,7 +9,12 @@ interface CoordEvent {
   user_count: number;
   users: string[];
 }
-interface Props { events: CoordEvent[]; }
+interface ActivityUser {
+  username: string;
+  israel_hours_pct: number;
+  hour_distribution: Array<{ hour: number; pct: number }>;
+}
+interface Props { events: CoordEvent[]; users: ActivityUser[]; }
 
 const KNOWN_OPS: Record<string, string> = {
   "2023-10-07": "Oct 7 Attack",
@@ -21,7 +26,7 @@ const KNOWN_OPS: Record<string, string> = {
   "2020-08-04": "Beirut Explosion",
 };
 
-export function CoordinationTimeline({ events }: Props) {
+export function CoordinationTimeline({ events, users }: Props) {
   const [selected, setSelected] = useState<CoordEvent | null>(null);
 
   // aggregate by date, keep max user_count per day
@@ -46,21 +51,74 @@ export function CoordinationTimeline({ events }: Props) {
   }, [events]);
 
   const threshold = 5;
+  const schedule = useMemo(
+    () => [...users].sort((a, b) => b.israel_hours_pct - a.israel_hours_pct),
+    [users]
+  );
+  const maxHourPct = useMemo(
+    () => Math.max(1, ...users.flatMap((user) => user.hour_distribution.map((hour) => hour.pct))),
+    [users]
+  );
+  const sharedWindowEvents = events.filter((event) => {
+    const hour = Number.parseInt(event.hour, 10);
+    return hour >= 14 && hour <= 19;
+  }).length;
+  const alignedUsers = users.filter((user) => user.israel_hours_pct >= 70).length;
 
   return (
     <div className="space-y-4">
+      <div className="rounded-md border border-borderc bg-black/20 p-3">
+        <div className="mb-3 flex flex-wrap items-baseline justify-between gap-2 font-mono">
+          <p className="text-[10px] tracking-[0.18em] text-foreground">SHARED 24-HOUR ACTIVITY FINGERPRINT</p>
+          <p className="text-[9px] text-muted">
+            {alignedUsers}/{users.length} subjects ≥70% in the dataset&apos;s Israel-hours band · {sharedWindowEvents}/{events.length} co-activity windows at 14:00–19:00 UTC
+          </p>
+        </div>
+        <div className="overflow-x-auto pb-1">
+          <div className="min-w-[680px] space-y-1">
+            <div className="grid grid-cols-[150px_repeat(24,minmax(12px,1fr))] gap-px font-mono text-[8px] text-muted-2">
+              <span>SUBJECT / UTC HOUR</span>
+              {Array.from({ length: 24 }, (_, hour) => (
+                <span key={hour} className="text-center">{hour % 3 === 0 ? hour : ""}</span>
+              ))}
+            </div>
+            {schedule.map((user) => {
+              const byHour = new Map(user.hour_distribution.map((hour) => [hour.hour, hour.pct]));
+              return (
+                <div key={user.username} className="grid grid-cols-[150px_repeat(24,minmax(12px,1fr))] gap-px">
+                  <span className="truncate pr-2 font-mono text-[9px] text-muted" title={user.username}>
+                    {user.username}
+                  </span>
+                  {Array.from({ length: 24 }, (_, hour) => {
+                    const pct = byHour.get(hour) ?? 0;
+                    const strength = pct / maxHourPct;
+                    return (
+                      <span
+                        key={hour}
+                        className={hour >= 14 && hour <= 19 ? "h-3 ring-1 ring-inset ring-primary/20" : "h-3"}
+                        style={{ backgroundColor: `rgba(123,57,208,${0.06 + strength * 0.88})` }}
+                        title={`${user.username} · ${hour.toString().padStart(2, "0")}:00 UTC · ${pct.toFixed(1)}%`}
+                      />
+                    );
+                  })}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+        <p className="mt-2 text-[10px] leading-relaxed text-muted-2">
+          Similar schedules are consistent with a geographically concentrated cohort. They strengthen a coordination assessment only when combined with reply, language and event evidence.
+        </p>
+      </div>
+
       <div className="flex items-center gap-4 flex-wrap">
         <div className="flex items-center gap-2">
           <div className="w-3 h-3 rounded-sm bg-threat" />
-          <span className="font-mono text-[10px] text-muted">≥{threshold} users active same hour</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <div className="w-3 h-3 rounded-sm bg-archive" />
-          <span className="font-mono text-[10px] text-muted">3-4 users active same hour</span>
+          <span className="font-mono text-[10px] text-muted">{threshold}–7 users active in the same hour</span>
         </div>
         <div className="flex items-center gap-2">
           <div className="w-2 h-px bg-primary/60" />
-          <span className="font-mono text-[10px] text-muted">known military operation</span>
+          <span className="font-mono text-[10px] text-muted">major event context</span>
         </div>
       </div>
 
@@ -113,8 +171,8 @@ export function CoordinationTimeline({ events }: Props) {
             {daily.map((d, i) => (
               <Cell
                 key={i}
-                fill={d.max_users >= threshold ? "#ff4d5e" : "#e8b44c"}
-                fillOpacity={d.max_users >= threshold ? 0.9 : 0.65}
+                fill="#ff4d5e"
+                fillOpacity={0.45 + (d.max_users - threshold) * 0.2}
               />
             ))}
           </Bar>
