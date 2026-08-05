@@ -27,7 +27,6 @@ export function ShaderBackdrop({
   // shaders are WebGL — mount only on client after hydration
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
-  if (!mounted) return null;
 
   return (
     <div
@@ -38,7 +37,7 @@ export function ShaderBackdrop({
       style={{ opacity, background: "var(--background)" }}
       aria-hidden="true"
     >
-      {variant === "warp" ? (
+      {!mounted ? null : variant === "warp" ? (
         <Warp
           style={{ width: "100%", height: "100%", background: "#060608" }}
           colors={["#060608", "#0a1410", "#06262031", "#0b0b10"]}

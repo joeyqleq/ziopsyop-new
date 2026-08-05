@@ -16,7 +16,7 @@ export async function POST(req: Request) {
 
     await resend.emails.send({
       from: "ZIOPSYOP Contact <info@ziopsyop.me>",
-      to: "info@ziopsyop.me",
+      to: ["joemaari@gmail.com", "info@ziopsyop.me"],
       replyTo: email,
       subject: `[ZIOPSYOP] Message from ${name || "Anonymous"}`,
       text: `From: ${name || "Anonymous"} <${email}>\n\n${message}`,

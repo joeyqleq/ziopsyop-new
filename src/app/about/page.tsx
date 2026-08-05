@@ -11,7 +11,7 @@ export default function AboutPage() {
   const [contactOpen, setContactOpen] = useState(false);
 
   return (
-    <main className="relative min-h-screen">
+    <main className="relative min-h-screen bg-background">
       <AuroraBackground />
       <Navigation />
 

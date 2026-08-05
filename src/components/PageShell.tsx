@@ -20,7 +20,7 @@ export function PageShell({
   backdrop?: "warp" | "waves" | "none";
 }) {
   return (
-    <main className="relative min-h-screen">
+    <main className="relative min-h-screen bg-background">
       {backdrop !== "none" && (
         <ShaderBackdrop variant={backdrop} className="fixed inset-0" opacity={0.55} />
       )}
