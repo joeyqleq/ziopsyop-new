@@ -28,7 +28,7 @@ export default function GlobalError({
             A new version was deployed while you were browsing. Reload to continue.
           </p>
           <button
-            onClick={() => reset()}
+            onClick={() => window.location.reload()}
             style={{
               background: "transparent",
               border: "1px solid #b6ff7c",

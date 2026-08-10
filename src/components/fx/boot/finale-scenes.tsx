@@ -156,18 +156,21 @@ export function SignalScene() {
         {'// SIGNAL FROM NOISE'}
       </p>
 
-      <pre
-        aria-hidden="true"
-        className={`font-mono font-bold leading-[1.05] ${splitting ? 'zio-rgbsplit' : ''}`}
-        style={{
-          fontSize: 'clamp(5px, 1.7vw, 16px)',
-          color: settled ? 'var(--zio-text)' : 'var(--zio-mint)',
-          textShadow: settled ? '0 0 24px rgba(62,230,193,0.35)' : undefined,
-          transition: 'color 0.4s ease',
-        }}
-      >
-        {(grid ?? WORDMARK_ROWS).join('\n')}
-      </pre>
+      <div className="w-full max-w-full overflow-hidden flex justify-center">
+        <pre
+          aria-hidden="true"
+          className={`font-mono font-bold leading-[1.05] ${splitting ? 'zio-rgbsplit' : ''}`}
+          style={{
+            fontSize: 'clamp(5px, calc((100vw - 2rem) / 29), 12px)',
+            color: settled ? 'var(--zio-text)' : 'var(--zio-mint)',
+            textShadow: settled ? '0 0 24px rgba(62,230,193,0.35)' : undefined,
+            transition: 'color 0.4s ease',
+            whiteSpace: 'pre',
+          }}
+        >
+          {(grid ?? WORDMARK_ROWS).join('\n')}
+        </pre>
+      </div>
 
       <div className="flex flex-col items-center gap-1 text-center">
         <p
