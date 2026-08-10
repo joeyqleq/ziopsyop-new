@@ -1,8 +1,15 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Component, useEffect, useState } from "react";
+import type { ReactNode } from "react";
 import { Warp, Waves } from "@paper-design/shaders-react";
 import { cn } from "@/lib/utils";
+
+class WebGLErrorBoundary extends Component<{ children: ReactNode }, { failed: boolean }> {
+  state = { failed: false };
+  static getDerivedStateFromError() { return { failed: true }; }
+  render() { return this.state.failed ? null : this.props.children; }
+}
 
 /**
  * Brand-tuned shader backdrops (designali warp / wave-1, rebuilt on
@@ -37,32 +44,36 @@ export function ShaderBackdrop({
       style={{ opacity, background: "var(--background)" }}
       aria-hidden="true"
     >
-      {!mounted ? null : variant === "warp" ? (
-        <Warp
-          style={{ width: "100%", height: "100%", background: "#060608" }}
-          colors={["#060608", "#0a1410", "#06262031", "#0b0b10"]}
-          proportion={0.45}
-          softness={1}
-          distortion={0.18}
-          swirl={0.6}
-          swirlIterations={8}
-          shape="checks"
-          shapeScale={0.08}
-          speed={0.12}
-        />
-      ) : (
-        <Waves
-          style={{ width: "100%", height: "100%", background: "#060608" }}
-          colorFront="#13241f"
-          colorBack="#060608"
-          shape={0.9}
-          frequency={0.22}
-          amplitude={0.4}
-          spacing={1.4}
-          proportion={0.32}
-          softness={0.1}
-          rotation={0.08}
-        />
+      {!mounted ? null : (
+        <WebGLErrorBoundary>
+          {variant === "warp" ? (
+            <Warp
+              style={{ width: "100%", height: "100%", background: "#060608" }}
+              colors={["#060608", "#0a1410", "#06262031", "#0b0b10"]}
+              proportion={0.45}
+              softness={1}
+              distortion={0.18}
+              swirl={0.6}
+              swirlIterations={8}
+              shape="checks"
+              shapeScale={0.08}
+              speed={0.12}
+            />
+          ) : (
+            <Waves
+              style={{ width: "100%", height: "100%", background: "#060608" }}
+              colorFront="#13241f"
+              colorBack="#060608"
+              shape={0.9}
+              frequency={0.22}
+              amplitude={0.4}
+              spacing={1.4}
+              proportion={0.32}
+              softness={0.1}
+              rotation={0.08}
+            />
+          )}
+        </WebGLErrorBoundary>
       )}
       {/* vignette so edges always fall to pure background */}
       <div
