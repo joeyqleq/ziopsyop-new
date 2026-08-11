@@ -283,16 +283,33 @@ const FPV_COLS = 60
 
 function buildTerrainFrame(offset: number): Seg[][] {
   const rows: Seg[][] = []
+  const horizon = 4
+  const targetX = 34 + Math.round(Math.sin(offset * 0.09) * 5)
   for (let r = 0; r < FPV_ROWS; r++) {
     const rng = mulberry32(r * 131 + 7)
     let line = ''
     for (let c = 0; c < FPV_COLS; c++) {
       // sample a horizontally scrolling noise field
       const s = mulberry32((r * 977 + ((c + offset) % 4096)) * 31)()
-      if (s < 0.06) line += '▒'
-      else if (s < 0.1) line += '░'
-      else if (s < 0.13) line += rng() > 0.5 ? '/' : '\\'
-      else if (s < 0.16) line += '·'
+      if (r === horizon) {
+        line += c % 9 === (offset % 9) ? '╱' : '─'
+        continue
+      }
+      if (r === 8 && Math.abs(c - targetX) <= 2) {
+        line += c === targetX ? '▲' : '▓'
+        continue
+      }
+      if (r === 9 && Math.abs(c - targetX) <= 4) {
+        line += c === targetX ? '█' : '▒'
+        continue
+      }
+      const depth = Math.max(0, (r - horizon) / (FPV_ROWS - horizon - 1))
+      const occupancy = r < horizon ? 0.1 : 0.31 + depth * 0.18
+      if (s < occupancy * 0.3) line += '▓'
+      else if (s < occupancy * 0.58) line += '▒'
+      else if (s < occupancy * 0.78) line += '░'
+      else if (s < occupancy * 0.91) line += rng() > 0.5 ? '/' : '\\'
+      else if (s < occupancy) line += '·'
       else line += ' '
     }
     rows.push([{ t: line, c: 'zio-eye-dim' }])
@@ -334,12 +351,12 @@ function FpvHud({ data }: { data: BootDataProps }) {
         </div>
 
         {/* telemetry columns */}
-        <div className="absolute left-1 top-1/2 flex -translate-y-1/2 flex-col gap-1 text-[8px] leading-none tracking-wider text-[var(--zio-amber)] opacity-80 sm:text-[9px]">
+        <div className="absolute left-1 top-1/2 flex -translate-y-1/2 flex-col gap-1 text-[8px] leading-none tracking-wider text-[var(--zio-amber)] opacity-95 sm:text-[9px]">
           {FPV_TELEMETRY_L.map((t) => (
             <span key={t}>{t}</span>
           ))}
         </div>
-        <div className="absolute right-1 top-1/2 flex -translate-y-1/2 flex-col items-end gap-1 text-[8px] leading-none tracking-wider text-[var(--zio-amber)] opacity-80 sm:text-[9px]">
+        <div className="absolute right-1 top-1/2 flex -translate-y-1/2 flex-col items-end gap-1 text-[8px] leading-none tracking-wider text-[var(--zio-amber)] opacity-95 sm:text-[9px]">
           {FPV_TELEMETRY_R.map((t) => (
             <span key={t}>{t}</span>
           ))}

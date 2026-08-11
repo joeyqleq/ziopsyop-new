@@ -104,6 +104,7 @@ const NAV_LINKS = [
   { label: "Sources",     href: "/sources" },
   { label: "Objections",  href: "/counter-arguments" },
   { label: "About",       href: "/about" },
+  { label: "Support",     href: "/support" },
 ]
 
 // ─── Per-letter animation data for "ZI0PSY0P.ME" ─────────────────────────────

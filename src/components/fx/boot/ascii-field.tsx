@@ -1,6 +1,7 @@
 'use client'
 
 import { NOISE_CHARS, mulberry32 } from '@/lib/boot/wordmark'
+import { resolveCanvasMonoFont } from '@/lib/boot/canvas-font'
 import { useEffect, useRef } from 'react'
 
 export type FieldMode = 'drift' | 'star' | 'crumble' | 'sparse'
@@ -70,6 +71,7 @@ export function AsciiField({
     if (!canvas) return
     const ctx = canvas.getContext('2d')
     if (!ctx) return
+    const monoFont = resolveCanvasMonoFont()
 
     const rng = mulberry32(1337)
     let raf = 0
@@ -189,7 +191,7 @@ export function AsciiField({
 
         ctx.globalAlpha = a
         ctx.fillStyle = p.color
-        ctx.font = `${p.size}px var(--font-jetbrains), monospace`
+        ctx.font = `${p.size}px ${monoFont}`
         ctx.fillText(p.ch, p.x, p.y)
       }
       ctx.globalAlpha = 1

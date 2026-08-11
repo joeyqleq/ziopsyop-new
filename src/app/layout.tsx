@@ -4,6 +4,7 @@ import Script from "next/script";
 import { AnalyticsTracker } from "@/components/AnalyticsTracker";
 import { PixelBlastBackground } from "@/components/fx/PixelBlastBackground";
 import { BootGate } from "@/components/fx/BootGate";
+import { PersistentSupport } from "@/components/support/PersistentSupport";
 import "./globals.css";
 
 const grotesk = Space_Grotesk({
@@ -110,6 +111,7 @@ export default function RootLayout({
         <PixelBlastBackground />
         <BootGate>
           {children}
+          <PersistentSupport />
         </BootGate>
         <AnalyticsTracker />
         <div className="crt-overlay" aria-hidden="true" />
@@ -124,5 +126,4 @@ export default function RootLayout({
     </html>
   );
 }
-
 

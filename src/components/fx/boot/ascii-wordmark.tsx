@@ -2,6 +2,7 @@
 
 import { layoutBlockText, type BlockCell } from '@/lib/boot/blockfont'
 import { mulberry32 } from '@/lib/boot/wordmark'
+import { resolveCanvasMonoFont } from '@/lib/boot/canvas-font'
 import { useEffect, useMemo, useRef } from 'react'
 
 /**
@@ -81,6 +82,7 @@ export function AsciiWordmark({
     if (!canvas) return
     const ctx = canvas.getContext('2d')
     if (!ctx) return
+    const monoFont = resolveCanvasMonoFont()
 
     const rng = mulberry32(90210)
     const cells: CellState[] = layout.cells.map((c) => ({
@@ -126,7 +128,7 @@ export function AsciiWordmark({
       if (local < -0.05) return
 
       const fontPx = Math.round(cell * 1.02)
-      ctx.font = `700 ${fontPx}px var(--font-jetbrains), monospace`
+      ctx.font = `700 ${fontPx}px ${monoFont}`
       ctx.textAlign = 'center'
       ctx.textBaseline = 'middle'
 

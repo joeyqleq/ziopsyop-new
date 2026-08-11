@@ -222,6 +222,21 @@ export function Navigation() {
               </div>
             );
           })}
+          <Link
+            href="/support"
+            onClick={() => trackEvent("nav_click", { destination: "/support", label: "SUPPORT" })}
+            className={cn(
+              "group/support relative ml-1 flex items-center gap-1.5 border-l border-archive/20 px-3 py-4 font-mono text-[9px] tracking-[0.12em] transition-colors",
+              pathname === "/support" ? "text-archive" : "text-archive/80 hover:text-archive"
+            )}
+          >
+            <span className="relative flex h-1.5 w-1.5" aria-hidden="true">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-archive opacity-35 motion-reduce:animate-none" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-archive" />
+            </span>
+            SUPPORT
+            {pathname === "/support" && <span className="absolute inset-x-3 bottom-1.5 h-px bg-archive" />}
+          </Link>
         </nav>
 
         <div className="flex items-center gap-4">
@@ -292,6 +307,27 @@ export function Navigation() {
                   </div>
                 </motion.section>
               ))}
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.31 }}
+                className="border-t border-archive/25 pt-4"
+              >
+                <Link
+                  href="/support"
+                  onClick={() => {
+                    setMenuOpen(false);
+                    trackEvent("nav_click", { destination: "/support", label: "SUPPORT THE WORK", source: "mobile" });
+                  }}
+                  className="flex min-h-12 items-center justify-between border border-archive/35 bg-archive/[0.06] px-4 font-mono text-xs tracking-[0.15em] text-archive"
+                >
+                  <span className="flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-archive" aria-hidden="true" />
+                    SUPPORT THE WORK
+                  </span>
+                  <span aria-hidden="true">→</span>
+                </Link>
+              </motion.div>
             </div>
             <p className="mt-10 font-mono text-[10px] tracking-[0.25em] text-muted-2">
               SIGNAL FROM NOISE — ZIOPSYOP.ME

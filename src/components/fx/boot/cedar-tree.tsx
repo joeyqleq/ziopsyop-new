@@ -2,6 +2,7 @@
 
 import { CEDAR_CHURN, cedarDensity, isCedarTrunk } from '@/lib/boot/cedar'
 import { mulberry32 } from '@/lib/boot/wordmark'
+import { resolveCanvasMonoFont } from '@/lib/boot/canvas-font'
 import { useEffect, useRef } from 'react'
 
 /**
@@ -91,6 +92,7 @@ export function CedarTree({
     let boxX = 0
     let boxY = 0
     let cells: CedarCell[] = []
+    const monoFont = resolveCanvasMonoFont()
 
     const build = () => {
       const rect = canvas.getBoundingClientRect()
@@ -101,7 +103,7 @@ export function CedarTree({
       canvas.height = Math.floor(h * dpr)
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
 
-      cell = w < 640 ? 7 : w < 1100 ? 8 : 9
+      cell = w < 640 ? 5 : w < 1100 ? 6 : 7
 
       // reserve room under the tree for the caption, and never touch the edges
       const availH = h * 0.88 - 46
@@ -125,8 +127,8 @@ export function CedarTree({
           const v = (r + 0.5) / rows
           const d = cedarDensity(u, v)
           // drop the faintest cells outright so the silhouette stays crisp
-          if (d <= 0.1) continue
-          if (d < 0.34 && rng() > 0.42) continue
+          if (d <= 0.065) continue
+          if (d < 0.28 && rng() > 0.72) continue
 
           const ang = rng() * Math.PI * 2
           const dist = 120 + rng() * 420
@@ -194,13 +196,13 @@ export function CedarTree({
           ? pick(BARK, 0.25 + c.density * 0.5 + breathe * 0.22)
           : pick(FOLIAGE, 0.12 + c.density * 0.62 + breathe * 0.24)
 
-        const alpha = Math.min(1, (0.48 + c.density * 0.52) * ease)
+        const alpha = Math.min(1, (0.58 + c.density * 0.5 + (c.trunk ? 0.1 : 0)) * ease)
         ctx.globalAlpha = alpha
         ctx.fillStyle = shade
-        ctx.font = `${c.density > 0.55 ? '700 ' : ''}${fontPx}px var(--font-jetbrains), monospace`
+        ctx.font = `${c.trunk || c.density > 0.48 ? '700 ' : ''}${fontPx}px ${monoFont}`
 
         // a soft bloom on the densest mass gives the tree depth
-        if (c.density > 0.62) {
+        if (c.trunk || c.density > 0.55) {
           ctx.shadowColor = c.trunk ? 'rgba(176,108,52,0.5)' : 'rgba(62,214,150,0.55)'
           ctx.shadowBlur = 7
         }

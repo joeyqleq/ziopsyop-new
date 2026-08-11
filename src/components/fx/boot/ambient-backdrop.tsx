@@ -1,6 +1,7 @@
 'use client'
 
 import { mulberry32 } from '@/lib/boot/wordmark'
+import { resolveCanvasMonoFont } from '@/lib/boot/canvas-font'
 import { useEffect, useRef } from 'react'
 
 /**
@@ -26,6 +27,8 @@ interface RainCol {
   glyphs: string[]
   alpha: number
   flip: number
+  size: number
+  gap: number
 }
 
 interface HexBlock {
@@ -64,6 +67,7 @@ export function AmbientBackdrop({
     let cols: RainCol[] = []
     let blocks: HexBlock[] = []
     let gridStep = 34
+    const monoFont = resolveCanvasMonoFont()
 
     const TONES: Record<string, string> = {
       mint: '62,230,193',
@@ -80,30 +84,33 @@ export function AmbientBackdrop({
       canvas.width = Math.floor(w * dpr)
       canvas.height = Math.floor(h * dpr)
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
-      gridStep = w < 640 ? 26 : 34
+      gridStep = w < 640 ? 22 : 28
 
-      const colCount = Math.max(6, Math.floor((w / 120) * intensity))
+      const colCount = Math.max(12, Math.floor((w / 72) * intensity))
       cols = Array.from({ length: colCount }, () => {
-        const len = 6 + Math.floor(rng() * 16)
+        const len = 8 + Math.floor(rng() * 19)
+        const size = 8 + Math.floor(rng() * 5)
         return {
           x: rng() * w,
           y: rng() * h,
-          speed: 14 + rng() * 46,
+          speed: 10 + rng() * 52,
           len,
           glyphs: Array.from({ length: len }, () => RAIN_CHARS[Math.floor(rng() * RAIN_CHARS.length)]),
-          alpha: 0.05 + rng() * 0.11,
+          alpha: 0.04 + rng() * 0.1,
           flip: rng(),
+          size,
+          gap: size + 2 + rng() * 3,
         }
       })
 
-      const blockCount = Math.max(4, Math.floor(10 * intensity))
+      const blockCount = Math.max(7, Math.floor(16 * intensity))
       blocks = Array.from({ length: blockCount }, () => ({
         x: rng() * w,
         y: rng() * h,
         vx: (rng() - 0.5) * 7,
         vy: (rng() - 0.5) * 7,
         text: `0x${Array.from({ length: 4 }, () => HEX[Math.floor(rng() * 16)]).join('')}`,
-        alpha: 0.05 + rng() * 0.08,
+        alpha: 0.05 + rng() * 0.1,
       }))
     }
 
@@ -119,7 +126,7 @@ export function AmbientBackdrop({
       ctx.clearRect(0, 0, w, h)
 
       // ---- perspective character floor -----------------------------------
-      ctx.font = `10px var(--font-jetbrains), monospace`
+      ctx.font = `10px ${monoFont}`
       ctx.textAlign = 'center'
       ctx.textBaseline = 'middle'
       const drift = (t * 9) % gridStep
@@ -185,9 +192,9 @@ export function AmbientBackdrop({
             RAIN_CHARS[Math.floor(rng() * RAIN_CHARS.length)]
           c.flip = 0.06 + rng() * 0.22
         }
-        ctx.font = `11px var(--font-jetbrains), monospace`
+        ctx.font = `${c.size}px ${monoFont}`
         for (let i = 0; i < c.glyphs.length; i++) {
-          const y = c.y - i * 13
+          const y = c.y - i * c.gap
           if (y < -14 || y > h + 14) continue
           const fade = 1 - i / c.glyphs.length
           ctx.globalAlpha = c.alpha * fade * intensity
@@ -197,7 +204,7 @@ export function AmbientBackdrop({
       }
 
       // ---- floating hex address blocks ------------------------------------
-      ctx.font = `9px var(--font-jetbrains), monospace`
+      ctx.font = `9px ${monoFont}`
       for (const b of blocks) {
         b.x += b.vx * dt
         b.y += b.vy * dt

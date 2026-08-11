@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import { ChevronDown, FileSearch, Puzzle, Crosshair, BookOpen, Eye, AlertTriangle, CheckCircle } from "lucide-react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { ChevronDown, FileSearch, Puzzle, Crosshair, BookOpen, Eye, AlertTriangle, CheckCircle, MousePointer2 } from "lucide-react";
 import { TracedCard } from "./TracedCard";
 import { DecryptText } from "./DecryptText";
 import { cn } from "@/lib/utils";
@@ -121,6 +121,7 @@ export function ChartFrame({
             <span className="flex items-center gap-2 font-mono text-[10px] tracking-[0.25em] text-muted group-hover:text-foreground transition-colors">
               <FileSearch size={12} style={{ color: accent }} />
               ANALYST COMMENTARY
+              {!open && <ClickCue accent={accent} />}
             </span>
             <motion.span
               animate={{ rotate: open ? 180 : 0 }}
@@ -175,6 +176,7 @@ export function ChartFrame({
             <span className="flex items-center gap-2 font-mono text-[10px] tracking-[0.25em] text-muted group-hover:text-foreground transition-colors">
               <BookOpen size={12} className="text-muted" />
               PLAIN LANGUAGE BRIEF
+              {!plainOpen && <ClickCue accent="var(--archive)" />}
             </span>
             <motion.span
               animate={{ rotate: plainOpen ? 180 : 0 }}
@@ -215,6 +217,27 @@ export function ChartFrame({
         </div>
       )}
     </TracedCard>
+  );
+}
+
+function ClickCue({ accent }: { accent: string }) {
+  const reducedMotion = useReducedMotion();
+
+  return (
+    <motion.span
+      aria-hidden="true"
+      className="ml-1 inline-flex items-center gap-1 rounded border px-1.5 py-0.5 text-[7px] tracking-[0.14em]"
+      style={{ color: accent, borderColor: `color-mix(in srgb, ${accent} 30%, transparent)` }}
+      animate={
+        reducedMotion
+          ? undefined
+          : { x: [0, -2, 0], y: [0, -1, 0], opacity: [0.55, 1, 0.55] }
+      }
+      transition={{ duration: 1.45, repeat: Infinity, ease: "easeInOut" }}
+    >
+      <MousePointer2 size={9} />
+      OPEN
+    </motion.span>
   );
 }
 

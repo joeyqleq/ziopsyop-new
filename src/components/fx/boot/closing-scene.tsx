@@ -2,6 +2,7 @@
 
 import { CLOSING_T } from '@/lib/boot/timeline'
 import { mulberry32 } from '@/lib/boot/wordmark'
+import { resolveCanvasMonoFont } from '@/lib/boot/canvas-font'
 import { useEffect, useRef, useState } from 'react'
 import { AsciiEye } from './ascii-eye'
 import { AsciiWordmark } from './ascii-wordmark'
@@ -18,11 +19,11 @@ import { CedarTree } from './cedar-tree'
  */
 
 const FLAG_BLUE = '#4ea8ff'
-const FLAG_BLUE_DIM = 'rgba(78,168,255,0.55)'
-const FLAG_WHITE = 'rgba(201,205,212,0.34)'
+const FLAG_BLUE_DIM = 'rgba(78,168,255,0.82)'
+const FLAG_WHITE = 'rgba(225,230,238,0.6)'
 const STAR_CHARS = ['#', '%', '#', '@']
 const STRIPE_CHARS = ['=', '#', '=', '\u2261']
-const FIELD_CHARS = ['\u00b7', '-', '\u00b7', ' ']
+const FIELD_CHARS = ['\u00b7', '-', '+', '\u02d1']
 
 interface FlagCell {
   col: number
@@ -82,6 +83,7 @@ export function ClosingScene({ getT }: { getT: () => number }) {
     let cells: FlagCell[] = []
     let cell = 14
     let fontPx = 12
+    const monoFont = resolveCanvasMonoFont()
 
     const build = () => {
       const rect = canvas.getBoundingClientRect()
@@ -91,13 +93,13 @@ export function ClosingScene({ getT }: { getT: () => number }) {
       canvas.width = Math.floor(w * dpr)
       canvas.height = Math.floor(h * dpr)
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
-      cell = w < 640 ? 11 : 15
-      fontPx = cell - 2
+      cell = w < 640 ? 9 : 12
+      fontPx = cell - 1
       const cols = Math.ceil(w / cell)
       const rows = Math.ceil(h / cell)
       const starR = Math.min(w, h) * 0.21
       const edges = hexagramEdges(w / 2, h / 2, starR)
-      const starThick = cell * 0.75
+      const starThick = cell * 1.08
 
       cells = []
       for (let r = 0; r < rows; r++) {
@@ -118,11 +120,11 @@ export function ClosingScene({ getT }: { getT: () => number }) {
           } else if ((yf > 0.13 && yf < 0.225) || (yf > 0.775 && yf < 0.87)) {
             kind = 'stripe'
             ch = STRIPE_CHARS[Math.floor(rng() * STRIPE_CHARS.length)]
-          } else if (rng() < 0.38) {
+          } else if (rng() < 0.64) {
             kind = 'field'
             ch = FIELD_CHARS[Math.floor(rng() * FIELD_CHARS.length)]
           }
-          if (!kind || ch === ' ') continue
+          if (!kind) continue
 
           const ang = Math.atan2(y - h / 2, x - w / 2)
           const speed = 150 + rng() * 380
@@ -154,7 +156,7 @@ export function ClosingScene({ getT }: { getT: () => number }) {
       const ls = t - CLOSING_T.shatter
 
       ctx.clearRect(0, 0, w, h)
-      ctx.font = `${fontPx}px var(--font-jetbrains), monospace`
+      ctx.font = `${fontPx}px ${monoFont}`
       ctx.textAlign = 'center'
       ctx.textBaseline = 'middle'
 
@@ -215,10 +217,10 @@ export function ClosingScene({ getT }: { getT: () => number }) {
         }
         if (fc.kind === 'stripe') {
           ctx.fillStyle = FLAG_BLUE_DIM
-          ctx.globalAlpha *= bright * 0.9
+          ctx.globalAlpha *= 0.88 + bright * 0.12
         } else {
           ctx.fillStyle = FLAG_WHITE
-          ctx.globalAlpha *= bright * 0.8
+          ctx.globalAlpha *= 0.78 + bright * 0.18
         }
         ctx.fillText(fc.ch, x, yBase + wave)
       }
