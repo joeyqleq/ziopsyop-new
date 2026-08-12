@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
+import { BrandedText } from "@/components/BrandedText";
 
 const GLYPHS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!<>-_\\/[]{}—=+*^?#@$%&";
 
@@ -17,6 +18,8 @@ interface DecryptTextProps {
   startOnView?: boolean;
   /** If true, only trigger animation once (default true) */
   triggerOnce?: boolean;
+  /** Apply the ZIOPSYOP display treatment after decryption. */
+  brandUppercaseO?: boolean;
 }
 
 export function DecryptText({
@@ -28,9 +31,11 @@ export function DecryptText({
   as: Tag = "span",
   startOnView = true,
   triggerOnce = true,
+  brandUppercaseO = false,
 }: DecryptTextProps) {
   // Speed floor: prevent runaway slowness
   const effectiveSpeed = speed < 20 ? 20 : speed;
+  const isDisplayHeading = Tag === "h1" || Tag === "h2" || Tag === "h3";
   // Only one bit of React state: are we done? Everything else is DOM mutation.
   const [done, setDone] = useState(false);
   const innerRef = useRef<HTMLSpanElement>(null);
@@ -119,7 +124,11 @@ export function DecryptText({
       data-decrypted={done}
       aria-label={text}
     >
-      <span aria-hidden="true" ref={innerRef}>{text}</span>
+      {done && (isDisplayHeading || brandUppercaseO) ? (
+        <BrandedText text={text} />
+      ) : (
+        <span aria-hidden="true" ref={innerRef}>{text}</span>
+      )}
     </Tag>
   );
 }

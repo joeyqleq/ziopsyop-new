@@ -116,7 +116,7 @@ export function SignalScene() {
     const cols = WORDMARK_ROWS[0].length
     // per-cell resolve times: noise chars fall away until the wordmark remains
     const resolveAt: number[][] = Array.from({ length: rows }, () =>
-      Array.from({ length: cols }, () => 300 + rng() * 1900),
+      Array.from({ length: cols }, () => 180 + rng() * 1050),
     )
     const start = performance.now()
     const loop = (now: number) => {
@@ -132,7 +132,7 @@ export function SignalScene() {
         out.push(line)
       }
       setGrid(out)
-      if (t < 2300) {
+      if (t < 1350) {
         rafRef.current = requestAnimationFrame(loop)
       } else {
         setGrid(WORDMARK_ROWS as string[])
@@ -140,7 +140,7 @@ export function SignalScene() {
         settleTimerRef.current = setTimeout(() => {
           setSplitting(false)
           setSettled(true)
-        }, 450)
+        }, 300)
       }
     }
     rafRef.current = requestAnimationFrame(loop)
@@ -161,7 +161,9 @@ export function SignalScene() {
           aria-hidden="true"
           className={`font-mono font-bold leading-[1.05] ${splitting ? 'zio-rgbsplit' : ''}`}
           style={{
-            fontSize: 'clamp(5px, calc((100vw - 2rem) / 29), 12px)',
+            // Leave extra metric headroom for Chromium's mono-font fallback so
+            // the final Y0P cells cannot be clipped at the right edge.
+            fontSize: 'clamp(4px, calc((100vw - 2rem) / 32), 12px)',
             color: settled ? 'var(--zio-text)' : 'var(--zio-mint)',
             textShadow: settled ? '0 0 24px rgba(62,230,193,0.35)' : undefined,
             transition: 'color 0.4s ease',
@@ -201,12 +203,11 @@ export function AcquireScene() {
     const id = setInterval(() => setChars((c) => (c >= total ? c : c + 2)), 30)
     return () => clearInterval(id)
   }, [])
-  let remaining = chars
   return (
     <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 px-4">
       {ACQUIRE_LINES.map((line, i) => {
-        const take = Math.max(0, Math.min(line.length, remaining))
-        remaining -= line.length
+        const consumed = ACQUIRE_LINES.slice(0, i).reduce((total, entry) => total + entry.length, 0)
+        const take = Math.max(0, Math.min(line.length, chars - consumed))
         const done = take >= line.length
         return (
           <p

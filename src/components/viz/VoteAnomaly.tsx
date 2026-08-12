@@ -21,58 +21,58 @@ interface DataPoint {
   anomaly: boolean;
 }
 
-const EXCLUDED_USER = "joeyleq";
-
-function generateSampleData(): DataPoint[] {
+function generateIllustrativeData(): DataPoint[] {
   const data: DataPoint[] = [];
+  let seed = 7319;
+  const random = () => {
+    seed = (seed * 48271) % 2147483647;
+    return seed / 2147483647;
+  };
 
-  // Lebanese-flaired posts with anomalously low upvote ratios
+  // Shape-only examples. The public schema has aggregate Reddit metrics but no
+  // post-level rows that can honestly populate this chart yet.
   const lebaneseAnomalies = [
-    { upvote_ratio: 0.18, comment_count: 45, title: "IDF killed 3 paramedics in double-tap yesterday", author: "EmperorChaos" },
-    { upvote_ratio: 0.22, comment_count: 38, title: "Footage of IDF bulldozing homes in Bint Jbeil", author: "levnon14" },
-    { upvote_ratio: 0.15, comment_count: 52, title: "Why does nobody here talk about Dahiyeh doctrine?", author: "cha3bghachim" },
-    { upvote_ratio: 0.25, comment_count: 28, title: "Lebanese civilians shot trying to return home", author: "victoryismind" },
-    { upvote_ratio: 0.12, comment_count: 62, title: "120 Israeli hasbara war rooms documented", author: "EmperorChaos" },
-    { upvote_ratio: 0.20, comment_count: 35, title: "Litani River water theft evidence", author: "levnon14" },
-    { upvote_ratio: 0.28, comment_count: 22, title: "UNIFIL confirms violation by IDF forces", author: "LevantinePlantCult" },
+    { upvote_ratio: 0.18, comment_count: 45, title: "Illustrative Lebanese-flaired point A", author: "anon-A" },
+    { upvote_ratio: 0.22, comment_count: 38, title: "Illustrative Lebanese-flaired point B", author: "anon-B" },
+    { upvote_ratio: 0.15, comment_count: 52, title: "Illustrative Lebanese-flaired point C", author: "anon-C" },
+    { upvote_ratio: 0.25, comment_count: 28, title: "Illustrative Lebanese-flaired point D", author: "anon-D" },
+    { upvote_ratio: 0.12, comment_count: 62, title: "Illustrative Lebanese-flaired point E", author: "anon-E" },
+    { upvote_ratio: 0.20, comment_count: 35, title: "Illustrative Lebanese-flaired point F", author: "anon-F" },
+    { upvote_ratio: 0.28, comment_count: 22, title: "Illustrative Lebanese-flaired point G", author: "anon-G" },
   ];
 
-  // Normal posts (Israeli-flaired, high engagement, normal ratios)
+  // Comparison points are equally synthetic and anonymous.
   const normalPosts = [
-    { upvote_ratio: 0.88, comment_count: 55, title: "What do Lebanese think about normalization?", author: "DaDerpyDude", flair: "Israeli" },
-    { upvote_ratio: 0.82, comment_count: 40, title: "I visited Beirut before the war, beautiful city", author: "tFighterPilot", flair: "Israeli" },
-    { upvote_ratio: 0.91, comment_count: 30, title: "Sending love from Tel Aviv ❤️", author: "OptimismNeeded", flair: "Israeli" },
-    { upvote_ratio: 0.85, comment_count: 48, title: "Why can't we just be friends?", author: "amazing9999", flair: "Israeli" },
-    { upvote_ratio: 0.79, comment_count: 35, title: "Lebanese food is the best in the world", author: "Tamtumtam", flair: "Israeli" },
-    { upvote_ratio: 0.73, comment_count: 25, title: "Question about Lebanese politics", author: "IbnEzra613", flair: "Israeli" },
-    { upvote_ratio: 0.68, comment_count: 42, title: "Hezbollah doesn't represent Lebanon", author: "ConnorStreetmann", flair: "No flair" },
-    { upvote_ratio: 0.76, comment_count: 18, title: "Christians in Lebanon deserve better", author: "MajorTechnology8827", flair: "No flair" },
-    { upvote_ratio: 0.84, comment_count: 33, title: "Iran is destroying Lebanon from within", author: "MuskyScent972", flair: "Israeli" },
-    { upvote_ratio: 0.71, comment_count: 28, title: "Lebanon should make peace with Israel", author: "Worldineatydays", flair: "No flair" },
+    { upvote_ratio: 0.88, comment_count: 55, title: "Illustrative comparison point A", author: "anon-H", flair: "Israeli" },
+    { upvote_ratio: 0.82, comment_count: 40, title: "Illustrative comparison point B", author: "anon-I", flair: "Israeli" },
+    { upvote_ratio: 0.91, comment_count: 30, title: "Illustrative comparison point C", author: "anon-J", flair: "Israeli" },
+    { upvote_ratio: 0.85, comment_count: 48, title: "Illustrative comparison point D", author: "anon-K", flair: "Israeli" },
+    { upvote_ratio: 0.79, comment_count: 35, title: "Illustrative comparison point E", author: "anon-L", flair: "Israeli" },
+    { upvote_ratio: 0.73, comment_count: 25, title: "Illustrative comparison point F", author: "anon-M", flair: "Israeli" },
+    { upvote_ratio: 0.68, comment_count: 42, title: "Illustrative comparison point G", author: "anon-N", flair: "No flair" },
+    { upvote_ratio: 0.76, comment_count: 18, title: "Illustrative comparison point H", author: "anon-O", flair: "No flair" },
+    { upvote_ratio: 0.84, comment_count: 33, title: "Illustrative comparison point I", author: "anon-P", flair: "Israeli" },
+    { upvote_ratio: 0.71, comment_count: 28, title: "Illustrative comparison point J", author: "anon-Q", flair: "No flair" },
   ];
 
   lebaneseAnomalies.forEach((p) => {
-    if (p.author.toLowerCase() !== EXCLUDED_USER) {
-      data.push({ ...p, flair: "Lebanese", anomaly: true });
-    }
+    data.push({ ...p, flair: "Lebanese", anomaly: true });
   });
 
   normalPosts.forEach((p) => {
-    if (p.author.toLowerCase() !== EXCLUDED_USER) {
-      data.push({ ...p, anomaly: false });
-    }
+    data.push({ ...p, anomaly: false });
   });
 
   // Add some scatter noise
   for (let i = 0; i < 40; i++) {
-    const isLeb = Math.random() > 0.7;
+    const isLeb = random() > 0.7;
     data.push({
-      upvote_ratio: isLeb ? 0.3 + Math.random() * 0.4 : 0.55 + Math.random() * 0.4,
-      comment_count: Math.floor(5 + Math.random() * 50),
-      flair: isLeb ? "Lebanese" : (Math.random() > 0.5 ? "Israeli" : "No flair"),
+      upvote_ratio: isLeb ? 0.3 + random() * 0.4 : 0.55 + random() * 0.4,
+      comment_count: Math.floor(5 + random() * 50),
+      flair: isLeb ? "Lebanese" : (random() > 0.5 ? "Israeli" : "No flair"),
       title: "",
       author: "",
-      anomaly: isLeb && Math.random() > 0.6,
+      anomaly: isLeb && random() > 0.6,
     });
   }
 
@@ -80,7 +80,7 @@ function generateSampleData(): DataPoint[] {
 }
 
 export function VoteAnomaly() {
-  const data = useMemo(() => generateSampleData(), []);
+  const data = useMemo(() => generateIllustrativeData(), []);
 
   const lebaneseData = data.filter((d) => d.flair === "Lebanese");
   const israeliData = data.filter((d) => d.flair === "Israeli");
@@ -132,7 +132,8 @@ export function VoteAnomaly() {
       </ResponsiveContainer>
 
       <div className="neo-inset p-4 space-y-2">
-        <p className="text-[10px] font-mono text-rose-400 mb-2">ANOMALOUS POSTS (upvote ratio &lt;0.3 with &gt;20 comments)</p>
+        <p className="text-[10px] font-mono text-amber-300 mb-1">ILLUSTRATIVE SHAPE — NOT POST-LEVEL SUPABASE ROWS</p>
+        <p className="text-[10px] font-mono text-rose-400 mb-2">ANOMALOUS EXAMPLE POINTS (upvote ratio &lt;0.3 with &gt;20 comments)</p>
         {data
           .filter((d) => d.anomaly && d.title && d.comment_count > 20)
           .slice(0, 5)
@@ -143,7 +144,7 @@ export function VoteAnomaly() {
                 [{(d.upvote_ratio * 100).toFixed(0)}%]
               </span>
               <span>{d.title}</span>{" "}
-              <span className="text-gray-500">— u/{d.author}</span>
+              <span className="text-gray-500">— {d.author}</span>
             </div>
           ))}
       </div>

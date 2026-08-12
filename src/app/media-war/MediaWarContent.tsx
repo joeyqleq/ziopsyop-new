@@ -1,13 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CinematicTitle } from "@/components/fx/CinematicTitle";
-import { DecryptText } from "@/components/fx/DecryptText";
 import { TracedCard } from "@/components/fx/TracedCard";
 import { MediaNarrativeTimeline } from "@/components/viz/MediaNarrativeTimeline";
 import { TerrorDensityGauge } from "@/components/viz/TerrorDensityGauge";
 import { SilenceMap } from "@/components/viz/SilenceMap";
 import { ContradictionRegistry } from "@/components/viz/ContradictionRegistry";
+import { PageIntro } from "@/components/PageIntro";
+import Link from "next/link";
 
 const CLAIMS = [
   {
@@ -15,21 +15,27 @@ const CLAIMS = [
     verdict: "DISPUTED",
     verdictColor: "text-archive",
     detail:
-      "Channel 14 framed Hezbollah as the aggressor. Documentary evidence shows Israeli escalation preceded the October 8 solidarity strikes. The timeline tells a different story.",
+      "The answer changes with the selected baseline: October 8 cross-border strikes, the October 7 regional war, or the longer occupation and strike history. The publisher corpus measures how initiation was framed; it does not by itself adjudicate the legal question.",
+    sourceLabel: "TEST THE TIMELINE",
+    href: "/synthesis",
   },
   {
     claim: "IDF targets only militants",
     verdict: "REFUTED",
     verdictColor: "text-threat",
     detail:
-      "10,000+ civilian structures demolished. Amnesty International, HRW, and OCHA all documented systematic targeting of civilian infrastructure across southern Lebanon.",
+      "Amnesty's evidence work documents extensive destruction of civilian structures in southern Lebanon, including destruction after the ceasefire. That record refutes the literal claim that only militants were hit; it does not make every individual strike unlawful without incident-level review.",
+    sourceLabel: "SOURCE LEDGER",
+    href: "/sources",
   },
   {
     claim: "Ceasefire was observed",
     verdict: "REFUTED",
     verdictColor: "text-threat",
     detail:
-      "IDF unilaterally extended its presence past the January 2025 deadline, then again past the extended deadline. Continued strikes documented throughout the 'ceasefire' period into 2026.",
+      "Post-ceasefire positions, strikes and deadline extensions are documented across official and independent records. The exhibit tests each dated incident rather than treating the word 'ceasefire' as proof that fire stopped.",
+    sourceLabel: "SOURCE LEDGER",
+    href: "/sources",
   },
 ];
 
@@ -38,29 +44,13 @@ export function MediaWarContent() {
     <div className="min-h-screen pt-24 pb-20">
       {/* Header */}
       <section className="max-w-5xl mx-auto px-4 md:px-6 pt-12 md:pt-20">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
-          className="text-center"
-        >
-          <p className="font-mono text-[10px] tracking-[0.5em] text-threat mb-4">
-            PART III
-          </p>
-          <CinematicTitle
-            text="THE MEDIA BATTLEFIELD"
-            as="h1"
-            className="text-3xl md:text-5xl font-bold tracking-[0.06em]"
-            animateOnMount
-          />
-          <div className="mt-4">
-            <DecryptText
-              text="WHO LIED, WHEN, AND HOW"
-              className="font-mono text-sm md:text-base tracking-[0.3em] text-muted"
-              delay={600}
-            />
-          </div>
-        </motion.div>
+        <PageIntro
+          marker="PART III // COMPETING MEDIA SYSTEMS"
+          title="THE MEDIA BATTLEFIELD"
+          systemLine="WHO PUBLISHED · WHO OMITTED · WHO REFRAMED"
+          accent="var(--threat)"
+          description="A day-level comparison of rival publication systems around the same conflict record—built to distinguish measured output, documented omissions, and interpretation."
+        />
       </section>
 
       {/* Thesis Card */}
@@ -103,7 +93,7 @@ export function MediaWarContent() {
           transition={{ duration: 0.6 }}
         >
           <p className="font-mono text-[10px] tracking-[0.4em] text-muted-2 mb-3">
-            // EX-MW-01 — DAY-BY-DAY NARRATIVE COMPARISON
+            {"// EX-MW-01 — DAY-BY-DAY NARRATIVE COMPARISON"}
           </p>
           <MediaNarrativeTimeline />
         </motion.div>
@@ -198,6 +188,12 @@ export function MediaWarContent() {
                 <p className="mt-3 text-xs text-muted leading-relaxed flex-1">
                   {item.detail}
                 </p>
+                <Link
+                  href={item.href}
+                  className="mt-4 font-mono text-[8px] tracking-[0.16em] text-cyan-300 transition-colors hover:text-cyan-100"
+                >
+                  [{item.sourceLabel} →]
+                </Link>
               </TracedCard>
             </motion.div>
           ))}
@@ -226,7 +222,7 @@ export function MediaWarContent() {
             test supports a stronger claim.
           </p>
           <p className="mt-3 font-mono text-[9px] tracking-[0.2em] text-muted-2">
-            EVERY CLAIM IS VERIFIABLE. EVERY CONTRADICTION IS DOCUMENTED.
+            EVERY CLAIM SHOULD BE TRACEABLE. EVERY GAP STAYS VISIBLE.
           </p>
         </motion.div>
       </section>

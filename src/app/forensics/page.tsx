@@ -6,9 +6,9 @@ import { motion } from "framer-motion";
 import { PageShell } from "@/components/PageShell";
 import { ChartFrame } from "@/components/fx/ChartFrame";
 import { DecryptText } from "@/components/fx/DecryptText";
-import { CinematicTitle } from "@/components/fx/CinematicTitle";
 import { TracedCard } from "@/components/fx/TracedCard";
 import { PixelReveal } from "@/components/fx/PixelReveal";
+import { PageIntro } from "@/components/PageIntro";
 
 // Dynamic imports — all chart-heavy
 const UserReplyNetwork = dynamic(
@@ -133,22 +133,16 @@ export default function ForensicsPage() {
       <div className="max-w-7xl mx-auto px-4 md:px-6 pt-28 pb-10">
 
         {/* page header */}
-        <header className="text-center pb-8">
-          <p className="font-mono text-[10px] tracking-[0.5em] text-primary mb-3">
-            <DecryptText text="//  SECTION 03 — SUBJECT DOSSIERS & BEHAVIORAL FORENSICS" speed={40} scrambleCycles={1} />
-          </p>
-          <CinematicTitle
-            as="h1"
-            text="THE DOSSIER"
-            animateOnMount
-            className="font-mono font-bold text-[clamp(1.8rem,6vw,3.4rem)] leading-none tracking-[0.08em] text-foreground"
-          />
-          <p className="mt-4 max-w-2xl mx-auto text-sm text-muted leading-relaxed text-balance">
+        <PageIntro
+          marker="INVESTIGATION // SUBJECT DOSSIERS"
+          title="THE DOSSIER"
+          systemLine="ACTIVITY · LANGUAGE · NETWORK · CONTRADICTION"
+          description={<>
             Deep behavioral forensics on the 22 highest-volume actors in the operation.
             Cross-subreddit activity, temporal coordination, language fingerprinting,
             persona contradiction — every metric that exposes a managed account rather than a real person.
-          </p>
-        </header>
+          </>}
+        />
 
         {/* loading state */}
         {loading && (

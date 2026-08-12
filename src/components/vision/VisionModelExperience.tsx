@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, ChevronRight, Database, Eye, ScanLine, TriangleAlert } from "lucide-react";
 import { PageShell } from "@/components/PageShell";
 import { DroneReconstruction } from "@/components/vision/DroneReconstruction";
+import { BrandedText } from "@/components/BrandedText";
 
 export interface VisionStrikeSample {
   id: string;
@@ -117,9 +118,9 @@ export function VisionModelExperience({ sampleRows, totalStrikeRows }: VisionMod
               <span className="h-px w-12 bg-primary/40" />
               <span className="text-muted">35-VIDEO CORPUS</span>
             </div>
-            <h1 className="max-w-5xl text-balance text-[clamp(2.7rem,7.4vw,7rem)] font-black uppercase leading-[0.82] tracking-[-0.065em] text-foreground">
-              FROM PIXELS
-              <span className="block text-primary">TO EVIDENCE.</span>
+            <h1 aria-label="FROM PIXELS TO EVIDENCE." className="max-w-5xl text-balance text-[clamp(2.7rem,7.4vw,7rem)] font-black uppercase leading-[0.82] tracking-[-0.04em] text-foreground">
+              <BrandedText text="FROM PIXELS" />
+              <span className="block text-primary"><BrandedText text="TO EVIDENCE." /></span>
             </h1>
             <p className="mt-7 max-w-3xl text-pretty text-base leading-relaxed text-muted md:text-lg">
               The vision model did not watch the war like a person watches a clip. It converted successive frames into candidate measurements: approach angle, target class, visible-person count, movement direction, impact relationship and uncertainty. Human review then decided what survived.
@@ -165,7 +166,9 @@ export function VisionModelExperience({ sampleRows, totalStrikeRows }: VisionMod
           <div className="grid gap-8 lg:grid-cols-[280px_1fr]">
             <div>
               <p className="font-mono text-[9px] tracking-[0.28em] text-cyan-300">THE PIPELINE</p>
-              <h2 className="mt-3 text-3xl font-bold uppercase tracking-[-0.035em] text-foreground md:text-4xl">WHAT HAPPENED BETWEEN VIDEO AND TABLE.</h2>
+              <h2 aria-label="WHAT HAPPENED BETWEEN VIDEO AND TABLE." className="mt-3 text-3xl font-bold uppercase tracking-[-0.035em] text-foreground md:text-4xl">
+                <BrandedText text="WHAT HAPPENED BETWEEN VIDEO AND TABLE." />
+              </h2>
               <p className="mt-5 text-sm leading-relaxed text-muted">
                 This is the chain the site uses to explain the result. It separates machine output, human judgment, outside reporting and the final structured record.
               </p>
@@ -190,7 +193,9 @@ export function VisionModelExperience({ sampleRows, totalStrikeRows }: VisionMod
         <div className="mb-10 grid gap-5 md:grid-cols-[1fr_1fr] md:items-end">
           <div>
             <p className="font-mono text-[9px] tracking-[0.28em] text-primary">MODEL WORK // ACTUAL TASKS</p>
-            <h2 className="mt-3 text-3xl font-bold uppercase tracking-[-0.035em] text-foreground md:text-5xl">NOT “AI ANALYSIS.” SIX SPECIFIC JOBS.</h2>
+            <h2 aria-label="NOT “AI ANALYSIS.” SIX SPECIFIC JOBS." className="mt-3 text-3xl font-bold uppercase tracking-[-0.035em] text-foreground md:text-5xl">
+              <BrandedText text="NOT “AI ANALYSIS.” SIX SPECIFIC JOBS." />
+            </h2>
           </div>
           <p className="max-w-xl text-sm leading-relaxed text-muted md:justify-self-end">
             The advantage was not that the model “understood war.” It was that it could apply the same narrow measurements to thousands of consecutive frames, then hand uncertain cases to a person.
@@ -217,7 +222,9 @@ export function VisionModelExperience({ sampleRows, totalStrikeRows }: VisionMod
               <Eye className="h-5 w-5 text-primary" />
               <p className="font-mono text-[9px] tracking-[0.24em] text-primary">WHY THE MODEL MATTERED</p>
             </div>
-            <h2 className="mt-5 text-2xl font-bold uppercase tracking-[-0.025em] text-foreground">A HUMAN SEES CONTEXT. A MODEL HOLDS THE SAME MEASUREMENT ACROSS EVERY FRAME.</h2>
+            <h2 aria-label="A HUMAN SEES CONTEXT. A MODEL HOLDS THE SAME MEASUREMENT ACROSS EVERY FRAME." className="mt-5 text-2xl font-bold uppercase tracking-[-0.025em] text-foreground">
+              <BrandedText text="A HUMAN SEES CONTEXT. A MODEL HOLDS THE SAME MEASUREMENT ACROSS EVERY FRAME." />
+            </h2>
             <ul className="mt-6 space-y-4 text-sm leading-relaxed text-muted">
               <li><span className="mr-3 text-primary">01</span>It does not forget the previous frame when the camera rolls, vibrates or cuts.</li>
               <li><span className="mr-3 text-primary">02</span>It can revisit every candidate person and vehicle with the same threshold instead of a changing impression.</li>
@@ -230,7 +237,9 @@ export function VisionModelExperience({ sampleRows, totalStrikeRows }: VisionMod
               <TriangleAlert className="h-5 w-5 text-rose-300" />
               <p className="font-mono text-[9px] tracking-[0.24em] text-rose-300">WHY THE HUMAN REMAINED ESSENTIAL</p>
             </div>
-            <h2 className="mt-5 text-2xl font-bold uppercase tracking-[-0.025em] text-foreground">A TRACK IS NOT A FACT UNTIL THE IMAGE AND THE SOURCE CAN SUPPORT IT.</h2>
+            <h2 aria-label="A TRACK IS NOT A FACT UNTIL THE IMAGE AND THE SOURCE CAN SUPPORT IT." className="mt-5 text-2xl font-bold uppercase tracking-[-0.025em] text-foreground">
+              <BrandedText text="A TRACK IS NOT A FACT UNTIL THE IMAGE AND THE SOURCE CAN SUPPORT IT." />
+            </h2>
             <ul className="mt-6 grid gap-3 sm:grid-cols-2">
               {LIMITS.map((limit) => (
                 <li key={limit} className="border-l border-rose-300/30 pl-3 text-[12px] leading-relaxed text-muted">{limit}</li>
@@ -251,7 +260,9 @@ export function VisionModelExperience({ sampleRows, totalStrikeRows }: VisionMod
                 <Database className="h-4 w-4 text-cyan-300" />
                 <p className="font-mono text-[9px] tracking-[0.24em] text-cyan-300">LIVE DATA WINDOW</p>
               </div>
-              <h2 className="mt-4 text-3xl font-bold uppercase tracking-[-0.035em] text-foreground">THE CURRENT STRUCTURED LAYER.</h2>
+              <h2 aria-label="THE CURRENT STRUCTURED LAYER." className="mt-4 text-3xl font-bold uppercase tracking-[-0.035em] text-foreground">
+                <BrandedText text="THE CURRENT STRUCTURED LAYER." />
+              </h2>
               <p className="mt-5 text-sm leading-relaxed text-muted">
                 This is a presentation of rows fetched from <span className="font-mono text-foreground/80">public.hezbollah_strikes</span> at render time—not a screenshot of the Supabase dashboard.
               </p>
@@ -301,7 +312,9 @@ export function VisionModelExperience({ sampleRows, totalStrikeRows }: VisionMod
         <div className="grid gap-10 lg:grid-cols-[1fr_1.15fr]">
           <div>
             <p className="font-mono text-[9px] tracking-[0.28em] text-primary">SOURCE DISCIPLINE</p>
-            <h2 className="mt-3 text-3xl font-bold uppercase tracking-[-0.035em] text-foreground md:text-5xl">THE AIRCRAFT IS A RECONSTRUCTION. THE CLAIMS ARE TRACEABLE.</h2>
+            <h2 aria-label="THE AIRCRAFT IS A RECONSTRUCTION. THE CLAIMS ARE TRACEABLE." className="mt-3 text-3xl font-bold uppercase tracking-[-0.035em] text-foreground md:text-5xl">
+              <BrandedText text="THE AIRCRAFT IS A RECONSTRUCTION. THE CLAIMS ARE TRACEABLE." />
+            </h2>
             <p className="mt-5 max-w-xl text-sm leading-relaxed text-muted">
               Exact Hezbollah schematics are not public. The page therefore distinguishes what is visible, what multiple sources make probable, and what remains unresolved instead of disguising a plausible model as recovered hardware.
             </p>

@@ -63,7 +63,6 @@ function WaterfallChart({
   const svgRef = useRef<SVGSVGElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const inView = useInView(containerRef, { once: true, margin: "-60px" });
-  const [animated, setAnimated] = useState(false);
 
   const draw = useCallback(() => {
     const svg = svgRef.current;
@@ -261,18 +260,13 @@ function WaterfallChart({
   }, [layers, active, onHover]);
 
   useEffect(() => {
-    if (inView && !animated) {
-      setAnimated(true);
-    }
-  }, [inView, animated]);
-
-  useEffect(() => {
-    if (animated) draw();
+    if (!inView) return;
+    draw();
     // also redraw on resize
     const ro = new ResizeObserver(() => draw());
     if (containerRef.current) ro.observe(containerRef.current);
     return () => ro.disconnect();
-  }, [animated, draw]);
+  }, [inView, draw]);
 
   return (
     <div ref={containerRef} className="w-full">
@@ -429,9 +423,9 @@ function BBCPanel({ bbc }: { bbc: AdmissionGapData["bbcVerified"] }) {
           <span className="font-mono text-4xl font-bold" style={{ color: THREAT }}>21</span>
         </div>
         <p className="font-mono text-xs text-muted max-w-lg mx-auto leading-relaxed">
-          BBC verified <span style={{ color: BLUE }}>35 FPV strikes</span> — each hitting armoured vehicles or soldiers.
-          IDF admits only <span style={{ color: THREAT }}>21 dead</span> in the entire Lebanon theatre.
-          {" "}<span style={{ color: AMBER }}>Mathematically impossible</span> unless each strike killed 0.6 soldiers.
+          BBC reported <span style={{ color: BLUE }}>35 geolocated FPV strike videos</span> in its own corpus.
+          The cited <span style={{ color: THREAT }}>21 official deaths</span> is a different measure and scope.
+          {" "}<span style={{ color: AMBER }}>A strike is not a fatality</span>; reconciliation requires per-event outcomes.
         </p>
         <GapBar verified={35} admitted={21} color={THREAT} />
       </div>
@@ -456,7 +450,7 @@ function GazaPanel({ gaza }: { gaza: AdmissionGapData["gazaDiscrepancy"] }) {
           className="rounded-sm px-2 py-0.5 font-mono text-[9px] font-bold tracking-widest"
           style={{ background: `${AMBER}22`, color: AMBER, border: `1px solid ${AMBER}44` }}
         >
-          GAZA PROOF
+          GAZA CROSS-CHECK
         </div>
         <p className="font-mono text-[9px] tracking-[0.18em] text-muted-2">
           BEREAVED FAMILIES REGISTRY vs OFFICIAL KIA COUNT
@@ -486,14 +480,14 @@ function GazaPanel({ gaza }: { gaza: AdmissionGapData["gazaDiscrepancy"] }) {
 
       {/* ratio callout */}
       <div className="rounded-lg p-3 mb-3 text-center" style={{ background: `${AMBER}0a`, border: `1px solid ${AMBER}30` }}>
-        <p className="font-mono text-[8px] tracking-[0.25em] text-muted-2 mb-0.5">DISCREPANCY FACTOR</p>
+        <p className="font-mono text-[8px] tracking-[0.25em] text-muted-2 mb-0.5">UNMATCHED COUNT RATIO</p>
         <div className="flex items-baseline justify-center gap-2">
           <span className="font-mono text-5xl font-bold glow-archive" style={{ color: AMBER }}>
             {ratio}×
           </span>
         </div>
         <p className="font-mono text-[9px] text-muted mt-1">
-          {gaza.bereavedFamilies.toLocaleString()} families registered vs {gaza.officialKIA.toLocaleString()} admitted
+          {gaza.bereavedFamilies.toLocaleString()} family registrations vs {gaza.officialKIA.toLocaleString()} official fatalities · not a death multiplier
         </p>
       </div>
 
@@ -556,12 +550,12 @@ export function AdmissionGap({ data }: { data: AdmissionGapData }) {
           MULTI-SOURCE CROSS-VERIFICATION: WHERE DO THE NUMBERS GO?
         </p>
         <p className="text-xs text-muted mt-1 max-w-xl mx-auto">
-          Five independent data layers. Each confirms the same thing: the IDF systematically
-          under-reports losses by a factor of{" "}
+          Five published layers expose quantities that do not reconcile cleanly. Because they count
+          different units, the displayed{" "}
           <span className="font-mono font-bold" style={{ color: THREAT }}>
             {overallRatio}×
           </span>{" "}
-          or more.
+          ratio is an investigation prompt, not an under-reporting factor.
         </p>
       </div>
 
@@ -575,13 +569,13 @@ export function AdmissionGap({ data }: { data: AdmissionGapData }) {
         style={{ boxShadow: `0 0 40px rgba(255,77,94,0.08), inset 0 0 30px rgba(255,77,94,0.04)` }}
       >
         <p className="font-mono text-[9px] tracking-[0.3em] text-muted-2 mb-1">
-          OVERALL DISCREPANCY FACTOR
+          UNMATCHED-LAYER RATIO
         </p>
         <p className="font-mono text-4xl sm:text-6xl md:text-7xl font-bold glow-threat" style={{ color: THREAT }}>
           {overallRatio}×
         </p>
         <p className="font-mono text-xs text-muted mt-2">
-          documented strikes ÷ official admission
+          first published count ÷ last published count · different units
         </p>
       </motion.div>
 

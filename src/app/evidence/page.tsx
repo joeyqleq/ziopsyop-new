@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { PageShell } from "@/components/PageShell";
 import { AsciiEyeField } from "@/components/fx/AsciiEyeField";
 import { trackEvent } from "@/lib/analytics";
+import { PageIntro } from "@/components/PageIntro";
 
 interface CampaignClip {
   id: string;
@@ -193,19 +194,22 @@ export default function EvidencePage() {
     <PageShell backdrop="none">
       <AsciiEyeField seed={11} />
       <section className="relative z-10 mx-auto max-w-7xl px-4 pb-20 pt-28 md:px-6">
-        <motion.header initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-          <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.4em] text-cyan-400">
-            {"// campaign video corpus"}
-          </p>
-          <h1 className="text-3xl font-bold tracking-tight text-white md:text-5xl">35 WINDOWS INTO THE BATTLE</h1>
-          <p className="mt-4 max-w-3xl text-sm leading-relaxed text-gray-400">
+        <PageIntro
+          marker="CAMPAIGN VIDEO CORPUS // PRIMARY RELEASES"
+          title="35 WINDOWS INTO THE BATTLE"
+          systemLine="PUBLISHER CLAIMS · CLIP-LEVEL PROVENANCE IN PROGRESS"
+          accent="var(--viz-blue)"
+          align="left"
+          description={
+            <>
             Thirty-five distinct publisher-posted video IDs recovered from the Al-Manar English archive
             as a working campaign set. BBC Verify separately reported a 35-video geolocated corpus; this
             archive does not claim a one-to-one match until clip-level provenance is ingested. These are
             primary claims from a conflict party&apos;s affiliated outlet—not self-verifying proof of target
             identity, casualties, or outcome.
-          </p>
-        </motion.header>
+            </>
+          }
+        />
 
         <div className="mt-8 grid gap-3 sm:grid-cols-3">
           {[["35", "UNIQUE VIDEO POSTS"], ["2H+", "REVIEWED FOOTAGE"], ["12", "ARCHIVE BUNDLES"]].map(([value, label]) => (

@@ -75,15 +75,16 @@ export function LieDetector({ data }: { data: LieDetectorData }) {
         className="mt-4 rounded-md border border-threat/40 bg-black/40 p-4 text-center"
       >
         <p className="font-mono text-[10px] tracking-[0.2em] text-muted-2 mb-1">
-          ADMISSION RATE
+          LEGACY COMPARISON INDEX
         </p>
         <p className="font-mono text-4xl font-bold text-threat glow-threat">
           {data.admissionRate}%
         </p>
         <p className="font-mono text-xs text-muted mt-2 max-w-lg mx-auto leading-relaxed">
-          The IDF admits only <span className="text-threat font-bold">{data.admissionRate}%</span> of
-          estimated actual casualties. The gap between filmed drone kills and official figures
-          is the proof they lie about losses.
+          This legacy index displays <span className="text-threat font-bold">{data.admissionRate}%</span>,
+          but its numerator and denominator combine strikes, engagements and official fatalities.
+          It is a discrepancy flag—not an admission rate or a casualty estimate—until event-level
+          outcomes are linked.
         </p>
       </motion.div>
 

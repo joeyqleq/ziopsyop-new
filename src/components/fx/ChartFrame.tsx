@@ -7,6 +7,7 @@ import { TracedCard } from "./TracedCard";
 import { DecryptText } from "./DecryptText";
 import { cn } from "@/lib/utils";
 import { trackEvent } from "@/lib/analytics";
+import { BrandedText } from "@/components/BrandedText";
 
 export interface Commentary {
   /** What does this chart literally show? */
@@ -99,8 +100,8 @@ export function ChartFrame({
             className="font-mono text-sm md:text-base font-semibold tracking-[0.08em] text-foreground text-balance"
           />
           {subtitle && (
-            <p className="mt-1 text-xs text-muted leading-relaxed max-w-2xl text-pretty">
-              {subtitle}
+            <p aria-label={subtitle} className="mt-1 text-xs text-muted leading-relaxed max-w-2xl text-pretty">
+              <BrandedText text={subtitle} />
             </p>
           )}
         </div>

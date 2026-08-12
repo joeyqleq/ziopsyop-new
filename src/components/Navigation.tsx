@@ -9,47 +9,8 @@ import { GlitchWordmark } from "@/components/fx/GlitchWordmark";
 import { ContactModal } from "@/components/ContactModal";
 import { AnimatedEye } from "@/components/fx/AnimatedEye";
 import { trackEvent } from "@/lib/analytics";
-
-const NAV_GROUPS = [
-  {
-    label: "INVESTIGATION",
-    code: "I",
-    items: [
-      { href: "/part-i", label: "OVERVIEW", code: "I" },
-      { href: "/analysis", label: "ANALYSIS", code: "·" },
-      { href: "/forensics", label: "DOSSIER", code: "⊛" },
-      { href: "/control", label: "CONTROL", code: "⊞" },
-    ],
-  },
-  {
-    label: "BATTLEFIELD",
-    code: "II",
-    items: [
-      { href: "/battlefield", label: "SCORECARD", code: "II" },
-      { href: "/map", label: "MAP", code: "·" },
-      { href: "/vision-model", label: "VISION MODEL", code: "CV" },
-    ],
-  },
-  {
-    label: "MEDIA",
-    code: "III",
-    items: [
-      { href: "/media-war", label: "MEDIA WAR", code: "⊗" },
-      { href: "/synthesis", label: "SYNTHESIS", code: "∴" },
-      { href: "/evidence", label: "VIDEO", code: "▶" },
-      { href: "/sources", label: "SOURCES", code: "※" },
-      { href: "/counter-arguments", label: "COUNTERPOINTS", code: "⇋" },
-    ],
-  },
-  {
-    label: "INFO",
-    code: "—",
-    items: [
-      { href: "/about", label: "ABOUT", code: "—" },
-      { href: "#contact", label: "CONTACT", code: "@" },
-    ],
-  },
-] as const;
+import { CONTACT_EVENT, SITE_NAV_GROUPS, SITE_SUPPORT_LINK } from "@/lib/site-navigation";
+import { BrandedText } from "@/components/BrandedText";
 
 const GLYPHS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ01<>/#";
 
@@ -88,12 +49,13 @@ function ScrambleLabel({ text, active }: { text: string; active: boolean }) {
   return (
     <span
       onMouseEnter={scramble}
+      aria-hidden="true"
       className={cn(
         "font-mono text-[10px] md:text-[9px] tracking-[0.06em] transition-colors duration-300",
         active ? "text-primary" : "text-muted group-hover:text-foreground"
       )}
     >
-      {display}
+      <BrandedText text={display} />
     </span>
   );
 }
@@ -134,6 +96,12 @@ export function Navigation() {
     const onScroll = () => setScrolled(window.scrollY > 24);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const openContact = () => setContactOpen(true);
+    window.addEventListener(CONTACT_EVENT, openContact);
+    return () => window.removeEventListener(CONTACT_EVENT, openContact);
   }, []);
 
   // traced border on the dock itself
@@ -187,7 +155,7 @@ export function Navigation() {
           onMouseLeave={() => setHovered(null)}
           aria-label="Main navigation"
         >
-          {NAV_GROUPS.map((group) => {
+          {SITE_NAV_GROUPS.map((group) => {
             const active = group.items.some((item) => pathname === item.href);
             return (
               <div key={group.label} className="group/menu relative flex items-center">
@@ -195,6 +163,7 @@ export function Navigation() {
                   type="button"
                   className="relative px-3 py-4"
                   aria-haspopup="menu"
+                  aria-label={group.label}
                 >
                   <ScrambleLabel text={group.label} active={active} />
                   {active && <span className="absolute left-3 right-3 bottom-1.5 h-px bg-primary" />}
@@ -206,6 +175,7 @@ export function Navigation() {
                       <Link
                         key={item.href}
                         href={item.href === "#contact" ? "#" : item.href}
+                        aria-label={item.label}
                         onClick={item.href === "#contact" ? (e) => { e.preventDefault(); setContactOpen(true); trackEvent("nav_contact_open"); } : () => trackEvent("nav_click", { destination: item.href, label: item.label })}
                         onMouseEnter={() => setHovered(item.href)}
                         className={cn(
@@ -215,7 +185,7 @@ export function Navigation() {
                         role="menuitem"
                       >
                         <span className="w-4 text-muted-2">/{item.code}</span>
-                        {item.label}
+                        <BrandedText text={item.label} />
                       </Link>
                     );
                   })}
@@ -224,7 +194,8 @@ export function Navigation() {
             );
           })}
           <Link
-            href="/support"
+            href={SITE_SUPPORT_LINK.href}
+            aria-label={SITE_SUPPORT_LINK.label}
             onClick={() => trackEvent("nav_click", { destination: "/support", label: "SUPPORT" })}
             className={cn(
               "group/support relative ml-1 flex items-center gap-1.5 border-l border-archive/20 px-3 py-4 font-mono text-[9px] tracking-[0.12em] transition-colors",
@@ -235,7 +206,7 @@ export function Navigation() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-archive opacity-35 motion-reduce:animate-none" />
               <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-archive" />
             </span>
-            SUPPORT
+            <BrandedText text={SITE_SUPPORT_LINK.label} />
             {pathname === "/support" && <span className="absolute inset-x-3 bottom-1.5 h-px bg-archive" />}
           </Link>
         </nav>
@@ -277,7 +248,7 @@ export function Navigation() {
             aria-label="Mobile navigation"
           >
             <div className="max-h-[78vh] overflow-y-auto py-4">
-              {NAV_GROUPS.map((group, groupIndex) => (
+              {SITE_NAV_GROUPS.map((group, groupIndex) => (
                 <motion.section
                   key={group.label}
                   initial={{ opacity: 0, x: -20 }}
@@ -285,8 +256,8 @@ export function Navigation() {
                   transition={{ delay: 0.05 + groupIndex * 0.06 }}
                   className="mb-5"
                 >
-                  <p className="mb-1 font-mono text-[9px] tracking-[0.3em] text-primary/60">
-                    /{group.code} {group.label}
+                  <p aria-label={`${group.code} ${group.label}`} className="mb-1 font-mono text-[9px] tracking-[0.3em] text-primary/60">
+                    <span aria-hidden="true">/{group.code} </span><BrandedText text={group.label} />
                   </p>
                   <div className="grid grid-cols-2 gap-px border border-borderc bg-borderc">
                     {group.items.map((item) => {
@@ -295,13 +266,14 @@ export function Navigation() {
                         <Link
                           key={item.href}
                           href={item.href === "#contact" ? "#" : item.href}
+                          aria-label={item.label}
                           onClick={item.href === "#contact" ? (e) => { e.preventDefault(); setContactOpen(true); setMenuOpen(false); trackEvent("nav_contact_open", { source: "mobile" }); } : () => { setMenuOpen(false); trackEvent("nav_click", { destination: item.href, label: item.label, source: "mobile" }); }}
                           className={cn(
                             "bg-background px-3 py-3 font-mono text-xs tracking-[0.12em]",
                             active ? "text-primary" : "text-foreground"
                           )}
                         >
-                          {item.label}
+                          <BrandedText text={item.label} />
                         </Link>
                       );
                     })}
@@ -315,7 +287,8 @@ export function Navigation() {
                 className="border-t border-archive/25 pt-4"
               >
                 <Link
-                  href="/support"
+                  href={SITE_SUPPORT_LINK.href}
+                  aria-label="SUPPORT THE WORK"
                   onClick={() => {
                     setMenuOpen(false);
                     trackEvent("nav_click", { destination: "/support", label: "SUPPORT THE WORK", source: "mobile" });
@@ -324,7 +297,7 @@ export function Navigation() {
                 >
                   <span className="flex items-center gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-archive" aria-hidden="true" />
-                    SUPPORT THE WORK
+                    <BrandedText text="SUPPORT THE WORK" />
                   </span>
                   <span aria-hidden="true">→</span>
                 </Link>

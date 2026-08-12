@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
 interface CinematicTitleProps {
@@ -26,12 +25,8 @@ export function CinematicTitle({
   const seed = (i: number, m: number) =>
     (((i + 1) * 9301 + 49297) % 233280) / 233280 * m;
 
-  // For mount-based animation, drive the variant with state
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => { if (animateOnMount) setMounted(true); }, [animateOnMount]);
-
   const animProps = animateOnMount
-    ? { initial: "hidden", animate: mounted ? "show" : "hidden" }
+    ? { initial: "hidden", animate: "show" }
     : { initial: "hidden", whileInView: "show", viewport: { once: true, amount: 0.4 } };
 
   return (
@@ -44,7 +39,7 @@ export function CinematicTitle({
         <motion.span
           key={i}
           aria-hidden="true"
-          className="inline-block will-change-transform"
+          className={cn("inline-block will-change-transform", ch === "O" && "brand-zero")}
           variants={{
             hidden: {
               opacity: 0,
@@ -65,7 +60,7 @@ export function CinematicTitle({
             },
           }}
         >
-          {ch === " " ? " " : ch}
+          {ch === " " ? " " : ch === "O" ? "0" : ch}
         </motion.span>
       ))}
     </MotionTag>

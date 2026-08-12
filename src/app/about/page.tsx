@@ -4,29 +4,33 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { AuroraBackground } from "@/components/AuroraBackground";
-import { Navigation } from "@/components/Navigation";
 import { ContactModal } from "@/components/ContactModal";
+import { PageShell } from "@/components/PageShell";
+import { PageIntro } from "@/components/PageIntro";
+import { BrandedText } from "@/components/BrandedText";
 
 export default function AboutPage() {
   const [contactOpen, setContactOpen] = useState(false);
 
   return (
-    <main className="relative min-h-screen bg-background">
+    <PageShell backdrop="none">
       <AuroraBackground />
-      <Navigation />
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 pt-24 pb-16">
+        <PageIntro
+          marker="ABOUT // INDEPENDENT LEBANESE RESEARCH"
+          title="WHY THIS PROJECT EXISTS"
+          systemLine="ONE RESEARCHER · NO SPONSORS · OPEN METHODS"
+          align="left"
+          accent="var(--archive)"
+          description="ZIOPSYOP is a personal attempt to measure the propaganda systems wrapped around Israel's wars on Lebanon—and to keep the underlying evidence visible, testable, and open to correction."
+        />
         <motion.article
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="glass-panel-strong p-8 md:p-12 space-y-8"
         >
-          <header>
-            <h1 className="text-3xl md:text-4xl font-bold glow-text mb-2">About This Project</h1>
-            <div className="h-px bg-gradient-to-r from-cyan-400/50 via-violet-500/50 to-transparent" />
-          </header>
-
           <section className="space-y-4 text-sm md:text-base text-gray-300 leading-relaxed">
             <p>
               This project began with a simple observation: on r/ForbiddenBromance, a subreddit
@@ -42,13 +46,12 @@ export default function AboutPage() {
               The phenomenon has a name: <strong className="text-cyan-400">Hasbara</strong>{" "}
               (הסברה) — Hebrew for &ldquo;explanation&rdquo; or &ldquo;public diplomacy,&rdquo; but
               in practice, a decades-old, state-adjacent infrastructure of coordinated narrative
-              management. What began as government press offices and university campus groups has
-              metastasized in the social media era into something ambient — a{" "}
-              <em>consciousness</em>, a shared rhetorical operating system so widely internalized
-              that it is now nearly impossible to tell where the organic ends and the organized
-              begins. Israel documented running 120 in-person &ldquo;war room&rdquo; operations
-              rooms across the country during the 2023–2026 conflict cycle, specifically tasked with
-              social media influence. Reddit was explicitly named.
+              management. What began as government press offices and university campus groups now
+              includes volunteer operations rooms, platform campaigns and state-adjacent advocacy.
+              The corpus contains a widely repeated &ldquo;120 war rooms&rdquo; claim and references to
+              Reddit; this site treats those as source leads, not as proof that any specific account
+              was directed by a state. The measurable question is where organic persuasion ends and
+              coordinated behavior begins.
             </p>
 
             <p>
@@ -56,35 +59,33 @@ export default function AboutPage() {
               thoughtful, honest, and deeply critical of their own government. This is a project
               about <strong className="text-white">measuring a system</strong> — the same rigor
               applied to any other information operation, whether Russian, American, or Chinese. The
-              question is not whether it exists (it does, it is documented), but whether its effects
-              are <strong className="text-white">measurable at the individual user level</strong>,
-              and whether those effects <strong className="text-white">worked</strong>.
+              existence of organized advocacy is documented; the harder question is whether its
+              effects are <strong className="text-white">measurable at the individual user level</strong>,
+              and whether those effects <strong className="text-white">worked</strong>. Behavioral
+              anomalies can support that inquiry. They cannot identify an employer by themselves.
             </p>
 
             <p>
-              A secondary, equally important layer: <strong className="text-white">the Beirut port
-              explosion</strong>, the 15-year occupation, the 24 ground invasions, the Litani River,
-              the systematic destruction of south Lebanese villages — these are not disconnected
-              episodes. They form a documented, longitudinal pattern that only makes sense in the
-              context of <strong className="text-rose-400">the Greater Israel project</strong>, a
-              concept openly discussed by sitting Israeli ministers. The data does not argue. It
-              accumulates.
+              A secondary, equally important layer is the longer record: the 15-year occupation,
+              repeated incursions, the Litani River, offshore boundaries, and the destruction of
+              south Lebanese villages. That history makes annexation and resource-motive hypotheses
+              legitimate questions. It does not make geography, benefit, or political rhetoric proof
+              of operational intent. ZIOPSYOP therefore keeps those hypotheses visible while requiring
+              a dated primary record before promoting any one of them to a finding.
             </p>
 
             <p>
               One last note:{" "}
-              <strong className="text-amber-400">
-                it is a criminal offense under Lebanese law
-              </strong>{" "}
-              for any Lebanese citizen to communicate with any Israeli citizen or Israeli entity. The
-              Lebanese people engaging on r/ForbiddenBromance are doing so at legal risk. The
-              asymmetry of who can speak freely, and who cannot, is itself a data point.
+              <strong className="text-amber-400">Lebanon&rsquo;s anti-normalization regime can expose
+              citizens to legal risk.</strong> This is not legal advice and the application depends on
+              the facts, but the asymmetry between who can speak freely and who may face consequences
+              matters when interpreting participation in r/ForbiddenBromance.
             </p>
           </section>
 
           <section className="space-y-4">
-            <h2 className="text-xs font-mono text-cyan-400 uppercase tracking-widest">
-              What This Dashboard Answers
+            <h2 aria-label="What This Dashboard Answers" className="text-xs font-mono text-cyan-400 uppercase tracking-widest">
+              <BrandedText text="What This Dashboard Answers" />
             </h2>
             <ul className="space-y-3 text-sm text-gray-300">
               <li className="flex gap-3">
@@ -133,8 +134,8 @@ export default function AboutPage() {
                 <span>
                   <strong className="text-white">What does the attack data actually show?</strong>{" "}
                   When weighted by target type and IHL standards, what percentage of IDF strikes
-                  qualify as attacks on protected persons/sites vs. Hezbollah military targets? Same
-                  for Hezbollah.
+                  carry protected-person or protected-site indicators versus military-target
+                  indicators? This is a reproducible classification layer, not a judicial finding.
                 </span>
               </li>
               <li className="flex gap-3">
@@ -147,17 +148,18 @@ export default function AboutPage() {
               <li className="flex gap-3">
                 <span className="text-cyan-400 shrink-0">08</span>
                 <span>
-                  <strong className="text-white">What does the Litani tell us?</strong> Map the
-                  progression of IDF ground position relative to the Litani River over time — is
-                  there a documented territorial creep pattern?
+                  <strong className="text-white">What would test the Litani hypothesis?</strong> A
+                  future position-by-date layer must compare verified ground locations with declared
+                  objectives, withdrawals and the river line. Until that evidence contract is loaded,
+                  territorial intent remains a research question.
                 </span>
               </li>
             </ul>
           </section>
 
           <section className="space-y-4">
-            <h2 className="text-xs font-mono text-emerald-400 uppercase tracking-widest">
-              Who Is Behind This
+            <h2 aria-label="Who Is Behind This" className="text-xs font-mono text-emerald-400 uppercase tracking-widest">
+              <BrandedText text="Who Is Behind This" />
             </h2>
             <p className="text-sm text-gray-300 leading-relaxed">
               One person. A freelancer. I don&rsquo;t represent any organization, political party,
@@ -166,9 +168,10 @@ export default function AboutPage() {
               methodology) to document what I see happening to my country.
             </p>
             <p className="text-sm text-gray-300 leading-relaxed">
-              I watched over two hours of published drone footage. I cross-referenced five independent
-              databases. I used AI to process seven years of Reddit activity. I built this site alone,
-              in my own time, because the information exists and nobody was assembling it in one place.
+              I watched over two hours of published drone footage, cross-referenced independent source
+              families, and used AI-assisted workflows to process seven years of Reddit activity. I
+              built this site alone, in my own time, because the information exists and nobody was
+              assembling it in one place.
             </p>
             <p className="text-sm text-gray-300 leading-relaxed">
               If you want to contribute data, report an error, or collaborate — reach out.
@@ -200,8 +203,8 @@ export default function AboutPage() {
           </section>
 
           <section className="neo-inset p-6 space-y-3">
-            <h2 className="text-xs font-mono text-rose-400 uppercase tracking-widest">
-              Methodology Note
+            <h2 aria-label="Methodology Note" className="text-xs font-mono text-rose-400 uppercase tracking-widest">
+              <BrandedText text="Methodology Note" />
             </h2>
             <p className="text-xs text-gray-400 leading-relaxed">
               All data sourced from publicly available archives: Reddit via Arctic Shift API, UNIFIL
@@ -213,21 +216,19 @@ export default function AboutPage() {
             </p>
             <p className="text-xs text-gray-400 leading-relaxed">
               Analysis covers r/ForbiddenBromance activity from September 2019 through June 2026.
-              Military events documented from January 2024 to present. Media landscape analysis
-              covers Lebanese trilingual (Arabic/English/French) and Israeli dual-language
-              (Hebrew/English) outlets.
+              The current structured military tables are densest from November 2024 through June
+              2025. The loaded media index spans August 2023 through July 2026 across three publisher
+              streams. Exact table counts, coverage bounds and queued streams are published in the{" "}
+              <Link href="/sources" className="text-cyan-300 underline decoration-cyan-300/30 underline-offset-4 hover:text-cyan-200">
+                source ledger
+              </Link>.
             </p>
           </section>
 
-          <footer className="text-center pt-4">
-            <p className="text-[10px] text-gray-600 font-mono">
-              ZIOPSYOP.me — Counter-Intelligence Sentiment Analysis Platform
-            </p>
-          </footer>
         </motion.article>
       </div>
 
       <ContactModal isOpen={contactOpen} onClose={() => setContactOpen(false)} />
-    </main>
+    </PageShell>
   );
 }

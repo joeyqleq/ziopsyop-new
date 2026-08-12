@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { motion, useReducedMotion } from "framer-motion";
 import { Radio } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
+import { BrandedText } from "@/components/BrandedText";
 
 export function PersistentSupport() {
   const pathname = usePathname();
@@ -33,7 +34,7 @@ export function PersistentSupport() {
           >
             <Radio size={12} />
           </motion.span>
-          KEEP THE SIGNAL LIVE
+          <BrandedText text="KEEP THE SIGNAL LIVE" />
         </Link>
       </motion.div>
 
@@ -50,7 +51,7 @@ export function PersistentSupport() {
           aria-label="Support the work"
         >
           <Radio size={13} />
-          SUPPORT
+          <BrandedText text="SUPPORT" />
         </Link>
       </motion.div>
     </>

@@ -128,10 +128,10 @@ export function CoverageGapMatrix() {
       <div className="neo-inset p-4">
         <p className="text-[10px] font-mono text-amber-400 mb-2">KEY FINDING</p>
         <p className="text-xs text-gray-300">
-          Of 15 major events with Lebanese casualties, Israeli Hebrew media covered <strong className="text-white">zero</strong> of
-          the paramedic double-taps, journalist killings, hospital strikes, or civilian return shootings.
-          Israeli English media covered 3 of 15 with brief mentions only.
-          The domestic Israeli audience is systematically shielded from knowledge of IDF conduct.
+          Within this coded 15-event matrix, the selected Hebrew-media set recorded <strong className="text-white">zero</strong> coverage of
+          the listed paramedic double-taps, journalist killings, hospital strikes and civilian-return shootings.
+          The selected English-media set recorded 3 of 15 as brief mentions. This supports a scoped
+          coverage-gap finding; it does not measure everything published or what the entire audience knew.
         </p>
       </div>
     </div>

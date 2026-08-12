@@ -79,7 +79,7 @@ export function AttackMap({ events }: Props) {
       weight: 2,
       dashArray: "4 4",
       opacity: 0.5,
-    }).addTo(map).bindPopup("<b>Litani River</b><br>Strategic water resource / Israeli territorial ambition line");
+    }).addTo(map).bindPopup("<b>Litani River</b><br>Strategic resource and geographic reference. Territorial motive remains a research hypothesis, not a map finding.");
 
     mapInstanceRef.current = map;
 

@@ -6,8 +6,7 @@ import { motion } from "framer-motion";
 import { PageShell } from "@/components/PageShell";
 import { ChartFrame, SegToggle } from "@/components/fx/ChartFrame";
 import { TracedCard } from "@/components/fx/TracedCard";
-import { CinematicTitle } from "@/components/fx/CinematicTitle";
-import { DecryptText } from "@/components/fx/DecryptText";
+import { PageIntro } from "@/components/PageIntro";
 
 const AttackMap = dynamic(
   () => import("@/components/viz/AttackMap").then((m) => m.AttackMap),
@@ -93,23 +92,18 @@ export default function MapPage() {
   return (
     <PageShell backdrop="warp">
       <div className="max-w-7xl mx-auto px-4 md:px-6 pt-28 pb-10">
-        <header className="text-center pb-8">
-          <p className="font-mono text-[10px] tracking-[0.5em] text-primary mb-3">
-            <DecryptText text="//  PART II — KINETIC GROUND TRUTH" speed={40} scrambleCycles={1} />
-          </p>
-          <CinematicTitle
-            as="h1"
-            text="ATTACK MAP"
-            animateOnMount
-            className="font-mono font-bold text-[clamp(1.8rem,6vw,3.4rem)] leading-none tracking-[0.08em] text-foreground"
-          />
-          <p className="mt-4 max-w-2xl mx-auto text-sm text-muted leading-relaxed text-balance">
+        <PageIntro
+          marker="PART II // KINETIC GROUND TRUTH"
+          title="ATTACK MAP"
+          systemLine="GEOLOCATED INCIDENT LEDGER · 2024—2026"
+          accent="var(--archive)"
+          description={<>
             Every documented military action in Lebanon, January 2024 — June
             2026. This is the physical reality the influence operation exists to
             reframe. Filter by actor, severity and IHL classification to
             interrogate the record yourself.
-          </p>
-        </header>
+          </>}
+        />
 
         {/* live ledger of filtered selection */}
         <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mb-6">

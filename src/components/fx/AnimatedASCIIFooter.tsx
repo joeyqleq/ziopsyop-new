@@ -5,12 +5,15 @@
 // ═══════════════════════════════════════════════════════════════════════════════
 
 import { useEffect, useRef } from "react"
+import Link from "next/link"
 import { SwirlBackground } from "./SwirlBackground"
+import { CONTACT_EVENT, SITE_NAV_GROUPS, SITE_SUPPORT_LINK } from "@/lib/site-navigation"
+import { BrandedText } from "@/components/BrandedText"
 
 // ─── Config ────────────────────────────────────────────────────────────────────
 const CW = 10   // cell width  px
 const CH = 17   // cell height px
-const FH = 460  // footer height px
+const FH = 680  // room for the same grouped information architecture as the header
 const HR = 65   // mouse heat radius px  (small, tight)
 const BP = 4.5  // blink period s
 
@@ -91,23 +94,6 @@ function getPool(z: Zone): string {
 }
 
 const eio = (t: number) => t < .5 ? 2 * t * t : 1 - (-2 * t + 2) ** 2 / 2
-
-// ─── Nav links ───────────────────────────────────────────────────────────────
-const NAV_LINKS = [
-  { label: "Gateway",     href: "/" },
-  { label: "Part I",      href: "/part-i" },
-  { label: "Analysis",    href: "/analysis" },
-  { label: "Part II",     href: "/battlefield" },
-  { label: "Map",         href: "/map" },
-  { label: "Vision",      href: "/vision-model" },
-  { label: "Part III",    href: "/media-war" },
-  { label: "Synthesis",   href: "/synthesis" },
-  { label: "Video",       href: "/evidence" },
-  { label: "Sources",     href: "/sources" },
-  { label: "Objections",  href: "/counter-arguments" },
-  { label: "About",       href: "/about" },
-  { label: "Support",     href: "/support" },
-]
 
 // ─── Per-letter animation data for "ZI0PSY0P.ME" ─────────────────────────────
 const WORDMARK = "ZI0PSY0P.ME"
@@ -199,6 +185,26 @@ const KEYFRAMES = `
   0%, 100% { opacity: 1;   }
   33%       { opacity: 0.62; }
   66%       { opacity: 0.86; }
+}
+.zio-footer-nav-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px 28px;
+  width: min(880px, 92%);
+}
+.zio-footer-nav-link:hover,
+.zio-footer-nav-link:focus-visible {
+  color: #3ee6c1 !important;
+}
+@media (max-width: 720px) {
+  .zio-footer-nav-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 13px 20px;
+    width: min(520px, 90%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .zio-footer-wordmark-letter { animation: none !important; }
 }
 `
 
@@ -383,7 +389,7 @@ export function AnimatedASCIIFooter() {
       <div style={{
         position: "absolute", inset: 0,
         display: "flex", flexDirection: "column", alignItems: "center",
-        paddingTop: Math.round(FH * 0.635),
+        paddingTop: Math.round(FH * 0.49),
         zIndex: 10, pointerEvents: "none",
       }}>
 
@@ -402,6 +408,7 @@ export function AnimatedASCIIFooter() {
                 display: "inline-block",
                 animation: `${anim} ${dur} ${delay} infinite ease-in-out`,
               }}
+              className="zio-footer-wordmark-letter"
             >
               {WORDMARK[i]}
             </span>
@@ -424,35 +431,78 @@ export function AnimatedASCIIFooter() {
           margin: "0 0 16px",
         }} aria-hidden="true" />
 
-        {/* Navigation */}
+        {/* Navigation — same source, grouping, labels and order as the main menu. */}
         <nav
           aria-label="Footer navigation"
+          className="zio-footer-nav-grid"
           style={{
-            display: "flex", alignItems: "center", gap: 14,
-            flexWrap: "wrap", justifyContent: "center",
-            margin: "0 0 14px", pointerEvents: "auto",
+            margin: "0 0 12px", pointerEvents: "auto",
           }}
         >
-          {NAV_LINKS.map((item, i) => (
-            <span key={item.label} style={{ display: "flex", alignItems: "center", gap: 14 }}>
-              <a
-                href={item.href}
-                style={{
-                  fontSize: 9, letterSpacing: "0.25em", textTransform: "uppercase",
-                  color: C5, textDecoration: "none", transition: "color 0.2s",
-                  textShadow: SHADOW_HEAVY,
-                }}
-                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = MINT }}
-                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = C5 }}
-              >
-                {item.label}
-              </a>
-              {i < NAV_LINKS.length - 1 && (
-                <span style={{ color: C4, fontSize: 10 }}>·</span>
-              )}
-            </span>
+          {SITE_NAV_GROUPS.map((group) => (
+            <section key={group.label} style={{ minWidth: 0 }}>
+              <p aria-label={`${group.code} ${group.label}`} style={{
+                display: "flex", alignItems: "center", gap: 7,
+                color: MINT, fontSize: 8, letterSpacing: "0.22em",
+                margin: "0 0 6px", textShadow: SHADOW_HEAVY,
+              }}>
+                <span aria-hidden="true" style={{ color: C4 }}>/{group.code}</span>
+                <BrandedText text={group.label} />
+              </p>
+              <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+                {group.items.map((item) =>
+                  item.href === "#contact" ? (
+                    <button
+                      key={item.href}
+                      type="button"
+                      aria-label={item.label}
+                      className="zio-footer-nav-link"
+                      onClick={() => window.dispatchEvent(new Event(CONTACT_EVENT))}
+                      style={{
+                        border: 0, background: "transparent", padding: 0,
+                        color: C5, cursor: "pointer", textAlign: "left",
+                        font: "inherit", fontSize: 9, letterSpacing: "0.16em",
+                        transition: "color 0.2s", textShadow: SHADOW_HEAVY,
+                      }}
+                    >
+                      <span style={{ color: C4, marginRight: 7 }}>/{item.code}</span>
+                      <BrandedText text={item.label} />
+                    </button>
+                  ) : (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      aria-label={item.label}
+                      className="zio-footer-nav-link"
+                      style={{
+                        color: C5, textDecoration: "none", fontSize: 9,
+                        letterSpacing: "0.16em", transition: "color 0.2s",
+                        textShadow: SHADOW_HEAVY,
+                      }}
+                    >
+                      <span style={{ color: C4, marginRight: 7 }}>/{item.code}</span>
+                      <BrandedText text={item.label} />
+                    </Link>
+                  ),
+                )}
+              </div>
+            </section>
           ))}
         </nav>
+
+        <Link
+          href={SITE_SUPPORT_LINK.href}
+          aria-label={SITE_SUPPORT_LINK.label}
+          className="zio-footer-nav-link"
+          style={{
+            pointerEvents: "auto", color: "#e8b44c", textDecoration: "none",
+            fontSize: 9, letterSpacing: "0.22em", margin: "0 0 11px",
+            textShadow: SHADOW_HEAVY,
+          }}
+        >
+          <span style={{ marginRight: 7 }}>/{SITE_SUPPORT_LINK.code}</span>
+          <BrandedText text={SITE_SUPPORT_LINK.label} />
+        </Link>
 
         {/* Second hairline divider before legal text */}
         <div style={{

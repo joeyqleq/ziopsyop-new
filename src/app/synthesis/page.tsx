@@ -3,6 +3,8 @@
 import { PageShell } from "@/components/PageShell";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { PageIntro } from "@/components/PageIntro";
+import { BrandedText } from "@/components/BrandedText";
 
 const fade = {
   hidden: { opacity: 0, y: 24 },
@@ -13,22 +15,12 @@ export default function SynthesisPage() {
   return (
     <PageShell backdrop="warp">
       <div className="max-w-4xl mx-auto px-4 md:px-6 pt-28 pb-20 space-y-20">
-        <motion.header
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fade}
-          transition={{ duration: 0.6 }}
-          className="text-center space-y-4"
-        >
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight">
-            THE LOOP CLOSES
-          </h1>
-          <p className="font-mono text-xs md:text-sm text-gray-400 tracking-[0.15em] uppercase">
-            Part I identifies the network. Part II tests its moral frame. Part III follows the narrative across media systems.
-          </p>
-          <div className="mx-auto w-24 h-px bg-gradient-to-r from-transparent via-primary to-transparent" />
-        </motion.header>
+        <PageIntro
+          marker="SYNTHESIS // THREE FRONTS, ONE EVIDENCE CHAIN"
+          title="THE LOOP CLOSES"
+          systemLine="NETWORK → BATTLEFIELD → MEDIA SYSTEM"
+          description="Part I identifies the influence network. Part II tests the moral frame against battlefield conduct. Part III follows the same conflict through competing media systems."
+        />
 
         <motion.section
           initial="hidden"
@@ -38,17 +30,15 @@ export default function SynthesisPage() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="space-y-4"
         >
-          <h2 className="font-mono text-xs text-primary uppercase tracking-[0.2em]">
-            01 — The Information Operation
+          <h2 aria-label="01 — The Information Operation" className="font-mono text-xs text-primary uppercase tracking-[0.2em]">
+            <BrandedText text="01 — The Information Operation" />
           </h2>
           <p className="text-gray-300 leading-relaxed">
-            Part I documented a state-adjacent influence campaign operating on Reddit. 120 physical
-            war rooms were established across Israel during the 2023-2026 conflict cycle, explicitly
-            tasked with social media manipulation. On r/ForbiddenBromance, we measured coordinated
-            downvoting patterns, narrative convergence across ostensibly independent accounts, and
-            behavioral fingerprints consistent with organized — not organic — activity. Lebanese
-            voices were systematically suppressed through vote manipulation until they self-censored
-            or left.
+            Part I measures an influence environment rather than assigning secret employers. Public
+            reporting and the research corpus contain organized-advocacy and &ldquo;120 war rooms&rdquo;
+            leads; the Reddit record contributes vote anomalies, synchronized activity, narrative
+            convergence and behavioral fingerprints consistent with coordination. Those signals can
+            support a coordination hypothesis. They do not identify state direction on their own.
           </p>
         </motion.section>
 
@@ -60,16 +50,15 @@ export default function SynthesisPage() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="space-y-4"
         >
-          <h2 className="font-mono text-xs text-threat uppercase tracking-[0.2em]">
-            02 — What It Hides
+          <h2 aria-label="02 — What It Hides" className="font-mono text-xs text-threat uppercase tracking-[0.2em]">
+            <BrandedText text="02 — What It Hides" />
           </h2>
           <p className="text-gray-300 leading-relaxed">
-            Part II assembled the documented record the operation was built to suppress: over 3,500
-            civilians killed, 10,000+ structures systematically bulldozed, double-tap strikes on
-            paramedics, a military censor suppressing 15 articles per day from domestic publication,
-            and a 7x gap between Israel&rsquo;s claimed enemy combatant kills and independently
-            verified figures. The &ldquo;most moral army&rdquo; claim does not survive contact with
-            its own documented conduct.
+            Part II assembles the conflict record behind the rhetoric: civilian-casualty incidents,
+            protected-site indicators, double-tap patterns, extensive destruction documented by
+            Amnesty&rsquo;s evidence work, censorship records and disputed casualty totals. It tests
+            Israel&rsquo;s &ldquo;most moral army&rdquo; claim against traceable observations while keeping
+            legal findings, estimates and source allegations in separate lanes.
           </p>
         </motion.section>
 
@@ -81,8 +70,8 @@ export default function SynthesisPage() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="space-y-6"
         >
-          <h2 className="font-mono text-xs text-primary uppercase tracking-[0.2em]">
-            03 — The Media Battlefield
+          <h2 aria-label="03 — The Media Battlefield" className="font-mono text-xs text-primary uppercase tracking-[0.2em]">
+            <BrandedText text="03 — The Media Battlefield" />
           </h2>
           <p className="text-gray-300 leading-relaxed">
             Part III places 46,555 indexed media events from Al-Manar, Al Mayadeen, and Channel 14
@@ -106,21 +95,21 @@ export default function SynthesisPage() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="space-y-6"
         >
-          <h2 className="font-mono text-xs text-primary uppercase tracking-[0.2em]">
-            04 — The Connection
+          <h2 aria-label="04 — The Connection" className="font-mono text-xs text-primary uppercase tracking-[0.2em]">
+            <BrandedText text="04 — The Connection" />
           </h2>
           <div className="border-l-2 border-primary/40 pl-6 space-y-4">
             <p className="text-gray-300 leading-relaxed">
-              The information operation exists <em>because</em> the data is catastrophic. If the
-              documented record of civilian targeting, systematic destruction, and institutional
-              lying ever entered mainstream international discourse intact, the narrative of a
-              &ldquo;surgical, moral military&rdquo; collapses irreversibly.
+              The cross-domain hypothesis is straightforward: sanitizing or fragmenting the
+              battlefield record benefits a narrative of surgical, moral force. The site can test
+              whether media framing and platform behavior react to the same dated events; it cannot
+              infer one command structure from political alignment alone.
             </p>
             <p className="text-gray-300 leading-relaxed">
-              The Reddit manipulation is not treated as separate from the documented conduct and
-              alleged IHL violations. It is the informational component under investigation — the same conflict, different domain. One destroys villages;
-              the other destroys the discourse that would make that destruction politically
-              untenable. They are a single system.
+              The Reddit record, battlefield record and publisher record are therefore compared as
+              three fronts of one investigation—not declared to be one proven machine. Convergence,
+              lag and omission are measurable. Intent and direction require additional primary
+              evidence.
             </p>
           </div>
         </motion.section>
@@ -133,8 +122,8 @@ export default function SynthesisPage() {
           transition={{ duration: 0.5, delay: 0.15 }}
           className="space-y-6"
         >
-          <h2 className="font-mono text-xs text-primary uppercase tracking-[0.2em]">
-            05 — The Evidence Chain
+          <h2 aria-label="05 — The Evidence Chain" className="font-mono text-xs text-primary uppercase tracking-[0.2em]">
+            <BrandedText text="05 — The Evidence Chain" />
           </h2>
           <ol className="space-y-4">
             {[
@@ -147,7 +136,7 @@ export default function SynthesisPage() {
                 ref: "EX-30b",
               },
               {
-                label: "International audience targeted via coordinated social media operation",
+                label: "Social-platform behavior tested for coordination and narrative convergence",
                 ref: "Part I, network analysis",
               },
               {
@@ -155,11 +144,11 @@ export default function SynthesisPage() {
                 ref: "Part III, media battlefield",
               },
               {
-                label: "Organic Lebanese voices silenced via mass downvoting",
+                label: "Lebanese participation changes compared with anomalous voting windows",
                 ref: "Part I, behavioral analysis",
               },
               {
-                label: "Net effect: reality replaced with manufactured narrative",
+                label: "Synthesis tests whether the three records move together—and where they do not",
                 ref: "Synthesis",
               },
             ].map((item, i) => (
@@ -184,8 +173,8 @@ export default function SynthesisPage() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="space-y-6"
         >
-          <h2 className="font-mono text-xs text-gray-400 uppercase tracking-[0.2em]">
-            06 — Navigate
+          <h2 aria-label="06 — Navigate" className="font-mono text-xs text-gray-400 uppercase tracking-[0.2em]">
+            <BrandedText text="06 — Navigate" />
           </h2>
           <div className="grid md:grid-cols-3 gap-4">
             <Link
@@ -193,12 +182,12 @@ export default function SynthesisPage() {
               className="group block border border-primary/20 rounded-lg p-6 hover:border-primary/50 hover:bg-primary/5 transition-all"
             >
               <p className="font-mono text-xs text-primary tracking-wider mb-2">PART I</p>
-              <p className="text-foreground font-semibold text-lg mb-2">
-                The Information Operation
+              <p aria-label="The Information Operation" className="text-foreground font-semibold text-lg mb-2">
+                <BrandedText text="The Information Operation" />
               </p>
               <p className="text-sm text-gray-400 leading-relaxed">
-                NLP forensics, network analysis, and behavioral fingerprinting proving coordinated
-                narrative manufacturing on r/ForbiddenBromance.
+                NLP forensics, network analysis and behavioral fingerprinting testing coordinated
+                narrative behavior on r/ForbiddenBromance.
               </p>
               <span className="inline-block mt-3 text-xs text-primary font-mono group-hover:translate-x-1 transition-transform">
                 ENTER →
@@ -209,8 +198,8 @@ export default function SynthesisPage() {
               className="group block border border-threat/20 rounded-lg p-6 hover:border-threat/50 hover:bg-threat/5 transition-all"
             >
               <p className="font-mono text-xs text-threat tracking-wider mb-2">PART II</p>
-              <p className="text-foreground font-semibold text-lg mb-2">
-                The Most Moral Army
+              <p aria-label="The Most Moral Army" className="text-foreground font-semibold text-lg mb-2">
+                <BrandedText text="The Most Moral Army" />
               </p>
               <p className="text-sm text-gray-400 leading-relaxed">
                 Documented civilian toll, double-tap patterns, systematic lying about casualties,
@@ -225,8 +214,8 @@ export default function SynthesisPage() {
               className="group block border border-archive/20 rounded-lg p-6 hover:border-archive/50 hover:bg-archive/5 transition-all"
             >
               <p className="font-mono text-xs text-archive tracking-wider mb-2">PART III</p>
-              <p className="text-foreground font-semibold text-lg mb-2">
-                The Manufactured Reality
+              <p aria-label="The Manufactured Reality" className="text-foreground font-semibold text-lg mb-2">
+                <BrandedText text="The Manufactured Reality" />
               </p>
               <p className="text-sm text-gray-400 leading-relaxed">
                 A day-level comparison of what rival media systems publish, suppress, and repeat

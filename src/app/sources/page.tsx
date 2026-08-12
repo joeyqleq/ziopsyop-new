@@ -4,6 +4,14 @@ import { PageShell } from "@/components/PageShell";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { AsciiEyeField } from "@/components/fx/AsciiEyeField";
+import { PageIntro } from "@/components/PageIntro";
+import { BrandedText } from "@/components/BrandedText";
+import {
+  DATASET_SNAPSHOT,
+  DATASET_SNAPSHOT_VERIFIED_AT,
+  RESEARCH_GATES,
+  UPDATE_PIPELINE,
+} from "@/lib/source-inventory";
 
 interface SourceEntry { title: string; org: string; date: string; url?: string; exhibits: string[] }
 interface SourceCategory { category: string; entries: SourceEntry[] }
@@ -109,15 +117,14 @@ export default function SourcesPage() {
     <PageShell backdrop="none">
       <AsciiEyeField seed={17} />
       <section className="relative z-10 max-w-5xl mx-auto px-6 pt-32 pb-24">
-        <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-          <p className="text-[10px] tracking-[0.3em] uppercase text-cyan-400 font-mono mb-2">
-            Bibliography
-          </p>
-          <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">SOURCE INDEX</h1>
-          <p className="text-gray-400 text-sm max-w-2xl mb-10">
-            Original publishers, institutional records, archive interfaces and the structured layer that joins them. Supabase stores observations; it is never presented as their origin.
-          </p>
-        </motion.div>
+        <PageIntro
+          marker="BIBLIOGRAPHY // PROVENANCE LEDGER"
+          title="SOURCE INDEX"
+          systemLine="ORIGIN · STORAGE · STATUS · EXHIBIT"
+          accent="var(--viz-blue)"
+          align="left"
+          description="Original publishers, institutional records, archive interfaces and the structured layer that joins them. Supabase stores observations; it is never presented as their origin."
+        />
 
         <div className="mb-10 grid gap-px border border-white/[0.08] bg-white/[0.08] sm:grid-cols-3">
           {[
@@ -127,7 +134,9 @@ export default function SourcesPage() {
           ].map(([value, label, note]) => (
             <div key={label} className="bg-background/90 p-4">
               <p className="font-mono text-2xl text-cyan-200">{value}</p>
-              <p className="mt-1 font-mono text-[8px] tracking-[0.18em] text-foreground">{label}</p>
+              <p aria-label={label} className="mt-1 font-mono text-[8px] tracking-[0.18em] text-foreground">
+                <BrandedText text={label} />
+              </p>
               <p className="mt-2 text-[10px] leading-relaxed text-gray-500">{note}</p>
             </div>
           ))}
@@ -139,6 +148,81 @@ export default function SourcesPage() {
             Al-Manar, Al Mayadeen and Channel 14 are currently ingested. Times of Israel, Al Jazeera English and BBC are the next benchmark streams. Labels marked QUEUED describe the approved research design, not rows already present in the database.
           </p>
         </div>
+
+        <section aria-labelledby="database-snapshot" className="mb-14">
+          <div className="mb-5 flex flex-col gap-2 border-b border-white/10 pb-4 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="font-mono text-[8px] tracking-[0.22em] text-gray-500">DATABASE SNAPSHOT // NOT A DASHBOARD SCREENSHOT</p>
+              <h2 id="database-snapshot" aria-label="What is actually stored" className="mt-2 font-mono text-lg font-semibold uppercase tracking-[0.08em] text-cyan-200">
+                <BrandedText text="WHAT IS ACTUALLY STORED" />
+              </h2>
+            </div>
+            <p className="font-mono text-[8px] tracking-[0.14em] text-gray-500">READ-ONLY CHECK · {DATASET_SNAPSHOT_VERIFIED_AT}</p>
+          </div>
+          <p className="mb-5 max-w-3xl text-xs leading-relaxed text-gray-400">
+            This is a published inventory of the connected Supabase project: table name, row count,
+            observation grain, coverage and provenance contract. It shows the storage layer without
+            pretending that a database UI screenshot is evidence. Counts are a dated snapshot and can
+            change after a validated ingest.
+          </p>
+          <div className="overflow-x-auto border border-white/[0.08] bg-black/25">
+            <table className="w-full min-w-[920px] border-collapse text-left font-mono text-[9px]">
+              <thead className="bg-white/[0.035] text-gray-500">
+                <tr>
+                  {['TABLE', 'ROWS', 'LAYER', 'OBSERVATION GRAIN', 'COVERAGE', 'PROVENANCE'].map((label) => (
+                    <th key={label} className="border-b border-white/[0.08] px-3 py-2 font-medium tracking-[0.14em]">{label}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {DATASET_SNAPSHOT.map((dataset) => (
+                  <tr key={dataset.table} className="border-b border-white/[0.045] last:border-0 hover:bg-cyan-300/[0.025]">
+                    <td className="px-3 py-2.5 text-cyan-200">public.{dataset.table}</td>
+                    <td className="px-3 py-2.5 tabular-nums text-white">{dataset.rows.toLocaleString('en-US')}</td>
+                    <td className="px-3 py-2.5 text-amber-200/80">{dataset.layer}</td>
+                    <td className="px-3 py-2.5 text-gray-400">{dataset.grain}</td>
+                    <td className="px-3 py-2.5 text-gray-400">{dataset.coverage}</td>
+                    <td className="px-3 py-2.5 text-gray-500">{dataset.provenance}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section aria-labelledby="update-contract" className="mb-14">
+          <p className="font-mono text-[8px] tracking-[0.22em] text-gray-500">MAINTENANCE CONTRACT // REPEATABLE INGEST</p>
+          <h2 id="update-contract" aria-label="How the record gets updated" className="mt-2 font-mono text-lg font-semibold uppercase tracking-[0.08em] text-emerald-200">
+            <BrandedText text="HOW THE RECORD GETS UPDATED" />
+          </h2>
+          <div className="mt-5 grid gap-px border border-white/[0.08] bg-white/[0.08] md:grid-cols-5">
+            {UPDATE_PIPELINE.map(([code, title, detail]) => (
+              <article key={code} className="bg-background/95 p-4">
+                <p className="font-mono text-[9px] tracking-[0.16em] text-emerald-300">/{code}</p>
+                <h3 aria-label={title} className="mt-3 font-mono text-[10px] font-semibold tracking-[0.14em] text-white">
+                  <BrandedText text={title} />
+                </h3>
+                <p className="mt-3 text-[10px] leading-relaxed text-gray-500">{detail}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section aria-labelledby="research-gates" className="mb-14">
+          <p className="font-mono text-[8px] tracking-[0.22em] text-gray-500">NEXT RESEARCH // STATUS BEFORE STORY</p>
+          <h2 id="research-gates" aria-label="What is not evidence yet" className="mt-2 font-mono text-lg font-semibold uppercase tracking-[0.08em] text-rose-200">
+            <BrandedText text="WHAT IS NOT EVIDENCE YET" />
+          </h2>
+          <div className="mt-5 grid gap-3 md:grid-cols-2">
+            {RESEARCH_GATES.map((gate) => (
+              <article key={gate.title} className="border border-white/[0.08] bg-white/[0.018] p-5">
+                <p className="font-mono text-[8px] tracking-[0.2em] text-rose-300">{gate.status}</p>
+                <h3 className="mt-2 text-sm font-semibold text-white">{gate.title}</h3>
+                <p className="mt-3 text-[11px] leading-relaxed text-gray-400">{gate.detail}</p>
+              </article>
+            ))}
+          </div>
+        </section>
 
         <div className="mb-12">
           <input
@@ -153,8 +237,8 @@ export default function SourcesPage() {
         <motion.div variants={container} initial="hidden" animate="visible" className="space-y-14">
           {filtered.map((cat) => (
             <motion.div key={cat.category} variants={item}>
-              <h2 className="text-[10px] tracking-[0.3em] uppercase text-cyan-400 font-mono mb-4 border-b border-white/10 pb-2">
-                {cat.category}
+              <h2 aria-label={cat.category} className="text-[10px] tracking-[0.3em] uppercase text-cyan-400 font-mono mb-4 border-b border-white/10 pb-2">
+                <BrandedText text={cat.category} />
               </h2>
               <div className="grid gap-3">
                 {cat.entries.map((entry, i) => (

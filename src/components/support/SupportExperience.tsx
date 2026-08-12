@@ -20,6 +20,7 @@ import { PageShell } from "@/components/PageShell";
 import { TracedCard } from "@/components/fx/TracedCard";
 import { AsciiSignalField } from "@/components/support/AsciiSignalField";
 import { trackEvent } from "@/lib/analytics";
+import { BrandedText } from "@/components/BrandedText";
 
 const TRON_ADDRESS = "TLQro76K8ASUKvenz3fiyCSM5N4uGwK1ho";
 const POLYGON_ADDRESS = "0x12081a23789f0034638B102b53056334564eE678";
@@ -73,16 +74,19 @@ function PaymentLink({
         </span>
         <span className="font-mono text-[8px] tracking-[0.24em] text-muted-2">US PAYMENT RAIL</span>
       </div>
-      <h2 className="mt-8 font-mono text-xl font-semibold tracking-[0.08em] text-foreground">{label}</h2>
+      <h2 aria-label={label} className="mt-8 font-mono text-xl font-semibold tracking-[0.08em] text-foreground">
+        <BrandedText text={label} />
+      </h2>
       <p className="mt-2 text-sm leading-relaxed text-muted">{note}</p>
       <a
         href={href}
         target="_blank"
         rel="noreferrer"
+        aria-label={`Open ${label}`}
         onClick={() => trackEvent("support_payment_open", { method: label.toLowerCase() })}
         className="mt-auto inline-flex min-h-11 items-center justify-between border-t border-borderc pt-5 font-mono text-[10px] tracking-[0.2em] text-archive transition-colors group-hover:text-foreground"
       >
-        OPEN {label.toUpperCase()}
+        <BrandedText text={`OPEN ${label.toUpperCase()}`} />
         <ExternalLink size={13} />
       </a>
     </TracedCard>
@@ -107,7 +111,9 @@ function CryptoCard({
       </div>
       <div className="min-w-0 self-center">
         <p className="font-mono text-[8px] tracking-[0.24em] text-muted-2">CRYPTO // DIRECT</p>
-        <h2 className="mt-2 font-mono text-lg font-semibold tracking-[0.08em] text-foreground">{network}</h2>
+        <h2 aria-label={network} className="mt-2 font-mono text-lg font-semibold tracking-[0.08em] text-foreground">
+          <BrandedText text={network} />
+        </h2>
         <p className="mt-1 font-mono text-[9px] tracking-[0.18em] text-archive">{standard}</p>
         <p className="mt-4 break-all font-mono text-[10px] leading-relaxed text-muted" title={address}>
           {address}
@@ -132,13 +138,13 @@ export function SupportExperience() {
           transition={{ duration: 0.65 }}
           className="relative z-10 mx-auto w-full max-w-5xl"
         >
-          <div className="flex items-center gap-3 font-mono text-[9px] tracking-[0.32em] text-archive">
+          <div aria-label="INDEPENDENT // UNFUNDED // LEBANON" className="flex items-center gap-3 font-mono text-[9px] tracking-[0.32em] text-archive">
             <span className="h-px w-10 bg-archive/70" />
-            INDEPENDENT // UNFUNDED // LEBANON
+            <BrandedText text="INDEPENDENT // UNFUNDED // LEBANON" />
           </div>
-          <h1 className="mt-7 max-w-4xl font-mono text-4xl font-bold leading-[0.98] tracking-[-0.04em] text-foreground sm:text-5xl md:text-7xl">
-            FUND THE
-            <span className="mt-2 block text-archive">COUNTER-SIGNAL</span>
+          <h1 aria-label="FUND THE COUNTER-SIGNAL" className="mt-7 max-w-4xl font-mono text-4xl font-bold leading-[0.98] tracking-[-0.04em] text-foreground sm:text-5xl md:text-7xl">
+            <BrandedText text="FUND THE" />
+            <span className="mt-2 block text-archive"><BrandedText text="COUNTER-SIGNAL" /></span>
           </h1>
           <p className="mt-7 max-w-2xl text-base leading-relaxed text-muted md:text-lg">
             Help keep an independent Lebanese forensic project online, investigating, and building evidence against Israel&apos;s propaganda apparatus.
@@ -146,15 +152,17 @@ export function SupportExperience() {
           <div className="mt-9 flex flex-wrap gap-3">
             <a
               href="#methods"
+              aria-label="SUPPORT THE WORK"
               className="inline-flex min-h-11 items-center gap-2 rounded border border-archive bg-archive px-5 font-mono text-[10px] font-semibold tracking-[0.18em] text-background transition-colors hover:bg-foreground"
             >
-              SUPPORT THE WORK <span aria-hidden="true">↓</span>
+              <BrandedText text="SUPPORT THE WORK" /> <span aria-hidden="true">↓</span>
             </a>
             <Link
               href="/about"
+              aria-label="WHO IS BEHIND THIS"
               className="inline-flex min-h-11 items-center rounded border border-borderc bg-background/50 px-5 font-mono text-[10px] tracking-[0.18em] text-muted transition-colors hover:border-foreground/30 hover:text-foreground"
             >
-              WHO IS BEHIND THIS
+              <BrandedText text="WHO IS BEHIND THIS" />
             </Link>
           </div>
         </motion.div>
@@ -184,7 +192,9 @@ export function SupportExperience() {
           </article>
 
           <aside>
-            <p className="font-mono text-[9px] tracking-[0.3em] text-muted-2">WHAT SUPPORT CARRIES</p>
+            <p aria-label="WHAT SUPPORT CARRIES" className="font-mono text-[9px] tracking-[0.3em] text-muted-2">
+              <BrandedText text="WHAT SUPPORT CARRIES" />
+            </p>
             <div className="mt-4 divide-y divide-borderc border-y border-borderc">
               {COSTS.map(({ icon: Icon, label }, index) => (
                 <div key={label} className="flex items-center gap-3 py-3.5">
@@ -218,7 +228,9 @@ export function SupportExperience() {
           <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
             <div>
               <p className="font-mono text-[9px] tracking-[0.3em] text-archive">02 // SUPPORT CHANNELS</p>
-              <h2 id="support-methods" className="mt-3 font-mono text-2xl font-semibold text-foreground md:text-3xl">CHOOSE A ROUTE</h2>
+              <h2 id="support-methods" aria-label="CHOOSE A ROUTE" className="mt-3 font-mono text-2xl font-semibold text-foreground md:text-3xl">
+                <BrandedText text="CHOOSE A ROUTE" />
+              </h2>
             </div>
             <p className="max-w-sm text-xs leading-relaxed text-muted">No account is required for the crypto routes. Always verify the full address shown beside the QR before sending.</p>
           </div>
@@ -233,8 +245,8 @@ export function SupportExperience() {
 
         <section className="mt-20 text-center">
           <Radio size={18} className="mx-auto text-archive" />
-          <p className="mx-auto mt-4 max-w-xl font-mono text-xs leading-relaxed tracking-[0.1em] text-muted">
-            NO SPONSORS. NO EDITORIAL BOARD. NO INSTITUTIONAL BUFFER. JUST THE WORK—AND THE PEOPLE WHO CHOOSE TO KEEP IT ALIVE.
+          <p aria-label="NO SPONSORS. NO EDITORIAL BOARD. NO INSTITUTIONAL BUFFER. JUST THE WORK—AND THE PEOPLE WHO CHOOSE TO KEEP IT ALIVE." className="mx-auto mt-4 max-w-xl font-mono text-xs leading-relaxed tracking-[0.1em] text-muted">
+            <BrandedText text="NO SPONSORS. NO EDITORIAL BOARD. NO INSTITUTIONAL BUFFER. JUST THE WORK—AND THE PEOPLE WHO CHOOSE TO KEEP IT ALIVE." />
           </p>
         </section>
       </div>

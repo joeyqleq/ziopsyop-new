@@ -5,6 +5,8 @@ import { PageShell } from "@/components/PageShell";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { AsciiEyeField } from "@/components/fx/AsciiEyeField";
+import { PageIntro } from "@/components/PageIntro";
+import { BrandedText } from "@/components/BrandedText";
 
 interface Objection {
   id: string;
@@ -18,28 +20,28 @@ const objections: Objection[] = [
     id: "terrorist-label",
     claim: "But Hezbollah IS a terrorist organization",
     response:
-      "Terrorist is a legal/political label. This investigation tests conduct, not labels. By every IHL metric measured: zero civilian targets, zero hospitals, zero ambulances. The data shows disciplined military targeting of exclusively military assets. Compare to the other side's documented record on the same metrics.",
+      "Terrorist is a jurisdiction-dependent legal and political label; it is not a substitute for incident analysis. In the 100 Hezbollah strike rows currently structured in Supabase, every target_is_civilian field is false and every row carries source text. That describes the loaded record—not the entire campaign, not civilian harm outside the sample, and not a legal ruling on the organization.",
     exhibits: ["EX-18", "EX-22", "EX-28"],
   },
   {
     id: "both-sides",
     claim: "Both sides committed war crimes",
     response:
-      "The data doesn't support symmetry. One side: 0 civilian targets, 0 hospitals, 0 ambulances destroyed. The other: 3,500 civilians killed, 27 ambulance stations destroyed, 160 paramedics killed, 10,000 structures bulldozed after ceasefire. \"Both sides\" requires comparable numbers on comparable axes. The numbers aren't comparable.",
+      "The loaded records are strongly asymmetric on the axes this project measures, especially civilian harm and infrastructure destruction. But absence from a selected or incomplete table is not proof that an event never occurred. The defensible claim is narrower: compare like with like, publish the denominator and coverage, and do not use 'both sides' to erase a measured difference in scale or target class.",
     exhibits: ["EX-28"],
   },
   {
     id: "unreliable-figures",
     claim: "The casualty figures are from Hamas/Hezbollah and unreliable",
     response:
-      "This investigation uses BBC Verify (independent British journalism), Haaretz (Israeli newspaper), and admissions from the Israeli army chief himself. It documents 5,700 items censored per year by Israel's own military censor. The investigation cross-references 5+ independent sources including Israeli domestic ones.",
+      "The investigation consults independent, Israeli, Lebanese and institutional records rather than accepting one belligerent's total wholesale. BBC Verify, Haaretz, official Israeli statements and humanitarian organizations serve different corroboration roles. Disagreement is retained as a range or contradiction; it is not averaged into fake certainty.",
     exhibits: ["EX-27b", "EX-30b"],
   },
   {
     id: "one-sided",
     claim: "This is one-sided / anti-Israel propaganda",
     response:
-      "The methodology is documented. Every data point is sourced. The same analytical framework applied to any armed actor would produce the same verdict given the same inputs. If the IDF's targeting record showed 0 civilian casualties, the charts would show that. They don't — because the data doesn't.",
+      "The author has a declared Lebanese standpoint. The safeguard is not a claim of neutrality; it is a visible method, stable comparison rules, source links, coverage bounds and correction paths. Some legacy rows still carry source text rather than a direct URL, and the source ledger says so. A strong conclusion must survive that disclosure.",
     exhibits: [],
   },
   {
@@ -53,7 +55,7 @@ const objections: Objection[] = [
     id: "cherry-picking",
     claim: "You're cherry-picking data",
     response:
-      "The investigation uses the FULL population of documented strikes, casualties, and infrastructure damage — not samples. All 665 confirmed Hezbollah strikes. All 3,500+ Lebanese casualties. All confirmed IDF equipment losses. Cherry-picking requires selecting favorable subsets. This uses the complete record.",
+      "The current database is not the full population of the war. It contains 100 structured Hezbollah strike rows, 49 named IDF fatalities, 19 civilian-casualty records and separate aggregate tables; the 35-video gallery is a publisher-derived campaign archive. Selection bias is therefore a live risk. The remedy is to publish inclusion rules, missing periods and the update queue—not to call an incomplete corpus complete.",
     exhibits: [],
   },
   {
@@ -136,20 +138,14 @@ export default function CounterArgumentsPage() {
     <PageShell backdrop="none">
       <AsciiEyeField seed={29} />
       <div className="relative z-10 max-w-4xl mx-auto px-4 pt-24 pb-16">
-        <motion.header
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mb-12 text-center"
-        >
-          <h1 className="text-3xl md:text-4xl font-bold glow-text mb-3">
-            ANTICIPATED OBJECTIONS
-          </h1>
-          <p className="text-sm md:text-base text-gray-400 max-w-2xl mx-auto">
-            Steel-man the counter-arguments. Then test them against the data.
-          </p>
-          <div className="mt-4 h-px bg-gradient-to-r from-transparent via-rose-400/50 to-transparent" />
-        </motion.header>
+        <PageIntro
+          marker="COUNTER-ANALYSIS // ADVERSARIAL REVIEW"
+          title="ANTICIPATED OBJECTIONS"
+          systemLine="STEEL-MAN THE CLAIM · TEST THE RECORD"
+          accent="var(--threat)"
+          description="The strongest counter-arguments are stated in good faith, then tested against the same evidence contract used everywhere else in the investigation."
+          className="mb-5"
+        />
 
         <motion.div
           initial={{ opacity: 0 }}
@@ -177,16 +173,16 @@ export default function CounterArgumentsPage() {
           transition={{ duration: 0.6, delay: 0.8 }}
           className="mt-16 border border-white/10 rounded-lg bg-black/40 backdrop-blur-sm p-6 md:p-8"
         >
-          <h2 className="text-xs font-mono text-emerald-400 uppercase tracking-widest mb-4">
-            A Note on Bias
+          <h2 aria-label="A Note on Bias" className="text-xs font-mono text-emerald-400 uppercase tracking-widest mb-4">
+            <BrandedText text="A Note on Bias" />
           </h2>
           <div className="space-y-4 text-sm text-gray-300 leading-relaxed italic">
             <p>
               I am Lebanese. I watched this war happen to my country. I have biases &mdash; every
               human does. This is precisely why I chose data over narrative, methodology over
-              opinion, cross-referenced sources over single claims. Every number on this site is
-              independently verifiable. Every source is cited. Every analytical framework is
-              documented and reproducible.
+              opinion and cross-referenced sources over single claims. Not every legacy row has the
+              same provenance depth, so the source ledger publishes what is loaded, what is derived,
+              and what remains incomplete.
             </p>
             <p>
               My bias is towards my people &mdash; I acknowledge that openly. But bias in
@@ -208,15 +204,15 @@ export default function CounterArgumentsPage() {
           transition={{ duration: 0.5, delay: 0.9 }}
           className="mt-12 neo-inset p-6 rounded-lg"
         >
-          <h2 className="text-xs font-mono text-gray-500 uppercase tracking-widest mb-3">
-            Analytical Standard
+          <h2 aria-label="Analytical Standard" className="text-xs font-mono text-gray-500 uppercase tracking-widest mb-3">
+            <BrandedText text="Analytical Standard" />
           </h2>
           <p className="text-xs text-gray-400 leading-relaxed">
-            Every claim on this site is falsifiable. Every dataset is cited with retrieval
-            date, source URL, and methodology notes. The framework is designed to be applied
-            symmetrically &mdash; the same scoring rubric that evaluates IDF conduct evaluates
-            Hezbollah conduct. Where the data favors one side, the charts show it. Where it
-            does not, they show that too. Reproducibility is the standard, not persuasion.
+            The standard is falsifiability: retrieval dates, source URLs, methodology notes and
+            coverage bounds should accompany each dataset, and missing fields remain visible until
+            repaired. The same rubric should evaluate each armed actor. Where current evidence cannot
+            support that symmetry, the limitation belongs beside the chart—not in a footnote hidden
+            from the reader.
           </p>
         </motion.section>
 
@@ -228,9 +224,10 @@ export default function CounterArgumentsPage() {
         >
           <Link
             href="/battlefield"
+            aria-label="VIEW THE DATA"
             className="inline-flex items-center gap-2 font-mono text-xs tracking-[0.1em] px-5 py-2.5 rounded-md border border-cyan-400/30 text-cyan-400 hover:bg-cyan-400/10 transition-colors"
           >
-            VIEW THE DATA
+            <BrandedText text="VIEW THE DATA" />
             <svg
               width="14"
               height="14"
@@ -250,9 +247,10 @@ export default function CounterArgumentsPage() {
           </Link>
           <Link
             href="/about"
+            aria-label="METHODOLOGY"
             className="inline-flex items-center gap-2 font-mono text-xs tracking-[0.1em] px-5 py-2.5 rounded-md border border-white/10 text-gray-400 hover:bg-white/5 transition-colors"
           >
-            METHODOLOGY
+            <BrandedText text="METHODOLOGY" />
           </Link>
         </motion.div>
 

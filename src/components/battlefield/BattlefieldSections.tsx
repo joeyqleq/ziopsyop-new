@@ -144,11 +144,11 @@ export function BattlefieldSections({ data }: { data: BattlefieldData }) {
       <ChartFrame
         exhibit="EX-17"
         title="STRIKE TAXONOMY — TARGET CLASSIFICATION"
-        subtitle="All confirmed Hezbollah strikes, classified by target type."
+        subtitle="The 100 Hezbollah strike rows currently structured in Supabase, classified by reported target type."
         accent="var(--primary)"
         classification="STRIKE LOG"
         commentary={{
-          reads: "The full population of confirmed Hezbollah strikes, broken down by the class of target each one hit.",
+          reads: "The 100 Hezbollah strike rows currently structured in Supabase, broken down by the class of target coded for each record.",
           means: "The coded records are dominated by military formations, armor and bases. That supports a distinction finding inside this dataset; it does not establish that every strike in the wider war is captured.",
           puzzle: "This is the baseline the subreddit operation must invert: an actor fighting a disciplined military campaign reframed as the indiscriminate aggressor.",
         }}
@@ -181,7 +181,7 @@ export function BattlefieldSections({ data }: { data: BattlefieldData }) {
         plain={{
           what: "A shape comparison: Hezbollah's harm footprint vs the IDF's, measured on 6 axes (civilian kills, medics, journalists, villages, etc).",
           why: "You can see with your eyes which shape is bigger. The IDF's red polygon fills the entire chart. Hezbollah's barely registers.",
-          proves: "The 'most moral army' produces the largest violation footprint on every single dimension measured.",
+          proves: "The current coded record assigns Israel the larger IHL-risk footprint on the dimensions shown; coverage and legal-attribution limits remain part of the finding.",
         }}
       >
         <TargetingRadar data={data.targeting} />
@@ -316,12 +316,12 @@ export function BattlefieldSections({ data }: { data: BattlefieldData }) {
         commentary={{
           reads: "A swimlane chart placing political, military, battlefield, and civilian events on the same time axis.",
           means: "Patterns emerge: ceasefire violations cluster with civilian casualty spikes. Hezbollah operational tempo increases exactly when IDF advances stall.",
-          puzzle: "The timeline reveals that escalation was always initiated by Israeli violations — the resistance responded, it didn't provoke.",
+          puzzle: "The timeline tests whether selected escalation and casualty spikes follow the event sequence encoded here; events outside its coverage can change the interpretation.",
         }}
         plain={{
           what: "A visual timeline of the entire war showing political events, Hezbollah strikes, battlefield outcomes, and civilian deaths — all on one chart.",
-          why: "Seeing everything together reveals who escalated when. Every civilian casualty spike follows an Israeli violation, not a Hezbollah attack.",
-          proves: "The war's chronology shows Israel as the consistent aggressor and ceasefire violator — Hezbollah responded to provocations, not the reverse.",
+          why: "Seeing the lanes together makes sequence claims auditable, but a 24-event selection cannot establish a universal initiator for the whole war.",
+          proves: "The selected chronology records repeated Israeli strikes and post-ceasefire incidents. It supports scoped sequence findings, not a sole-causation verdict.",
         }}
       >
         <CampaignTimeline data={data.timeline} />
@@ -329,7 +329,7 @@ export function BattlefieldSections({ data }: { data: BattlefieldData }) {
 
       {/* ═══════════════════════════════════════════════════════════
           ACT III — THE VERDICT
-          What the evidence proves about the two claims
+          What the current evidence supports
          ═══════════════════════════════════════════════════════════ */}
       <ActDivider
         act="ACT III"
@@ -356,8 +356,8 @@ export function BattlefieldSections({ data }: { data: BattlefieldData }) {
         }}
         plain={{
           what: "Circles showing the actual size difference between what Hezbollah spends per attack ($200) and what Israel spends to defend ($4,000,000). The small dot vs the huge circle IS the story.",
-          why: "Israel literally cannot afford this war. Every $200 drone forces $100,000+ in response. Do the math on 649 strikes.",
-          proves: "The cost ratio is 15,000:1 in Hezbollah's favor. This war is economically unwinnable for Israel — confirmed by their own withdrawal.",
+          why: "Cheap guided systems can force a defender to spend much more per engagement and can make prolonged defense harder to sustain.",
+          proves: "Under the declared unit-cost assumptions, some engagements impose a severe exchange-cost burden on Israel. The model does not prove the strategic outcome of the war.",
         }}
       >
         <CostAsymmetry data={data.cost} />
@@ -377,13 +377,13 @@ export function BattlefieldSections({ data }: { data: BattlefieldData }) {
         classification="ECONOMIC"
         commentary={{
           reads: "A scatter plot with each Hezbollah weapon system positioned by unit cost vs return on investment. Fiber-optic weapons highlighted.",
-          means: "The FPV drone at $200 delivers returns of 10,000:1 or higher. Every weapon system sits far above break-even. The war's economics are mathematically unwinnable for Israel.",
+          means: "The input estimates place some low-cost FPV engagements far above break-even. Unit cost is one campaign pressure, not a mathematical verdict on victory or defeat.",
           puzzle: "When every engagement costs the defender orders of magnitude more than the attacker, 'winning' becomes a function of time — and time favors the cheaper side.",
         }}
         plain={{
           what: "A scatter chart showing each Hezbollah weapon: what it costs to build vs how much damage it does. The $200 drone destroys $4M targets. Every weapon is above the profit line.",
-          why: "This is why Israel lost. Not because of tactics or bravery — because of math. You cannot defend $4M assets from $200 weapons indefinitely.",
-          proves: "Every single Hezbollah weapon system operates above break-even. The war is economically unwinnable for Israel — proven by simple division.",
+          why: "Repeatedly defending high-value assets from cheap guided systems creates a serious sustainability problem even when many attacks fail.",
+          proves: "Given the current cost inputs, the modeled weapon rows sit above break-even. Source uncertainty and unobserved failed attacks can materially change the ratios.",
         }}
       >
         <CostROI data={data.costROI} />
@@ -409,7 +409,7 @@ export function BattlefieldSections({ data }: { data: BattlefieldData }) {
         plain={{
           what: "A bar chart showing every type of IDF equipment destroyed: 211 armored vehicles, 197 air defense units, 144 engineering vehicles, 40 drones — $1.6 billion total.",
           why: "This is what 'the strongest army in the Middle East' looks like after facing an organized resistance with $200 drones.",
-          proves: "The IDF lost over 900 pieces of military equipment worth $1.6B+. They were outfought by a force spending 1/15,000th per engagement.",
+          proves: "The current loss table produces a large hardware and replacement-cost estimate. Counts, condition and unit prices must be audited before treating the total as a confirmed loss bill.",
         }}
       >
         <HardwareAttrition data={data.hardware} />
@@ -429,13 +429,13 @@ export function BattlefieldSections({ data }: { data: BattlefieldData }) {
         classification="CAPABILITY"
         commentary={{
           reads: "A dated rail of Hezbollah weapon systems, from unguided rockets to fiber-optic-guided FPV drones, with cost and confirmed kills.",
-          means: "The progression toward jam-proof guided munitions explains the attrition curve: countermeasures that work against radio-controlled drones are useless against a fiber tether.",
+          means: "The progression toward fiber-guided munitions offers a plausible explanation for part of the attrition curve because a tether can bypass some radio-frequency jamming.",
           puzzle: "A learning, innovating adversary contradicts the 'primitive terrorist' frame — so the innovation had to go unreported.",
         }}
         plain={{
           what: "A timeline showing how Hezbollah's weapons evolved: from basic rockets to unjammable fiber-optic drones that Israel cannot stop.",
           why: "This is engineering, not terrorism. A $400 fiber-optic drone that defeats electronic warfare systems worth millions represents genuine military innovation.",
-          proves: "Hezbollah is a sophisticated military force that out-innovated the IDF's countermeasures. 'Primitive terrorists' don't develop EW-immune precision weapons.",
+          proves: "The loaded record depicts an adaptive weapons program and challenges a 'primitive' framing; it does not establish superiority across every countermeasure or engagement.",
         }}
       >
         <WeaponTimeline data={data.weapons} />
@@ -450,16 +450,16 @@ export function BattlefieldSections({ data }: { data: BattlefieldData }) {
       <ChartFrame
         exhibit="EX-27"
         title="LIE DETECTOR — CROSS-TABLE ADMISSION FUNNEL"
-        subtitle="Five data points from different tables. One conclusion: systematic underreporting."
+        subtitle="Five data points from different tables. Different units that require event-level reconciliation."
         accent="var(--threat)"
         classification="CROSS-REFERENCE"
         commentary={{
           reads: "A funnel narrowing from 665 documented strikes to 42 IDF-admitted KIA — each step sourced from a different database table.",
           means: "The funnel shows a large unresolved gap between documented engagements and official fatality admissions. Strike counts cannot be converted directly into deaths without per-event outcome verification.",
-          puzzle: "This is why the subreddit operation matters: if these numbers ever reach mainstream discourse, the 'low casualty' narrative collapses.",
+          puzzle: "Part I can test how a low-casualty narrative circulates while these discrepancies remain unresolved; the counts alone do not identify who directs that framing.",
         }}
         plain={{
-          what: "A funnel visualization showing how IDF casualty numbers shrink from reality (665 strikes) to their official admission (42 dead). Five independent data sources, one conclusion.",
+          what: "A funnel-shaped comparison of published strike, engagement and fatality counts. The visual narrows, but the layers do not share one denominator.",
           why: "Cross-table agreement can expose inconsistencies, but the tables measure different units—strikes, hits, engagements, and deaths—and must not be treated as interchangeable.",
           proves: "The current sources support an undercounting hypothesis and define the records needed to test it; they do not mathematically prove a casualty total.",
         }}
@@ -476,7 +476,7 @@ export function BattlefieldSections({ data }: { data: BattlefieldData }) {
       <ChartFrame
         exhibit="EX-27b"
         title="ADMISSION GAP — MULTI-SOURCE VERIFICATION"
-        subtitle="Independent data sources vs official IDF claims. The gap between them is the lie, measured."
+        subtitle="Published figures with different scopes and denominators. The gap is a reconciliation problem before it is a conclusion."
         accent="var(--threat)"
         classification="CROSS-REFERENCE"
         commentary={{
@@ -486,7 +486,7 @@ export function BattlefieldSections({ data }: { data: BattlefieldData }) {
         }}
         plain={{
           what: "Multiple public sources whose figures appear difficult to reconcile without a shared scope and denominator.",
-          why: "This isn't one source's claim — it's BBC Verify, Israeli hospital records, and Israel's own army chief all saying the same thing independently.",
+          why: "Independent sources make the discrepancies worth investigating, but their figures must be aligned by theatre, period, event and unit before comparison.",
           proves: "The discrepancies support an underreporting investigation; a defensible factor requires record linkage and denominator alignment not yet present here.",
         }}
       >
@@ -504,7 +504,7 @@ export function BattlefieldSections({ data }: { data: BattlefieldData }) {
         title="DEAD RECKONING — THE HIDDEN DEAD"
         subtitle="Each dot is one bereaved family. Red = officially acknowledged. Ghost = denied."
         accent="var(--threat)"
-        classification="PARTICLE PROOF"
+        classification="COUNT MISMATCH"
         commentary={{
           reads: "5,942 particles drifting in a field. 844 illuminate red. The rest remain ghostly — present but unacknowledged.",
           means: "The cited bereaved-family and official KIA figures differ sharply, but one death can affect multiple registered families and the scopes may differ. The particles visualize the published counts, not an inferred death total.",
@@ -534,11 +534,11 @@ export function BattlefieldSections({ data }: { data: BattlefieldData }) {
         commentary={{
           reads: "A split comparison: Hezbollah's record (0 civilian targets, 0 hospitals, 0 ambulances, 0 journalists) vs IDF (7,072 killed, 27 ambulance stations, 2 hospitals, 7 UNIFIL bases).",
           means: "Within the current coded records, the civilian-harm asymmetry is severe. Zeroes mean no qualifying observation in this dataset—not proof that no incident occurred.",
-          puzzle: "The entire information operation — Part 1's subreddit manipulation — exists to prevent this comparison from being seen.",
+          puzzle: "Part I tests whether platform behavior and framing react when this comparison enters discussion; motive and command require evidence beyond correlation.",
         }}
         plain={{
           what: "A split-screen showing both sides' currently coded records on identical civilian-harm metrics.",
-          why: "You don't need analysis. You don't need context. Put the same metrics side by side and the 'terrorist' label inverts itself.",
+          why: "Putting the same metrics side by side challenges a simple moral binary, provided the reader also sees coverage gaps and source asymmetry.",
           proves: "The coded record strongly challenges the simple 'terrorist versus moral army' frame while leaving zero-coverage and legal-attribution limits visible.",
         }}
       >
@@ -560,12 +560,12 @@ export function BattlefieldSections({ data }: { data: BattlefieldData }) {
         commentary={{
           reads: "A list of on-record statements by IDF commanders and officials, each paired with the documented outcome that followed.",
           means: "These aren't cherry-picked gotchas. These are the war's strategic claims — 'they are weakened,' 'objectives achieved,' 'Stone Age' — each followed by the speaker being wounded, the army withdrawing, or the cost ratio inverting.",
-          puzzle: "When commanders contradict themselves on camera, the only defense is making sure nobody sees both clips side by side. That's what the operation does.",
+          puzzle: "Part I tests whether contradicting records are suppressed or reframed in platform discussion; the paired clips do not prove who directs that response.",
         }}
         plain={{
           what: "Israeli commanders making confident claims on TV — then what actually happened. The colonel who said 'they're weakened' was critically wounded by a drone weeks later.",
           why: "These are Israeli sources, Israeli media, Israeli commanders. The contradiction isn't between Israel and its enemies — it's between Israel and itself.",
-          proves: "The IDF leadership systematically lied to its own public about the war's progress. Their own subsequent injuries and retreats prove the lies.",
+          proves: "The paired records identify statements that appear inconsistent with later outcomes. A lie finding additionally requires evidence that the speaker knew the statement was false when made.",
         }}
       >
         <SayVsDo data={data.sayVsDo} />
@@ -580,18 +580,18 @@ export function BattlefieldSections({ data }: { data: BattlefieldData }) {
       <ChartFrame
         exhibit="EX-29b"
         title="FOG OF WAR CLOCK — PROPAGANDA HALF-LIFE"
-        subtitle="Each pair: IDF claim (left/red) vs verified truth (right/green). The number between them = days the lie held."
+        subtitle="Each pair: a published claim and a later contradicting or correcting record. The interval measures time between records—not proven intent to deceive."
         accent="var(--archive)"
         classification="TEMPORAL FORENSICS"
         commentary={{
           reads: "A timeline of documented IDF claims paired with their debunking — from '40 beheaded babies' (3 days) to 'death tolls are inflated' (792 days).",
           means: "Tactical lies ('it was Hamas') collapse in days. Strategic lies ('we're winning', 'death tolls are fake') hold for months or years — long enough to shape policy and public opinion.",
-          puzzle: "The subreddit operation exists to extend propaganda half-life. Every day a lie survives unchallenged is a day it shapes someone's worldview.",
+          puzzle: "Part I can test whether repeated platform framing tracks the interval before a correcting record appears; it cannot assume the platform caused the delay.",
         }}
         plain={{
           what: "A timeline showing how long each IDF lie survived before being exposed. Some lasted 2 days. One lasted 792 days (over 2 years) before Israel admitted it was true.",
           why: "Propaganda works not because it's believed forever — but because it holds long enough to matter. 792 days of 'death tolls are fake' = 792 days of impunity.",
-          proves: "IDF propaganda has a measurable half-life. Every claim documented here was eventually contradicted — often by Israel's own officials or media.",
+          proves: "The exhibit measures correction latency for its selected claim pairs. It does not establish that every original statement was knowingly false.",
         }}
       >
         <FogOfWarClock data={data.fogOfWar} />
@@ -637,12 +637,12 @@ export function BattlefieldSections({ data }: { data: BattlefieldData }) {
         classification="DESTRUCTION AUDIT"
         commentary={{
           reads: "Horizontal bars showing 8 Lebanese villages, each with total structures vs destroyed count. Most flagged as destroyed during ceasefire.",
-          means: "This is not collateral damage from combat. The satellite imagery proves bulldozers and manually-laid explosives were used when the IDF had full area control — after fighting had stopped.",
-          puzzle: "Destroying 10,000 homes after a ceasefire with bulldozers is collective punishment by definition. The 77 verified soldier celebration videos make intent unambiguous.",
+          means: "Satellite imagery and verified videos support findings of bulldozer and explosive demolitions, including after the ceasefire. Whether each act was militarily necessary requires site-level evidence.",
+          puzzle: "The timing and method support investigations into collective punishment and unlawful destruction. Legal intent is not made unambiguous by imagery alone.",
         }}
         plain={{
           what: "A bar chart showing 8 Lebanese villages and what percentage Israel bulldozed. Three villages: 70-75% destroyed. Most destruction happened AFTER the ceasefire — not during fighting.",
-          why: "Amnesty verified this with satellite imagery and 77 videos of Israeli soldiers celebrating the demolitions. This isn't an accident — it's filmed collective punishment.",
+          why: "Amnesty's satellite and video verification makes the demolition pattern unusually well documented and suitable for incident-level legal review.",
           proves: "The verified demolitions after active fighting support investigations into collective punishment, unlawful destruction, and forcible-transfer risk; legal intent requires additional evidence.",
         }}
       >
@@ -664,12 +664,12 @@ export function BattlefieldSections({ data }: { data: BattlefieldData }) {
         commentary={{
           reads: "Israel's own declared objectives for the campaign, each marked failed, partial or achieved against the record.",
           means: "The scorecard reads as near-total failure: no Litani line, no destroyed Hezbollah, no restored deterrence — a ceasefire on terms its fire forced.",
-          puzzle: "When the battlefield delivers defeat, the information space must manufacture the missing victory. That is the operation's reason to exist.",
+          puzzle: "Part I and Part III test whether information-space framing changes when stated battlefield objectives are missed or remain unresolved.",
         }}
         plain={{
           what: "A scorecard checking every goal Israel stated for this war: reach the Litani River, destroy Hezbollah, restore deterrence, return settlers. Grade: FAILED on all.",
-          why: "You don't need an analyst's opinion. Judge them by their own stated goals. They failed every single one.",
-          proves: "The 'most moral army' launched a war, killed 3,500 civilians, destroyed $5B in infrastructure — and achieved none of its stated objectives. That is the definition of a failed military campaign.",
+          why: "A campaign should be judged against its own stated goals, but each score needs a dated objective, observable success condition and coverage end date.",
+          proves: "Against the objectives encoded here, the current record scores several goals as failed or unresolved. That is a transparent project assessment, not an official military audit.",
         }}
       >
         <ObjectivesScorecard data={data.objectives} />
@@ -689,13 +689,13 @@ export function BattlefieldSections({ data }: { data: BattlefieldData }) {
         classification="PRIMARY SOURCE"
         commentary={{
           reads: "A wall of direct quotations from Israeli commanders, officials and journalists about the war's conduct and results.",
-          means: "These are admissions against interest — the strongest class of evidence. The defeated side's own command echelon corroborates the data in every preceding exhibit.",
+          means: "Statements against institutional interest can carry high evidentiary weight for the specific conditions they describe, provided quotation, translation and context are verified.",
           puzzle: "Part I documents a coordination case. Part II assembles the physical record it may reframe. These statements are where the behavioral and battlefield evidence meet.",
         }}
         plain={{
           what: "Direct quotes from Israeli commanders and media admitting defeat: 'We would not dare stick our heads out,' 'Duck and pray,' 'The military is about to collapse inward.'",
           why: "You don't have to trust a Lebanese source or an outside analyst. These are Israeli officers speaking to Israeli media. They're admitting it themselves.",
-          proves: "The IDF's own commanders confirm Hezbollah's military effectiveness and their own operational failure. The 'most moral army' narrative contradicts their own testimony.",
+          proves: "The selected statements corroborate specific battlefield difficulties and Hezbollah capabilities. They do not by themselves establish the campaign's total outcome.",
         }}
       >
         <QuoteWall data={data.quotes} />

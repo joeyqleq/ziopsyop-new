@@ -5,9 +5,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { PageShell } from "@/components/PageShell";
 import { ChartFrame } from "@/components/fx/ChartFrame";
 import { TracedCard } from "@/components/fx/TracedCard";
-import { CinematicTitle } from "@/components/fx/CinematicTitle";
-import { DecryptText } from "@/components/fx/DecryptText";
 import { AsciiEyeField } from "@/components/fx/AsciiEyeField";
+import { PageIntro } from "@/components/PageIntro";
 
 // ─────────────────────────────────────────────
 // Data — derived from Arctic Shift samples
@@ -346,33 +345,23 @@ export default function ControlPage() {
       <AsciiEyeField seed={23} />
       <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-6 pt-28 pb-16">
         {/* Header */}
-        <header className="text-center pb-10">
-          <p className="font-mono text-[10px] tracking-[0.5em] text-primary mb-3">
-            <DecryptText
-              text="//  METHODOLOGY — CONTROL GROUP ANALYSIS"
-              speed={40}
-              scrambleCycles={1}
-            />
-          </p>
-          <CinematicTitle
-            as="h1"
-            text="THE CONTROL"
-            animateOnMount
-            className="font-mono font-bold text-[clamp(1.8rem,6vw,3.4rem)] leading-none tracking-[0.08em] text-foreground"
-          />
-          <p className="mt-5 max-w-2xl mx-auto text-sm text-muted leading-relaxed text-balance">
+        <PageIntro
+          marker="METHODOLOGY // CONTROL GROUP ANALYSIS"
+          title="THE CONTROL"
+          systemLine="SAME WINDOWS · SAME SIGNALS · DIFFERENT COMMUNITY"
+          description={<>
             Cognitive dissonance check: every pattern flagged in r/ForbiddenBromance
             could theoretically be normal for a political subreddit. To falsify
             that, we run the same nine behavioral signals against r/lebanon — a
             genuine Lebanese diaspora community of comparable age and topic domain,
             with no prior suspicion of coordination.
-          </p>
+          </>}
+        />
           <p className="mt-3 max-w-2xl mx-auto text-xs text-muted-2 leading-relaxed text-balance">
             Data source: Arctic Shift Reddit archive. Three sampling windows: Sep–Oct 2019
             (Lebanon revolution), Oct 2023 (Hamas attack response), Sep–Oct 2024
             (IDF Lebanon ground campaign). Same date windows used for both subreddits.
           </p>
-        </header>
 
         {/* Summary verdict cards */}
         <div className="grid md:grid-cols-2 gap-4 mb-12">

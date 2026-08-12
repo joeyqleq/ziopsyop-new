@@ -5,8 +5,8 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 import { PageShell } from "@/components/PageShell";
 import { ChartFrame } from "@/components/fx/ChartFrame";
-import { CinematicTitle } from "@/components/fx/CinematicTitle";
 import { DecryptText } from "@/components/fx/DecryptText";
+import { PageIntro } from "@/components/PageIntro";
 
 const SankeyDiagram = dynamic(
   () => import("@/components/viz/SankeyDiagram").then((m) => m.SankeyDiagram),
@@ -87,23 +87,17 @@ export default function AnalysisPage() {
     <PageShell backdrop="waves">
       <div className="max-w-7xl mx-auto px-4 md:px-6 pt-28 pb-10">
         {/* page header */}
-        <header className="text-center pb-6">
-          <p className="font-mono text-[10px] tracking-[0.5em] text-primary mb-3">
-            <DecryptText text="//  SECTION 02 — BEHAVIORAL FORENSICS" speed={40} scrambleCycles={1} />
-          </p>
-          <CinematicTitle
-            as="h1"
-            text="PSY-OPS ANALYSIS"
-            animateOnMount
-            className="font-mono font-bold text-[clamp(1.8rem,6vw,3.4rem)] leading-none tracking-[0.08em] text-foreground"
-          />
-          <p className="mt-4 max-w-2xl mx-auto text-sm text-muted leading-relaxed text-balance">
+        <PageIntro
+          marker="INVESTIGATION // BEHAVIORAL FORENSICS"
+          title="PSY-OPS ANALYSIS"
+          systemLine="REACTION · COORDINATION · SUPPRESSION · NARRATIVE SHIFT"
+          description={<>
             The dashboard established that the community&apos;s pulse is external.
             This section goes deeper: who coordinates with whom, what language
             they deploy, how dissent is suppressed — and the moment the mask
             slipped.
-          </p>
-        </header>
+          </>}
+        />
 
         <div className="space-y-8">
           {/* 01 — reaction clock */}
