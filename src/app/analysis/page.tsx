@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
+import Link from "next/link";
 import { PageShell } from "@/components/PageShell";
 import { ChartFrame } from "@/components/fx/ChartFrame";
 import { CinematicTitle } from "@/components/fx/CinematicTitle";
@@ -286,11 +287,23 @@ export default function AnalysisPage() {
               means:
                 "The crossover is near-instantaneous and precisely timed: as drone losses mount, anti-Shia content stops and pro-Shia content appears for the first time in the archive — while the most viral military story on Earth goes unmentioned.",
               puzzle:
-                "This is the case's QED. Timing (EX-01/02), agenda control (EX-03/12), demographics (EX-04), the cadre (EX-05/11) and enforcement (EX-13/14) all predicted central direction. The pivot proved it.",
+                "This is a priority convergence finding. Timing (EX-01/02), agenda control (EX-03/12), demographics (EX-04), the cadre (EX-05/11) and enforcement (EX-13/14) all predict the same direction. The pivot strengthens that joint interpretation without identifying a command chain by itself.",
             }}
           >
             <ShiaPivotChart />
           </ChartFrame>
+
+          <div className="grid gap-3 md:grid-cols-3 pt-8">
+            <Link href="/control" className="rounded-md border border-primary/30 bg-primary/5 p-4 font-mono text-xs tracking-[0.12em] text-primary transition-colors hover:bg-primary/10">
+              TEST AGAINST THE CONTROL →
+            </Link>
+            <Link href="/forensics" className="rounded-md border border-archive/30 bg-archive/5 p-4 font-mono text-xs tracking-[0.12em] text-archive transition-colors hover:bg-archive/10">
+              OPEN THE SUBJECT DOSSIERS →
+            </Link>
+            <Link href="/synthesis" className="rounded-md border border-borderc bg-black/20 p-4 font-mono text-xs tracking-[0.12em] text-muted transition-colors hover:text-foreground">
+              FOLLOW THE THREE-PART SYNTHESIS →
+            </Link>
+          </div>
         </div>
       </div>
     </PageShell>

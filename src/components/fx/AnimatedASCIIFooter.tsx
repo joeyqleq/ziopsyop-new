@@ -99,6 +99,8 @@ const NAV_LINKS = [
   { label: "Analysis",    href: "/analysis" },
   { label: "Part II",     href: "/battlefield" },
   { label: "Map",         href: "/map" },
+  { label: "Vision",      href: "/vision-model" },
+  { label: "Part III",    href: "/media-war" },
   { label: "Synthesis",   href: "/synthesis" },
   { label: "Video",       href: "/evidence" },
   { label: "Sources",     href: "/sources" },
@@ -465,9 +467,9 @@ export function AnimatedASCIIFooter() {
           color: "#9aa0aa", maxWidth: 460, padding: "0 24px", margin: "0 0 12px",
           textShadow: SHADOW_LIGHT,
         }}>
-          All data sourced from publicly available Reddit archives via the Arctic Shift API. Analysis covers
-          r/ForbiddenBromance from September 2019 through March 2026. Methodology, raw data and source code
-          are open — verify everything yourself.
+          Evidence is assembled from public Reddit archives, publisher feeds, humanitarian records,
+          official statements, geolocated video and documented incident datasets. Each exhibit carries
+          its own source and limitation contract — follow the record and verify it yourself.
         </p>
 
         {/* Status */}
@@ -476,7 +478,7 @@ export function AnimatedASCIIFooter() {
           color: "#8a8f98", margin: 0,
           textShadow: SHADOW_LIGHT,
         }}>
-          [ Dataset Live — Metadata Update Daily ]
+          [ Versioned Evidence Snapshots — Provenance Per Exhibit ]
         </p>
       </div>
     </div>

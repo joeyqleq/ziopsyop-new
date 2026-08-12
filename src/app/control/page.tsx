@@ -7,6 +7,7 @@ import { ChartFrame } from "@/components/fx/ChartFrame";
 import { TracedCard } from "@/components/fx/TracedCard";
 import { CinematicTitle } from "@/components/fx/CinematicTitle";
 import { DecryptText } from "@/components/fx/DecryptText";
+import { AsciiEyeField } from "@/components/fx/AsciiEyeField";
 
 // ─────────────────────────────────────────────
 // Data — derived from Arctic Shift samples
@@ -341,8 +342,9 @@ export default function ControlPage() {
   const [showComparison, setShowComparison] = useState(false);
 
   return (
-    <PageShell backdrop="waves">
-      <div className="max-w-6xl mx-auto px-4 md:px-6 pt-28 pb-16">
+    <PageShell backdrop="none">
+      <AsciiEyeField seed={23} />
+      <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-6 pt-28 pb-16">
         {/* Header */}
         <header className="text-center pb-10">
           <p className="font-mono text-[10px] tracking-[0.5em] text-primary mb-3">
@@ -487,7 +489,7 @@ export default function ControlPage() {
           </div>
         </ChartFrame>
 
-        {/* Joint Probability Section */}
+        {/* Convergence Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -497,24 +499,20 @@ export default function ControlPage() {
         >
           <TracedCard traceColor="var(--archive)" className="p-8">
             <p className="font-mono text-[10px] tracking-[0.4em] text-archive mb-6 text-center">
-              JOINT PROBABILITY — INDEPENDENCE ASSUMPTION
+              CONVERGENCE TEST — NO FALSE PRECISION
             </p>
 
             <div className="max-w-3xl mx-auto">
-              {/* The formula */}
-              <div className="rounded-md bg-black/40 border border-borderc p-6 mb-6 text-center">
+              <div className="rounded-md bg-black/40 border border-borderc p-6 mb-6">
                 <p className="font-mono text-[10px] tracking-[0.2em] text-muted-2 mb-4">
-                  CONSERVATIVE ESTIMATE: ASSUME EACH ANOMALY HAS 20% CHANCE IN AN ORGANIC COMMUNITY
+                  WHAT THE CONTROL CAN ESTABLISH
                 </p>
-                <p className="font-mono text-lg md:text-2xl text-foreground tracking-wide leading-loose">
-                  P(all 9 anomalous) = 0.2<sup>9</sup>
-                </p>
-                <div className="mt-3 h-px bg-borderc w-48 mx-auto" />
-                <p className="font-mono text-2xl md:text-4xl font-bold text-threat mt-4 tabular-nums">
-                  = 0.000000512
-                </p>
-                <p className="font-mono text-[10px] tracking-[0.2em] text-muted mt-3">
-                  1 in 1,953,125 chance
+                <p className="text-sm text-muted leading-relaxed">
+                  All nine directional indicators separate the investigated community from the
+                  matched r/lebanon sample. That convergence is evidence against the claim that
+                  these patterns are simply normal features of a Lebanese political community.
+                  It is not, by itself, a calibrated probability of coordination or proof of who
+                  operated the accounts.
                 </p>
               </div>
 
@@ -525,9 +523,9 @@ export default function ControlPage() {
                     r/ForbiddenBromance
                   </p>
                   <p className="text-[11px] text-muted leading-relaxed">
-                    All 9 signals register anomalous. Even granting each signal a generous
-                    20% false-positive rate, the joint probability of all 9 co-occurring by
-                    chance is less than one in 1.9 million.
+                    All 9 sampled indicators move in the anomalous direction relative to the
+                    control: concentration, timing, topic diversity, language mix, reply
+                    insulation, and related behavioral measures.
                   </p>
                 </div>
                 <div className="rounded-md bg-primary/5 border border-primary/20 p-4">
@@ -546,10 +544,10 @@ export default function ControlPage() {
               <div className="mt-4 rounded-md bg-black/30 border border-borderc p-3">
                 <p className="text-[10px] text-muted leading-relaxed text-pretty">
                   <span className="text-archive font-mono">NOTE:</span> Signals are not perfectly
-                  independent — coordinated operations produce correlated anomalies. This makes the
-                  real probability even lower than the independence assumption. The 0.2 per-signal
-                  baseline is also extremely generous: most organic communities would show
-                  these patterns less than 5% of the time.
+                  independent, so multiplying assumed per-signal probabilities would manufacture
+                  false precision. A defensible probability estimate requires a larger preregistered
+                  reference set, calibrated thresholds, uncertainty intervals, and out-of-sample
+                  validation. This page therefore reports directional convergence only.
                 </p>
               </div>
             </div>
@@ -566,19 +564,19 @@ export default function ControlPage() {
         >
           <TracedCard traceColor="var(--threat)" className="p-8 text-center">
             <p className="font-mono text-[10px] tracking-[0.4em] text-threat mb-4">
-              FALSIFICATION RESULT
+            CONTROL RESULT
             </p>
             <p className="font-mono text-base md:text-lg font-bold tracking-[0.08em] text-foreground max-w-3xl mx-auto leading-relaxed text-balance">
-              The hypothesis that ForbiddenBromance&apos;s anomalies are normal for a Lebanese
-              political subreddit is falsified. r/lebanon — identical demographic claim,
-              comparable age, same topic domain — exhibits none of the 9 signals.
+              The matched r/lebanon sample does not reproduce the investigated community&apos;s
+              nine-indicator pattern. That result strengthens the coordination hypothesis while
+              leaving operator identity and causal attribution to the wider evidence chain.
             </p>
             <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-3 max-w-2xl mx-auto">
               {[
                 { label: "Signals tested", value: "9" },
                 { label: "FB anomalous", value: "9 / 9", color: "var(--threat)" },
                 { label: "Lebanon anomalous", value: "0 / 9", color: "var(--primary)" },
-                { label: "Joint probability", value: "<0.0001%", color: "var(--threat)" },
+                { label: "Claim level", value: "DIRECTIONAL", color: "var(--archive)" },
               ].map((s) => (
                 <div key={s.label} className="text-center">
                   <p
@@ -595,6 +593,18 @@ export default function ControlPage() {
             </div>
           </TracedCard>
         </motion.div>
+
+        <div className="mt-8 grid gap-3 md:grid-cols-3">
+          <a href="/analysis" className="rounded-md border border-primary/30 bg-primary/5 p-4 font-mono text-xs tracking-[0.12em] text-primary transition-colors hover:bg-primary/10">
+            ← RETURN TO ANALYSIS
+          </a>
+          <a href="/forensics" className="rounded-md border border-archive/30 bg-archive/5 p-4 font-mono text-xs tracking-[0.12em] text-archive transition-colors hover:bg-archive/10">
+            CROSS-CHECK THE DOSSIERS →
+          </a>
+          <a href="/sources" className="rounded-md border border-borderc bg-black/20 p-4 font-mono text-xs tracking-[0.12em] text-muted transition-colors hover:text-foreground">
+            INSPECT SOURCES & LIMITS →
+          </a>
+        </div>
       </div>
     </PageShell>
   );

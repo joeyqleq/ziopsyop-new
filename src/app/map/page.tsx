@@ -95,7 +95,7 @@ export default function MapPage() {
       <div className="max-w-7xl mx-auto px-4 md:px-6 pt-28 pb-10">
         <header className="text-center pb-8">
           <p className="font-mono text-[10px] tracking-[0.5em] text-primary mb-3">
-            <DecryptText text="//  SECTION 03 — KINETIC GROUND TRUTH" speed={40} scrambleCycles={1} />
+            <DecryptText text="//  PART II — KINETIC GROUND TRUTH" speed={40} scrambleCycles={1} />
           </p>
           <CinematicTitle
             as="h1"
@@ -260,6 +260,18 @@ export default function MapPage() {
               </motion.div>
             ))}
           </div>
+        </div>
+
+        <div className="mt-8 grid gap-3 md:grid-cols-3">
+          <a href="/battlefield" className="rounded-md border border-threat/30 bg-threat/5 p-4 font-mono text-xs tracking-[0.12em] text-threat transition-colors hover:bg-threat/10">
+            ← PART II SCORECARD
+          </a>
+          <a href="/vision-model" className="rounded-md border border-primary/30 bg-primary/5 p-4 font-mono text-xs tracking-[0.12em] text-primary transition-colors hover:bg-primary/10">
+            OPEN THE VISION PIPELINE →
+          </a>
+          <a href="/evidence" className="rounded-md border border-borderc bg-black/20 p-4 font-mono text-xs tracking-[0.12em] text-muted transition-colors hover:text-foreground">
+            REVIEW THE VIDEO ARCHIVE →
+          </a>
         </div>
       </div>
     </PageShell>

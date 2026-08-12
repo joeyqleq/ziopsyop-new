@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     template: "%s | ZIOPSYOP",
   },
   description:
-    "Open-source forensic analysis of a coordinated influence operation targeting Lebanese communities on Reddit. 102,610 artifacts, 83 months, one verdict: the conversation was never organic.",
+    "Open-source forensic investigation across Reddit behavior, battlefield records, campaign video, and competing media systems in the Lebanon-Israel conflict.",
   keywords: [
     "OSINT",
     "influence operations",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     siteName: "ZIOPSYOP",
     title: "ZIOPSYOP — Signal From Noise",
     description:
-      "Forensic dissection of a coordinated influence operation. 102,610 Reddit artifacts across 83 months. Every chart is one piece of the puzzle.",
+      "Three investigative fronts: influence-network behavior, battlefield evidence, and the media systems that construct public reality.",
     images: [
       {
         url: "/og-image.png",
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "ZIOPSYOP — Signal From Noise",
     description:
-      "Forensic dissection of a coordinated influence operation on Reddit. 102,610 artifacts across 83 months. The conversation was never organic.",
+      "Open-source forensics across influence networks, battlefield evidence, campaign video, and media narratives.",
     images: ["/og-image.png"],
   },
   icons: {
@@ -126,4 +126,3 @@ export default function RootLayout({
     </html>
   );
 }
-

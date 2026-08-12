@@ -207,7 +207,7 @@ export function ChartFrame({
                   />
                   <PlainBlock
                     icon={<CheckCircle size={11} />}
-                    label="WHAT THIS PROVES"
+                    label="WHAT THIS SUPPORTS"
                     text={plain.proves}
                   />
                 </div>

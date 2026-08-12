@@ -25,7 +25,7 @@ export default function SynthesisPage() {
             THE LOOP CLOSES
           </h1>
           <p className="font-mono text-xs md:text-sm text-gray-400 tracking-[0.15em] uppercase">
-            Part I proved a narrative was manufactured. Part II proved what it was built to bury.
+            Part I identifies the network. Part II tests its moral frame. Part III follows the narrative across media systems.
           </p>
           <div className="mx-auto w-24 h-px bg-gradient-to-r from-transparent via-primary to-transparent" />
         </motion.header>
@@ -82,7 +82,32 @@ export default function SynthesisPage() {
           className="space-y-6"
         >
           <h2 className="font-mono text-xs text-primary uppercase tracking-[0.2em]">
-            03 — The Connection
+            03 — The Media Battlefield
+          </h2>
+          <p className="text-gray-300 leading-relaxed">
+            Part III places 46,555 indexed media events from Al-Manar, Al Mayadeen, and Channel 14
+            beside the Reddit record. It asks which events were amplified, reframed, or omitted,
+            while preserving missing observations as gaps rather than synthetic zeroes. This is the
+            transmission layer between battlefield events and the public story built around them.
+          </p>
+          <Link
+            href="/media-war"
+            className="inline-flex font-mono text-xs tracking-[0.15em] text-primary hover:text-foreground transition-colors"
+          >
+            ENTER THE MEDIA BATTLEFIELD →
+          </Link>
+        </motion.section>
+
+        <motion.section
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={fade}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="space-y-6"
+        >
+          <h2 className="font-mono text-xs text-primary uppercase tracking-[0.2em]">
+            04 — The Connection
           </h2>
           <div className="border-l-2 border-primary/40 pl-6 space-y-4">
             <p className="text-gray-300 leading-relaxed">
@@ -92,8 +117,8 @@ export default function SynthesisPage() {
               &ldquo;surgical, moral military&rdquo; collapses irreversibly.
             </p>
             <p className="text-gray-300 leading-relaxed">
-              The Reddit manipulation is not a separate phenomenon from the war crimes. It is their
-              informational component — the same campaign, different domain. One destroys villages;
+              The Reddit manipulation is not treated as separate from the documented conduct and
+              alleged IHL violations. It is the informational component under investigation — the same conflict, different domain. One destroys villages;
               the other destroys the discourse that would make that destruction politically
               untenable. They are a single system.
             </p>
@@ -109,12 +134,12 @@ export default function SynthesisPage() {
           className="space-y-6"
         >
           <h2 className="font-mono text-xs text-primary uppercase tracking-[0.2em]">
-            04 — The Evidence Chain
+            05 — The Evidence Chain
           </h2>
           <ol className="space-y-4">
             {[
               {
-                label: "IDF commits documented war crimes",
+                label: "Documented conduct is tested against IHL and alleged war-crime patterns",
                 ref: "Part II, EX-19 through EX-32",
               },
               {
@@ -124,6 +149,10 @@ export default function SynthesisPage() {
               {
                 label: "International audience targeted via coordinated social media operation",
                 ref: "Part I, network analysis",
+              },
+              {
+                label: "Competing media systems amplify, reframe, and omit the same events",
+                ref: "Part III, media battlefield",
               },
               {
                 label: "Organic Lebanese voices silenced via mass downvoting",
@@ -156,9 +185,9 @@ export default function SynthesisPage() {
           className="space-y-6"
         >
           <h2 className="font-mono text-xs text-gray-400 uppercase tracking-[0.2em]">
-            05 — Navigate
+            06 — Navigate
           </h2>
-          <div className="grid md:grid-cols-2 gap-4">
+          <div className="grid md:grid-cols-3 gap-4">
             <Link
               href="/part-i"
               className="group block border border-primary/20 rounded-lg p-6 hover:border-primary/50 hover:bg-primary/5 transition-all"
@@ -188,6 +217,22 @@ export default function SynthesisPage() {
                 infrastructure destruction, and military censorship.
               </p>
               <span className="inline-block mt-3 text-xs text-threat font-mono group-hover:translate-x-1 transition-transform">
+                ENTER →
+              </span>
+            </Link>
+            <Link
+              href="/media-war"
+              className="group block border border-archive/20 rounded-lg p-6 hover:border-archive/50 hover:bg-archive/5 transition-all"
+            >
+              <p className="font-mono text-xs text-archive tracking-wider mb-2">PART III</p>
+              <p className="text-foreground font-semibold text-lg mb-2">
+                The Manufactured Reality
+              </p>
+              <p className="text-sm text-gray-400 leading-relaxed">
+                A day-level comparison of what rival media systems publish, suppress, and repeat
+                around the same conflict record.
+              </p>
+              <span className="inline-block mt-3 text-xs text-archive font-mono group-hover:translate-x-1 transition-transform">
                 ENTER →
               </span>
             </Link>

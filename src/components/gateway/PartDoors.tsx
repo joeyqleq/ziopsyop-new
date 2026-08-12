@@ -138,15 +138,15 @@ function EvervaultOverlay({ accentColor }: { accentColor: string }) {
 }
 
 /**
- * Two co-equal doors. Identical footprint, mirrored accents — neither part
- * is subordinate. This is the structural heart of the "two operations, one
+ * Three co-equal doors. Identical footprint, distinct accents — no front is
+ * subordinate. This is the structural heart of the "three fronts, one
  * machine" thesis.
  */
 export function PartDoors() {
   return (
     <section
       className="max-w-7xl mx-auto px-4 md:px-6 py-16 md:py-24"
-      aria-label="The two operations"
+      aria-label="The three investigative fronts"
     >
       <div className="text-center mb-10">
         <p className="font-mono text-[10px] tracking-[0.5em] text-muted-2">

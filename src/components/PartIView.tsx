@@ -215,7 +215,7 @@ export function PartIView({ data }: { data: AnalysisData }) {
             plain={{
               what: "This chart shows how often people posted on this subreddit each month for 6+ years — spikes mean lots of activity, flat means quiet.",
               why: "A real friendship community posts steadily. This one goes silent for months, then explodes exactly when Israel starts bombing Lebanon. That is not friendship. That is a media operation.",
-              proves: "The subreddit was switched on and off by events in the real war — not by its users.",
+              proves: "Activity is event-responsive at the measured time grain; that pattern is inconsistent with a purely self-directed community pulse.",
             }}
           >
             <TimelineChart
@@ -243,7 +243,7 @@ export function PartIView({ data }: { data: AnalysisData }) {
             plain={{
               what: "This shows how the subreddit grew from 2019 to 2026 — who joined, when, and what their self-reported identity was.",
               why: "If this were a real friendship community, Lebanese and Israeli users would grow together. Instead, Israeli accounts outnumber Lebanese 3-to-1 and drove every growth surge. The 'Lebanese dialogue' is mostly Israelis talking.",
-              proves: "The community was built and grown primarily by the Israeli side — structurally incompatible with its claimed purpose.",
+              proves: "The measured participation imbalance is structurally inconsistent with the community's stated image of a balanced bilateral bridge.",
             }}
           >
             <SubredditGrowth data={data.subreddit_growth} eras={data.eras} />
@@ -272,7 +272,7 @@ export function PartIView({ data }: { data: AnalysisData }) {
             plain={{
               what: "Each bar shows how statistically 'weird' a month was — how far above normal. Red bars are mathematically impossible without outside coordination.",
               why: "Random people do not all suddenly become very active online at the same time Israel launches an operation. Soldiers following orders do.",
-              proves: "The activity spikes are not coincidence. They are coordinated.",
+              proves: "The repeated timing alignment supports a coordination hypothesis; timing alone does not identify an operator.",
             }}
           >
             <AnomalyDetector data={data.monthly_spikes} />
@@ -300,7 +300,7 @@ export function PartIView({ data }: { data: AnalysisData }) {
             plain={{
               what: "This shows what topics the subreddit talked about each month — you can see which narratives dominate and when they suddenly appear or vanish.",
               why: "Real communities drift between topics naturally. This one snaps to new talking points overnight — like someone is sending a memo. When Israel bombs Lebanon, the subreddit floods with anti-Hezbollah content. When they need soft power, 'peace' talk appears on command.",
-              proves: "The conversation topics are centrally directed. Someone is choosing what this community talks about and when.",
+              proves: "Topic changes occur in synchronized blocks consistent with agenda control and warrant source-level coordination testing.",
             }}
           >
             <KeywordHeatmap data={data.keyword_trends} />
@@ -329,7 +329,7 @@ export function PartIView({ data }: { data: AnalysisData }) {
               plain={{
                 what: "This shows who is actually posting — broken down by whether users label themselves Israeli, Lebanese, Jewish diaspora, or unlabeled.",
                 why: "A 'Lebanese-Israeli dialogue' space should be roughly half Lebanese. This one is 75% Israeli. The Lebanese are the stage decoration, not the participants. You cannot have a dialogue when one side is talking to itself.",
-                proves: "The community claiming to represent Lebanese voices is overwhelmingly Israeli. The 'bridge' is a one-way megaphone.",
+                proves: "The sampled flair distribution is heavily asymmetric, weakening the claim that both sides are represented on equal terms.",
               }}
             >
               <FlairComposition data={data.flair_monthly} />
@@ -351,7 +351,7 @@ export function PartIView({ data }: { data: AnalysisData }) {
               plain={{
                 what: "This ranks the 20 most active accounts and shows how much of the total conversation they produce. Some only start topics, others only reply — like they have assigned roles.",
                 why: "In a real community, thousands of people contribute small amounts. Here, a tiny group produces most of the content. Some only post, others only comment — that is not hobbyists. That is a team with job assignments.",
-                proves: "A small coordinated cell is manufacturing the illusion of a large community. Twenty accounts doing shifts, not thousands of people having conversations.",
+                proves: "A small account cohort produces a disproportionate share of activity; mutual-reply and schedule evidence tests whether that concentration is coordinated.",
               }}
             >
               <TopActors data={data.top_authors} />
@@ -381,7 +381,7 @@ export function PartIView({ data }: { data: AnalysisData }) {
             plain={{
               what: "This is a timeline matching every real-world military event to the exact moment the subreddit surged. Thirteen events, thirteen spikes — one-to-one.",
               why: "If this were a real community, some events would get attention and others would not. Instead, every single Israeli military operation triggered a response — like clockwork. That is not interest. That is activation.",
-              proves: "The subreddit is a response mechanism for Israeli military operations. Thirteen out of thirteen is not coincidence — it is a standing order.",
+              proves: "All thirteen coded event windows show a response pattern. That is a priority coordination signal, not proof of a specific command chain.",
             }}
           >
             <EventCorrelation events={data.event_timeline} />
@@ -452,7 +452,7 @@ export function PartIView({ data }: { data: AnalysisData }) {
             </TracedCard>
           </PixelReveal>
 
-          {/* bridge to Part II — the two operations are one machine */}
+          {/* bridge to Part II — one front in a three-part evidence system */}
           <PixelReveal>
             <TracedCard
               traceColor="var(--accent-yellow)"

@@ -192,7 +192,7 @@ export default function ForensicsPage() {
                     view would conceal.
                   </p>
                   <p>
-                    The methodology is adversarial: we assume each account is real until the data proves otherwise.
+                    The methodology is adversarial: we begin with the organic-user hypothesis and test where the observed record contradicts it.
                     The signals that break that assumption are temporal coordination, language-identity mismatch,
                     near-total conflict concentration, and dormancy gaps that align with operational pauses.
                   </p>
@@ -214,7 +214,7 @@ export default function ForensicsPage() {
               classification="SUBJECT PROFILES"
               commentary={{
                 reads: "22 behavioral dossiers built from complete Reddit histories. Each card shows role classification, conflict concentration, timezone alignment, Hebrew content, dormancy gaps, and verbatim samples.",
-                means: "Accounts labeled 'EMBEDDED OPERATIVE' are those whose Reddit existence is overwhelmingly or entirely conflict-sub activity — a statistical impossibility for a genuine person with hobbies, a job, and a life. 'HEBREW SPEAKER' flags accounts that post significant Hebrew text while presenting a Lebanese or neutral persona.",
+                means: "Accounts labeled 'EMBEDDED OPERATIVE' are those whose observable Reddit history is overwhelmingly conflict-sub activity—an anomaly relative to the matched control, not proof of employment or identity. 'HEBREW SPEAKER' flags accounts that post significant Hebrew text while presenting a Lebanese or neutral persona.",
                 puzzle: "The contradiction score ring is the single most important number on each card. A score above 50 means the account's behavior is inconsistent with its claimed identity in multiple independent dimensions simultaneously.",
               }}
             >
@@ -320,7 +320,7 @@ export default function ForensicsPage() {
               commentary={{
                 reads: "A subjects × signals matrix. Each cell is a behavioral signal score. Red cells exceed the per-signal anomaly threshold. The Total column is the mean across all signals.",
                 means: "The accounts with the most red cells are the most behaviorally inconsistent with the organic-user hypothesis. No single red cell is damning. The pattern of red across multiple independent signals — that is the case.",
-                puzzle: "This matrix is the dossier's QED. Every exhibit in EX-17 through EX-22 contributes one or more columns to this table. The operation does not rest on a narrative. It rests on a number: the joint probability of all these signals appearing together by chance.",
+                puzzle: "This matrix is the dossier's convergence view. Every exhibit in EX-17 through EX-22 contributes one or more columns. Because the indicators are correlated, it does not manufacture a single joint-probability number; the claim rests on repeated directional agreement and comparison with the control.",
               }}
             >
               <PersonaContradictionMatrix users={data.users} />
@@ -377,6 +377,10 @@ export default function ForensicsPage() {
                   </a>
                   <a href="/analysis" className="group inline-flex items-center gap-2 rounded-md border border-archive/40 bg-archive/5 px-4 py-2.5 font-mono text-[11px] tracking-[0.2em] text-archive transition-all hover:bg-archive/10">
                     PSY-OPS ANALYSIS →
+                    <span className="transition-transform group-hover:translate-x-1">→</span>
+                  </a>
+                  <a href="/control" className="group inline-flex items-center gap-2 rounded-md border border-primary/40 bg-primary/5 px-4 py-2.5 font-mono text-[11px] tracking-[0.2em] text-primary transition-all hover:bg-primary/10">
+                    TEST THE CONTROL →
                     <span className="transition-transform group-hover:translate-x-1">→</span>
                   </a>
                 </div>

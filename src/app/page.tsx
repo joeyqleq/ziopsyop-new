@@ -6,9 +6,9 @@ import { PartDoors } from "@/components/gateway/PartDoors";
 
 /**
  * Gateway — a neutral landing that belongs to neither part. It states the
- * unified thesis (one machine, two operations) and forks into two co-equal
- * doors. Part I and Part II live on their own routes so neither is
- * subordinate to the other.
+ * unified thesis (one machine, three fronts) and forks into three co-equal
+ * doors. Parts I, II, and III live on their own routes so no evidentiary
+ * domain is treated as an appendix to another.
  */
 export default function Home() {
   return (

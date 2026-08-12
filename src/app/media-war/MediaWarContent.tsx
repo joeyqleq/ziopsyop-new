@@ -76,16 +76,16 @@ export function MediaWarContent() {
               THESIS
             </p>
             <p className="text-sm md:text-base text-foreground leading-relaxed">
-              Israel&apos;s propaganda machine doesn&apos;t just aim outward. Channel 14 is
-              the number one TV station in Israel. Whatever the government tells
-              it to say, it says. Al-Manar documents the reality on the ground.
-              Al-Mayadeen provides the regional context.
+              Channel 14 is an influential right-wing Israeli broadcaster whose
+              coverage frequently tracks official security narratives. Al-Manar is
+              affiliated with Hezbollah; Al Mayadeen is a regional outlet aligned
+              with the resistance axis. None is treated here as a neutral truth machine.
             </p>
             <p className="mt-4 text-sm text-muted leading-relaxed">
-              This is the forensic record — three media channels, parsed
-              message by message, compared day by day. When Channel 14 said
-              &quot;surgical strike,&quot; what did the other side document? When Al-Manar
-              reported casualties, did Channel 14 even acknowledge the event?
+              Their 46,555 indexed publications are treated as primary material:
+              parsed message by message, compared at day grain, and checked against
+              the separately sourced incident record. The question is not which feed
+              to believe wholesale, but what each one amplified, reframed, or omitted.
             </p>
             <p className="mt-4 font-mono text-[10px] tracking-[0.2em] text-threat">
               THE RECORD SPEAKS. THE CONTRADICTIONS ARE THE EVIDENCE.
@@ -119,9 +119,9 @@ export function MediaWarContent() {
           className="grid grid-cols-3 gap-4"
         >
           {[
-            { value: "17,443", label: "AL-MANAR MESSAGES", color: "text-primary", traceColor: "lime" },
-            { value: "9,063", label: "AL-MAYADEEN MESSAGES", color: "text-purple-400", traceColor: "purple" },
-            { value: "3,981", label: "CHANNEL 14 MESSAGES", color: "text-threat", traceColor: "var(--threat)" },
+            { value: "27,104", label: "AL-MANAR MESSAGES", color: "text-primary", traceColor: "lime" },
+            { value: "13,287", label: "AL-MAYADEEN MESSAGES", color: "text-purple-400", traceColor: "purple" },
+            { value: "6,164", label: "CHANNEL 14 MESSAGES", color: "text-threat", traceColor: "var(--threat)" },
           ].map((stat) => (
             <TracedCard
               key={stat.label}
@@ -218,10 +218,12 @@ export function MediaWarContent() {
             DATA SOURCE
           </p>
           <p className="mt-2 text-xs text-muted leading-relaxed max-w-lg mx-auto">
-            Telegram channel exports: ManarTV-EN (Al-Manar, Hezbollah media
-            arm), Al Mayadeen English (pro-resistance), Channel 14 English
-            Edition (Israeli state media). All messages parsed, filtered for
-            Lebanon-Israel axis relevance, and auto-categorized.
+            Publisher-feed exports: ManarTV-EN (Al-Manar, Hezbollah-affiliated),
+            Al Mayadeen English (resistance-axis aligned), and Channel 14 English
+            Edition (right-wing Israeli broadcaster). Publications are parsed,
+            filtered for Lebanon-Israel relevance, and categorized; feed silence
+            is preserved as missing observation unless a separately verified omission
+            test supports a stronger claim.
           </p>
           <p className="mt-3 font-mono text-[9px] tracking-[0.2em] text-muted-2">
             EVERY CLAIM IS VERIFIABLE. EVERY CONTRADICTION IS DOCUMENTED.

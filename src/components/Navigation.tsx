@@ -18,14 +18,16 @@ const NAV_GROUPS = [
       { href: "/part-i", label: "OVERVIEW", code: "I" },
       { href: "/analysis", label: "ANALYSIS", code: "·" },
       { href: "/forensics", label: "DOSSIER", code: "⊛" },
+      { href: "/control", label: "CONTROL", code: "⊞" },
     ],
   },
   {
     label: "BATTLEFIELD",
     code: "II",
     items: [
-      { href: "/battlefield", label: "EVIDENCE", code: "II" },
+      { href: "/battlefield", label: "SCORECARD", code: "II" },
       { href: "/map", label: "MAP", code: "·" },
+      { href: "/vision-model", label: "VISION MODEL", code: "CV" },
     ],
   },
   {
@@ -37,7 +39,6 @@ const NAV_GROUPS = [
       { href: "/evidence", label: "VIDEO", code: "▶" },
       { href: "/sources", label: "SOURCES", code: "※" },
       { href: "/counter-arguments", label: "COUNTERPOINTS", code: "⇋" },
-      { href: "/control", label: "CONTROL", code: "⊞" },
     ],
   },
   {

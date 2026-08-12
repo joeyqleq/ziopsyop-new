@@ -139,7 +139,7 @@ export function BattlefieldSections({ data }: { data: BattlefieldData }) {
       <Lede
         step="01"
         title="Who was actually fighting whom"
-        text="Before judging conduct, fix the facts. Every confirmed Hezbollah strike of the war, classified by target. The distribution is the first piece of evidence — and it is exclusively military."
+        text="Before judging conduct, inspect the coded record. Confirmed Hezbollah strikes in the current dataset are classified by reported target; the distribution is overwhelmingly military, subject to source and coverage limits."
       />
       <ChartFrame
         exhibit="EX-17"
@@ -149,13 +149,13 @@ export function BattlefieldSections({ data }: { data: BattlefieldData }) {
         classification="STRIKE LOG"
         commentary={{
           reads: "The full population of confirmed Hezbollah strikes, broken down by the class of target each one hit.",
-          means: "There is no civilian-target band of any consequence. Hezbollah's fire was directed at military formations, armor and bases — the legal definition of distinction, met.",
+          means: "The coded records are dominated by military formations, armor and bases. That supports a distinction finding inside this dataset; it does not establish that every strike in the wider war is captured.",
           puzzle: "This is the baseline the subreddit operation must invert: an actor fighting a disciplined military campaign reframed as the indiscriminate aggressor.",
         }}
         plain={{
-          what: "A breakdown of every confirmed Hezbollah strike by what it hit: tanks, bases, vehicles, soldiers. Zero civilian targets.",
-          why: "If the 'terrorist' label were true, you'd see civilian targets dominating. They don't appear at all.",
-          proves: "Hezbollah fought a textbook military campaign against military targets only — the opposite of what 'terrorist' means.",
+          what: "A breakdown of the confirmed Hezbollah strikes currently coded by reported target: tanks, bases, vehicles, and soldiers.",
+          why: "The observed target distribution can test claims of indiscriminate targeting, but only within the dataset's documented coverage.",
+          proves: "The current strike ledger supports a predominantly military-target campaign; uncaptured incidents and publisher bias remain explicit limitations.",
         }}
       >
         <StrikeTaxonomy data={data.taxonomy} />
@@ -217,7 +217,7 @@ export function BattlefieldSections({ data }: { data: BattlefieldData }) {
         plain={{
           what: "A grid where every tiny square is one person Israel killed in Lebanon. Colors show who they were: red = civilian, orange = medic/paramedic, yellow = journalist.",
           why: "Numbers like '3,500 dead' are easy to scroll past. Seeing 3,500 individual squares makes it impossible to ignore.",
-          proves: "Israel killed 3,500 civilians including 276 healthcare workers and 11 journalists. This is documented mass civilian killing.",
+          proves: "The compiled casualty sources attribute roughly 3,500 civilian deaths, including protected professional groups, to Israeli strikes; the source contract governs each category.",
         }}
       >
         <CivilianWaffle data={data.civilianWaffle} />
@@ -237,13 +237,13 @@ export function BattlefieldSections({ data }: { data: BattlefieldData }) {
         classification="WAR CRIME PATTERN"
         commentary={{
           reads: "A catalog of incidents where the IDF struck, waited for emergency responders, then struck again — sometimes a third or fourth time.",
-          means: "This is not a heat-of-battle error. It is a deliberate pattern: the timing between strikes is calibrated to catch ambulances on scene.",
-          puzzle: "160 paramedics dead. 130 ambulances destroyed. This systematic targeting of protected medical personnel defines terrorism under any legal framework.",
+          means: "Repeated secondary strikes after responders arrive are consistent with a deliberate double-tap pattern; intent must be assessed incident by incident.",
+          puzzle: "The reported toll among paramedics and ambulances demands legal scrutiny because medical personnel and transports receive special IHL protection.",
         }}
         plain={{
           what: "A list of incidents where Israel bombed a target, waited for paramedics to arrive, then bombed the paramedics too. Some did it 3 or 4 times.",
-          why: "Deliberately killing rescuers is one of the clearest war crimes possible. Paramedics are protected under international law — always.",
-          proves: "160 paramedics killed by a deliberate, repeated pattern. This is terrorism by any definition of the word.",
+          why: "Knowingly attacking protected rescuers can constitute a war crime. The sequence, target knowledge, and military necessity must be established for each incident.",
+          proves: "The reported responder deaths and repeated strike sequences support a priority war-crime-pattern inquiry, not a substitute for a judicial finding.",
         }}
       >
         <DoubleTapPattern data={data.doubleTap} />
@@ -269,7 +269,7 @@ export function BattlefieldSections({ data }: { data: BattlefieldData }) {
         plain={{
           what: "A visual map of everything Israel destroyed in Lebanon: homes, hospitals, bridges, ambulance stations. Bigger rectangle = more expensive to rebuild.",
           why: "This is not military targeting. It's the deliberate destruction of civilian life — where people live, where they get healed, how they travel.",
-          proves: "$5 billion in destruction, 60 villages demolished, 1.4 million displaced. This is collective punishment, not self-defense.",
+          proves: "The compiled destruction and displacement record supports a collective-punishment analysis; legal classification depends on intent, necessity, and proportionality evidence.",
         }}
       >
         <InfrastructureTreemap data={data.infraTreemap} />
@@ -289,13 +289,13 @@ export function BattlefieldSections({ data }: { data: BattlefieldData }) {
         classification="LEGAL AUDIT"
         commentary={{
           reads: "A scorecard of core IHL principles — distinction, proportionality, medical and press protection, the double-tap ban — judged for each side.",
-          means: "Hezbollah registers compliant or not-applicable across the board; the IDF registers violations on every principle, each backed by counted incidents.",
+          means: "Under the current coding rules, Hezbollah records are compliant or not-applicable while IDF records flag violations across the tested principles. This is a dataset assessment, not a court judgment.",
           puzzle: "This is the legal spine of Part 2. The subreddit's job was to make sure this matrix was never assembled in public view.",
         }}
         plain={{
           what: "A report card grading both sides on international law: Did they distinguish military from civilian? Protect medics? Avoid collective punishment?",
-          why: "This is how courts decide war crimes — principle by principle. One side passes every test. The other fails every one.",
-          proves: "The IDF violates every single principle of international humanitarian law. Hezbollah complies with all of them. The 'moral army' claim is legally inverted.",
+          why: "A principle-by-principle matrix makes the legal reasoning auditable and exposes where evidence, coding rules, or counterarguments could change a result.",
+          proves: "The coded evidence produces a severe asymmetry in IHL risk flags. It supports further legal review while preserving source and coverage limits.",
         }}
       >
         <IHLComplianceMatrix data={data.ihl} />
@@ -455,23 +455,23 @@ export function BattlefieldSections({ data }: { data: BattlefieldData }) {
         classification="CROSS-REFERENCE"
         commentary={{
           reads: "A funnel narrowing from 665 documented strikes to 42 IDF-admitted KIA — each step sourced from a different database table.",
-          means: "The shrinkage ratio is the lie. 665 strikes with confirmed hits produce an official admission of only 42 deaths. The gap between filmed drone kills and official figures is the proof of systematic lying.",
+          means: "The funnel shows a large unresolved gap between documented engagements and official fatality admissions. Strike counts cannot be converted directly into deaths without per-event outcome verification.",
           puzzle: "This is why the subreddit operation matters: if these numbers ever reach mainstream discourse, the 'low casualty' narrative collapses.",
         }}
         plain={{
           what: "A funnel visualization showing how IDF casualty numbers shrink from reality (665 strikes) to their official admission (42 dead). Five independent data sources, one conclusion.",
-          why: "Each step in the funnel comes from a DIFFERENT database table. This isn't one source claiming they lied — it's five independent datasets proving it mathematically.",
-          proves: "The IDF admits only 35% of estimated casualties. They are systematically lying about their losses — provable by cross-referencing their own data.",
+          why: "Cross-table agreement can expose inconsistencies, but the tables measure different units—strikes, hits, engagements, and deaths—and must not be treated as interchangeable.",
+          proves: "The current sources support an undercounting hypothesis and define the records needed to test it; they do not mathematically prove a casualty total.",
         }}
       >
         <LieDetector data={data.lieDetector} />
       </ChartFrame>
 
-      {/* 11b — ADMISSION GAP: BBC-verified proof of systematic lying */}
+      {/* 11b — ADMISSION GAP: multi-source reconciliation test */}
       <Lede
         step="11b"
         title="The gap between reality and propaganda"
-        text="BBC Verify independently geolocated 35 FPV drone strikes. The IDF admits 21 soldiers killed total. The Israeli army chief admitted 5,942 bereaved families vs 844 official KIA in Gaza. Multiple independent sources, one conclusion: systematic lying at industrial scale."
+        text="BBC Verify independently geolocated 35 FPV strike videos. Other public figures cited in the project describe different theatres, periods, and units. Their gaps warrant reconciliation before any single undercount factor is asserted."
       />
       <ChartFrame
         exhibit="EX-27b"
@@ -481,13 +481,13 @@ export function BattlefieldSections({ data }: { data: BattlefieldData }) {
         classification="CROSS-REFERENCE"
         commentary={{
           reads: "A waterfall visualization showing how verified strike data shrinks to official Israeli admissions, with each layer sourced independently.",
-          means: "35 strikes geolocated by BBC Verify alone. ~100 claimed total. Yet only 21 deaths admitted. In Gaza: 844 official vs 5,942 bereaved families. The pattern is identical across theatres.",
-          puzzle: "When the army chief himself admits the numbers don't add up, the only remaining question is the magnitude of the lie — not its existence.",
+          means: "The sources expose discrepancies, but geolocated strike videos, claimed attacks, official fatalities, and bereaved-family registrations are not the same denominator.",
+          puzzle: "The evidentiary task is to reconcile scope, period, duplicate family registrations, wounded survivors, and verified per-event outcomes before estimating an undercount.",
         }}
         plain={{
-          what: "Multiple independent sources (BBC, Haaretz, army chief) all showing the IDF admits far fewer casualties than actually occurred. Visual proof of systematic lying.",
+          what: "Multiple public sources whose figures appear difficult to reconcile without a shared scope and denominator.",
           why: "This isn't one source's claim — it's BBC Verify, Israeli hospital records, and Israel's own army chief all saying the same thing independently.",
-          proves: "The IDF lies about casualties by a factor of 5-7x. This is provable from their own data, their own hospitals, their own chief of staff's admission.",
+          proves: "The discrepancies support an underreporting investigation; a defensible factor requires record linkage and denominator alignment not yet present here.",
         }}
       >
         <AdmissionGap data={data.admissionGap} />
@@ -507,13 +507,13 @@ export function BattlefieldSections({ data }: { data: BattlefieldData }) {
         classification="PARTICLE PROOF"
         commentary={{
           reads: "5,942 particles drifting in a field. 844 illuminate red. The rest remain ghostly — present but unacknowledged.",
-          means: "Israel's own bereaved families registry contains 7× more entries than official KIA figures. The army chief admitted this publicly. The particles make the ratio visceral.",
-          puzzle: "When your own bereaved families registry contradicts your casualty figures by 7:1, the lie isn't a matter of opinion — it's a matter of arithmetic.",
+          means: "The cited bereaved-family and official KIA figures differ sharply, but one death can affect multiple registered families and the scopes may differ. The particles visualize the published counts, not an inferred death total.",
+          puzzle: "The discrepancy is a source-reconciliation problem: verify the statement, definitions, period, duplicates, and theatre before inferring hidden deaths.",
         }}
         plain={{
           what: "A field of 5,942 dots — each one a real bereaved family registered in Israel. Only 844 light up red (the ones Israel officially admits). The remaining 5,098 stay as ghosts.",
-          why: "Israel's own army chief admitted these numbers don't match. This isn't an enemy's claim — it's their own internal registry contradicting their public statements.",
-          proves: "Israel acknowledges only 14% of its actual casualties. The remaining 86% are hidden from public discourse. Their own data proves it.",
+          why: "An internal registry figure deserves scrutiny, but it cannot be divided by KIA and relabeled as a hidden-death percentage without matching definitions.",
+          proves: "The published figures are unresolved and justify a provenance audit; this exhibit does not convert bereaved-family registrations into casualty counts.",
         }}
       >
         <DeadReckoning data={data.deadReckoning} />
@@ -533,13 +533,13 @@ export function BattlefieldSections({ data }: { data: BattlefieldData }) {
         classification="CROSS-REFERENCE"
         commentary={{
           reads: "A split comparison: Hezbollah's record (0 civilian targets, 0 hospitals, 0 ambulances, 0 journalists) vs IDF (7,072 killed, 27 ambulance stations, 2 hospitals, 7 UNIFIL bases).",
-          means: "The inversion is total. On every metric of civilian harm, the side labeled 'terrorist' scores zero and the side labeled 'moral' scores catastrophically.",
+          means: "Within the current coded records, the civilian-harm asymmetry is severe. Zeroes mean no qualifying observation in this dataset—not proof that no incident occurred.",
           puzzle: "The entire information operation — Part 1's subreddit manipulation — exists to prevent this comparison from being seen.",
         }}
         plain={{
-          what: "A split-screen showing both sides' records on identical metrics. Hezbollah: 0 across all civilian harm categories. IDF: thousands killed, hospitals destroyed, ambulances bombed.",
+          what: "A split-screen showing both sides' currently coded records on identical civilian-harm metrics.",
           why: "You don't need analysis. You don't need context. Put the same metrics side by side and the 'terrorist' label inverts itself.",
-          proves: "The data proves Hezbollah is a disciplined military force and the IDF commits systematic war crimes. The labels are exactly backwards.",
+          proves: "The coded record strongly challenges the simple 'terrorist versus moral army' frame while leaving zero-coverage and legal-attribution limits visible.",
         }}
       >
         <MoralityInversion data={data.moralityInversion} />
@@ -643,7 +643,7 @@ export function BattlefieldSections({ data }: { data: BattlefieldData }) {
         plain={{
           what: "A bar chart showing 8 Lebanese villages and what percentage Israel bulldozed. Three villages: 70-75% destroyed. Most destruction happened AFTER the ceasefire — not during fighting.",
           why: "Amnesty verified this with satellite imagery and 77 videos of Israeli soldiers celebrating the demolitions. This isn't an accident — it's filmed collective punishment.",
-          proves: "10,000 structures deliberately demolished after fighting stopped. Soldiers filmed themselves doing it. This is documented ethnic cleansing of southern Lebanon.",
+          proves: "The verified demolitions after active fighting support investigations into collective punishment, unlawful destruction, and forcible-transfer risk; legal intent requires additional evidence.",
         }}
       >
         <DestructionAudit data={data.destruction} />
@@ -690,7 +690,7 @@ export function BattlefieldSections({ data }: { data: BattlefieldData }) {
         commentary={{
           reads: "A wall of direct quotations from Israeli commanders, officials and journalists about the war's conduct and results.",
           means: "These are admissions against interest — the strongest class of evidence. The defeated side's own command echelon corroborates the data in every preceding exhibit.",
-          puzzle: "Part 1 proved a narrative was manufactured. Part 2 proves what it was built to bury. These voices are where the two halves of the case meet.",
+          puzzle: "Part I documents a coordination case. Part II assembles the physical record it may reframe. These statements are where the behavioral and battlefield evidence meet.",
         }}
         plain={{
           what: "Direct quotes from Israeli commanders and media admitting defeat: 'We would not dare stick our heads out,' 'Duck and pray,' 'The military is about to collapse inward.'",

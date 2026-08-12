@@ -29,7 +29,7 @@ export function BattlefieldHeader() {
       </p>
       <div className="mt-6 mx-auto max-w-3xl rounded-md border border-accent-yellow/25 bg-accent-yellow/[0.04] px-5 py-4 text-left">
         <p className="font-mono text-[10px] tracking-[0.28em] text-accent-yellow">
-          WHAT THIS PROVES
+          WHAT THIS RECORD TESTS
         </p>
         <p className="mt-2 text-sm text-muted leading-relaxed text-pretty">
           Part I showed a narrative was manufactured. Part II shows{" "}

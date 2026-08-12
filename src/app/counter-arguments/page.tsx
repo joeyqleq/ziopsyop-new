@@ -4,6 +4,7 @@ import { useState } from "react";
 import { PageShell } from "@/components/PageShell";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
+import { AsciiEyeField } from "@/components/fx/AsciiEyeField";
 
 interface Objection {
   id: string;
@@ -59,7 +60,7 @@ const objections: Objection[] = [
     id: "reddit-irrelevant",
     claim: "Reddit manipulation proves nothing about the war itself",
     response:
-      "Part I and Part II are parallel investigations, not dependent ones. Part I proves the information operation exists. Part II proves what the physical record shows. Neither requires the other. But together they reveal a system: commit, censor, then manufacture consent for what you censored.",
+      "Part I and Part II are parallel investigations, not dependent ones. Part I documents a multi-signal coordination case. Part II assembles the physical and institutional record. Neither requires the other; together they test whether narrative management tracks the conduct it reframes.",
     exhibits: [],
   },
 ];
@@ -132,8 +133,9 @@ function ObjectionCard({ objection, index }: { objection: Objection; index: numb
 
 export default function CounterArgumentsPage() {
   return (
-    <PageShell backdrop="waves">
-      <div className="max-w-4xl mx-auto px-4 pt-24 pb-16">
+    <PageShell backdrop="none">
+      <AsciiEyeField seed={29} />
+      <div className="relative z-10 max-w-4xl mx-auto px-4 pt-24 pb-16">
         <motion.header
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
