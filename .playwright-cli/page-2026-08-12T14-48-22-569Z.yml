@@ -1,0 +1,373 @@
+- generic [ref=f1e1]:
+  - generic [ref=f1e13]:
+    - main [ref=f1e14]:
+      - generic [ref=f1e15]:
+        - link "ZIOPSYOP home" [ref=f1e16] [cursor=pointer]:
+          - /url: /
+          - img "ZIOPSYOP" [ref=f1e37]:
+            - generic [ref=f1e38]: Z
+            - generic [ref=f1e39]: I
+            - generic [ref=f1e41]:
+              - text: 0 0
+              - generic [ref=f1e42]: "0"
+              - text: "0"
+            - generic [ref=f1e43]: P
+            - generic [ref=f1e44]: S
+            - generic [ref=f1e45]: "Y"
+            - generic [ref=f1e47]:
+              - text: 0 0
+              - generic [ref=f1e48]: "0"
+              - text: "0"
+            - generic [ref=f1e49]: P
+        - navigation "Main navigation" [ref=f1e50]:
+          - button "INVESTIGATION" [ref=f1e52]
+          - button "BATTLEFIELD" [ref=f1e54]
+          - button "MEDIA" [ref=f1e57]
+          - button "INFO" [ref=f1e59]
+          - link "SUPPORT" [ref=f1e60] [cursor=pointer]:
+            - /url: /support
+        - generic [ref=f1e64]: 14:48:22Z
+      - generic [ref=f1e69]:
+        - generic [ref=f1e70]:
+          - generic [ref=f1e71]:
+            - generic [ref=f1e72]:
+              - generic [ref=f1e73]:
+                - generic [ref=f1e74]: METHOD // COMPUTER VISION
+                - generic [ref=f1e76]: 35-VIDEO CORPUS
+              - heading "FROM PIXELS TO EVIDENCE." [level=1] [ref=f1e77]:
+                - text: FROM PIXELS
+                - generic [ref=f1e78]: TO EVIDENCE.
+              - paragraph [ref=f1e79]: "The vision model did not watch the war like a person watches a clip. It converted successive frames into candidate measurements: approach angle, target class, visible-person count, movement direction, impact relationship and uncertainty. Human review then decided what survived."
+            - generic [ref=f1e80]:
+              - paragraph [ref=f1e81]: CORPUS DECLARATION
+              - generic [ref=f1e82]:
+                - generic [ref=f1e83]:
+                  - paragraph [ref=f1e84]: "35"
+                  - paragraph [ref=f1e85]: VIDEOS
+                - generic [ref=f1e86]:
+                  - paragraph [ref=f1e87]: 2+
+                  - paragraph [ref=f1e88]: HOURS
+                - generic [ref=f1e89]:
+                  - paragraph [ref=f1e90]: "2"
+                  - paragraph [ref=f1e91]: REVIEW LAYERS
+              - paragraph [ref=f1e92]: Model-assisted does not mean model-certified. The system is a quantification springboard; the evidence standard remains human-reviewed and source-aware.
+          - generic [ref=f1e94]:
+            - generic [ref=f1e95]:
+              - generic [ref=f1e100]:
+                - paragraph [ref=f1e101]: INTERACTIVE EVIDENCE MODEL
+                - paragraph [ref=f1e102]: DRAG ROTATE · RIGHT-DRAG PAN · WHEEL ZOOM · CLICK A COMPONENT
+              - generic [ref=f1e103]:
+                - button "iso" [ref=f1e104]
+                - button "top" [ref=f1e105]
+                - button "front" [ref=f1e106]
+                - button "side" [ref=f1e107]
+                - button "AUTO ON" [ref=f1e108]
+            - generic [ref=f1e109]:
+              - generic [ref=f1e110]:
+                - generic:
+                  - generic: RECON // ABABIL FPV
+                  - generic: NOT TO SCALE
+                - generic:
+                  - generic: X / Y / Z AXES ACTIVE
+                  - generic: ESTIMATED RECONSTRUCTION // V1.0
+              - complementary [ref=f1e113]:
+                - generic [ref=f1e114]:
+                  - paragraph [ref=f1e115]: SELECTED COMPONENT
+                  - generic [ref=f1e116]:
+                    - generic [ref=f1e117]: "04"
+                    - generic [ref=f1e118]:
+                      - paragraph [ref=f1e119]: OPTICAL-FIBRE SPOOL
+                      - generic [ref=f1e120]: PROBABLE
+                  - paragraph [ref=f1e121]: Reporting places a 10–20 km optical spool on many aircraft; some reporting gives a wider 10–30 km envelope.
+                - generic [ref=f1e122]:
+                  - button "01 LONG-RANGE X FRAME OBS" [ref=f1e123]:
+                    - generic [ref=f1e124]: "01"
+                    - generic [ref=f1e125]: LONG-RANGE X FRAME
+                    - generic [ref=f1e126]: OBS
+                  - button "02 FOUR-MOTOR DRIVE OBS" [ref=f1e127]:
+                    - generic [ref=f1e128]: "02"
+                    - generic [ref=f1e129]: FOUR-MOTOR DRIVE
+                    - generic [ref=f1e130]: OBS
+                  - button "03 FORWARD FPV OPTIC OBS" [ref=f1e131]:
+                    - generic [ref=f1e132]: "03"
+                    - generic [ref=f1e133]: FORWARD FPV OPTIC
+                    - generic [ref=f1e134]: OBS
+                  - button "04 OPTICAL-FIBRE SPOOL PRO" [active] [ref=f1e135]:
+                    - generic [ref=f1e136]: "04"
+                    - generic [ref=f1e137]: OPTICAL-FIBRE SPOOL
+                    - generic [ref=f1e138]: PRO
+                  - button "05 EXTERNAL CHARGE SILHOUETTE OBS" [ref=f1e139]:
+                    - generic [ref=f1e140]: "05"
+                    - generic [ref=f1e141]: EXTERNAL CHARGE SILHOUETTE
+                    - generic [ref=f1e142]: OBS
+                  - button "06 POWER + CONTROL STACK UNR" [ref=f1e143]:
+                    - generic [ref=f1e144]: "06"
+                    - generic [ref=f1e145]: POWER + CONTROL STACK
+                    - generic [ref=f1e146]: UNR
+                - generic [ref=f1e148]:
+                  - generic [ref=f1e149]: ● OBSERVED
+                  - generic [ref=f1e150]: ● PROBABLE
+                  - generic [ref=f1e151]: ● UNRESOLVED
+          - generic [ref=f1e152]:
+            - paragraph [ref=f1e156]: RECONSTRUCTION NOTICE // No public schematic has been authenticated. Form and component placement combine visible campaign imagery with independently reported long-range FPV architecture. Dimensions, vendors, motor ratings, battery configuration, internal electronics and exact payload integration remain unresolved.
+            - generic [ref=f1e157]: EVIDENCE ≠ BLUEPRINT
+        - generic [ref=f1e160]:
+          - generic [ref=f1e161]:
+            - paragraph [ref=f1e162]: THE PIPELINE
+            - heading "WHAT HAPPENED BETWEEN VIDEO AND TABLE." [level=2] [ref=f1e163]
+            - paragraph [ref=f1e164]: This is the chain the site uses to explain the result. It separates machine output, human judgment, outside reporting and the final structured record.
+          - generic [ref=f1e165]:
+            - generic [ref=f1e167]:
+              - generic [ref=f1e168]: "01"
+              - generic [ref=f1e169]:
+                - paragraph [ref=f1e170]: SOURCE VIDEO
+                - paragraph [ref=f1e171]: Thirty-five campaign releases; more than two hours of footage.
+            - generic [ref=f1e172]:
+              - generic [ref=f1e173]: "02"
+              - generic [ref=f1e174]:
+                - paragraph [ref=f1e175]: FRAME DECODE
+                - paragraph [ref=f1e176]: Frames, cuts and timestamps are normalized into a reviewable timebase.
+            - generic [ref=f1e177]:
+              - generic [ref=f1e178]: "03"
+              - generic [ref=f1e179]:
+                - paragraph [ref=f1e180]: VISION PASS
+                - paragraph [ref=f1e181]: People, vehicles, motion vectors, approach geometry and scene changes become candidate observations.
+            - generic [ref=f1e182]:
+              - generic [ref=f1e183]: "04"
+              - generic [ref=f1e184]:
+                - paragraph [ref=f1e185]: PHYSICS CHECK
+                - paragraph [ref=f1e186]: Scale cues, perspective, elapsed time and blast relationships constrain—not prove—the estimate.
+            - generic [ref=f1e187]:
+              - generic [ref=f1e188]: "05"
+              - generic [ref=f1e189]:
+                - paragraph [ref=f1e190]: HUMAN REVIEW
+                - paragraph [ref=f1e191]: Every candidate is replayed, corrected, contextualized and rejected when the image cannot support it.
+            - generic [ref=f1e192]:
+              - generic [ref=f1e193]: "06"
+              - generic [ref=f1e194]:
+                - paragraph [ref=f1e195]: OPEN-SOURCE JOIN
+                - paragraph [ref=f1e196]: Location, target and casualty reporting are compared with named external sources.
+            - generic [ref=f1e197]:
+              - generic [ref=f1e198]: "07"
+              - generic [ref=f1e199]:
+                - paragraph [ref=f1e200]: STRUCTURED RECORD
+                - paragraph [ref=f1e201]: Reviewed fields enter the evidence tables used by the battlefield exhibits.
+        - generic [ref=f1e202]:
+          - generic [ref=f1e203]:
+            - generic [ref=f1e204]:
+              - paragraph [ref=f1e205]: MODEL WORK // ACTUAL TASKS
+              - heading "NOT “AI ANALYSIS.” SIX SPECIFIC JOBS." [level=2] [ref=f1e206]
+            - paragraph [ref=f1e207]: The advantage was not that the model “understood war.” It was that it could apply the same narrow measurements to thousands of consecutive frames, then hand uncertain cases to a person.
+          - generic [ref=f1e208]:
+            - article [ref=f1e209]:
+              - generic [ref=f1e210]: TASK_01
+              - heading "APPROACH GEOMETRY" [level=3] [ref=f1e217]
+              - paragraph [ref=f1e218]: Track the incoming drone across successive frames, estimate bearing changes, and separate a real turn from camera roll or editorial cutting.
+            - article [ref=f1e219]:
+              - generic [ref=f1e220]: TASK_02
+              - heading "TARGET CLASSIFICATION" [level=3] [ref=f1e227]
+              - paragraph [ref=f1e228]: Distinguish a soldier, vehicle, armoured platform, earthmover, structure or technical system before a human validates the label.
+            - article [ref=f1e229]:
+              - generic [ref=f1e230]: TASK_03
+              - heading "FRAME-LEVEL COUNTS" [level=3] [ref=f1e237]
+              - paragraph [ref=f1e238]: Maintain candidate counts of visible people through motion and partial occlusion instead of relying on one memorable still frame.
+            - article [ref=f1e239]:
+              - generic [ref=f1e240]: TASK_04
+              - heading "MOVEMENT VECTORS" [level=3] [ref=f1e247]
+              - paragraph [ref=f1e248]: Measure where visible people move or run, over how many frames, and whether the apparent direction persists after camera motion is removed.
+            - article [ref=f1e249]:
+              - generic [ref=f1e250]: TASK_05
+              - heading "IMPACT RELATIONSHIPS" [level=3] [ref=f1e257]
+              - paragraph [ref=f1e258]: Compare the terminal frame, target position and visible blast envelope. It does not infer a casualty from an explosion alone.
+            - article [ref=f1e259]:
+              - generic [ref=f1e260]: TASK_06
+              - heading "REVIEW PRIORITY" [level=3] [ref=f1e267]
+              - paragraph [ref=f1e268]: Surface uncertain, contradictory or high-consequence segments first so human attention is spent where a wrong label would matter most.
+        - generic [ref=f1e270]:
+          - generic [ref=f1e271]:
+            - paragraph [ref=f1e276]: WHY THE MODEL MATTERED
+            - heading "A HUMAN SEES CONTEXT. A MODEL HOLDS THE SAME MEASUREMENT ACROSS EVERY FRAME." [level=2] [ref=f1e277]
+            - list [ref=f1e278]:
+              - listitem [ref=f1e279]: 01It does not forget the previous frame when the camera rolls, vibrates or cuts.
+              - listitem [ref=f1e280]: 02It can revisit every candidate person and vehicle with the same threshold instead of a changing impression.
+              - listitem [ref=f1e281]: "03It turns motion into a review trail: frame, time, track and confidence—not just a conclusion."
+              - listitem [ref=f1e282]: 04It finds the small contradictory segment a human may miss after hours of repetitive footage.
+          - generic [ref=f1e283]:
+            - paragraph [ref=f1e287]: WHY THE HUMAN REMAINED ESSENTIAL
+            - heading "A TRACK IS NOT A FACT UNTIL THE IMAGE AND THE SOURCE CAN SUPPORT IT." [level=2] [ref=f1e288]
+            - list [ref=f1e289]:
+              - listitem [ref=f1e290]: Unknown camera field of view and lens distortion
+              - listitem [ref=f1e291]: Compression, dropped frames and edited sequences
+              - listitem [ref=f1e292]: No reliable scale reference in many scenes
+              - listitem [ref=f1e293]: Rolling shutter, vibration and terminal signal loss
+              - listitem [ref=f1e294]: Occlusion by terrain, smoke, vehicles or structures
+              - listitem [ref=f1e295]: Casualty outcomes require external corroboration
+            - paragraph [ref=f1e296]: The model can indicate that three figures were visible before an impact. It cannot, from that image alone, establish who they were or what happened after the camera feed ended.
+        - generic [ref=f1e299]:
+          - generic [ref=f1e300]:
+            - paragraph [ref=f1e306]: LIVE DATA WINDOW
+            - heading "THE CURRENT STRUCTURED LAYER." [level=2] [ref=f1e307]
+            - paragraph [ref=f1e308]: This is a presentation of rows fetched from public.hezbollah_strikes at render time—not a screenshot of the Supabase dashboard.
+            - generic [ref=f1e309]:
+              - generic [ref=f1e310]:
+                - term [ref=f1e311]: TABLE ROWS
+                - definition [ref=f1e312]: "100"
+              - generic [ref=f1e313]:
+                - term [ref=f1e314]: WINDOW
+                - definition [ref=f1e315]: 6 DRONE RECORDS
+              - generic [ref=f1e316]:
+                - term [ref=f1e317]: STATE
+                - definition [ref=f1e318]: LEGACY + EXPANDING
+            - paragraph [ref=f1e319]: The recovered table predates the new 35-video provenance mapping. New video IDs, source URLs, model version and confidence fields remain a later ingestion step.
+          - table [ref=f1e321]:
+            - rowgroup [ref=f1e322]:
+              - row [ref=f1e323]:
+                - columnheader "ID" [ref=f1e324]
+                - columnheader "SYSTEM" [ref=f1e325]
+                - columnheader "TARGET" [ref=f1e326]
+                - columnheader "LOCATION" [ref=f1e327]
+                - columnheader "HUMAN SOURCE" [ref=f1e328]
+                - columnheader "OBSERVED NOTE" [ref=f1e329]
+            - rowgroup [ref=f1e330]:
+              - row [ref=f1e331]:
+                - cell "HZ-044" [ref=f1e332]
+                - cell "FPV_DRONE" [ref=f1e333]
+                - cell "Personnel" [ref=f1e334]
+                - cell "Shomera base (N. Israel border)" [ref=f1e335]
+                - cell "Jon Elmer Day 95" [ref=f1e336]
+                - cell "Soldier killed running away, utility vehicle chased and destroyed. Shomera base. 3 total casualties" [ref=f1e337]
+              - row [ref=f1e338]:
+                - cell "HZ-045" [ref=f1e339]
+                - cell "FPV_DRONE" [ref=f1e340]
+                - cell "Light Vehicle" [ref=f1e341]
+                - cell "Rash Hanikra naval base" [ref=f1e342]
+                - cell "Jon Elmer Day 95" [ref=f1e343]
+                - cell "Military car + Humvee at Israeli naval command base at Rash Hanikra" [ref=f1e344]
+              - row [ref=f1e345]:
+                - cell "HZ-048" [ref=f1e346]
+                - cell "FPV_DRONE" [ref=f1e347]
+                - cell "Engineering Vehicle" [ref=f1e348]
+                - cell "Various south Lebanon" [ref=f1e349]
+                - cell "Jon Elmer Day 95" [ref=f1e350]
+                - cell "36 FPV strikes this single week including excavators and D9s used in village demolitions" [ref=f1e351]
+              - row [ref=f1e352]:
+                - cell "HZ-049" [ref=f1e353]
+                - cell "FPV_DRONE" [ref=f1e354]
+                - cell "Personnel" [ref=f1e355]
+                - cell "Hadatha" [ref=f1e356]
+                - cell "Jon Elmer Day 95" [ref=f1e357]
+                - 'cell "18-hour battle Hadatha: 7 rocket ops, 9 anti-tank ops, 3 bulldozers destroyed. Hadatha repelled 9 total incursion attempts" [ref=f1e358]'
+              - row [ref=f1e359]:
+                - cell "HZ-051" [ref=f1e360]
+                - cell "FPV_DRONE" [ref=f1e361]
+                - cell "Armored Vehicle" [ref=f1e362]
+                - cell "Zar al-Sharaka" [ref=f1e363]
+                - cell "Jon Elmer Day 102" [ref=f1e364]
+                - cell "Engine compartment open during repair — hit and torched. Burning 30 minutes later (BDA confirmed)" [ref=f1e365]
+              - row [ref=f1e366]:
+                - cell "HZ-052" [ref=f1e367]
+                - cell "FPV_DRONE" [ref=f1e368]
+                - cell "Armored Vehicle" [ref=f1e369]
+                - cell "Zar al-Sharaka" [ref=f1e370]
+                - cell "Jon Elmer Day 102" [ref=f1e371]
+                - cell "Under netting and sticks. Drone flew underneath and hit from rear — weakest spot" [ref=f1e372]
+        - generic [ref=f1e374]:
+          - generic [ref=f1e375]:
+            - paragraph [ref=f1e376]: SOURCE DISCIPLINE
+            - heading "THE AIRCRAFT IS A RECONSTRUCTION. THE CLAIMS ARE TRACEABLE." [level=2] [ref=f1e377]
+            - paragraph [ref=f1e378]: Exact Hezbollah schematics are not public. The page therefore distinguishes what is visible, what multiple sources make probable, and what remains unresolved instead of disguising a plausible model as recovered hardware.
+          - generic [ref=f1e379]:
+            - link "BBC VERIFY // 35 GEOLOCATED VIDEOS Independent corpus count, locations, commercial-parts estimate and 10–20 km optical spool diagram." [ref=f1e380] [cursor=pointer]:
+              - /url: https://www.bbc.com/news/articles/c1j2zwe9g5no
+              - generic [ref=f1e381]: BBC VERIFY // 35 GEOLOCATED VIDEOS
+              - generic [ref=f1e382]: Independent corpus count, locations, commercial-parts estimate and 10–20 km optical spool diagram.
+            - link "AL JAZEERA // FIBRE-OPTIC SYSTEM Released airframe image and reporting on camera, construction and the wider 10–30 km range claim." [ref=f1e386] [cursor=pointer]:
+              - /url: https://www.aljazeera.com/news/2026/4/29/how-hezbollahs-fibre-optic-drones-test-israels-sophisticated-radar-system
+              - generic [ref=f1e387]: AL JAZEERA // FIBRE-OPTIC SYSTEM
+              - generic [ref=f1e388]: Released airframe image and reporting on camera, construction and the wider 10–30 km range claim.
+            - link "ALMA // FPV THREAT REPORT Israeli research-center assessment of four-motor quadcopters, commercial components and fibre guidance." [ref=f1e392] [cursor=pointer]:
+              - /url: https://israel-alma.org/special-report-hezbollahs-fpv-explosive-drone-threat/
+              - generic [ref=f1e393]: ALMA // FPV THREAT REPORT
+              - generic [ref=f1e394]: Israeli research-center assessment of four-motor quadcopters, commercial components and fibre guidance.
+            - link "U.S. ARMY // FIBRE-OPTIC FPV PRIMER Technical context for optical guidance and the limits of radio-frequency countermeasures." [ref=f1e398] [cursor=pointer]:
+              - /url: https://www.army.mil/article/287737/fiber_optic_drones_posing_a_significant_c_uas_challenge
+              - generic [ref=f1e399]: U.S. ARMY // FIBRE-OPTIC FPV PRIMER
+              - generic [ref=f1e400]: Technical context for optical guidance and the limits of radio-frequency countermeasures.
+        - generic [ref=f1e405]:
+          - link "WATCH THE CORPUS Open the sourced video archive and its release-level evidence." [ref=f1e406] [cursor=pointer]:
+            - /url: /evidence
+            - generic [ref=f1e407]: WATCH THE CORPUS
+            - paragraph [ref=f1e411]: Open the sourced video archive and its release-level evidence.
+          - link "READ THE FINDINGS Move from structured observations to the Part II battlefield exhibits." [ref=f1e412] [cursor=pointer]:
+            - /url: /battlefield
+            - generic [ref=f1e413]: READ THE FINDINGS
+            - paragraph [ref=f1e417]: Move from structured observations to the Part II battlefield exhibits.
+          - link "AUDIT THE SOURCES See original outlets, stored feeds, planned inputs and provenance status." [ref=f1e418] [cursor=pointer]:
+            - /url: /sources
+            - generic [ref=f1e419]: AUDIT THE SOURCES
+            - paragraph [ref=f1e423]: See original outlets, stored feeds, planned inputs and provenance status.
+      - contentinfo [ref=f1e424]:
+        - generic:
+          - paragraph:
+            - generic: Z
+            - generic: I
+            - generic: "0"
+            - generic: P
+            - generic: S
+            - generic: "Y"
+            - generic: "0"
+            - generic: P
+            - generic: .
+            - generic: M
+            - generic: E
+          - paragraph: Signal From Noise — Influence Operation Forensics
+          - navigation "Footer navigation" [ref=f1e427]:
+            - generic [ref=f1e428]:
+              - link "Gateway" [ref=f1e429] [cursor=pointer]:
+                - /url: /
+              - generic [ref=f1e430]: ·
+            - generic [ref=f1e431]:
+              - link "Part I" [ref=f1e432] [cursor=pointer]:
+                - /url: /part-i
+              - generic [ref=f1e433]: ·
+            - generic [ref=f1e434]:
+              - link "Analysis" [ref=f1e435] [cursor=pointer]:
+                - /url: /analysis
+              - generic [ref=f1e436]: ·
+            - generic [ref=f1e437]:
+              - link "Part II" [ref=f1e438] [cursor=pointer]:
+                - /url: /battlefield
+              - generic [ref=f1e439]: ·
+            - generic [ref=f1e440]:
+              - link "Map" [ref=f1e441] [cursor=pointer]:
+                - /url: /map
+              - generic [ref=f1e442]: ·
+            - generic [ref=f1e443]:
+              - link "Synthesis" [ref=f1e444] [cursor=pointer]:
+                - /url: /synthesis
+              - generic [ref=f1e445]: ·
+            - generic [ref=f1e446]:
+              - link "Video" [ref=f1e447] [cursor=pointer]:
+                - /url: /evidence
+              - generic [ref=f1e448]: ·
+            - generic [ref=f1e449]:
+              - link "Sources" [ref=f1e450] [cursor=pointer]:
+                - /url: /sources
+              - generic [ref=f1e451]: ·
+            - generic [ref=f1e452]:
+              - link "Objections" [ref=f1e453] [cursor=pointer]:
+                - /url: /counter-arguments
+              - generic [ref=f1e454]: ·
+            - generic [ref=f1e455]:
+              - link "About" [ref=f1e456] [cursor=pointer]:
+                - /url: /about
+              - generic [ref=f1e457]: ·
+            - link "Support" [ref=f1e459] [cursor=pointer]:
+              - /url: /support
+          - paragraph: All data sourced from publicly available Reddit archives via the Arctic Shift API. Analysis covers r/ForbiddenBromance from September 2019 through March 2026. Methodology, raw data and source code are open — verify everything yourself.
+          - paragraph: "[ Dataset Live — Metadata Update Daily ]"
+    - link "Support the work — keep the signal live" [ref=f1e461] [cursor=pointer]:
+      - /url: /support
+      - text: KEEP THE SIGNAL LIVE
+  - button "Open Next.js Dev Tools" [ref=f1e8] [cursor=pointer]
+  - alert [ref=f1e12]

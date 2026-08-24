@@ -1,0 +1,728 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - main [ref=e3]:
+      - generic [ref=e4]:
+        - link "ZIOPSYOP home" [ref=e5] [cursor=pointer]:
+          - /url: /
+          - img "ZIOPSYOP" [ref=e26]:
+            - generic [ref=e27]: Z
+            - generic [ref=e28]: I
+            - generic [ref=e30]:
+              - text: 0 0
+              - generic [ref=e31]: "0"
+              - text: "0"
+            - generic [ref=e32]: P
+            - generic [ref=e33]: S
+            - generic [ref=e34]: "Y"
+            - generic [ref=e36]:
+              - text: 0 0
+              - generic [ref=e37]: "0"
+              - text: "0"
+            - generic [ref=e38]: P
+        - navigation "Main navigation" [ref=e39]:
+          - generic [ref=e40]:
+            - button "INVESTIGATION" [ref=e41]:
+              - generic [ref=e42]: INVESTIGATI0N
+            - generic [ref=e44] [cursor=pointer]: VERVIEW
+            - generic [ref=e45] [cursor=pointer]: ANALYSIS
+            - generic [ref=e46] [cursor=pointer]: D SSIER
+            - generic [ref=e47] [cursor=pointer]: C NTR L
+          - generic [ref=e48]:
+            - button "BATTLEFIELD" [ref=e49]
+            - generic [ref=e52] [cursor=pointer]: SC RECARD
+            - generic [ref=e53] [cursor=pointer]: MAP
+            - generic [ref=e54] [cursor=pointer]: VISI N M DEL
+          - generic [ref=e55]:
+            - button "MEDIA" [ref=e56]
+            - generic [ref=e60] [cursor=pointer]: MEDIA WAR
+            - generic [ref=e61] [cursor=pointer]: SYNTHESIS
+            - generic [ref=e62] [cursor=pointer]: VIDE
+            - generic [ref=e63] [cursor=pointer]: S URCES
+            - generic [ref=e64] [cursor=pointer]: C UNTERP INTS
+          - generic [ref=e65]:
+            - button "INFO" [ref=e66]:
+              - generic [ref=e67]: INF0
+            - generic [ref=e69] [cursor=pointer]: AB UT
+            - generic [ref=e70] [cursor=pointer]: C NTACT
+          - link "SUPPORT" [ref=e71] [cursor=pointer]:
+            - /url: /support
+            - generic [ref=e75]:
+              - text: SUPP
+              - generic [ref=e76]: "0"
+              - text: RT
+        - generic [ref=e77]: 19:11:59Z
+      - generic [ref=e82]:
+        - generic:
+          - generic: "***+***++*+*-*==+*=-=*++ #@@@ = +++%*@@@@##+% = = @++% --+-=+=*=*-===-*-+*+---="
+          - generic: "-*-#+##*#@##@+#+%#*+* *-%@# = = #*@+= -=%* = = = = = ##-+ @% == = #*+++%#=*==* = =@* % = = *#++#@@@@%+%#=% = = = # # **=+*%@@@@@*#%*% =# #* = = = %*=%+=#%+*%*=* =+@ *=## = =%#=%#= = =#@+= =-%#* = = ==#%*++ +-*#%%*@+%#+#**%+#=--"
+          - generic: "=-=#%@@##++@%*+%--= *@%+# = ==+%+** +*+#== = = =# == +#== ** == #**#==%+#%#== = %* *= =+*#%@@@+=%*% = % = #*+=%@@@@@=+*=* = % = #%*=++@%%*%+* # ++ = = ==+#%+=*%+= = = @- **@# = =%*+- =**#+ = = #*++* +****@*+*@*%+#*%=+="
+          - generic: "=+#@#%*##%#@#@%*@#%=+ =%* = == = = = *#* @+ = = *=====@==%++% = = =++ = = = =#*###@@#@#+%#++ = = ##= = #%**+%#*+#% == #% =#+ = ===*%= =*#%**+*@#@@%+#*%#%+-"
+          - generic: "-=-+*+++##@*+#@@+=*++ +=##*@ = +@*%++ =@@ = = = = ##= =%* = #%#%*%## = @++ #== == =%++#%@@%+##*+ === = =@ = = = #*#=*#@@#@+%%%# = = + *+*#+@@#@%#=%#= = # =%# = == +##=%=##*+++ ==%@+ -@@ = == = %* =#@- **@+%#= = %@#+-+ ==+=**%@##%#@%#@%==-="
+          - generic: "*-=#+%@#@#%@+++*+* =*+%%@ = = %+@%-= +-%% = = ##++ +* = =++*%=%+= == = @+ # = = *#+#=@@#=+%# === + = == = *#*%+@@@@%*#%% = + = == +=+#*@@@@##=*+ @ =+ = = #*#=#+=*=# =+- *=@@ = = = = = %*+= *+%+#* = +%**-+ --=**%+##*%*#*@-+-"
+          - generic: "=*+@#+@++*++#-* -=#% = = = ==#+-- %#== = == =%* + =%*++##* + *= =#=++@@@++%+ * % = = %##*#@@=%== = = =+ +== = *%%%%%+#*== % *# = =#**= +% +=*% #%-+ -=%%#@%%@@#+@*-"
+          - generic: "-*+--*-++-+**+=**-++-+==++ *%*+*@#@@#@% %#%=**##*=+##@+%*#@##++ -*+*%%%@%++% =*++###+** +#%@@**@*%*= =*=*===---++=*-==+*=*=+-*-"
+          - generic: "+--+@+++%#%*@@*%#-**= -+#*## = #+#@+* =+@= = = = = *@+ *#% = +#+###**#=+ == *+- # = +*%=*+@@@@==#+% = = @ = ##=*##@@#@=#%#%= + =%#*%==#@#**+% = = + -@% == %*#**%%*= *@- -#% = == = #+* +=@@+@ = = = = +#**== +=-*%+*@*+#****%#*--+"
+          - generic: "*++*#%*#*%%%#@@++@**++ =@%# = = @%@* @+ = %%=#==+==++*#= = %# %+==*@@#@@=*#*+ == *%= +*%##%%%### = =@% +*##= = == = = =++@- *+*%*@***#***%*%%@%+=+"
+          - generic: "-*%@+%+@+#-= +*@ = = = =%+* -# =#=* %= +# = %=%**#+# = #- * =%%+@@@+%% =@ @ *#*#@=#*= = # -+ %+%+#=== =@- =@ = = = #= *#% = @#* ==%%*%*+*%=="
+          - generic: "-*-=--*+*+=*-+-=++=*=++-= %@++ = = %*%#*@#@@%#=%= =++@% +==*=+==+--*===+--=+*==**"
+        - generic [ref=e83]:
+          - generic [ref=e84]:
+            - generic "BIBLIOGRAPHY // PROVENANCE LEDGER" [ref=e87]
+            - heading "SOURCE INDEX" [level=1] [ref=e89]:
+              - generic [ref=e90]: S
+              - generic [ref=e91]: "0"
+              - generic [ref=e92]: U
+              - generic [ref=e93]: R
+              - generic [ref=e94]: C
+              - generic [ref=e95]: E
+              - generic [ref=e97]: I
+              - generic [ref=e98]: "N"
+              - generic [ref=e99]: D
+              - generic [ref=e100]: E
+              - generic [ref=e101]: X
+            - paragraph [ref=e102]:
+              - generic "ORIGIN · STORAGE · STATUS · EXHIBIT" [ref=e103]
+            - generic [ref=e104]: Original publishers, institutional records, archive interfaces and the structured layer that joins them. Supabase stores observations; it is never presented as their origin.
+          - generic [ref=e105]:
+            - generic [ref=e106]:
+              - paragraph [ref=e107]: 46,555
+              - paragraph [ref=e108]:
+                - generic [ref=e109]: MEDIA EVENTS
+              - paragraph [ref=e110]: Current public.media_events rows
+            - generic [ref=e111]:
+              - paragraph [ref=e112]: 3 / 6
+              - paragraph [ref=e113]:
+                - generic [ref=e114]: STREAMS LIVE
+              - paragraph [ref=e115]: Three loaded; three named benchmarks queued
+            - generic [ref=e116]:
+              - paragraph [ref=e117]: "19"
+              - paragraph [ref=e118]:
+                - generic [ref=e119]: PUBLIC TABLES
+              - paragraph [ref=e120]: Structured exhibits, summaries and provenance
+          - generic [ref=e121]:
+            - paragraph [ref=e122]: PROVENANCE STATUS // CURRENT VS INTENDED
+            - paragraph [ref=e123]: Al-Manar, Al Mayadeen and Channel 14 are currently ingested. Times of Israel, Al Jazeera English and BBC are the next benchmark streams. Labels marked QUEUED describe the approved research design, not rows already present in the database.
+          - region [ref=e124]:
+            - generic [ref=e125]:
+              - generic [ref=e126]:
+                - paragraph [ref=e127]: DATABASE SNAPSHOT // NOT A DASHBOARD SCREENSHOT
+                - heading "What is actually stored" [level=2] [ref=e128]:
+                  - generic [ref=e129]: WHAT IS ACTUALLY ST0RED
+              - paragraph [ref=e130]: READ-ONLY CHECK · 12 AUG 2026 · 18:30 UTC
+            - paragraph [ref=e131]: "This is a published inventory of the connected Supabase project: table name, row count, observation grain, coverage and provenance contract. It shows the storage layer without pretending that a database UI screenshot is evidence. Counts are a dated snapshot and can change after a validated ingest."
+            - table [ref=e133]:
+              - rowgroup [ref=e134]:
+                - row [ref=e135]:
+                  - columnheader "TABLE" [ref=e136]
+                  - columnheader "ROWS" [ref=e137]
+                  - columnheader "LAYER" [ref=e138]
+                  - columnheader "OBSERVATION GRAIN" [ref=e139]
+                  - columnheader "COVERAGE" [ref=e140]
+                  - columnheader "PROVENANCE" [ref=e141]
+              - rowgroup [ref=e142]:
+                - row [ref=e143]:
+                  - cell "public.media_events" [ref=e144]
+                  - cell "46,555" [ref=e145]
+                  - cell "PRIMARY INDEX" [ref=e146]
+                  - cell "one publisher item" [ref=e147]
+                  - cell "04 Aug 2023—13 Jul 2026" [ref=e148]
+                  - cell "Al-Manar · Al Mayadeen · Channel 14" [ref=e149]
+                - row [ref=e150]:
+                  - cell "public.hezbollah_strikes" [ref=e151]
+                  - cell "100" [ref=e152]
+                  - cell "STRUCTURED RECORD" [ref=e153]
+                  - cell "one strike record" [ref=e154]
+                  - cell "12 Nov 2024—18 Jun 2025" [ref=e155]
+                  - cell "release record + event cross-check" [ref=e156]
+                - row [ref=e157]:
+                  - cell "public.hezbollah_strike_categories" [ref=e158]
+                  - cell "19" [ref=e159]
+                  - cell "AGGREGATE" [ref=e160]
+                  - cell "target-class summary" [ref=e161]
+                  - cell "campaign periods" [ref=e162]
+                  - cell "derived from structured strike records" [ref=e163]
+                - row [ref=e164]:
+                  - cell "public.idf_kia" [ref=e165]
+                  - cell "49" [ref=e166]
+                  - cell "STRUCTURED RECORD" [ref=e167]
+                  - cell "one named fatality" [ref=e168]
+                  - cell "01 Nov 2024—17 Jun 2025" [ref=e169]
+                  - cell "official notices + reporting" [ref=e170]
+                - row [ref=e171]:
+                  - cell "public.idf_kia_meta" [ref=e172]
+                  - cell "2" [ref=e173]
+                  - cell "DERIVED" [ref=e174]
+                  - cell "campaign estimate band" [ref=e175]
+                  - cell "campaign periods" [ref=e176]
+                  - cell "official count vs estimate contract" [ref=e177]
+                - row [ref=e178]:
+                  - cell "public.lebanese_civilian_casualties" [ref=e179]
+                  - cell "19" [ref=e180]
+                  - cell "STRUCTURED RECORD" [ref=e181]
+                  - cell "one incident or aggregate" [ref=e182]
+                  - cell "01 Nov 2024—15 Jun 2025" [ref=e183]
+                  - cell "public incident and health records" [ref=e184]
+                - row [ref=e185]:
+                  - cell "public.lebanese_casualties_meta" [ref=e186]
+                  - cell "3" [ref=e187]
+                  - cell "AGGREGATE" [ref=e188]
+                  - cell "campaign summary" [ref=e189]
+                  - cell "campaign periods" [ref=e190]
+                  - cell "public health and incident records" [ref=e191]
+                - row [ref=e192]:
+                  - cell "public.idf_hardware_losses" [ref=e193]
+                  - cell "26" [ref=e194]
+                  - cell "STRUCTURED RECORD" [ref=e195]
+                  - cell "one equipment-loss class" [ref=e196]
+                  - cell "campaign periods" [ref=e197]
+                  - cell "public reporting + release transcripts" [ref=e198]
+                - row [ref=e199]:
+                  - cell "public.cost_to_israel_summary" [ref=e200]
+                  - cell "3" [ref=e201]
+                  - cell "DERIVED" [ref=e202]
+                  - cell "campaign cost estimate" [ref=e203]
+                  - cell "campaign periods" [ref=e204]
+                  - cell "declared assumptions + unit-cost references" [ref=e205]
+                - row [ref=e206]:
+                  - cell "public.infrastructure_destruction" [ref=e207]
+                  - cell "15" [ref=e208]
+                  - cell "STRUCTURED RECORD" [ref=e209]
+                  - cell "one site or destruction class" [ref=e210]
+                  - cell "campaign periods" [ref=e211]
+                  - cell "humanitarian + geospatial reporting" [ref=e212]
+                - row [ref=e213]:
+                  - cell "public.infrastructure_destruction_meta" [ref=e214]
+                  - cell "2" [ref=e215]
+                  - cell "AGGREGATE" [ref=e216]
+                  - cell "campaign summary" [ref=e217]
+                  - cell "campaign periods" [ref=e218]
+                  - cell "structured destruction records" [ref=e219]
+                - row [ref=e220]:
+                  - cell "public.targeting_disparity_comparison" [ref=e221]
+                  - cell "4" [ref=e222]
+                  - cell "DERIVED" [ref=e223]
+                  - cell "actor-period comparison" [ref=e224]
+                  - cell "campaign periods" [ref=e225]
+                  - cell "declared comparison rules" [ref=e226]
+                - row [ref=e227]:
+                  - cell "public.timeline_events" [ref=e228]
+                  - cell "24" [ref=e229]
+                  - cell "STRUCTURED RECORD" [ref=e230]
+                  - cell "one dated event" [ref=e231]
+                  - cell "01 Oct 2024—18 Jun 2025" [ref=e232]
+                  - cell "cross-record timeline" [ref=e233]
+                - row [ref=e234]:
+                  - cell "public.reddit_user_sentiment" [ref=e235]
+                  - cell "50" [ref=e236]
+                  - cell "DERIVED" [ref=e237]
+                  - cell "user-period measure" [ref=e238]
+                  - cell "research windows" [ref=e239]
+                  - cell "Arctic Shift public archive" [ref=e240]
+                - row [ref=e241]:
+                  - cell "public.reddit_subreddit_metrics" [ref=e242]
+                  - cell "79" [ref=e243]
+                  - cell "AGGREGATE" [ref=e244]
+                  - cell "subreddit-period measure" [ref=e245]
+                  - cell "research windows" [ref=e246]
+                  - cell "Arctic Shift public archive" [ref=e247]
+                - row [ref=e248]:
+                  - cell "public.media_coverage_gaps" [ref=e249]
+                  - cell "13" [ref=e250]
+                  - cell "DERIVED" [ref=e251]
+                  - cell "incident-outlet comparison" [ref=e252]
+                  - cell "04 Aug 2020—05 Mar 2026" [ref=e253]
+                  - cell "13/13 rows carry source title + URL" [ref=e254]
+                - row [ref=e255]:
+                  - cell "public.idf_commander_quotes" [ref=e256]
+                  - cell "13" [ref=e257]
+                  - cell "PRIMARY INDEX" [ref=e258]
+                  - cell "one attributed statement" [ref=e259]
+                  - cell "01 Mar—18 Jun 2025" [ref=e260]
+                  - cell "named outlet attribution" [ref=e261]
+                - row [ref=e262]:
+                  - cell "public.hezbollah_weapon_systems" [ref=e263]
+                  - cell "19" [ref=e264]
+                  - cell "STRUCTURED RECORD" [ref=e265]
+                  - cell "one weapon-system profile" [ref=e266]
+                  - cell "2019—01 Feb 2025" [ref=e267]
+                  - cell "public releases + technical reporting" [ref=e268]
+                - row [ref=e269]:
+                  - cell "public.reddit_overview" [ref=e270]
+                  - cell "1" [ref=e271]
+                  - cell "AGGREGATE" [ref=e272]
+                  - cell "corpus summary" [ref=e273]
+                  - cell "Sep 2019—Jun 2026" [ref=e274]
+                  - cell "Arctic Shift public archive" [ref=e275]
+          - region [ref=e276]:
+            - paragraph [ref=e277]: MAINTENANCE CONTRACT // REPEATABLE INGEST
+            - heading "How the record gets updated" [level=2] [ref=e278]:
+              - generic [ref=e279]: H0W THE REC0RD GETS UPDATED
+            - generic [ref=e280]:
+              - article [ref=e281]:
+                - paragraph [ref=e282]: /01
+                - heading "CAPTURE" [level=3] [ref=e283]
+                - paragraph [ref=e285]: Store the original URL, publisher ID, retrieval time and an immutable content hash.
+              - article [ref=e286]:
+                - paragraph [ref=e287]: /02
+                - heading "NORMALIZE" [level=3] [ref=e288]:
+                  - generic [ref=e289]: N0RMALIZE
+                - paragraph [ref=e290]: Resolve actor, date, location and observation grain without rewriting the source claim as fact.
+              - article [ref=e291]:
+                - paragraph [ref=e292]: /03
+                - heading "DE-DUPLICATE" [level=3] [ref=e293]
+                - paragraph [ref=e295]: Match canonical IDs, mirrored clips, text hashes and event windows before inserting a new record.
+              - article [ref=e296]:
+                - paragraph [ref=e297]: /04
+                - heading "GRADE" [level=3] [ref=e298]
+                - paragraph [ref=e300]: Separate primary claim, external corroboration, model inference and unresolved allegation.
+              - article [ref=e301]:
+                - paragraph [ref=e302]: /05
+                - heading "PUBLISH" [level=3] [ref=e303]
+                - paragraph [ref=e305]: Validate required provenance fields, upsert Supabase, regenerate views, then verify the live exhibit.
+          - region [ref=e306]:
+            - paragraph [ref=e307]: NEXT RESEARCH // STATUS BEFORE STORY
+            - heading "What is not evidence yet" [level=2] [ref=e308]:
+              - generic [ref=e309]: WHAT IS N0T EVIDENCE YET
+            - generic [ref=e310]:
+              - article [ref=e311]:
+                - paragraph [ref=e312]: QUEUED
+                - heading "Three missing comparison streams" [level=3] [ref=e313]
+                - paragraph [ref=e314]: Times of Israel, Al Jazeera English and BBC/BBC Verify remain named benchmarks, not loaded observations. Their ingestion must preserve publisher IDs and day-level missingness.
+              - article [ref=e315]:
+                - paragraph [ref=e316]: DESIGNED
+                - heading "Israeli market event study" [level=3] [ref=e317]
+                - paragraph [ref=e318]: A falsifiable TA-35 and sector study can test abnormal returns around declared military events with controls, placebo dates and multiple-testing correction. No market-causation claim is published yet.
+              - article [ref=e319]:
+                - paragraph [ref=e320]: GATED
+                - heading "Water, offshore resources and territorial intent" [level=3] [ref=e321]
+                - paragraph [ref=e322]: Resource scarcity and South Lebanon geography are context. They become evidence of motive only if a dated primary record links policy or operations to capture; proximity alone is not that bridge.
+              - article [ref=e323]:
+                - paragraph [ref=e324]: GATED
+                - heading "Epstein–Barak document network" [level=3] [ref=e325]
+                - paragraph [ref=e326]: Direct association and communications are document-retrieval leads. No verified primary record currently connects that relationship to Lebanon policy, military planning or the present war, so it is excluded from causal exhibits.
+          - textbox "Filter sources by title, org, date, or exhibit..." [ref=e328]
+          - generic [ref=e329]:
+            - generic [ref=e330]:
+              - heading "Live Media Corpus — Original Publishers" [level=2] [ref=e331]:
+                - generic [ref=e332]: Live Media Corpus — 0riginal Publishers
+              - generic [ref=e333]:
+                - generic [ref=e335]:
+                  - generic [ref=e336]:
+                    - paragraph [ref=e337]: 27,104 stored events · 08 Aug 2023–12 Jul 2026 · currently loaded
+                    - generic [ref=e338]:
+                      - generic [ref=e339]: Al-Manar
+                      - generic [ref=e340]: 2023–2026
+                  - generic [ref=e341]:
+                    - generic [ref=e342]: LIVE
+                    - link "[src]" [ref=e343] [cursor=pointer]:
+                      - /url: https://english.almanar.com.lb/
+                - generic [ref=e345]:
+                  - generic [ref=e346]:
+                    - paragraph [ref=e347]: 13,287 stored events · 07 Dec 2023–13 Jul 2026 · currently loaded
+                    - generic [ref=e348]:
+                      - generic [ref=e349]: Al Mayadeen English
+                      - generic [ref=e350]: 2023–2026
+                  - generic [ref=e351]:
+                    - generic [ref=e352]: LIVE
+                    - link "[src]" [ref=e353] [cursor=pointer]:
+                      - /url: https://english.almayadeen.net/
+                - generic [ref=e355]:
+                  - generic [ref=e356]:
+                    - paragraph [ref=e357]: 6,164 stored events · 04 Aug 2023–13 Jul 2026 · currently loaded
+                    - generic [ref=e358]:
+                      - generic [ref=e359]: Channel 14
+                      - generic [ref=e360]: 2023–2026
+                  - generic [ref=e361]:
+                    - generic [ref=e362]: LIVE
+                    - link "[src]" [ref=e363] [cursor=pointer]:
+                      - /url: https://www.c14.co.il/
+                - generic [ref=e365]:
+                  - generic [ref=e366]:
+                    - paragraph [ref=e367]: Benchmark stream named in the research design; ingestion pending
+                    - generic [ref=e368]:
+                      - generic [ref=e369]: Times of Israel
+                      - generic [ref=e370]: planned
+                  - generic [ref=e371]:
+                    - generic [ref=e372]: QUEUED
+                    - link "[src]" [ref=e373] [cursor=pointer]:
+                      - /url: https://www.timesofisrael.com/
+                - generic [ref=e375]:
+                  - generic [ref=e376]:
+                    - paragraph [ref=e377]: Neutral/control benchmark named in the research design; ingestion pending
+                    - generic [ref=e378]:
+                      - generic [ref=e379]: Al Jazeera English
+                      - generic [ref=e380]: planned
+                  - generic [ref=e381]:
+                    - generic [ref=e382]: QUEUED
+                    - link "[src]" [ref=e383] [cursor=pointer]:
+                      - /url: https://www.aljazeera.com/
+                - generic [ref=e385]:
+                  - generic [ref=e386]:
+                    - paragraph [ref=e387]: Independent verification benchmark; ingestion pending
+                    - generic [ref=e388]:
+                      - generic [ref=e389]: BBC / BBC Verify
+                      - generic [ref=e390]: planned
+                  - generic [ref=e391]:
+                    - generic [ref=e392]: QUEUED
+                    - link "[src]" [ref=e393] [cursor=pointer]:
+                      - /url: https://www.bbc.com/news/bbcverify
+            - generic [ref=e394]:
+              - heading "International Organizations" [level=2] [ref=e395]:
+                - generic [ref=e396]: International 0rganizations
+              - generic [ref=e397]:
+                - generic [ref=e399]:
+                  - generic [ref=e400]:
+                    - paragraph [ref=e401]: "MDE 18/9552/2025 — \"Nowhere to Return: Israel's extensive destruction of Southern Lebanon\""
+                    - generic [ref=e402]:
+                      - generic [ref=e403]: Amnesty International
+                      - generic [ref=e404]: Aug 2025
+                  - generic [ref=e405]:
+                    - generic [ref=e406]: EX-32
+                    - link "[src]" [ref=e407] [cursor=pointer]:
+                      - /url: https://www.amnesty.org/en/documents/mde18/9552/2025/en/
+                - generic [ref=e409]:
+                  - generic [ref=e410]:
+                    - paragraph [ref=e411]: Lebanon conflict reports 2024-2025
+                    - generic [ref=e412]:
+                      - generic [ref=e413]: Human Rights Watch
+                      - generic [ref=e414]: 2024-2025
+                  - link "[src]" [ref=e416] [cursor=pointer]:
+                    - /url: https://www.hrw.org
+                - generic [ref=e418]:
+                  - generic [ref=e419]:
+                    - paragraph [ref=e420]: Press releases and incident reports 2024-2025
+                    - generic [ref=e421]:
+                      - generic [ref=e422]: UNIFIL
+                      - generic [ref=e423]: 2024-2025
+                  - link "[src]" [ref=e425] [cursor=pointer]:
+                    - /url: https://unifil.unmissions.org
+                - generic [ref=e427]:
+                  - generic [ref=e428]:
+                    - paragraph [ref=e429]: Healthcare worker casualties — Lebanon
+                    - generic [ref=e430]:
+                      - generic [ref=e431]: WHO
+                      - generic [ref=e432]: 2024-2025
+                  - link "[src]" [ref=e434] [cursor=pointer]:
+                    - /url: https://www.who.int
+            - generic [ref=e435]:
+              - heading "Independent Verification" [level=2] [ref=e436]
+              - generic [ref=e438]:
+                - generic [ref=e440]:
+                  - generic [ref=e441]:
+                    - paragraph [ref=e442]: 35 geolocated FPV drone strikes — Hezbollah drone tactics
+                    - generic [ref=e443]:
+                      - generic [ref=e444]: BBC Verify
+                      - generic [ref=e445]: May 2026
+                  - generic [ref=e446]:
+                    - generic [ref=e447]: EX-27b
+                    - link "[src]" [ref=e448] [cursor=pointer]:
+                      - /url: https://www.bbc.com/news/articles/c1j2zwe9g5no
+                - generic [ref=e450]:
+                  - generic [ref=e451]:
+                    - paragraph [ref=e452]: Military Censor FOIA data (15 years)
+                    - generic [ref=e453]:
+                      - generic [ref=e454]: +972 Magazine
+                      - generic [ref=e455]: "2024"
+                  - generic [ref=e456]:
+                    - generic [ref=e457]: EX-30b
+                    - link "[src]" [ref=e458] [cursor=pointer]:
+                      - /url: https://www.972mag.com
+                - generic [ref=e460]:
+                  - generic [ref=e461]:
+                    - paragraph [ref=e462]: Hospital records discrepancy reporting
+                    - generic [ref=e463]:
+                      - generic [ref=e464]: Haaretz
+                      - generic [ref=e465]: "2025"
+                  - generic [ref=e466]:
+                    - generic [ref=e467]: EX-27b
+                    - link "[src]" [ref=e468] [cursor=pointer]:
+                      - /url: https://www.haaretz.com
+                - generic [ref=e470]:
+                  - generic [ref=e471]:
+                    - paragraph [ref=e472]: Army chief 5,942 bereaved families admission
+                    - generic [ref=e473]:
+                      - generic [ref=e474]: The New Arab
+                      - generic [ref=e475]: "2025"
+                  - generic [ref=e476]:
+                    - generic [ref=e477]: EX-27c
+                    - link "[src]" [ref=e478] [cursor=pointer]:
+                      - /url: https://www.newarab.com
+            - generic [ref=e479]:
+              - heading "Government/Military Sources" [level=2] [ref=e480]
+              - generic [ref=e482]:
+                - generic [ref=e484]:
+                  - generic [ref=e485]:
+                    - paragraph [ref=e486]: Official statements, casualty notices and press releases
+                    - generic [ref=e487]:
+                      - generic [ref=e488]: Israel Defense Forces
+                      - generic [ref=e489]: 2024-2026
+                  - link "[src]" [ref=e491] [cursor=pointer]:
+                    - /url: https://www.idf.il/en/
+                - generic [ref=e493]:
+                  - generic [ref=e494]:
+                    - paragraph [ref=e495]: Lebanon emergency reports and casualty figures
+                    - generic [ref=e496]:
+                      - generic [ref=e497]: Lebanese Ministry of Public Health
+                      - generic [ref=e498]: 2024-2026
+                  - link "[src]" [ref=e500] [cursor=pointer]:
+                    - /url: https://www.moph.gov.lb/en
+                - generic [ref=e502]:
+                  - generic [ref=e503]:
+                    - paragraph [ref=e504]: Official communiqués and deployment statements
+                    - generic [ref=e505]:
+                      - generic [ref=e506]: Lebanese Armed Forces
+                      - generic [ref=e507]: 2024-2026
+                  - link "[src]" [ref=e509] [cursor=pointer]:
+                    - /url: https://www.lebarmy.gov.lb/en
+                - generic [ref=e511]:
+                  - generic [ref=e512]:
+                    - paragraph [ref=e513]: Military reporting and quoted commander statements
+                    - generic [ref=e514]:
+                      - generic [ref=e515]: Israeli Army Radio
+                      - generic [ref=e516]: 2024-2026
+                  - generic [ref=e517]:
+                    - generic [ref=e518]: EX-31
+                    - link "[src]" [ref=e519] [cursor=pointer]:
+                      - /url: https://glz.co.il/
+            - generic [ref=e520]:
+              - heading "Data Archives" [level=2] [ref=e521]
+              - generic [ref=e523]:
+                - generic [ref=e525]:
+                  - generic [ref=e526]:
+                    - paragraph [ref=e527]: r/ForbiddenBromance activity (Sep 2019 – Jun 2026)
+                    - generic [ref=e528]:
+                      - generic [ref=e529]: Reddit Arctic Shift API
+                      - generic [ref=e530]: 2019-2026
+                  - generic [ref=e531]:
+                    - generic [ref=e532]: Part I
+                    - link "[src]" [ref=e533] [cursor=pointer]:
+                      - /url: https://arctic-shift.photon-reddit.com
+                - generic [ref=e535]:
+                  - generic [ref=e536]:
+                    - paragraph [ref=e537]: Structured storage and query layer—not an original evidence publisher
+                    - generic [ref=e538]:
+                      - generic [ref=e539]: ZIOPSYOP Supabase
+                      - generic [ref=e540]: live
+                  - generic [ref=e541]: DATA LAYER
+                - generic [ref=e544]:
+                  - generic [ref=e545]:
+                    - paragraph [ref=e546]: "\"Misinformation in the Israel-Hamas war\""
+                    - generic [ref=e547]:
+                      - generic [ref=e548]: Wikipedia
+                      - generic [ref=e549]: "2024"
+                  - generic [ref=e550]:
+                    - generic [ref=e551]: EX-29b
+                    - link "[src]" [ref=e552] [cursor=pointer]:
+                      - /url: https://en.wikipedia.org
+            - generic [ref=e553]:
+              - heading "Media" [level=2] [ref=e554]
+              - generic [ref=e556]:
+                - generic [ref=e558]:
+                  - generic [ref=e559]:
+                    - paragraph [ref=e560]: Commander quotes and battlefield reporting
+                    - generic [ref=e561]:
+                      - generic [ref=e562]: Yedioth Ahronoth / Ynet
+                      - generic [ref=e563]: 2024-2026
+                  - link "[src]" [ref=e565] [cursor=pointer]:
+                    - /url: https://www.ynetnews.com/
+                - generic [ref=e567]:
+                  - generic [ref=e568]:
+                    - paragraph [ref=e569]: Domestic reporting and casualty-accountability coverage
+                    - generic [ref=e570]:
+                      - generic [ref=e571]: Haaretz
+                      - generic [ref=e572]: 2024-2026
+                  - generic [ref=e573]:
+                    - generic [ref=e574]: EX-27b
+                    - link "[src]" [ref=e575] [cursor=pointer]:
+                      - /url: https://www.haaretz.com/
+                - generic [ref=e577]:
+                  - generic [ref=e578]:
+                    - paragraph [ref=e579]: Israeli broadcast reporting
+                    - generic [ref=e580]:
+                      - generic [ref=e581]: Channel 12 / N12
+                      - generic [ref=e582]: 2024-2026
+                  - link "[src]" [ref=e584] [cursor=pointer]:
+                    - /url: https://www.n12.co.il/
+                - generic [ref=e586]:
+                  - generic [ref=e587]:
+                    - paragraph [ref=e588]: International wire reporting and satellite analysis
+                    - generic [ref=e589]:
+                      - generic [ref=e590]: Reuters
+                      - generic [ref=e591]: 2024-2026
+                  - link "[src]" [ref=e593] [cursor=pointer]:
+                    - /url: https://www.reuters.com/world/middle-east/
+                - generic [ref=e595]:
+                  - generic [ref=e596]:
+                    - paragraph [ref=e597]: Timeline and breaking-news corroboration
+                    - generic [ref=e598]:
+                      - generic [ref=e599]: Associated Press
+                      - generic [ref=e600]: 2023-2026
+                  - link "[src]" [ref=e602] [cursor=pointer]:
+                    - /url: https://apnews.com/hub/israel-hamas-war
+            - generic [ref=e603]:
+              - heading "Humanitarian and Civilian Impact" [level=2] [ref=e604]
+              - generic [ref=e606]:
+                - generic [ref=e608]:
+                  - generic [ref=e609]:
+                    - paragraph [ref=e610]: Health-facility, health-worker and emergency reporting
+                    - generic [ref=e611]:
+                      - generic [ref=e612]: World Health Organization — Lebanon
+                      - generic [ref=e613]: 2024-2026
+                  - generic [ref=e614]:
+                    - generic [ref=e615]: EX-20
+                    - generic [ref=e616]: EX-22
+                    - link "[src]" [ref=e617] [cursor=pointer]:
+                      - /url: https://www.emro.who.int/countries/lbn/index.html
+                - generic [ref=e619]:
+                  - generic [ref=e620]:
+                    - paragraph [ref=e621]: Children, displacement and humanitarian situation reports
+                    - generic [ref=e622]:
+                      - generic [ref=e623]: UNICEF Lebanon
+                      - generic [ref=e624]: 2024-2026
+                  - link "[src]" [ref=e626] [cursor=pointer]:
+                    - /url: https://www.unicef.org/lebanon/
+                - generic [ref=e628]:
+                  - generic [ref=e629]:
+                    - paragraph [ref=e630]: Peacekeeper incidents, Blue Line reporting and official statements
+                    - generic [ref=e631]:
+                      - generic [ref=e632]: UNIFIL
+                      - generic [ref=e633]: 2024-2026
+                  - link "[src]" [ref=e635] [cursor=pointer]:
+                    - /url: https://unifil.unmissions.org/
+                - generic [ref=e637]:
+                  - generic [ref=e638]:
+                    - paragraph [ref=e639]: Journalist casualty documentation
+                    - generic [ref=e640]:
+                      - generic [ref=e641]: Committee to Protect Journalists
+                      - generic [ref=e642]: 2024-2026
+                  - link "[src]" [ref=e644] [cursor=pointer]:
+                    - /url: https://cpj.org/mideast/lebanon/
+            - generic [ref=e645]:
+              - heading "Legal Frameworks" [level=2] [ref=e646]
+              - generic [ref=e648]:
+                - generic [ref=e650]:
+                  - generic [ref=e651]:
+                    - paragraph [ref=e652]: Geneva Conventions (I-IV) and Additional Protocols
+                    - generic [ref=e653]:
+                      - generic [ref=e654]: ICRC
+                      - generic [ref=e655]: 1949/1977
+                  - link "[src]" [ref=e657] [cursor=pointer]:
+                    - /url: https://ihl-databases.icrc.org
+                - generic [ref=e659]:
+                  - generic [ref=e660]:
+                    - paragraph [ref=e661]: Rome Statute of the ICC
+                    - generic [ref=e662]:
+                      - generic [ref=e663]: International Criminal Court
+                      - generic [ref=e664]: "1998"
+                  - link "[src]" [ref=e666] [cursor=pointer]:
+                    - /url: https://www.icc-cpi.int
+                - generic [ref=e668]:
+                  - generic [ref=e669]:
+                    - paragraph [ref=e670]: Customary International Humanitarian Law (ICRC study)
+                    - generic [ref=e671]:
+                      - generic [ref=e672]: ICRC
+                      - generic [ref=e673]: "2005"
+                  - link "[src]" [ref=e675] [cursor=pointer]:
+                    - /url: https://ihl-databases.icrc.org/customary-ihl
+      - contentinfo [ref=e676]:
+        - generic:
+          - paragraph:
+            - generic: Z
+            - generic: I
+            - generic: "0"
+            - generic: P
+            - generic: S
+            - generic: "Y"
+            - generic: "0"
+            - generic: P
+            - generic: .
+            - generic: M
+            - generic: E
+          - paragraph: Signal From Noise — Influence Operation Forensics
+          - navigation "Footer navigation" [ref=e679]:
+            - generic [ref=e680]:
+              - paragraph [ref=e681]:
+                - generic [ref=e682]: /I
+                - generic [ref=e683]:
+                  - text: INVESTIGATI
+                  - generic [ref=e684]: "0"
+                  - text: "N"
+              - generic [ref=e685]:
+                - link "OVERVIEW" [ref=e686] [cursor=pointer]:
+                  - /url: /part-i
+                  - generic [ref=e687]: /I
+                  - generic [ref=e688]: 0VERVIEW
+                - link "ANALYSIS" [ref=e689] [cursor=pointer]:
+                  - /url: /analysis
+                  - generic [ref=e690]: /·
+                - link "DOSSIER" [ref=e692] [cursor=pointer]:
+                  - /url: /forensics
+                  - generic [ref=e693]: /⊛
+                  - generic [ref=e694]: D0SSIER
+                - link "CONTROL" [ref=e695] [cursor=pointer]:
+                  - /url: /control
+                  - generic [ref=e696]: /⊞
+                  - generic [ref=e697]: C0NTR0L
+            - generic [ref=e698]:
+              - paragraph [ref=e699]:
+                - generic [ref=e700]: /II
+                - generic [ref=e701]: BATTLEFIELD
+              - generic [ref=e702]:
+                - link "SCORECARD" [ref=e703] [cursor=pointer]:
+                  - /url: /battlefield
+                  - generic [ref=e704]: /II
+                  - generic [ref=e705]: SC0RECARD
+                - link "MAP" [ref=e706] [cursor=pointer]:
+                  - /url: /map
+                  - generic [ref=e707]: /·
+                - link "VISION MODEL" [ref=e709] [cursor=pointer]:
+                  - /url: /vision-model
+                  - generic [ref=e710]: /CV
+                  - generic [ref=e711]: VISI0N M0DEL
+            - generic [ref=e712]:
+              - paragraph [ref=e713]:
+                - generic [ref=e714]: /III
+                - generic [ref=e715]: MEDIA
+              - generic [ref=e716]:
+                - link "MEDIA WAR" [ref=e717] [cursor=pointer]:
+                  - /url: /media-war
+                  - generic [ref=e718]: /⊗
+                - link "SYNTHESIS" [ref=e720] [cursor=pointer]:
+                  - /url: /synthesis
+                  - generic [ref=e721]: /∴
+                - link "VIDEO" [ref=e723] [cursor=pointer]:
+                  - /url: /evidence
+                  - generic [ref=e724]: /▶
+                  - generic [ref=e725]: VIDE0
+                - link "SOURCES" [ref=e726] [cursor=pointer]:
+                  - /url: /sources
+                  - generic [ref=e727]: /※
+                  - generic [ref=e728]: S0URCES
+                - link "COUNTERPOINTS" [ref=e729] [cursor=pointer]:
+                  - /url: /counter-arguments
+                  - generic [ref=e730]: /⇋
+                  - generic [ref=e731]: C0UNTERP0INTS
+            - generic [ref=e732]:
+              - paragraph [ref=e733]:
+                - generic [ref=e734]: /—
+                - generic [ref=e735]:
+                  - text: INF
+                  - generic [ref=e736]: "0"
+              - generic [ref=e737]:
+                - link "ABOUT" [ref=e738] [cursor=pointer]:
+                  - /url: /about
+                  - generic [ref=e739]: /—
+                  - generic [ref=e740]: AB0UT
+                - button "CONTACT" [ref=e741] [cursor=pointer]:
+                  - generic [ref=e742]: /@
+                  - generic [ref=e743]: C0NTACT
+          - link "SUPPORT" [ref=e744] [cursor=pointer]:
+            - /url: /support
+            - generic [ref=e745]: /+
+            - generic [ref=e746]: SUPP0RT
+          - paragraph: Evidence is assembled from public Reddit archives, publisher feeds, humanitarian records, official statements, geolocated video and documented incident datasets. Each exhibit carries its own source and limitation contract — follow the record and verify it yourself.
+          - paragraph: "[ Versioned Evidence Snapshots — Provenance Per Exhibit ]"
+    - link "Support the work — keep the signal live" [ref=e748] [cursor=pointer]:
+      - /url: /support
+      - generic [ref=e756]: KEEP THE SIGNAL LIVE
+  - alert [ref=e757]

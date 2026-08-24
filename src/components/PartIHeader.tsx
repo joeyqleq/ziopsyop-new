@@ -5,8 +5,8 @@ import { PageIntro } from "@/components/PageIntro";
 export function PartIHeader() {
   return (
     <PageIntro
-      marker="PART I // THE MANUFACTURED FRIEND"
-      title="THE MANUFACTURED FRIEND"
+      marker="PART I // THE OPERATION"
+      title="THE OPERATION"
       systemLine="THE SUBREDDIT OPERATION · r/ForbiddenBromance · 2019—2026"
       description={<>
         The first operation manufactures{" "}

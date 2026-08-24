@@ -89,7 +89,7 @@ export default function AnalysisPage() {
         {/* page header */}
         <PageIntro
           marker="INVESTIGATION // BEHAVIORAL FORENSICS"
-          title="PSY-OPS ANALYSIS"
+          title="PSYOP ANALYSIS"
           systemLine="REACTION · COORDINATION · SUPPRESSION · NARRATIVE SHIFT"
           description={<>
             The dashboard established that the community&apos;s pulse is external.

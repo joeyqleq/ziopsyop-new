@@ -17,7 +17,7 @@ export default function SynthesisPage() {
       <div className="max-w-4xl mx-auto px-4 md:px-6 pt-28 pb-20 space-y-20">
         <PageIntro
           marker="SYNTHESIS // THREE FRONTS, ONE EVIDENCE CHAIN"
-          title="THE LOOP CLOSES"
+          title="THE VERDICT"
           systemLine="NETWORK → BATTLEFIELD → MEDIA SYSTEM"
           description="Part I identifies the influence network. Part II tests the moral frame against battlefield conduct. Part III follows the same conflict through competing media systems."
         />

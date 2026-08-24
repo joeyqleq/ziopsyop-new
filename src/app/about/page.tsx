@@ -197,7 +197,7 @@ export default function AboutPage() {
                 href="/synthesis"
                 className="inline-flex items-center gap-2 font-mono text-xs tracking-[0.1em] px-4 py-2.5 rounded-md border border-white/10 text-gray-400 hover:text-white hover:border-white/20 transition-colors"
               >
-                THE LOOP CLOSES
+                THE VERDICT
               </Link>
             </div>
           </section>

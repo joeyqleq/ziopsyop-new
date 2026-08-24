@@ -119,7 +119,7 @@ export default function SourcesPage() {
       <section className="relative z-10 max-w-5xl mx-auto px-6 pt-32 pb-24">
         <PageIntro
           marker="BIBLIOGRAPHY // PROVENANCE LEDGER"
-          title="SOURCE INDEX"
+          title="SOURCE LEDGER"
           systemLine="ORIGIN · STORAGE · STATUS · EXHIBIT"
           accent="var(--viz-blue)"
           align="left"

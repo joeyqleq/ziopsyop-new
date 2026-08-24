@@ -7,7 +7,7 @@ export function BattlefieldHeader() {
     <>
       <PageIntro
         marker="PART II // THE MOST MORAL ARMY"
-        title="THE MOST MORAL ARMY"
+        title="THE SCORECARD"
         systemLine="THE BATTLEFIELD LEDGER · IDF—HEZBOLLAH · 2024—2026"
         accent="var(--accent-yellow)"
         description={<>

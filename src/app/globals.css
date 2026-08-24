@@ -101,13 +101,15 @@ body {
 
 /* Uppercase display O becomes the signal-zero; body copy and accessible text stay literal. */
 .brand-zero {
+  display: inline;
   color: var(--primary);
+  letter-spacing: inherit;
   font-variant-numeric: slashed-zero;
   font-feature-settings: "zero" 1;
+  margin: 0;
+  padding: 0;
   text-shadow:
-    -0.035em 0 rgba(123, 57, 208, 0.8),
-    0.035em 0 rgba(62, 230, 193, 0.38),
-    0 0 0.3em rgba(182, 255, 124, 0.2);
+    0 0 0.25em rgba(182, 255, 124, 0.35);
 }
 
 /* ---------- scrollbar ---------- */

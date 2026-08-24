@@ -347,7 +347,7 @@ export default function ControlPage() {
         {/* Header */}
         <PageIntro
           marker="METHODOLOGY // CONTROL GROUP ANALYSIS"
-          title="THE CONTROL"
+          title="CONTROL GROUP"
           systemLine="SAME WINDOWS · SAME SIGNALS · DIFFERENT COMMUNITY"
           description={<>
             Cognitive dissonance check: every pattern flagged in r/ForbiddenBromance
@@ -408,22 +408,6 @@ export default function ControlPage() {
           ))}
         </div>
 
-        {/* Toggle comparison button */}
-        <div className="flex justify-center mb-10">
-          <motion.button
-            onClick={() => setShowComparison(!showComparison)}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            className={`font-mono text-[11px] tracking-[0.2em] px-6 py-3 rounded border transition-colors duration-200 ${
-              showComparison
-                ? "text-primary border-primary/40 bg-primary/10 hover:bg-primary/15"
-                : "text-muted border-borderc bg-white/[0.03] hover:bg-white/[0.06] hover:text-foreground"
-            }`}
-          >
-            {showComparison ? "HIDE COMPARISON" : "SHOW ORGANIC COMPARISON ↕"}
-          </motion.button>
-        </div>
-
         {/* Methodology note */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -471,6 +455,20 @@ export default function ControlPage() {
               "The patterns flagged in ForbiddenBromance are not normal for this type of community. r/lebanon — a genuine peer — passes every signal ForbiddenBromance fails.",
           }}
         >
+          <div className="flex justify-end mb-4">
+            <motion.button
+              onClick={() => setShowComparison(!showComparison)}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className={`font-mono text-[11px] tracking-[0.2em] px-5 py-2.5 rounded border transition-colors duration-200 ${
+                showComparison
+                  ? "text-primary border-primary/40 bg-primary/10 hover:bg-primary/15"
+                  : "text-muted border-borderc bg-white/[0.03] hover:bg-white/[0.06] hover:text-foreground"
+              }`}
+            >
+              {showComparison ? "HIDE COMPARISON" : "SHOW ORGANIC COMPARISON ↕"}
+            </motion.button>
+          </div>
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3 mt-2">
             {METRICS.map((m, i) => (
               <MetricRow key={m.id} metric={m} idx={i} showComparison={showComparison} />

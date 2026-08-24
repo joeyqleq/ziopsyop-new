@@ -471,7 +471,7 @@ export function PartIView({ data }: { data: AnalysisData }) {
                 href="/battlefield"
                 className="group mt-5 inline-flex items-center gap-2 rounded-md border border-accent-yellow/40 bg-accent-yellow/5 px-4 py-2.5 font-mono text-[11px] tracking-[0.2em] text-accent-yellow transition-all hover:bg-accent-yellow/10"
               >
-                PART II — THE MOST MORAL ARMY
+                PART II — THE SCORECARD
                 <span className="transition-transform group-hover:translate-x-1">→</span>
               </a>
             </TracedCard>

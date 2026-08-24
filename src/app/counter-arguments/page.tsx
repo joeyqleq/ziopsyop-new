@@ -140,7 +140,7 @@ export default function CounterArgumentsPage() {
       <div className="relative z-10 max-w-4xl mx-auto px-4 pt-24 pb-16">
         <PageIntro
           marker="COUNTER-ANALYSIS // ADVERSARIAL REVIEW"
-          title="ANTICIPATED OBJECTIONS"
+          title="OBJECTIONS"
           systemLine="STEEL-MAN THE CLAIM · TEST THE RECORD"
           accent="var(--threat)"
           description="The strongest counter-arguments are stated in good faith, then tested against the same evidence contract used everywhere else in the investigation."

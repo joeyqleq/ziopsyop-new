@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState, useMemo } from "react";
+import { Component, useEffect, useState, useMemo } from "react";
+import type { ReactNode } from "react";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { PageShell } from "@/components/PageShell";
@@ -10,12 +11,39 @@ import { TracedCard } from "@/components/fx/TracedCard";
 import { PixelReveal } from "@/components/fx/PixelReveal";
 import { PageIntro } from "@/components/PageIntro";
 
-// Dynamic imports — all chart-heavy
+class VizErrorBoundary extends Component<{ children: ReactNode; label: string }, { failed: boolean; err: string }> {
+  state = { failed: false, err: "" };
+  static getDerivedStateFromError(e: Error) { return { failed: true, err: e.message }; }
+  render() {
+    if (this.state.failed) return (
+      <div className="h-[320px] flex flex-col items-center justify-center gap-3">
+        <p className="font-mono text-xs tracking-[0.3em] text-threat/70">{this.props.label} — RENDER ERROR</p>
+        <p className="font-mono text-[10px] text-muted max-w-sm text-center">{this.state.err}</p>
+      </div>
+    );
+    return this.props.children;
+  }
+}
+
+function LoadingViz() {
+  return (
+    <div className="h-[320px] flex items-center justify-center">
+      <p className="font-mono text-xs tracking-[0.3em] text-primary animate-pulse">
+        LOADING
+      </p>
+    </div>
+  );
+}
+
+// Dynamic imports — all chart-heavy, each wrapped in VizErrorBoundary
 const UserReplyNetwork = dynamic(
   () => import("@/components/viz/UserReplyNetwork").then((m) => m.UserReplyNetwork),
   { ssr: false, loading: () => <LoadingViz /> }
 );
-import { ActivityScheduleHeatmap } from "@/components/viz/ActivityScheduleHeatmap";
+const ActivityScheduleHeatmap = dynamic(
+  () => import("@/components/viz/ActivityScheduleHeatmap").then((m) => m.ActivityScheduleHeatmap),
+  { ssr: false, loading: () => <LoadingViz /> }
+);
 const SubredditConcentrationMap = dynamic(
   () => import("@/components/viz/SubredditConcentrationMap").then((m) => m.SubredditConcentrationMap),
   { ssr: false, loading: () => <LoadingViz /> }
@@ -32,16 +60,6 @@ const PersonaContradictionMatrix = dynamic(
   () => import("@/components/viz/PersonaContradictionMatrix").then((m) => m.PersonaContradictionMatrix),
   { ssr: false, loading: () => <LoadingViz /> }
 );
-
-function LoadingViz() {
-  return (
-    <div className="h-[320px] flex items-center justify-center">
-      <p className="font-mono text-xs tracking-[0.3em] text-primary animate-pulse">
-        DECRYPTING EVIDENCE
-      </p>
-    </div>
-  );
-}
 
 function Lede({ step, title, text }: { step: string; title: string; text: string }) {
   return (
@@ -212,7 +230,7 @@ export default function ForensicsPage() {
                 puzzle: "The contradiction score ring is the single most important number on each card. A score above 50 means the account's behavior is inconsistent with its claimed identity in multiple independent dimensions simultaneously.",
               }}
             >
-              <UserDossierGrid users={data.users} />
+              <VizErrorBoundary label="EX-17"><UserDossierGrid users={data.users} /></VizErrorBoundary>
             </ChartFrame>
 
             {/* EX-18 — coordination timeline */}
@@ -233,7 +251,7 @@ export default function ForensicsPage() {
                 puzzle: "Timing is supporting evidence, not proof by itself. Its value comes from convergence with mutual replies, conflict concentration, language patterns and event context.",
               }}
             >
-              <ActivityScheduleHeatmap events={data.coordination_events} users={data.users} />
+              <VizErrorBoundary label="EX-18"><ActivityScheduleHeatmap events={data.coordination_events} users={data.users} /></VizErrorBoundary>
             </ChartFrame>
 
             {/* EX-19 — reply network */}
@@ -254,7 +272,7 @@ export default function ForensicsPage() {
                 puzzle: "IbnEzra613 ↔ Shachar2like: 63+55 mutual replies. victoryismind ↔ orangecyanide: 63+40. These are not people who happened to agree on the internet — these are accounts that consistently reinforce each other across thousands of interactions.",
               }}
             >
-              <UserReplyNetwork users={data.users} edges={data.reply_network} />
+              <VizErrorBoundary label="EX-19"><UserReplyNetwork users={data.users} edges={data.reply_network} /></VizErrorBoundary>
             </ChartFrame>
 
             {/* EX-20 — concentration map */}
@@ -275,7 +293,7 @@ export default function ForensicsPage() {
                 puzzle: "Compare to levnon14 (89.4%) and levnon14's dormancy gap of 537 days followed by sudden reactivation in November 2023 — four weeks after October 7. Asset hibernated, then redeployed.",
               }}
             >
-              <SubredditConcentrationMap users={data.users} />
+              <VizErrorBoundary label="EX-20"><SubredditConcentrationMap users={data.users} /></VizErrorBoundary>
             </ChartFrame>
 
             {/* EX-21 — activity heatmap */}
@@ -296,7 +314,7 @@ export default function ForensicsPage() {
                 puzzle: "victoryismind: 377-day dormancy gap ending October 23, 2023 — sixteen days after Oct 7. levnon14: 537-day gap ending November 4, 2023. Two accounts, independently dormant, both reactivated within weeks of the same trigger event.",
               }}
             >
-              <ActivityHeatmap users={data.users} />
+              <VizErrorBoundary label="EX-21"><ActivityHeatmap users={data.users} /></VizErrorBoundary>
             </ChartFrame>
 
             {/* EX-23 — contradiction matrix */}
@@ -317,7 +335,7 @@ export default function ForensicsPage() {
                 puzzle: "This matrix is the dossier's convergence view. Every exhibit in EX-17 through EX-22 contributes one or more columns. Because the indicators are correlated, it does not manufacture a single joint-probability number; the claim rests on repeated directional agreement and comparison with the control.",
               }}
             >
-              <PersonaContradictionMatrix users={data.users} />
+              <VizErrorBoundary label="EX-23"><PersonaContradictionMatrix users={data.users} /></VizErrorBoundary>
             </ChartFrame>
 
             {/* closing verdict */}
@@ -370,7 +388,7 @@ export default function ForensicsPage() {
                     <span className="transition-transform group-hover:-translate-x-1">←</span>
                   </a>
                   <a href="/analysis" className="group inline-flex items-center gap-2 rounded-md border border-archive/40 bg-archive/5 px-4 py-2.5 font-mono text-[11px] tracking-[0.2em] text-archive transition-all hover:bg-archive/10">
-                    PSY-OPS ANALYSIS →
+                    PSYOP ANALYSIS →
                     <span className="transition-transform group-hover:translate-x-1">→</span>
                   </a>
                   <a href="/control" className="group inline-flex items-center gap-2 rounded-md border border-primary/40 bg-primary/5 px-4 py-2.5 font-mono text-[11px] tracking-[0.2em] text-primary transition-all hover:bg-primary/10">

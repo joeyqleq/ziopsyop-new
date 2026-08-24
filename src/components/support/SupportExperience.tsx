@@ -9,12 +9,10 @@ import {
   Copy,
   Cpu,
   Database,
-  ExternalLink,
   Eye,
   Radio,
   ScanSearch,
   Server,
-  WalletCards,
 } from "lucide-react";
 import { PageShell } from "@/components/PageShell";
 import { TracedCard } from "@/components/fx/TracedCard";
@@ -54,42 +52,6 @@ function CopyButton({ value, network }: { value: string; network: string }) {
       {copied ? <Check size={13} /> : <Copy size={13} />}
       {copied ? "COPIED" : "COPY ADDRESS"}
     </button>
-  );
-}
-
-function PaymentLink({
-  label,
-  href,
-  note,
-}: {
-  label: string;
-  href: string;
-  note: string;
-}) {
-  return (
-    <TracedCard traceColor="var(--archive)" className="group flex h-full flex-col p-6 md:p-7">
-      <div className="flex items-start justify-between gap-4">
-        <span className="flex h-10 w-10 items-center justify-center rounded border border-archive/30 bg-archive/10 text-archive">
-          <WalletCards size={18} />
-        </span>
-        <span className="font-mono text-[8px] tracking-[0.24em] text-muted-2">US PAYMENT RAIL</span>
-      </div>
-      <h2 aria-label={label} className="mt-8 font-mono text-xl font-semibold tracking-[0.08em] text-foreground">
-        <BrandedText text={label} />
-      </h2>
-      <p className="mt-2 text-sm leading-relaxed text-muted">{note}</p>
-      <a
-        href={href}
-        target="_blank"
-        rel="noreferrer"
-        aria-label={`Open ${label}`}
-        onClick={() => trackEvent("support_payment_open", { method: label.toLowerCase() })}
-        className="mt-auto inline-flex min-h-11 items-center justify-between border-t border-borderc pt-5 font-mono text-[10px] tracking-[0.2em] text-archive transition-colors group-hover:text-foreground"
-      >
-        <BrandedText text={`OPEN ${label.toUpperCase()}`} />
-        <ExternalLink size={13} />
-      </a>
-    </TracedCard>
   );
 }
 
@@ -177,16 +139,32 @@ export function SupportExperience() {
             </h2>
             <div className="mt-7 space-y-5 text-[15px] leading-7 text-muted">
               <p>
-                I built ZIOPSYOP for one reason: to expose, dismantle, and debunk Israel&apos;s propaganda about Lebanon, the resistance, and the wars Israel wages while insisting on its own moral innocence.
+                I built ZIOPSYOP for one reason: to expose, dismantle, and debunk Israel&apos;s propaganda
+                about Lebanon, the resistance, and the wars it wages while insisting on its own moral innocence.
+                This is personal. Israel has killed my people — not metaphorically.
               </p>
               <p>
-                This is my personal contribution—built from Lebanon, from the heart, and without a party, NGO, government, state actor, sponsor, or editorial board behind it.
+                In the last year alone, Israel has killed over{" "}
+                <strong className="text-foreground">200 journalists</strong> and more than{" "}
+                <strong className="text-foreground">1,000 healthcare workers</strong> across Lebanon and Gaza —
+                a documented, systematic targeting of the people whose job is to bear witness and to save lives.
+                These are not collateral casualties. They are a pattern.
               </p>
               <p>
-                The finished site hides the real cost: thousands of agent and AI API calls, model experimentation, vision-model training, hosting, databases, infrastructure, source gathering, watching and classifying hours of footage, cross-referencing records, writing, designing, and manually checking what the machines could not. The bill is measurable. The effort honestly is not.
+                I want to continue this AI-powered resistance for as long as I can. Running it costs real money:
+                thousands of AI API calls, model experimentation, vision processing, infrastructure,
+                databases, source gathering, and manual verification. The bill is measurable. The motivation is not negotiable.
               </p>
               <p className="border-l border-archive/55 pl-5 text-foreground">
-                If this work helped you see through Israel&apos;s information apparatus—and you want me to keep building investigations like it—you are welcome to help keep the counter-signal alive.
+                If this work helped you see through the apparatus — and you want me to keep building — you are
+                welcome to help keep the counter-signal alive. I am grateful for any support, in any form.
+              </p>
+              <p>
+                A note on security: I cannot associate my identity with PayPal, Ko-fi, or any traceable
+                payment rail without compromising my operational security. If you want to support this work,
+                crypto is the clean route. Alternatively — and this matters just as much — drop me a message
+                through the contact form. The connection is end-to-end encrypted. Even a word of solidarity
+                costs nothing and means everything.
               </p>
             </div>
           </article>
@@ -207,23 +185,6 @@ export function SupportExperience() {
           </aside>
         </section>
 
-        <section className="mt-20 border border-archive/25 bg-archive/[0.035] p-6 md:p-8" aria-labelledby="lebanon-access">
-          <div className="grid gap-5 md:grid-cols-[180px_1fr]">
-            <div>
-              <p className="font-mono text-[9px] tracking-[0.28em] text-archive">PAYMENT ACCESS</p>
-              <h2 id="lebanon-access" className="mt-2 font-mono text-lg font-semibold text-foreground">WHY A US INTERMEDIARY?</h2>
-            </div>
-            <div className="space-y-4 text-sm leading-6 text-muted">
-              <p>
-                Lebanon is effectively excluded from many major payment rails. Stripe, PayPal, Payoneer, and similar providers do not give me a workable Lebanese onboarding and receiving route.
-              </p>
-              <p>
-                For Ko-fi and PayPal, a trusted person in the United States receives the contribution and transfers it to me. Crypto is received directly. This is personal support for independent research, not a charitable donation, and no tax receipt is issued.
-              </p>
-            </div>
-          </div>
-        </section>
-
         <section id="methods" className="scroll-mt-24 pt-20" aria-labelledby="support-methods">
           <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
             <div>
@@ -236,8 +197,6 @@ export function SupportExperience() {
           </div>
 
           <div className="grid gap-5 md:grid-cols-2">
-            <PaymentLink label="Ko-fi" href="https://ko-fi.com/poi5on" note="One-time support through the project Ko-fi page. Received by the trusted US intermediary and forwarded to Lebanon." />
-            <PaymentLink label="PayPal" href="https://www.paypal.me/joeyq2" note="Direct PayPal support through the US receiving account, then transferred to me in Lebanon." />
             <CryptoCard network="TRON" standard="USDT // TRC-20" address={TRON_ADDRESS} qr="/images/support/qr-tron.png" />
             <CryptoCard network="POLYGON" standard="USDT // POLYGON" address={POLYGON_ADDRESS} qr="/images/support/qr-polygon.png" />
           </div>

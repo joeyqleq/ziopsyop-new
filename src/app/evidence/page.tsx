@@ -196,7 +196,7 @@ export default function EvidencePage() {
       <section className="relative z-10 mx-auto max-w-7xl px-4 pb-20 pt-28 md:px-6">
         <PageIntro
           marker="CAMPAIGN VIDEO CORPUS // PRIMARY RELEASES"
-          title="35 WINDOWS INTO THE BATTLE"
+          title="COMBAT ARCHIVE"
           systemLine="PUBLISHER CLAIMS · CLIP-LEVEL PROVENANCE IN PROGRESS"
           accent="var(--viz-blue)"
           align="left"
@@ -334,14 +334,32 @@ export default function EvidencePage() {
               </div>
 
               <div className="grid lg:grid-cols-[minmax(0,1.55fr)_minmax(300px,.8fr)]">
-                <div className="min-h-[360px] bg-black">
-                  <iframe
-                    key={selected.xId}
-                    title={`${selected.title} — embedded publisher post`}
-                    src={`https://platform.twitter.com/embed/Tweet.html?dnt=true&theme=dark&id=${selected.xId}`}
-                    className="h-[70vh] max-h-[680px] min-h-[420px] w-full border-0"
-                    allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
-                  />
+                <div className="relative min-h-[360px] bg-black flex flex-col">
+                  <div className="relative flex-1 overflow-hidden">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={selected.image}
+                      alt={selected.title}
+                      className="w-full h-full object-cover opacity-70"
+                      style={{ minHeight: 320 }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                    <a
+                      href={`https://x.com/manarenglish/status/${selected.xId}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => trackEvent("campaign_clip_play", { id: selected.id, x_id: selected.xId })}
+                      className="absolute inset-0 flex flex-col items-center justify-center gap-4 group"
+                    >
+                      <span className="flex h-16 w-16 items-center justify-center rounded-full border-2 border-white/60 bg-black/60 transition-all group-hover:border-cyan-300 group-hover:bg-black/80">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+                      </span>
+                      <span className="font-mono text-[10px] tracking-[0.22em] text-white/70 group-hover:text-cyan-300 transition-colors">PLAY ON X ↗</span>
+                    </a>
+                  </div>
+                  <div className="border-t border-white/10 px-4 py-2 bg-black/60">
+                    <p className="font-mono text-[9px] tracking-[0.18em] text-gray-500">VIDEO HOSTED ON X · OPENS IN NEW TAB</p>
+                  </div>
                 </div>
 
                 <aside className="border-t border-white/10 p-5 lg:border-l lg:border-t-0 md:p-6">
